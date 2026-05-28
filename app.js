@@ -169,14 +169,8 @@
   }
 
   function imageMarkup(shoe, variant) {
-    const style = [
-      `--image-fit:${shoe.imageFit || "contain"}`,
-      `--image-position:${shoe.imagePosition || "center"}`,
-      `--image-scale:${shoe.imageScale || 1}`,
-    ].join(";");
-
     return `
-      <div class="shoe-image shoe-image--${variant}" style="${style}">
+      <div class="shoe-image shoe-image--${variant}">
         <div class="shoe-image__placeholder">
           <strong>${escapeHtml(shoe.brand)}</strong>
           <span>${escapeHtml(shoe.model)}</span>
