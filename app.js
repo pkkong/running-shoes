@@ -633,9 +633,9 @@
       "New Balance": "assets/logos/new-balance.png",
       Saucony: "assets/logos/saucony.svg",
       Puma: "assets/logos/puma.svg",
-      HOKA: "assets/logos/hoka.ico",
-      Brooks: "assets/logos/brooks.png",
-      Mizuno: "assets/logos/mizuno.svg",
+      HOKA: "assets/logos/hoka.svg",
+      Brooks: "assets/logos/brooks.svg",
+      Mizuno: "assets/logos/mizuno-wordmark.svg",
       On: "assets/logos/on.ico",
     };
     const source = logos[brand];
@@ -806,9 +806,6 @@
         ${imageMarkup(shoe, "picker")}
         <span class="picker-product-card__body">
           <strong>${escapeHtml(shoe.displayName || shoe.model)}</strong>
-          <span class="picker-product-card__meta">
-            ${dropMarkup(shoe, false)}
-          </span>
         </span>
       </a>
     `;

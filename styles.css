@@ -938,11 +938,14 @@ select {
 }
 
 .brand-logo {
+  --brand-logo-height: 28px;
+  --brand-logo-scale: 0.94;
+  --brand-logo-width: 78px;
   position: relative;
   display: inline-grid;
   place-items: center;
-  width: 78px;
-  height: 28px;
+  width: var(--brand-logo-width);
+  height: var(--brand-logo-height);
 }
 
 .brand-logo__image {
@@ -956,6 +959,7 @@ select {
   object-fit: contain;
   filter: grayscale(1) brightness(0);
   opacity: 0.62;
+  transform: scale(var(--brand-logo-scale));
   transition:
     filter 160ms ease,
     opacity 160ms ease,
@@ -988,20 +992,54 @@ select {
   opacity: 0.46;
 }
 
-.brand-logo--nike .brand-logo__image,
-.brand-logo--hoka .brand-logo__image,
-.brand-logo--brooks .brand-logo__image,
-.brand-logo--mizuno .brand-logo__image,
-.brand-logo--on .brand-logo__image,
-.brand-logo--puma .brand-logo__image {
-  transform: scale(0.9);
+.brand-logo--nike {
+  --brand-logo-scale: 0.9;
+  --brand-logo-width: 68px;
 }
 
-.brand-logo--adidas .brand-logo__image,
-.brand-logo--asics .brand-logo__image,
-.brand-logo--new-balance .brand-logo__image,
-.brand-logo--saucony .brand-logo__image {
-  transform: scale(0.94);
+.brand-logo--adidas {
+  --brand-logo-scale: 0.9;
+  --brand-logo-width: 84px;
+}
+
+.brand-logo--asics {
+  --brand-logo-scale: 0.96;
+  --brand-logo-width: 82px;
+}
+
+.brand-logo--newbalance {
+  --brand-logo-scale: 0.95;
+  --brand-logo-width: 86px;
+}
+
+.brand-logo--saucony {
+  --brand-logo-scale: 0.94;
+  --brand-logo-width: 88px;
+}
+
+.brand-logo--puma {
+  --brand-logo-scale: 0.88;
+  --brand-logo-width: 68px;
+}
+
+.brand-logo--hoka {
+  --brand-logo-scale: 0.94;
+  --brand-logo-width: 82px;
+}
+
+.brand-logo--brooks {
+  --brand-logo-scale: 0.95;
+  --brand-logo-width: 88px;
+}
+
+.brand-logo--mizuno {
+  --brand-logo-scale: 0.92;
+  --brand-logo-width: 84px;
+}
+
+.brand-logo--on {
+  --brand-logo-scale: 0.88;
+  --brand-logo-width: 54px;
 }
 
 .picker-axis--vertical .picker-axis-item {
@@ -1171,7 +1209,7 @@ select {
 .picker-product-card__body {
   display: grid;
   align-content: start;
-  gap: 6px;
+  gap: 0;
   min-width: 0;
   padding-inline: 1px;
 }
@@ -1196,9 +1234,9 @@ select {
   display: -webkit-box;
   overflow: hidden;
   min-height: 0;
-  font-size: clamp(19px, 5vw, 24px);
+  font-size: clamp(20px, 5.35vw, 25px);
   font-weight: 950;
-  line-height: 1.1;
+  line-height: 1.06;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
 }
@@ -1701,7 +1739,7 @@ select {
   }
 
   .picker-product-card__body strong {
-    font-size: 20px;
+    font-size: 21px;
   }
 }
 
@@ -1940,7 +1978,7 @@ select {
   }
 
   body[data-route="picker"] .app-shell {
-    width: min(1560px, calc(100vw - 12px));
+    width: min(1560px, calc(100% - 12px));
     padding-top: 8px;
     padding-bottom: 10px;
   }
@@ -2096,8 +2134,8 @@ select {
   }
 
   .picker-main {
-    grid-template-columns: 60px minmax(0, 1fr);
-    gap: 8px;
+    grid-template-columns: 56px minmax(0, 1fr);
+    gap: 7px;
   }
 
   .picker-axis-block--category::after {
