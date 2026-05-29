@@ -364,6 +364,12 @@
     }));
   }
 
+  function mapColumnWidthToken(maxCount) {
+    if (maxCount >= 3) return "var(--map-cell-width-3)";
+    if (maxCount === 2) return "var(--map-cell-width-2)";
+    return "var(--map-cell-width-1)";
+  }
+
   function renderMapControls() {
     renderSegmentButtons(el.mapGroupFilters, ["전체", ...groupOrder], state.group, (value) => {
       state.group = value;
@@ -385,13 +391,15 @@
     const rows = getMapVisibleRows();
     const rowData = buildMapCellData(items, brands, rows);
     const maxCount = Math.max(1, ...rowData.flatMap((row) => row.cells.map((cell) => cell.count)));
+    const brandMaxCounts = brands.map((_, index) => Math.max(0, ...rowData.map((row) => row.cells[index]?.count || 0)));
+    const gridColumns = `var(--map-row-width) ${brandMaxCounts.map(mapColumnWidthToken).join(" ")}`;
     const totalCells = brands.length * rows.length;
     const filledCells = rowData.flatMap((row) => row.cells).filter((cell) => cell.count > 0).length;
 
     el.mapSummary.textContent = `${items.length}개 제품 · ${filledCells}/${totalCells}개 구역`;
     el.shoeMapCanvas.style.setProperty("--map-zoom", state.mapZoom);
     el.shoeMapCanvas.innerHTML = `
-      <div class="shoe-map-grid" style="grid-template-columns: var(--map-row-width) repeat(${brands.length}, var(--map-cell-width));">
+      <div class="shoe-map-grid" style="grid-template-columns: ${escapeHtml(gridColumns)};">
         <div class="map-axis-corner">용도</div>
         ${brands.map((brand) => `<div class="map-brand-head">${escapeHtml(brand)}</div>`).join("")}
         ${rowData

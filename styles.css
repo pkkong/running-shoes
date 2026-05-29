@@ -486,7 +486,10 @@ select {
 .shoe-map-canvas {
   --map-zoom: 1;
   --map-row-width: clamp(78px, calc(92px * var(--map-zoom)), 116px);
-  --map-cell-width: clamp(118px, calc(136px * var(--map-zoom)), 196px);
+  --map-cell-width-1: clamp(112px, calc(124px * var(--map-zoom)), 176px);
+  --map-cell-width-2: clamp(132px, calc(152px * var(--map-zoom)), 220px);
+  --map-cell-width-3: clamp(166px, calc(188px * var(--map-zoom)), 270px);
+  --map-cell-width: var(--map-cell-width-1);
   --map-cell-height: clamp(108px, calc(136px * var(--map-zoom)), 188px);
   width: max-content;
   min-width: 100%;
