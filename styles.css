@@ -83,7 +83,7 @@ body[data-route="picker"] .topbar {
 
 body[data-route="picker"] {
   min-height: 100dvh;
-  background: #f0f0ee;
+  background: #ffffff;
 }
 
 body[data-route="picker"] .app-shell {
@@ -1006,8 +1006,8 @@ select {
 }
 
 .brand-logo--newbalance {
-  --brand-logo-scale: 0.95;
-  --brand-logo-width: 86px;
+  --brand-logo-scale: 0.9;
+  --brand-logo-width: 92px;
 }
 
 .brand-logo--saucony {
@@ -1036,8 +1036,8 @@ select {
 }
 
 .brand-logo--on {
-  --brand-logo-scale: 0.88;
-  --brand-logo-width: 54px;
+  --brand-logo-scale: 1.1;
+  --brand-logo-width: 58px;
 }
 
 .picker-axis--vertical .picker-axis-item {
@@ -1652,7 +1652,7 @@ select {
   height: auto;
   border: 0;
   border-radius: 1px;
-  background: #f7f7f5;
+  background: #ffffff;
 }
 
 .shoe-image--picker img {

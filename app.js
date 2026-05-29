@@ -616,13 +616,13 @@
       Nike: "assets/logos/nike.png",
       Adidas: "assets/logos/adidas.svg",
       ASICS: "assets/logos/asics.svg",
-      "New Balance": "assets/logos/new-balance.png",
+      "New Balance": "assets/logos/new-balance.svg",
       Saucony: "assets/logos/saucony.svg",
       Puma: "assets/logos/puma.svg",
       HOKA: "assets/logos/hoka.svg",
       Brooks: "assets/logos/brooks.svg",
       Mizuno: "assets/logos/mizuno-wordmark.svg",
-      On: "assets/logos/on.ico",
+      On: "assets/logos/on-wordmark.svg",
     };
     const source = logos[brand];
     const fallback = escapeHtml(brand);
