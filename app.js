@@ -780,7 +780,6 @@
           <span class="picker-product-card__category">${escapeHtml(pickerCategoryLabel(shoe.category))}</span>
           <span class="picker-product-card__meta">
             ${dropMarkup(shoe, false)}
-            <span class="tag-dots">${tagMarkup(shoe.tags, true)}</span>
           </span>
         </span>
       </a>

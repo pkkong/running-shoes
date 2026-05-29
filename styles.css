@@ -732,7 +732,7 @@ select {
 
 .picker-shell {
   display: grid;
-  gap: 8px;
+  gap: 12px;
   max-width: 980px;
   margin: 0 auto;
 }
@@ -740,9 +740,9 @@ select {
 .picker-header,
 .picker-axis-block,
 .picker-detail-card {
-  border-radius: 8px;
+  border-radius: 0;
   border: 0;
-  background: var(--surface);
+  background: transparent;
   box-shadow: none;
 }
 
@@ -754,8 +754,8 @@ select {
   gap: 12px;
   min-height: 72px;
   overflow: hidden;
-  padding: 12px 14px;
-  background: #ffffff;
+  padding: 4px 0 0;
+  background: transparent;
   color: var(--text);
 }
 
@@ -782,9 +782,9 @@ select {
   align-items: center;
   min-height: 38px;
   max-width: 100%;
-  padding: 8px 12px;
+  padding: 8px 10px;
   border: 0;
-  border-radius: 8px;
+  border-radius: 2px;
   background: #111111;
   color: #ffffff;
   font-size: 14px;
@@ -801,7 +801,8 @@ select {
 
 .picker-header__actions .back-link {
   border: 0;
-  background: #eeeeee;
+  border-radius: 2px;
+  background: #e4e4e4;
   color: #222222;
 }
 
@@ -813,16 +814,16 @@ select {
 .picker-axis-block {
   position: relative;
   min-width: 0;
-  padding: 10px;
+  padding: 0;
   overflow: hidden;
 }
 
 .picker-axis-block--brand {
-  background: #f7f7f7;
+  background: transparent;
 }
 
 .picker-axis-block--category {
-  background: #f7f7f7;
+  background: transparent;
   color: var(--text);
 }
 
@@ -851,10 +852,10 @@ select {
 .picker-axis--horizontal {
   display: flex;
   gap: 7px;
-  min-height: 62px;
+  min-height: 54px;
   overflow-x: auto;
   overflow-y: hidden;
-  padding: 7px calc(50% - 54px);
+  padding: 4px calc(50% - 54px);
   scroll-padding-inline: calc(50% - 54px);
   scroll-snap-type: x mandatory;
 }
@@ -896,11 +897,11 @@ select {
   place-items: center;
   flex: 0 0 108px;
   min-width: 0;
-  height: 46px;
+  height: 42px;
   padding: 0 9px;
   border: 0;
-  border-radius: 8px;
-  background: #eeeeee;
+  border-radius: 2px;
+  background: transparent;
   color: #777777;
   font-size: 12px;
   font-weight: 850;
@@ -923,7 +924,7 @@ select {
 .picker-axis--vertical .picker-axis-item {
   width: 100%;
   min-width: 0;
-  background: #eeeeee;
+  background: transparent;
   color: #777777;
   font-size: 11px;
 }
@@ -983,11 +984,11 @@ select {
   position: relative;
   z-index: 1;
   display: grid;
-  gap: 12px;
+  gap: 14px;
   min-width: 0;
   min-height: 336px;
-  padding: 12px;
-  background: #ffffff;
+  padding: 0;
+  background: transparent;
 }
 
 .picker-detail-card__head {
@@ -1015,9 +1016,9 @@ select {
   width: fit-content;
   max-width: 100%;
   overflow: hidden;
-  padding: 4px 7px;
-  border-radius: 6px;
-  background: #eeeeee;
+  padding: 0;
+  border-radius: 0;
+  background: transparent;
   color: #555555;
   font-size: 11px;
   font-weight: 950;
@@ -1032,8 +1033,8 @@ select {
   width: fit-content;
   flex: 0 0 auto;
   min-height: 28px;
-  padding: 5px 8px;
-  border-radius: 6px;
+  padding: 5px 7px;
+  border-radius: 2px;
   background: #11191c;
   color: #ffffff;
   font-size: 12px;
@@ -1044,7 +1045,7 @@ select {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(112px, 1fr));
   align-content: start;
-  gap: 10px;
+  gap: 18px 12px;
   max-height: 354px;
   overflow: auto;
   padding-right: 2px;
@@ -1053,13 +1054,13 @@ select {
 .picker-product-card {
   display: grid;
   grid-template-rows: auto minmax(0, 1fr);
-  gap: 9px;
+  gap: 10px;
   align-content: start;
   min-width: 0;
-  padding: 8px;
+  padding: 0;
   border: 0;
-  border-radius: 8px;
-  background: #f4f4f4;
+  border-radius: 0;
+  background: transparent;
   color: var(--text);
   text-decoration: none;
   box-shadow: none;
@@ -1067,9 +1068,10 @@ select {
 
 .picker-product-card:focus-visible,
 .picker-product-card:hover {
-  background: #eeeeee;
+  background: transparent;
   box-shadow: none;
-  outline: none;
+  outline: 2px solid #111111;
+  outline-offset: 3px;
 }
 
 .picker-product-card__body {
@@ -1490,7 +1492,7 @@ select {
 .shoe-image--picker {
   height: 112px;
   border: 0;
-  border-radius: 6px;
+  border-radius: 2px;
   background: #ffffff;
 }
 
@@ -1818,7 +1820,7 @@ select {
   .picker-header {
     gap: 8px;
     min-height: 68px;
-    padding: 10px 12px;
+    padding: 0;
   }
 
   .picker-header .eyebrow {
@@ -1858,7 +1860,7 @@ select {
   }
 
   .picker-axis-block {
-    padding: 8px;
+    padding: 0;
   }
 
   .filter-block {
@@ -1926,8 +1928,8 @@ select {
   }
 
   .picker-axis--horizontal {
-    min-height: 58px;
-    padding-block: 6px;
+    min-height: 52px;
+    padding-block: 4px;
     padding-inline: calc(50% - 51px);
     scroll-padding-inline: calc(50% - 51px);
   }
@@ -1938,7 +1940,7 @@ select {
 
   .picker-axis-item {
     flex-basis: 102px;
-    height: 44px;
+    height: 40px;
     padding: 0 7px;
   }
 
@@ -1959,7 +1961,7 @@ select {
 
   .picker-detail-card {
     min-height: 348px;
-    padding: 10px;
+    padding: 0;
   }
 
   .picker-detail-zone {
@@ -1972,7 +1974,7 @@ select {
 
   .picker-product-list {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 8px;
+    gap: 16px 10px;
     max-height: 292px;
   }
 
