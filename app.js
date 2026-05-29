@@ -22,6 +22,25 @@
     newProduct: { label: "신제품", className: "tag--red" },
   };
 
+  const mapGroupLabels = {
+    "슈퍼 트레이너": "슈퍼트레이너",
+  };
+
+  const mapCategoryLabels = {
+    "맥스 쿠션화": "맥스쿠션화",
+    "경량 트레이너": "경량 트레이너",
+    "논 플레이트": "논 플레이트",
+    "라이트 플레이트": "라이트 플레이트",
+    "카본 플레이트": "카본 플레이트",
+    중거리: "중거리",
+    장거리: "장거리",
+  };
+
+  const mapDisplayModes = [
+    { value: "count", label: "제품 수" },
+    { value: "representative", label: "대표 제품" },
+  ];
+
   const state = {
     query: "",
     brand: "전체",
@@ -29,9 +48,15 @@
     category: "전체",
     tags: new Set(),
     sort: "table",
+    mapDisplayMode: "count",
+    mapZoom: 1,
+    overviewMode: "map",
     route: "home",
     detailId: "",
     lastBrowseRoute: "#/",
+    selectedCell: null,
+    lastFocus: null,
+    mapRaf: 0,
   };
 
   const el = {
@@ -53,6 +78,23 @@
     resetButton: document.querySelector("#resetButton"),
     listLink: document.querySelector("#listLink"),
     overviewLink: document.querySelector("#overviewLink"),
+    mapModeToggle: document.querySelector("#mapModeToggle"),
+    mapControlPanel: document.querySelector("#mapControlPanel"),
+    mapGroupFilters: document.querySelector("#mapGroupFilters"),
+    mapBrandFilters: document.querySelector("#mapBrandFilters"),
+    mapDisplayFilters: document.querySelector("#mapDisplayFilters"),
+    mapSearchInput: document.querySelector("#mapSearchInput"),
+    mapSummary: document.querySelector("#mapSummary"),
+    mapViewShell: document.querySelector("#mapViewShell"),
+    originalTableShell: document.querySelector("#originalTableShell"),
+    mapViewport: document.querySelector("#mapViewport"),
+    shoeMapCanvas: document.querySelector("#shoeMapCanvas"),
+    mapMiniMap: document.querySelector("#mapMiniMap"),
+    zoomOutButton: document.querySelector("#zoomOutButton"),
+    zoomResetButton: document.querySelector("#zoomResetButton"),
+    zoomInButton: document.querySelector("#zoomInButton"),
+    mapSheetBackdrop: document.querySelector("#mapSheetBackdrop"),
+    mapSheet: document.querySelector("#mapSheet"),
   };
 
   const categoryGroupMap = shoes.reduce((acc, shoe) => {
@@ -117,6 +159,42 @@
       .filter((row) => state.category === "전체" || row.category === state.category);
   }
 
+  function getMapFilteredShoes() {
+    const query = normalize(state.query);
+
+    return shoes
+      .filter((shoe) => {
+        const haystack = normalize([shoe.brand, shoe.model, shoe.displayName, shoe.categoryGroup, shoe.category].join(" "));
+        const matchesQuery = !query || haystack.includes(query);
+        const matchesBrand = state.brand === "전체" || shoe.brand === state.brand;
+        const matchesGroup = state.group === "전체" || shoe.categoryGroup === state.group;
+        return matchesQuery && matchesBrand && matchesGroup;
+      })
+      .sort((a, b) => a.tableOrder - b.tableOrder);
+  }
+
+  function getMapVisibleBrands() {
+    return state.brand === "전체" ? brandOrder : brandOrder.filter((brand) => brand === state.brand);
+  }
+
+  function getMapVisibleRows() {
+    return categoryOrder
+      .map((category) => ({
+        category,
+        group: categoryGroupMap[category],
+        label: mapCategoryLabels[category] || category,
+      }))
+      .filter((row) => state.group === "전체" || row.group === state.group);
+  }
+
+  function groupLabel(group) {
+    return mapGroupLabels[group] || group;
+  }
+
+  function clamp(value, min, max) {
+    return Math.min(max, Math.max(min, value));
+  }
+
   function renderChoiceButtons(container, options, activeValue, onSelect) {
     container.innerHTML = options
       .map(
@@ -126,6 +204,29 @@
           </button>
         `
       )
+      .join("");
+
+    container.querySelectorAll("button").forEach((button) => {
+      button.addEventListener("click", () => onSelect(button.dataset.value));
+    });
+  }
+
+  function renderSegmentButtons(container, options, activeValue, onSelect, getLabel = (option) => option) {
+    container.innerHTML = options
+      .map((option) => {
+        const value = typeof option === "string" ? option : option.value;
+        const label = typeof option === "string" ? getLabel(option) : option.label;
+        return `
+          <button
+            class="segment-button ${value === activeValue ? "is-active" : ""}"
+            type="button"
+            data-value="${escapeHtml(value)}"
+            aria-pressed="${value === activeValue ? "true" : "false"}"
+          >
+            ${escapeHtml(label)}
+          </button>
+        `;
+      })
       .join("");
 
     container.querySelectorAll("button").forEach((button) => {
@@ -236,9 +337,9 @@
     `;
   }
 
-  function renderMatrix(items) {
-    const brands = getVisibleBrands();
-    const rows = getVisibleRows();
+  function renderMatrix(items, options = {}) {
+    const brands = options.brands || getVisibleBrands();
+    const rows = options.rows || getVisibleRows();
     const brandCounts = items.reduce((acc, shoe) => {
       acc[shoe.brand] = (acc[shoe.brand] || 0) + 1;
       return acc;
@@ -299,6 +400,180 @@
         <tbody>${bodyRows}</tbody>
       </table>
     `;
+  }
+
+  function cellIntensity(count, maxCount) {
+    if (!count) return "map-cell--empty";
+    if (count >= Math.max(4, maxCount * 0.72)) return "map-cell--high";
+    if (count >= 2) return "map-cell--medium";
+    return "map-cell--low";
+  }
+
+  function representativeName(items) {
+    if (!items.length) return "";
+    const first = items[0].displayName || items[0].model;
+    if (items.length === 1) return first;
+    return `${first} 외 ${items.length - 1}`;
+  }
+
+  function buildMapCellData(items, brands, rows) {
+    const cellMap = new Map();
+    items.forEach((shoe) => {
+      const key = `${shoe.brand}|||${shoe.category}`;
+      if (!cellMap.has(key)) {
+        cellMap.set(key, []);
+      }
+      cellMap.get(key).push(shoe);
+    });
+
+    return rows.map((row) => ({
+      ...row,
+      cells: brands.map((brand) => {
+        const cellShoes = cellMap.get(`${brand}|||${row.category}`) || [];
+        return {
+          brand,
+          category: row.category,
+          row,
+          shoes: cellShoes,
+          count: cellShoes.length,
+          representative: representativeName(cellShoes),
+        };
+      }),
+    }));
+  }
+
+  function renderMapControls() {
+    renderSegmentButtons(el.mapGroupFilters, ["전체", ...groupOrder], state.group, (value) => {
+      state.group = value;
+      renderOverview();
+    }, groupLabel);
+
+    renderSegmentButtons(el.mapBrandFilters, ["전체", ...brandOrder], state.brand, (value) => {
+      state.brand = value;
+      renderOverview();
+    });
+
+    renderSegmentButtons(el.mapDisplayFilters, mapDisplayModes, state.mapDisplayMode, (value) => {
+      state.mapDisplayMode = value;
+      renderOverview();
+    });
+
+    if (document.activeElement !== el.mapSearchInput) {
+      el.mapSearchInput.value = state.query;
+    }
+
+    el.mapModeToggle.textContent = state.overviewMode === "map" ? "원본표 보기" : "맵 보기";
+    el.mapModeToggle.setAttribute("aria-pressed", state.overviewMode === "table" ? "true" : "false");
+  }
+
+  function renderShoeMap(items) {
+    const brands = getMapVisibleBrands();
+    const rows = getMapVisibleRows();
+    const rowData = buildMapCellData(items, brands, rows);
+    const maxCount = Math.max(1, ...rowData.flatMap((row) => row.cells.map((cell) => cell.count)));
+    const totalCells = brands.length * rows.length;
+    const filledCells = rowData.flatMap((row) => row.cells).filter((cell) => cell.count > 0).length;
+
+    el.mapSummary.textContent = `${items.length}개 제품 · ${filledCells}/${totalCells}개 구역`;
+    el.shoeMapCanvas.style.setProperty("--map-zoom", state.mapZoom);
+    el.shoeMapCanvas.innerHTML = `
+      <div class="shoe-map-grid" style="grid-template-columns: var(--map-row-width) repeat(${brands.length}, var(--map-cell-width));">
+        <div class="map-axis-corner">용도</div>
+        ${brands.map((brand) => `<div class="map-brand-head">${escapeHtml(brand)}</div>`).join("")}
+        ${rowData
+          .map(
+            (row) => `
+              <div class="map-row-head ${groupClassName(row.group)}">
+                <span>${escapeHtml(groupLabel(row.group))}</span>
+                <strong>${escapeHtml(row.label)}</strong>
+              </div>
+              ${row.cells
+                .map((cell) => {
+                  const disabled = cell.count === 0;
+                  const label = disabled
+                    ? `${cell.brand} ${row.label} 제품 없음`
+                    : `${cell.brand} ${row.label} ${cell.count}개, 제품 목록 보기`;
+                  const primaryText = state.mapDisplayMode === "count" ? `${cell.count}개` : cell.representative;
+                  const secondaryText = state.mapDisplayMode === "count" ? cell.representative : `${cell.count}개`;
+                  return `
+                    <button
+                      class="map-cell ${cellIntensity(cell.count, maxCount)}"
+                      type="button"
+                      data-map-cell="true"
+                      data-brand="${escapeHtml(cell.brand)}"
+                      data-category="${escapeHtml(row.category)}"
+                      aria-label="${escapeHtml(label)}"
+                      ${disabled ? "disabled" : ""}
+                    >
+                      <span class="map-cell__count">${cell.count ? escapeHtml(primaryText) : "없음"}</span>
+                      <span class="map-cell__name">
+                        ${cell.count ? escapeHtml(secondaryText) : "제품 없음"}
+                      </span>
+                    </button>
+                  `;
+                })
+                .join("")}
+            `
+          )
+          .join("")}
+      </div>
+    `;
+
+    renderMiniMap(rowData, brands);
+    applyMapZoom();
+    updateMiniMapViewport();
+  }
+
+  function renderMiniMap(rowData, brands) {
+    el.mapMiniMap.innerHTML = `
+      <div class="map-minimap__grid" style="grid-template-columns: repeat(${brands.length}, 1fr); grid-template-rows: repeat(${rowData.length}, 1fr);">
+        ${rowData
+          .flatMap((row) =>
+            row.cells.map((cell) => `<span class="map-minimap__cell ${cell.count ? "is-filled" : ""}"></span>`)
+          )
+          .join("")}
+      </div>
+      <span class="map-minimap__window"></span>
+    `;
+  }
+
+  function updateMiniMapViewport() {
+    if (!el.mapViewport || !el.mapMiniMap || state.overviewMode !== "map") return;
+    const indicator = el.mapMiniMap.querySelector(".map-minimap__window");
+    if (!indicator) return;
+
+    const maxScrollLeft = Math.max(1, el.mapViewport.scrollWidth - el.mapViewport.clientWidth);
+    const maxScrollTop = Math.max(1, el.mapViewport.scrollHeight - el.mapViewport.clientHeight);
+    const width = clamp((el.mapViewport.clientWidth / el.mapViewport.scrollWidth) * 100, 12, 100);
+    const height = clamp((el.mapViewport.clientHeight / el.mapViewport.scrollHeight) * 100, 16, 100);
+    const left = clamp((el.mapViewport.scrollLeft / maxScrollLeft) * (100 - width), 0, 100 - width);
+    const top = clamp((el.mapViewport.scrollTop / maxScrollTop) * (100 - height), 0, 100 - height);
+
+    indicator.style.left = `${left}%`;
+    indicator.style.top = `${top}%`;
+    indicator.style.width = `${width}%`;
+    indicator.style.height = `${height}%`;
+  }
+
+  function scheduleMiniMapUpdate() {
+    if (state.mapRaf) return;
+    state.mapRaf = window.requestAnimationFrame(() => {
+      state.mapRaf = 0;
+      updateMiniMapViewport();
+    });
+  }
+
+  function applyMapZoom() {
+    el.shoeMapCanvas.style.setProperty("--map-zoom", state.mapZoom);
+    el.zoomOutButton.disabled = state.mapZoom <= 0.75;
+    el.zoomInButton.disabled = state.mapZoom >= 1.5;
+    el.zoomResetButton.title = `현재 배율 ${Math.round(state.mapZoom * 100)}%`;
+    scheduleMiniMapUpdate();
+  }
+
+  function changeMapZoom(nextZoom) {
+    state.mapZoom = clamp(nextZoom, 0.75, 1.5);
+    applyMapZoom();
   }
 
   function renderResults(items) {
@@ -362,11 +637,21 @@
   }
 
   function renderOverview() {
-    const items = getFilteredShoes();
-    el.overviewTitle.textContent = titleForActiveFilters();
-    renderFilters();
-    updateViewLinks();
-    renderMatrix(items);
+    const items = getMapFilteredShoes();
+    el.overviewTitle.textContent = state.overviewMode === "map" ? "전체 러닝화 맵" : "원본표 보기";
+    renderMapControls();
+    el.mapViewShell.hidden = state.overviewMode !== "map";
+    el.originalTableShell.hidden = state.overviewMode !== "table";
+
+    if (state.overviewMode === "map") {
+      renderShoeMap(items);
+    } else {
+      renderMatrix(items, {
+        brands: getMapVisibleBrands(),
+        rows: getMapVisibleRows(),
+      });
+      wireImages();
+    }
     wireImages();
   }
 
@@ -402,6 +687,90 @@
     wireImages();
   }
 
+  function sheetProductMarkup(shoe) {
+    return `
+      <a class="sheet-product" href="#/shoe/${encodeURIComponent(shoe.id)}">
+        <span class="sheet-product__name">${escapeHtml(shoe.model)}</span>
+        <span class="sheet-product__meta">${escapeHtml(shoe.categoryGroup)} · ${escapeHtml(shoe.category)}</span>
+        <span class="sheet-product__tags">${tagMarkup(shoe.tags)}</span>
+      </a>
+    `;
+  }
+
+  function renderMapSheet(cell) {
+    const countText = `${cell.shoes.length}개`;
+    el.mapSheet.innerHTML = `
+      <div class="bottom-sheet__handle" aria-hidden="true"></div>
+      <div class="bottom-sheet__head">
+        <div>
+          <p class="eyebrow">${escapeHtml(cell.brand)} · ${escapeHtml(groupLabel(cell.row.group))}</p>
+          <h2 id="mapSheetTitle">${escapeHtml(cell.brand)} · ${escapeHtml(cell.row.label)}</h2>
+          <p>이 구역에는 제품 ${countText}가 있습니다.</p>
+        </div>
+        <button class="sheet-close" type="button" data-sheet-close aria-label="바텀시트 닫기">×</button>
+      </div>
+      <div class="sheet-product-list">
+        ${cell.shoes.map(sheetProductMarkup).join("")}
+      </div>
+      <div class="sheet-actions">
+        <button
+          class="primary-link"
+          type="button"
+          data-sheet-action="details"
+          data-brand="${escapeHtml(cell.brand)}"
+          data-category="${escapeHtml(cell.category)}"
+        >
+          이 구역 자세히 보기
+        </button>
+        <button class="back-link" type="button" data-sheet-action="compare">비교 담기</button>
+      </div>
+      <p id="sheetStatus" class="sheet-status" role="status" aria-live="polite"></p>
+    `;
+  }
+
+  function openMapSheet(brand, category) {
+    const items = getMapFilteredShoes();
+    const row = getMapVisibleRows().find((item) => item.category === category);
+    const shoesInCell = items.filter((shoe) => shoe.brand === brand && shoe.category === category);
+    if (!row || !shoesInCell.length) return;
+
+    state.selectedCell = { brand, category };
+    state.lastFocus = document.activeElement;
+    renderMapSheet({
+      brand,
+      category,
+      row,
+      shoes: shoesInCell,
+    });
+    el.mapSheetBackdrop.hidden = false;
+    el.mapSheet.hidden = false;
+    document.body.classList.add("sheet-open");
+    el.mapSheet.querySelector("[data-sheet-close]")?.focus();
+  }
+
+  function closeMapSheet(restoreFocus = true) {
+    el.mapSheetBackdrop.hidden = true;
+    el.mapSheet.hidden = true;
+    document.body.classList.remove("sheet-open");
+    state.selectedCell = null;
+    if (restoreFocus && state.lastFocus && typeof state.lastFocus.focus === "function") {
+      state.lastFocus.focus();
+    }
+  }
+
+  function showCellDetails(brand, category) {
+    state.brand = brand;
+    state.category = category;
+    state.group = categoryGroupMap[category] || "전체";
+    state.query = "";
+    state.tags.clear();
+    el.searchInput.value = "";
+    el.sortSelect.value = state.sort;
+    closeMapSheet(false);
+    window.location.hash = "#/";
+    renderHome();
+  }
+
   function wireImages() {
     document.querySelectorAll("img[data-shoe-image]").forEach((image) => {
       if (image.dataset.wired) return;
@@ -429,6 +798,7 @@
     if (state.detailId) {
       state.route = "detail";
       const shoe = shoes.find((item) => item.id === state.detailId);
+      closeMapSheet(false);
       el.filterPanel.hidden = true;
       el.homeView.hidden = true;
       el.overviewView.hidden = true;
@@ -451,7 +821,7 @@
     if (hash === "#/overview") {
       state.route = "overview";
       state.lastBrowseRoute = "#/overview";
-      el.filterPanel.hidden = false;
+      el.filterPanel.hidden = true;
       el.homeView.hidden = true;
       el.overviewView.hidden = false;
       el.detailView.hidden = true;
@@ -462,6 +832,7 @@
 
     state.route = "home";
     state.lastBrowseRoute = "#/";
+    closeMapSheet(false);
     el.filterPanel.hidden = false;
     el.homeView.hidden = false;
     el.overviewView.hidden = true;
@@ -489,6 +860,75 @@
     el.searchInput.value = "";
     el.sortSelect.value = "table";
     renderCurrentRoute();
+  });
+
+  el.mapSearchInput.addEventListener("input", (event) => {
+    state.query = event.target.value;
+    renderOverview();
+  });
+
+  el.mapModeToggle.addEventListener("click", () => {
+    state.overviewMode = state.overviewMode === "map" ? "table" : "map";
+    renderOverview();
+  });
+
+  el.zoomOutButton.addEventListener("click", () => {
+    changeMapZoom(state.mapZoom - 0.15);
+  });
+
+  el.zoomResetButton.addEventListener("click", () => {
+    changeMapZoom(1);
+  });
+
+  el.zoomInButton.addEventListener("click", () => {
+    changeMapZoom(state.mapZoom + 0.15);
+  });
+
+  el.mapViewport.addEventListener("scroll", scheduleMiniMapUpdate, { passive: true });
+
+  el.shoeMapCanvas.addEventListener("click", (event) => {
+    const cell = event.target.closest("[data-map-cell]");
+    if (!cell || cell.disabled) return;
+    openMapSheet(cell.dataset.brand, cell.dataset.category);
+  });
+
+  el.mapSheetBackdrop.addEventListener("click", () => {
+    closeMapSheet();
+  });
+
+  el.mapSheet.addEventListener("click", (event) => {
+    const closeButton = event.target.closest("[data-sheet-close]");
+    if (closeButton) {
+      closeMapSheet();
+      return;
+    }
+
+    const productLink = event.target.closest(".sheet-product");
+    if (productLink) {
+      closeMapSheet(false);
+      return;
+    }
+
+    const action = event.target.closest("[data-sheet-action]");
+    if (!action) return;
+
+    if (action.dataset.sheetAction === "details") {
+      showCellDetails(action.dataset.brand, action.dataset.category);
+      return;
+    }
+
+    if (action.dataset.sheetAction === "compare") {
+      const status = el.mapSheet.querySelector("#sheetStatus");
+      if (status) {
+        status.textContent = "비교 담기는 다음 단계에서 연결됩니다.";
+      }
+    }
+  });
+
+  window.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && !el.mapSheet.hidden) {
+      closeMapSheet();
+    }
   });
 
   window.addEventListener("hashchange", syncRoute);
