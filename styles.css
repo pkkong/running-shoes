@@ -876,6 +876,13 @@ select {
   scroll-snap-type: none;
 }
 
+.picker-axis--horizontal .picker-axis-item {
+  flex-basis: 104px;
+  height: 42px;
+  padding: 0 6px;
+  background: #ffffff;
+}
+
 .picker-axis--vertical {
   display: grid;
   gap: 8px;
@@ -937,9 +944,9 @@ select {
 }
 
 .brand-logo {
-  --brand-logo-height: 28px;
+  --brand-logo-height: 30px;
   --brand-logo-scale: 0.94;
-  --brand-logo-width: 78px;
+  --brand-logo-width: 92px;
   position: relative;
   display: inline-grid;
   place-items: center;
@@ -992,53 +999,43 @@ select {
 }
 
 .brand-logo--nike {
-  --brand-logo-scale: 1.08;
-  --brand-logo-width: 82px;
+  --brand-logo-scale: 1.18;
 }
 
 .brand-logo--adidas {
-  --brand-logo-scale: 0.9;
-  --brand-logo-width: 84px;
+  --brand-logo-scale: 0.96;
 }
 
 .brand-logo--asics {
   --brand-logo-scale: 0.96;
-  --brand-logo-width: 82px;
 }
 
 .brand-logo--newbalance {
-  --brand-logo-scale: 0.9;
-  --brand-logo-width: 92px;
+  --brand-logo-scale: 1.06;
 }
 
 .brand-logo--saucony {
-  --brand-logo-scale: 0.94;
-  --brand-logo-width: 88px;
+  --brand-logo-scale: 0.98;
 }
 
 .brand-logo--puma {
-  --brand-logo-scale: 0.88;
-  --brand-logo-width: 68px;
+  --brand-logo-scale: 1.14;
 }
 
 .brand-logo--hoka {
-  --brand-logo-scale: 0.94;
-  --brand-logo-width: 82px;
+  --brand-logo-scale: 0.98;
 }
 
 .brand-logo--brooks {
-  --brand-logo-scale: 0.95;
-  --brand-logo-width: 88px;
+  --brand-logo-scale: 1;
 }
 
 .brand-logo--mizuno {
-  --brand-logo-scale: 0.92;
-  --brand-logo-width: 84px;
+  --brand-logo-scale: 1.06;
 }
 
 .brand-logo--on {
-  --brand-logo-scale: 1.1;
-  --brand-logo-width: 58px;
+  --brand-logo-scale: 1.08;
 }
 
 .picker-axis--vertical .picker-axis-item {
@@ -1057,14 +1054,18 @@ select {
   box-shadow: none;
 }
 
-.picker-axis--horizontal .picker-axis-item.is-selected::after {
-  position: absolute;
-  right: 18px;
-  bottom: 0;
-  left: 18px;
-  height: 2px;
+.picker-axis--horizontal .picker-axis-item.is-selected {
   background: #111111;
-  content: "";
+  color: #ffffff;
+}
+
+.picker-axis--horizontal .picker-axis-item.is-selected .brand-logo__image {
+  filter: grayscale(1) brightness(0) invert(1);
+  opacity: 1;
+}
+
+.picker-axis--horizontal .picker-axis-item.is-selected::after {
+  display: none;
 }
 
 .picker-axis--vertical .picker-axis-item.is-selected {
