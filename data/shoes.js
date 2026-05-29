@@ -7,7 +7,7 @@
 
   const SOURCE_POST =
     "https://gall.dcinside.com/mgallery/board/view/?id=running&no=1042108&page=1";
-  const IMAGE_VERSION = "20260529-ui-image-7";
+  const IMAGE_VERSION = "20260529-shoe-wide-1";
 
   const officialImages = {
     "adidas-sl-2": {"imageUrl": "https://assets.adidas.com/images/w_1880,f_auto,q_auto/cfd913d7af534d5e9177b2b5ac21b59a_9366/Adizero_SL2_Running_Shoes_Black_IF6761_HM1.jpg", "imageSourceUrl": "https://www.adidas.de/en/adizero-sl2-running-shoes/IF6761.html", "officialProductUrl": "https://www.adidas.de/en/adizero-sl2-running-shoes/IF6761.html", "displayName": "Adizero SL2", "imageFit": "contain", "imagePosition": "center", "imageScale": 0.94},

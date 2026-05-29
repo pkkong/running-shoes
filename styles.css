@@ -1677,11 +1677,11 @@ select {
 }
 
 .shoe-image--picker {
-  aspect-ratio: 3 / 2;
+  aspect-ratio: 8 / 5;
   height: auto;
   border: 0;
   border-radius: 1px;
-  background: #ffffff;
+  background: #fafafa;
 }
 
 .shoe-image--picker img {
@@ -1710,13 +1710,13 @@ select {
 }
 
 .shoe-image--card {
-  aspect-ratio: 3 / 2;
+  aspect-ratio: 8 / 5;
   border-bottom: 1px solid #edf1ef;
 }
 
 .shoe-image--detail {
   min-height: 380px;
-  aspect-ratio: 3 / 2;
+  aspect-ratio: 8 / 5;
 }
 
 .shoe-image img {
