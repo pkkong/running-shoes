@@ -3,6 +3,8 @@
 
   const brandOrder = ["Nike", "Adidas", "ASICS", "New Balance", "Saucony", "Puma", "HOKA", "Brooks", "Mizuno", "On"];
   const groupOrder = ["데일리", "슈퍼 트레이너", "레이싱"];
+  const pickerRepeatCount = 5;
+  const pickerMiddleRepeat = Math.floor(pickerRepeatCount / 2);
   const categoryOrder = [
     "입문화",
     "맥스 쿠션화",
@@ -44,6 +46,21 @@
     tags: new Set(),
     sort: "table",
     mapZoom: 1,
+    pickerBrandIndex: 0,
+    pickerCategoryIndex: 0,
+    pickerAxesReady: false,
+    pickerRaf: {
+      brand: 0,
+      category: 0,
+    },
+    pickerSnapTimer: {
+      brand: 0,
+      category: 0,
+    },
+    pickerRebalanceTimer: {
+      brand: 0,
+      category: 0,
+    },
     route: "home",
     detailId: "",
     lastBrowseRoute: "#/",
@@ -56,6 +73,7 @@
     filterPanel: document.querySelector("#filterPanel"),
     homeView: document.querySelector("#homeView"),
     overviewView: document.querySelector("#overviewView"),
+    pickerView: document.querySelector("#pickerView"),
     detailView: document.querySelector("#detailView"),
     searchInput: document.querySelector("#searchInput"),
     brandFilters: document.querySelector("#brandFilters"),
@@ -70,6 +88,7 @@
     resetButton: document.querySelector("#resetButton"),
     listLink: document.querySelector("#listLink"),
     overviewLink: document.querySelector("#overviewLink"),
+    pickerLink: document.querySelector("#pickerLink"),
     mapControlPanel: document.querySelector("#mapControlPanel"),
     mapGroupFilters: document.querySelector("#mapGroupFilters"),
     mapBrandFilters: document.querySelector("#mapBrandFilters"),
@@ -84,6 +103,10 @@
     zoomInButton: document.querySelector("#zoomInButton"),
     mapSheetBackdrop: document.querySelector("#mapSheetBackdrop"),
     mapSheet: document.querySelector("#mapSheet"),
+    pickerCoordinate: document.querySelector("#pickerCoordinate"),
+    pickerBrandAxis: document.querySelector("#pickerBrandAxis"),
+    pickerCategoryAxis: document.querySelector("#pickerCategoryAxis"),
+    pickerDetail: document.querySelector("#pickerDetail"),
   };
 
   const categoryGroupMap = shoes.reduce((acc, shoe) => {
@@ -546,11 +569,16 @@
   function updateViewLinks() {
     el.listLink.classList.toggle("is-active", state.route === "home");
     el.overviewLink.classList.toggle("is-active", state.route === "overview");
+    el.pickerLink.classList.toggle("is-active", state.route === "picker");
   }
 
   function renderCurrentRoute() {
     if (state.route === "overview") {
       renderOverview();
+      return;
+    }
+    if (state.route === "picker") {
+      renderPicker();
       return;
     }
     if (state.route === "home") {
@@ -576,10 +604,253 @@
     wireImages();
   }
 
+  function pickerCategoryLabel(category) {
+    return mapCategoryLabels[category] || category;
+  }
+
+  function selectedPickerBrand() {
+    return brandOrder[state.pickerBrandIndex] || brandOrder[0];
+  }
+
+  function selectedPickerCategory() {
+    return categoryOrder[state.pickerCategoryIndex] || categoryOrder[0];
+  }
+
+  function pickerProducts() {
+    const brand = selectedPickerBrand();
+    const category = selectedPickerCategory();
+    return shoes.filter((shoe) => shoe.brand === brand && shoe.category === category);
+  }
+
+  function repeatedPickerItems(values, axis) {
+    return Array.from({ length: pickerRepeatCount }, (_, repeatIndex) =>
+      values
+        .map((value, logicalIndex) => {
+          const label = axis === "category" ? pickerCategoryLabel(value) : value;
+          const isPrimaryCopy = repeatIndex === pickerMiddleRepeat;
+          return `
+            <button
+              ${isPrimaryCopy ? `id="picker-${axis}-option-${logicalIndex}"` : ""}
+              class="picker-axis-item"
+              type="button"
+              role="option"
+              data-axis="${axis}"
+              data-logical-index="${logicalIndex}"
+              data-repeat-index="${repeatIndex}"
+              aria-selected="false"
+              aria-label="${escapeHtml(label)}"
+              ${isPrimaryCopy ? "" : `aria-hidden="true"`}
+              tabindex="-1"
+            >
+              ${escapeHtml(label)}
+            </button>
+          `;
+        })
+        .join("")
+    ).join("");
+  }
+
+  function renderPickerAxes() {
+    if (state.pickerAxesReady) return;
+    el.pickerBrandAxis.innerHTML = repeatedPickerItems(brandOrder, "brand");
+    el.pickerCategoryAxis.innerHTML = repeatedPickerItems(categoryOrder, "category");
+    state.pickerAxesReady = true;
+
+    window.requestAnimationFrame(() => {
+      if (state.route !== "picker") return;
+      centerPickerAxis("brand", state.pickerBrandIndex, "auto");
+      centerPickerAxis("category", state.pickerCategoryIndex, "auto");
+      updatePickerAxisState("brand");
+      updatePickerAxisState("category");
+    });
+  }
+
+  function pickerAxisContainer(axis) {
+    return axis === "brand" ? el.pickerBrandAxis : el.pickerCategoryAxis;
+  }
+
+  function pickerAxisIndex(axis) {
+    return axis === "brand" ? state.pickerBrandIndex : state.pickerCategoryIndex;
+  }
+
+  function setPickerAxisIndex(axis, index) {
+    if (axis === "brand") {
+      state.pickerBrandIndex = index;
+    } else {
+      state.pickerCategoryIndex = index;
+    }
+  }
+
+  function pickerAxisLength(axis) {
+    return axis === "brand" ? brandOrder.length : categoryOrder.length;
+  }
+
+  function centerPickerAxis(axis, index, behavior = "smooth", repeatIndex = pickerMiddleRepeat) {
+    const container = pickerAxisContainer(axis);
+    const target = container.querySelector(
+      `[data-axis="${axis}"][data-logical-index="${index}"][data-repeat-index="${repeatIndex}"]`
+    );
+    if (!target) return;
+
+    const position =
+      axis === "brand"
+        ? target.offsetLeft - (container.clientWidth - target.offsetWidth) / 2
+        : target.offsetTop - (container.clientHeight - target.offsetHeight) / 2;
+    container.scrollTo(axis === "brand" ? { left: position, behavior } : { top: position, behavior });
+  }
+
+  function nearestPickerItem(axis) {
+    const container = pickerAxisContainer(axis);
+    const items = [...container.querySelectorAll(`[data-axis="${axis}"]`)];
+    if (!items.length) return null;
+
+    const center = axis === "brand" ? container.scrollLeft + container.clientWidth / 2 : container.scrollTop + container.clientHeight / 2;
+    return items.reduce((closest, item) => {
+      const itemCenter = axis === "brand" ? item.offsetLeft + item.offsetWidth / 2 : item.offsetTop + item.offsetHeight / 2;
+      const distance = Math.abs(center - itemCenter);
+      return !closest || distance < closest.distance ? { item, distance } : closest;
+    }, null)?.item;
+  }
+
+  function updatePickerAxisState(axis) {
+    const container = pickerAxisContainer(axis);
+    const selectedIndex = pickerAxisIndex(axis);
+    container.setAttribute("aria-activedescendant", `picker-${axis}-option-${selectedIndex}`);
+    container.querySelectorAll(`[data-axis="${axis}"]`).forEach((item) => {
+      const isSelected = Number(item.dataset.logicalIndex) === selectedIndex;
+      const isPrimaryCopy = Number(item.dataset.repeatIndex) === pickerMiddleRepeat;
+      item.classList.toggle("is-selected", isSelected);
+      item.setAttribute("aria-selected", isSelected && isPrimaryCopy ? "true" : "false");
+    });
+  }
+
+  function renderPickerDetail() {
+    const brand = selectedPickerBrand();
+    const category = selectedPickerCategory();
+    const products = pickerProducts();
+    const categoryGroup = categoryGroupMap[category] || "";
+    el.pickerCoordinate.textContent = `${brand} × ${pickerCategoryLabel(category)}`;
+
+    el.pickerDetail.innerHTML = `
+      <div class="picker-detail-card__head">
+        <p class="eyebrow">${escapeHtml(brand)} × ${escapeHtml(categoryGroup)}</p>
+        <h3>${escapeHtml(brand)} × ${escapeHtml(pickerCategoryLabel(category))}</h3>
+        <span class="picker-count-pill">${products.length ? `${products.length}개 제품` : "라인업 없음"}</span>
+      </div>
+      ${
+        products.length
+          ? `<div class="picker-product-list">${products.map(pickerProductMarkup).join("")}</div>`
+          : `<div class="picker-empty-cell">
+              <strong>해당 라인업 없음</strong>
+              <span>브랜드 × 카테고리 기준 데이터가 없습니다.</span>
+            </div>`
+      }
+    `;
+    wireImages();
+  }
+
+  function pickerProductMarkup(shoe) {
+    return `
+      <a class="picker-product-card" href="#/shoe/${encodeURIComponent(shoe.id)}">
+        ${imageMarkup(shoe, "picker")}
+        <span class="picker-product-card__body">
+          <strong>${escapeHtml(shoe.displayName || shoe.model)}</strong>
+          <span class="picker-product-card__meta">
+            ${dropMarkup(shoe, false)}
+            <span class="tag-dots">${tagMarkup(shoe.tags, true)}</span>
+          </span>
+        </span>
+      </a>
+    `;
+  }
+
+  function updatePickerSelectionFromCenter(axis) {
+    if (state.route !== "picker") return;
+    const nearest = nearestPickerItem(axis);
+    if (!nearest) return;
+    const nextIndex = Number(nearest.dataset.logicalIndex);
+    if (nextIndex !== pickerAxisIndex(axis)) {
+      setPickerAxisIndex(axis, nextIndex);
+      updatePickerAxisState(axis);
+      renderPickerDetail();
+    }
+  }
+
+  function rebalancePickerAxis(axis) {
+    if (state.route !== "picker") return;
+    const nearest = nearestPickerItem(axis);
+    if (!nearest) return;
+    const repeatIndex = Number(nearest.dataset.repeatIndex);
+    const logicalIndex = Number(nearest.dataset.logicalIndex);
+    if (repeatIndex === pickerMiddleRepeat) return;
+    centerPickerAxis(axis, logicalIndex, "auto", pickerMiddleRepeat);
+  }
+
+  function snapPickerAxis(axis) {
+    if (state.route !== "picker") return;
+    const nearest = nearestPickerItem(axis);
+    if (!nearest) return;
+    const logicalIndex = Number(nearest.dataset.logicalIndex);
+    setPickerAxisIndex(axis, logicalIndex);
+    updatePickerAxisState(axis);
+    renderPickerDetail();
+    const container = pickerAxisContainer(axis);
+    const position =
+      axis === "brand"
+        ? nearest.offsetLeft - (container.clientWidth - nearest.offsetWidth) / 2
+        : nearest.offsetTop - (container.clientHeight - nearest.offsetHeight) / 2;
+    container.scrollTo(axis === "brand" ? { left: position, behavior: "smooth" } : { top: position, behavior: "smooth" });
+    window.clearTimeout(state.pickerRebalanceTimer[axis]);
+    state.pickerRebalanceTimer[axis] = window.setTimeout(() => rebalancePickerAxis(axis), 220);
+  }
+
+  function schedulePickerAxis(axis) {
+    if (state.route !== "picker") return;
+    if (!state.pickerRaf[axis]) {
+      state.pickerRaf[axis] = window.requestAnimationFrame(() => {
+        state.pickerRaf[axis] = 0;
+        updatePickerSelectionFromCenter(axis);
+      });
+    }
+    window.clearTimeout(state.pickerSnapTimer[axis]);
+    state.pickerSnapTimer[axis] = window.setTimeout(() => snapPickerAxis(axis), 130);
+  }
+
+  function selectPickerAxis(axis, index, behavior = "smooth") {
+    if (state.route !== "picker") return;
+    const length = pickerAxisLength(axis);
+    const nextIndex = (index + length) % length;
+    setPickerAxisIndex(axis, nextIndex);
+    updatePickerAxisState(axis);
+    renderPickerDetail();
+    centerPickerAxis(axis, nextIndex, behavior);
+  }
+
+  function renderPicker() {
+    renderPickerAxes();
+    updateViewLinks();
+    updatePickerAxisState("brand");
+    updatePickerAxisState("category");
+    renderPickerDetail();
+  }
+
+  function clearPickerTimers() {
+    ["brand", "category"].forEach((axis) => {
+      if (state.pickerRaf[axis]) {
+        window.cancelAnimationFrame(state.pickerRaf[axis]);
+        state.pickerRaf[axis] = 0;
+      }
+      window.clearTimeout(state.pickerSnapTimer[axis]);
+      window.clearTimeout(state.pickerRebalanceTimer[axis]);
+      state.pickerSnapTimer[axis] = 0;
+      state.pickerRebalanceTimer[axis] = 0;
+    });
+  }
+
   function renderDetail(shoe) {
     const priceLabel = shoe.priceStatus === "planned" ? "시세 조회 예정" : "가격 확인";
     const backHref = state.lastBrowseRoute || "#/";
-    const backLabel = backHref === "#/overview" ? "한눈에 보기" : "목록 보기";
+    const backLabel = backHref === "#/overview" ? "한눈에 보기" : backHref === "#/picker" ? "피커 보기" : "목록 보기";
 
     el.detailView.innerHTML = `
       <a class="back-link" href="${escapeHtml(backHref)}">← ${backLabel}</a>
@@ -720,9 +991,11 @@
       state.route = "detail";
       const shoe = shoes.find((item) => item.id === state.detailId);
       closeMapSheet(false);
+      clearPickerTimers();
       el.filterPanel.hidden = true;
       el.homeView.hidden = true;
       el.overviewView.hidden = true;
+      el.pickerView.hidden = true;
       el.detailView.hidden = false;
       if (shoe) {
         renderDetail(shoe);
@@ -742,11 +1015,27 @@
     if (hash === "#/overview") {
       state.route = "overview";
       state.lastBrowseRoute = "#/overview";
+      clearPickerTimers();
       el.filterPanel.hidden = true;
       el.homeView.hidden = true;
       el.overviewView.hidden = false;
+      el.pickerView.hidden = true;
       el.detailView.hidden = true;
       renderOverview();
+      window.scrollTo(0, 0);
+      return;
+    }
+
+    if (hash === "#/picker") {
+      state.route = "picker";
+      state.lastBrowseRoute = "#/picker";
+      closeMapSheet(false);
+      el.filterPanel.hidden = true;
+      el.homeView.hidden = true;
+      el.overviewView.hidden = true;
+      el.pickerView.hidden = false;
+      el.detailView.hidden = true;
+      renderPicker();
       window.scrollTo(0, 0);
       return;
     }
@@ -754,9 +1043,11 @@
     state.route = "home";
     state.lastBrowseRoute = "#/";
     closeMapSheet(false);
+    clearPickerTimers();
     el.filterPanel.hidden = false;
     el.homeView.hidden = false;
     el.overviewView.hidden = true;
+    el.pickerView.hidden = true;
     el.detailView.hidden = true;
     renderHome();
   }
@@ -801,6 +1092,43 @@
   });
 
   el.mapViewport.addEventListener("scroll", scheduleMiniMapUpdate, { passive: true });
+
+  el.pickerBrandAxis.addEventListener("scroll", () => schedulePickerAxis("brand"), { passive: true });
+  el.pickerCategoryAxis.addEventListener("scroll", () => schedulePickerAxis("category"), { passive: true });
+
+  [el.pickerBrandAxis, el.pickerCategoryAxis].forEach((container) => {
+    container.addEventListener("click", (event) => {
+      const item = event.target.closest("[data-axis]");
+      if (!item) return;
+      selectPickerAxis(item.dataset.axis, Number(item.dataset.logicalIndex));
+    });
+  });
+
+  el.pickerView.addEventListener("keydown", (event) => {
+    if (state.route !== "picker") return;
+    const brandAxisFocused = Boolean(event.target.closest("#pickerBrandAxis"));
+    const categoryAxisFocused = Boolean(event.target.closest("#pickerCategoryAxis"));
+    if (event.key === "ArrowLeft") {
+      if (!brandAxisFocused) return;
+      event.preventDefault();
+      selectPickerAxis("brand", state.pickerBrandIndex - 1);
+    }
+    if (event.key === "ArrowRight") {
+      if (!brandAxisFocused) return;
+      event.preventDefault();
+      selectPickerAxis("brand", state.pickerBrandIndex + 1);
+    }
+    if (event.key === "ArrowUp") {
+      if (!categoryAxisFocused) return;
+      event.preventDefault();
+      selectPickerAxis("category", state.pickerCategoryIndex - 1);
+    }
+    if (event.key === "ArrowDown") {
+      if (!categoryAxisFocused) return;
+      event.preventDefault();
+      selectPickerAxis("category", state.pickerCategoryIndex + 1);
+    }
+  });
 
   el.shoeMapCanvas.addEventListener("click", (event) => {
     const cell = event.target.closest("[data-map-cell]");

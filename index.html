@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>러닝화 추천표</title>
-    <link rel="stylesheet" href="styles.css?v=20260529-map-adaptive-cols-1" />
+    <link rel="stylesheet" href="styles.css?v=20260529-picker-view-1" />
   </head>
   <body>
     <header class="topbar">
@@ -62,6 +62,7 @@
           <div class="view-actions">
             <a id="listLink" class="view-link" href="#/">목록</a>
             <a id="overviewLink" class="view-link" href="#/overview">한눈에 보기</a>
+            <a id="pickerLink" class="view-link" href="#/picker">피커</a>
             <select id="sortSelect" aria-label="정렬">
               <option value="table">원문 표 순서</option>
               <option value="brand">브랜드순</option>
@@ -96,6 +97,7 @@
             <p>브랜드와 용도별 제품 분포를 한눈에 확인하세요.</p>
           </div>
           <div class="map-hero__actions">
+            <a class="back-link" href="#/picker">피커 보기</a>
             <a class="back-link" href="#/">목록 보기</a>
           </div>
         </div>
@@ -135,6 +137,52 @@
         </section>
       </section>
 
+      <section id="pickerView" class="picker-view" aria-label="전체 라인업 피커" hidden>
+        <div class="picker-shell">
+          <header class="picker-header">
+            <div>
+              <p class="eyebrow">2축 피커</p>
+              <h2>전체 라인업 보기</h2>
+            </div>
+            <div class="picker-header__meta">
+              <strong id="pickerCoordinate">Nike × 입문화</strong>
+              <div class="picker-header__actions">
+                <a class="back-link" href="#/overview">맵 보기</a>
+                <a class="back-link" href="#/">목록 보기</a>
+              </div>
+            </div>
+          </header>
+
+          <section class="picker-axis-block picker-axis-block--brand" aria-label="브랜드 가로축">
+            <p class="picker-axis-label">브랜드</p>
+            <div
+              id="pickerBrandAxis"
+              class="picker-axis picker-axis--horizontal"
+              role="listbox"
+              tabindex="0"
+              aria-label="브랜드 피커"
+            ></div>
+          </section>
+
+          <section class="picker-main" aria-label="브랜드와 카테고리 교차 선택">
+            <div class="picker-axis-block picker-axis-block--category" aria-label="카테고리 세로축">
+              <p class="picker-axis-label">카테고리</p>
+              <div
+                id="pickerCategoryAxis"
+                class="picker-axis picker-axis--vertical"
+                role="listbox"
+                tabindex="0"
+                aria-label="카테고리 피커"
+              ></div>
+            </div>
+            <div class="picker-detail-zone">
+              <div class="picker-focus-mark" aria-hidden="true"></div>
+              <article id="pickerDetail" class="picker-detail-card" aria-live="polite"></article>
+            </div>
+          </section>
+        </div>
+      </section>
+
       <section id="detailView" class="detail-view" aria-label="러닝화 상세" hidden></section>
     </main>
 
@@ -152,7 +200,7 @@
       <p>가격 조회, 최저가 검색, 알림은 다음 단계 기능으로 예약되어 있습니다.</p>
     </footer>
 
-    <script src="data/shoes.js?v=20260529-map-adaptive-cols-1"></script>
-    <script src="app.js?v=20260529-map-adaptive-cols-1"></script>
+    <script src="data/shoes.js?v=20260529-picker-view-1"></script>
+    <script src="app.js?v=20260529-picker-view-1"></script>
   </body>
 </html>
