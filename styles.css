@@ -64,6 +64,23 @@ a {
   color: #ffffff;
 }
 
+body[data-route="picker"] .topbar {
+  border-bottom-color: #101719;
+}
+
+body[data-route="picker"] .topbar__inner {
+  min-height: 70px;
+  padding: 14px 0;
+}
+
+body[data-route="picker"] h1 {
+  font-size: clamp(24px, 4vw, 34px);
+}
+
+body[data-route="picker"] .app-shell {
+  padding-top: 12px;
+}
+
 .topbar__inner,
 .app-shell,
 .footer {
@@ -713,12 +730,14 @@ select {
 }
 
 .picker-view {
-  padding-top: 20px;
+  padding-top: 8px;
 }
 
 .picker-shell {
   display: grid;
-  gap: 14px;
+  gap: 10px;
+  max-width: 980px;
+  margin: 0 auto;
 }
 
 .picker-header,
@@ -732,14 +751,17 @@ select {
 
 .picker-header {
   display: flex;
-  align-items: start;
+  align-items: center;
   justify-content: space-between;
   gap: 14px;
   padding: 16px;
+  border-color: #172123;
+  background: #101719;
+  color: #ffffff;
 }
 
 .picker-header h2 {
-  font-size: clamp(26px, 6vw, 38px);
+  font-size: clamp(24px, 5vw, 34px);
 }
 
 .picker-header__meta {
@@ -755,10 +777,10 @@ select {
   min-height: 38px;
   max-width: 100%;
   padding: 8px 11px;
-  border: 1px solid #cfe0dc;
+  border: 1px solid rgba(0, 168, 107, 0.48);
   border-radius: 8px;
-  background: #eff8f5;
-  color: #16342d;
+  background: rgba(0, 168, 107, 0.16);
+  color: #dcfff2;
   font-size: 14px;
   font-weight: 950;
   white-space: nowrap;
@@ -781,6 +803,13 @@ select {
   min-width: 0;
   padding: 12px;
   overflow: hidden;
+}
+
+.picker-axis-block--brand {
+  background:
+    linear-gradient(90deg, #ffffff 0%, rgba(255, 255, 255, 0) 15%),
+    linear-gradient(270deg, #ffffff 0%, rgba(255, 255, 255, 0) 15%),
+    var(--surface);
 }
 
 .picker-axis-label {
@@ -828,7 +857,7 @@ select {
   content: "";
   position: absolute;
   pointer-events: none;
-  border: 2px solid rgba(15, 21, 23, 0.74);
+  border: 2px solid rgba(0, 168, 107, 0.8);
   border-radius: 8px;
   box-shadow: 0 0 0 4px rgba(0, 168, 107, 0.08);
 }
@@ -885,8 +914,8 @@ select {
 }
 
 .picker-axis-item.is-selected {
-  border-color: var(--ink);
-  background: var(--ink);
+  border-color: #00a86b;
+  background: #123f35;
   color: #ffffff;
   opacity: 1;
   transform: scale(1);
@@ -900,8 +929,8 @@ select {
 
 .picker-main {
   display: grid;
-  grid-template-columns: 112px minmax(0, 1fr);
-  gap: 12px;
+  grid-template-columns: 118px minmax(0, 1fr);
+  gap: 10px;
   align-items: stretch;
 }
 
@@ -918,7 +947,7 @@ select {
   content: "";
   position: absolute;
   pointer-events: none;
-  background: rgba(0, 168, 107, 0.18);
+  background: rgba(0, 168, 107, 0.24);
 }
 
 .picker-detail-zone::before {
@@ -942,9 +971,9 @@ select {
   left: 0;
   height: min(330px, 86%);
   transform: translateY(-50%);
-  border: 1px solid rgba(0, 168, 107, 0.18);
+  border: 1px solid rgba(0, 168, 107, 0.28);
   border-radius: 8px;
-  background: rgba(255, 255, 255, 0.46);
+  background: rgba(0, 168, 107, 0.045);
   pointer-events: none;
 }
 
@@ -952,22 +981,46 @@ select {
   position: relative;
   z-index: 1;
   display: grid;
-  gap: 12px;
+  gap: 10px;
   min-width: 0;
   min-height: 320px;
-  padding: 14px;
+  padding: 12px;
+  border-color: #bdd6cf;
 }
 
 .picker-detail-card__head {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  gap: 10px;
+  min-width: 0;
+}
+
+.picker-detail-card__title {
   display: grid;
-  gap: 8px;
+  gap: 6px;
+  min-width: 0;
 }
 
 .picker-detail-card__head h3 {
   margin: 0;
-  font-size: clamp(21px, 5.5vw, 32px);
+  font-size: clamp(19px, 4.7vw, 28px);
   line-height: 1.16;
   word-break: keep-all;
+}
+
+.picker-coordinate-badge {
+  width: fit-content;
+  max-width: 100%;
+  overflow: hidden;
+  padding: 4px 7px;
+  border-radius: 6px;
+  background: #e9f7f1;
+  color: #1a5144;
+  font-size: 11px;
+  font-weight: 950;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .picker-count-pill {
@@ -975,6 +1028,7 @@ select {
   align-items: center;
   justify-content: center;
   width: fit-content;
+  flex: 0 0 auto;
   min-height: 28px;
   padding: 5px 8px;
   border-radius: 6px;
@@ -986,19 +1040,21 @@ select {
 
 .picker-product-list {
   display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(96px, 1fr));
+  align-content: start;
   gap: 8px;
-  max-height: 300px;
+  max-height: 344px;
   overflow: auto;
   padding-right: 2px;
 }
 
 .picker-product-card {
   display: grid;
-  grid-template-columns: 74px minmax(0, 1fr);
-  gap: 10px;
-  align-items: center;
+  grid-template-rows: auto minmax(0, 1fr);
+  gap: 8px;
+  align-content: start;
   min-width: 0;
-  padding: 8px;
+  padding: 7px;
   border: 1px solid var(--line);
   border-radius: 8px;
   background: #fbfcfb;
@@ -1014,14 +1070,25 @@ select {
 
 .picker-product-card__body {
   display: grid;
-  gap: 7px;
+  gap: 5px;
   min-width: 0;
 }
 
 .picker-product-card__body strong {
+  display: -webkit-box;
   overflow: hidden;
-  font-size: 14px;
-  line-height: 1.24;
+  min-height: 34px;
+  font-size: 12.5px;
+  line-height: 1.25;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.picker-product-card__category {
+  overflow: hidden;
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 850;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
@@ -1029,8 +1096,8 @@ select {
 .picker-product-card__meta {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 8px;
+  justify-content: flex-start;
+  gap: 6px;
   min-width: 0;
 }
 
@@ -1417,7 +1484,7 @@ select {
 }
 
 .shoe-image--picker {
-  height: 58px;
+  height: 78px;
   border: 1px solid #edf1ef;
   border-radius: 6px;
   background: #ffffff;
@@ -1710,6 +1777,35 @@ select {
     flex-direction: column;
   }
 
+  body[data-route="picker"] .topbar__inner {
+    align-items: center;
+    flex-direction: row;
+    min-height: 54px;
+    padding: 8px 0;
+  }
+
+  body[data-route="picker"] .topbar .eyebrow {
+    display: none;
+  }
+
+  body[data-route="picker"] h1 {
+    font-size: 22px;
+  }
+
+  body[data-route="picker"] .source-link {
+    padding: 8px 10px;
+    font-size: 12px;
+  }
+
+  body[data-route="picker"] .app-shell {
+    padding-top: 8px;
+    padding-bottom: 14px;
+  }
+
+  body[data-route="picker"] .footer {
+    display: none;
+  }
+
   .control-panel,
   .matrix-section,
   .detail-card,
@@ -1723,11 +1819,16 @@ select {
   }
 
   .picker-header {
-    padding: 12px;
+    gap: 8px;
+    padding: 10px;
+  }
+
+  .picker-header .eyebrow {
+    display: none;
   }
 
   .picker-header h2 {
-    font-size: 26px;
+    font-size: 22px;
   }
 
   .picker-header__meta {
@@ -1739,8 +1840,11 @@ select {
   }
 
   .picker-header__meta strong {
-    max-width: 160px;
+    min-height: 34px;
+    max-width: 178px;
+    padding: 6px 8px;
     overflow: hidden;
+    font-size: 12px;
     text-overflow: ellipsis;
   }
 
@@ -1831,7 +1935,7 @@ select {
   }
 
   .picker-axis--vertical {
-    height: min(44vh, 340px);
+    height: min(46vh, 352px);
   }
 
   .picker-axis-item {
@@ -1844,7 +1948,7 @@ select {
   }
 
   .picker-main {
-    grid-template-columns: 112px minmax(0, 1fr);
+    grid-template-columns: 118px minmax(0, 1fr);
     gap: 10px;
   }
 
@@ -1854,11 +1958,11 @@ select {
   }
 
   .picker-detail-card {
-    min-height: 270px;
+    min-height: 286px;
   }
 
   .picker-detail-zone {
-    min-height: min(44vh, 340px);
+    min-height: min(46vh, 352px);
   }
 
   .picker-focus-mark {
@@ -1866,16 +1970,17 @@ select {
   }
 
   .picker-product-list {
-    max-height: 230px;
+    max-height: 238px;
   }
 
   .picker-product-card {
-    grid-template-columns: 64px minmax(0, 1fr);
-    gap: 8px;
+    grid-template-columns: none;
+    grid-template-rows: auto minmax(0, 1fr);
+    gap: 6px;
   }
 
   .shoe-image--picker {
-    height: 52px;
+    height: 66px;
   }
 
   .map-minimap {

@@ -572,6 +572,11 @@
     el.pickerLink.classList.toggle("is-active", state.route === "picker");
   }
 
+  function setRoute(route) {
+    state.route = route;
+    document.body.dataset.route = route;
+  }
+
   function renderCurrentRoute() {
     if (state.route === "overview") {
       renderOverview();
@@ -729,12 +734,16 @@
     const category = selectedPickerCategory();
     const products = pickerProducts();
     const categoryGroup = categoryGroupMap[category] || "";
-    el.pickerCoordinate.textContent = `${brand} × ${pickerCategoryLabel(category)}`;
+    const coordinate = `${brand} × ${pickerCategoryLabel(category)}`;
+    el.pickerCoordinate.textContent = coordinate;
+    el.pickerDetail.className = `picker-detail-card picker-detail-card--${products.length ? "filled" : "empty"}`;
 
     el.pickerDetail.innerHTML = `
       <div class="picker-detail-card__head">
-        <p class="eyebrow">${escapeHtml(brand)} × ${escapeHtml(categoryGroup)}</p>
-        <h3>${escapeHtml(brand)} × ${escapeHtml(pickerCategoryLabel(category))}</h3>
+        <div class="picker-detail-card__title">
+          <span class="picker-coordinate-badge">${escapeHtml(categoryGroup || "라인업")}</span>
+          <h3>${escapeHtml(coordinate)}</h3>
+        </div>
         <span class="picker-count-pill">${products.length ? `${products.length}개 제품` : "라인업 없음"}</span>
       </div>
       ${
@@ -751,10 +760,11 @@
 
   function pickerProductMarkup(shoe) {
     return `
-      <a class="picker-product-card" href="#/shoe/${encodeURIComponent(shoe.id)}">
+      <a class="picker-product-card" href="#/shoe/${encodeURIComponent(shoe.id)}" aria-label="${escapeHtml(`${shoe.brand} ${shoe.model} 상세 보기`)}">
         ${imageMarkup(shoe, "picker")}
         <span class="picker-product-card__body">
           <strong>${escapeHtml(shoe.displayName || shoe.model)}</strong>
+          <span class="picker-product-card__category">${escapeHtml(pickerCategoryLabel(shoe.category))}</span>
           <span class="picker-product-card__meta">
             ${dropMarkup(shoe, false)}
             <span class="tag-dots">${tagMarkup(shoe.tags, true)}</span>
@@ -988,7 +998,7 @@
     state.detailId = match ? match[1] : "";
 
     if (state.detailId) {
-      state.route = "detail";
+      setRoute("detail");
       const shoe = shoes.find((item) => item.id === state.detailId);
       closeMapSheet(false);
       clearPickerTimers();
@@ -1013,7 +1023,7 @@
     }
 
     if (hash === "#/overview") {
-      state.route = "overview";
+      setRoute("overview");
       state.lastBrowseRoute = "#/overview";
       clearPickerTimers();
       el.filterPanel.hidden = true;
@@ -1027,7 +1037,7 @@
     }
 
     if (hash === "#/picker") {
-      state.route = "picker";
+      setRoute("picker");
       state.lastBrowseRoute = "#/picker";
       closeMapSheet(false);
       el.filterPanel.hidden = true;
@@ -1040,7 +1050,7 @@
       return;
     }
 
-    state.route = "home";
+    setRoute("home");
     state.lastBrowseRoute = "#/";
     closeMapSheet(false);
     clearPickerTimers();
