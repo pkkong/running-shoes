@@ -992,8 +992,8 @@ select {
 }
 
 .brand-logo--nike {
-  --brand-logo-scale: 0.9;
-  --brand-logo-width: 68px;
+  --brand-logo-scale: 1.08;
+  --brand-logo-width: 82px;
 }
 
 .brand-logo--adidas {
