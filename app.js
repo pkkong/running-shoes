@@ -36,11 +36,6 @@
     장거리: "장거리",
   };
 
-  const mapDisplayModes = [
-    { value: "count", label: "제품 수" },
-    { value: "representative", label: "대표 제품" },
-  ];
-
   const state = {
     query: "",
     brand: "전체",
@@ -48,7 +43,6 @@
     category: "전체",
     tags: new Set(),
     sort: "table",
-    mapDisplayMode: "count",
     mapZoom: 1,
     route: "home",
     detailId: "",
@@ -79,7 +73,6 @@
     mapControlPanel: document.querySelector("#mapControlPanel"),
     mapGroupFilters: document.querySelector("#mapGroupFilters"),
     mapBrandFilters: document.querySelector("#mapBrandFilters"),
-    mapDisplayFilters: document.querySelector("#mapDisplayFilters"),
     mapSearchInput: document.querySelector("#mapSearchInput"),
     mapSummary: document.querySelector("#mapSummary"),
     mapViewShell: document.querySelector("#mapViewShell"),
@@ -340,11 +333,9 @@
     return "map-cell--low";
   }
 
-  function representativeName(items) {
+  function cellProductNames(items) {
     if (!items.length) return "";
-    const first = items[0].displayName || items[0].model;
-    if (items.length === 1) return first;
-    return `${first} 외 ${items.length - 1}`;
+    return items.map((item) => item.displayName || item.model).join(" · ");
   }
 
   function buildMapCellData(items, brands, rows) {
@@ -367,7 +358,7 @@
           row,
           shoes: cellShoes,
           count: cellShoes.length,
-          representative: representativeName(cellShoes),
+          productNames: cellProductNames(cellShoes),
         };
       }),
     }));
@@ -381,11 +372,6 @@
 
     renderSegmentButtons(el.mapBrandFilters, ["전체", ...brandOrder], state.brand, (value) => {
       state.brand = value;
-      renderOverview();
-    });
-
-    renderSegmentButtons(el.mapDisplayFilters, mapDisplayModes, state.mapDisplayMode, (value) => {
-      state.mapDisplayMode = value;
       renderOverview();
     });
 
@@ -417,15 +403,12 @@
               ${row.cells
                 .map((cell) => {
                   const disabled = cell.count === 0;
-                  const primaryShoe = cell.shoes[0];
                   const label = disabled
                     ? `${cell.brand} ${row.label} 제품 없음`
-                    : `${cell.brand} ${row.label} ${cell.count}개, 제품 목록 보기`;
-                  const primaryText = state.mapDisplayMode === "count" ? `${cell.count}개` : cell.representative;
-                  const secondaryText = state.mapDisplayMode === "count" ? cell.representative : `${cell.count}개`;
+                    : `${cell.brand} ${row.label} ${cell.count}개: ${cell.productNames}. 제품 목록 보기`;
                   return `
                     <button
-                      class="map-cell ${cellIntensity(cell.count, maxCount)} map-cell--${state.mapDisplayMode}"
+                      class="map-cell ${cellIntensity(cell.count, maxCount)}"
                       type="button"
                       data-map-cell="true"
                       data-brand="${escapeHtml(cell.brand)}"
@@ -434,14 +417,16 @@
                       ${disabled ? "disabled" : ""}
                     >
                       ${
-                        primaryShoe
-                          ? `<span class="map-cell__media">${mapImageMarkup(primaryShoe)}</span>`
+                        cell.count
+                          ? `<span class="map-cell__media map-cell__media--${cell.count}">${cell.shoes
+                              .map(mapImageMarkup)
+                              .join("")}</span>`
                           : ""
                       }
                       <span class="map-cell__body">
-                        <span class="map-cell__count">${cell.count ? escapeHtml(primaryText) : "없음"}</span>
+                        <span class="map-cell__count">${cell.count ? `${cell.count}개 제품` : "없음"}</span>
                         <span class="map-cell__name">
-                          ${cell.count ? escapeHtml(secondaryText) : "제품 없음"}
+                          ${cell.count ? escapeHtml(cell.productNames) : "제품 없음"}
                         </span>
                       </span>
                     </button>
