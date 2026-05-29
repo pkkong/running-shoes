@@ -679,7 +679,6 @@
               data-repeat-index="${repeatIndex}"
               aria-selected="false"
               aria-label="${escapeHtml(ariaLabel)}"
-              ${isPrimaryCopy ? "" : `aria-hidden="true"`}
               tabindex="-1"
             >
               ${visual}
@@ -755,11 +754,22 @@
   function updatePickerAxisState(axis) {
     const container = pickerAxisContainer(axis);
     const selectedIndex = pickerAxisIndex(axis);
+    const containerRect = container.getBoundingClientRect();
     container.setAttribute("aria-activedescendant", `picker-${axis}-option-${selectedIndex}`);
     container.querySelectorAll(`[data-axis="${axis}"]`).forEach((item) => {
       const isSelected = Number(item.dataset.logicalIndex) === selectedIndex;
       const isPrimaryCopy = Number(item.dataset.repeatIndex) === pickerMiddleRepeat;
+      const itemRect = item.getBoundingClientRect();
+      const isVisible =
+        axis === "brand"
+          ? itemRect.right > containerRect.left && itemRect.left < containerRect.right
+          : itemRect.bottom > containerRect.top && itemRect.top < containerRect.bottom;
       item.classList.toggle("is-selected", isSelected);
+      if (isVisible) {
+        item.removeAttribute("aria-hidden");
+      } else {
+        item.setAttribute("aria-hidden", "true");
+      }
       item.setAttribute("aria-selected", isSelected && isPrimaryCopy ? "true" : "false");
     });
   }
@@ -1016,16 +1026,25 @@
       if (image.dataset.wired) return;
       image.dataset.wired = "true";
       image.addEventListener("load", () => {
-        image.closest(".shoe-image")?.classList.add("is-loaded");
+        const box = image.closest(".shoe-image");
+        if (box) {
+          box.classList.remove("is-failed");
+          box.classList.add("is-loaded");
+        }
       });
       image.addEventListener("error", () => {
         const box = image.closest(".shoe-image");
         if (box) {
+          box.classList.remove("is-loaded");
           box.classList.add("is-failed");
         }
       });
       if (image.complete && image.naturalWidth > 0) {
-        image.closest(".shoe-image")?.classList.add("is-loaded");
+        const box = image.closest(".shoe-image");
+        if (box) {
+          box.classList.remove("is-failed");
+          box.classList.add("is-loaded");
+        }
       }
     });
   }
