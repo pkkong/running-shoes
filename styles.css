@@ -34,6 +34,9 @@ body {
     sans-serif;
   font-feature-settings: "tnum";
   font-variant-numeric: tabular-nums;
+  line-height: 1.45;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
 
 body.sheet-open {
@@ -752,7 +755,7 @@ select {
   align-items: center;
   justify-content: space-between;
   gap: 12px;
-  min-height: 72px;
+  min-height: 64px;
   overflow: hidden;
   padding: 4px 0 0;
   background: transparent;
@@ -766,8 +769,9 @@ select {
 .picker-header h2 {
   position: relative;
   margin: 0;
-  font-size: clamp(24px, 5vw, 32px);
-  line-height: 1.02;
+  font-size: clamp(22px, 4.8vw, 30px);
+  font-weight: 950;
+  line-height: 1.04;
 }
 
 .picker-header__meta {
@@ -780,15 +784,15 @@ select {
 .picker-header__meta strong {
   display: inline-flex;
   align-items: center;
-  min-height: 38px;
+  min-height: 0;
   max-width: 100%;
-  padding: 8px 10px;
+  padding: 0;
   border: 0;
-  border-radius: 2px;
-  background: #111111;
-  color: #ffffff;
-  font-size: 14px;
-  font-weight: 950;
+  border-radius: 0;
+  background: transparent;
+  color: #565656;
+  font-size: 12px;
+  font-weight: 850;
   white-space: nowrap;
 }
 
@@ -801,9 +805,11 @@ select {
 
 .picker-header__actions .back-link {
   border: 0;
-  border-radius: 2px;
-  background: #e4e4e4;
-  color: #222222;
+  border-radius: 0;
+  background: transparent;
+  color: #555555;
+  font-size: 12px;
+  font-weight: 850;
 }
 
 .picker-header__actions .back-link,
@@ -852,7 +858,7 @@ select {
 .picker-axis--horizontal {
   display: flex;
   gap: 7px;
-  min-height: 54px;
+  min-height: 50px;
   overflow-x: auto;
   overflow-y: hidden;
   padding: 4px calc(50% - 52px);
@@ -897,7 +903,7 @@ select {
   place-items: center;
   flex: 0 0 104px;
   min-width: 0;
-  height: 42px;
+  height: 38px;
   padding: 0 9px;
   border: 0;
   border-radius: 2px;
@@ -958,7 +964,7 @@ select {
 
 .picker-main {
   display: grid;
-  grid-template-columns: 100px minmax(0, 1fr);
+  grid-template-columns: 84px minmax(0, 1fr);
   gap: 8px;
   align-items: stretch;
 }
@@ -998,7 +1004,7 @@ select {
   position: relative;
   z-index: 1;
   display: grid;
-  gap: 14px;
+  gap: 18px;
   min-width: 0;
   min-height: 336px;
   padding: 0;
@@ -1015,15 +1021,25 @@ select {
 
 .picker-detail-card__title {
   display: grid;
-  gap: 6px;
+  gap: 8px;
   min-width: 0;
 }
 
 .picker-detail-card__head h3 {
+  display: flex;
+  align-items: center;
+  gap: 10px;
   margin: 0;
-  font-size: clamp(19px, 4.7vw, 28px);
-  line-height: 1.16;
+  font-size: clamp(22px, 5vw, 32px);
+  font-weight: 950;
+  line-height: 1.05;
   word-break: keep-all;
+}
+
+.picker-detail-card__head h3 .brand-logo {
+  flex: 0 0 auto;
+  width: 76px;
+  height: 28px;
 }
 
 .picker-coordinate-badge {
@@ -1049,7 +1065,7 @@ select {
   min-height: 28px;
   padding: 5px 7px;
   border-radius: 2px;
-  background: #11191c;
+  background: #111111;
   color: #ffffff;
   font-size: 12px;
   font-weight: 900;
@@ -1059,7 +1075,7 @@ select {
   display: grid;
   grid-template-columns: 1fr;
   align-content: start;
-  gap: 18px;
+  gap: 22px;
   max-height: 354px;
   overflow: auto;
   padding-right: 2px;
@@ -1067,8 +1083,8 @@ select {
 
 .picker-product-card {
   display: grid;
-  grid-template-columns: minmax(128px, 0.95fr) minmax(0, 1fr);
-  gap: 12px;
+  grid-template-columns: minmax(154px, 0.98fr) minmax(0, 1fr);
+  gap: 14px;
   align-items: center;
   min-width: 0;
   padding: 0;
@@ -1091,7 +1107,7 @@ select {
 .picker-product-card__body {
   display: grid;
   align-content: center;
-  gap: 6px;
+  gap: 7px;
   min-width: 0;
 }
 
@@ -1107,15 +1123,16 @@ select {
 
 .picker-product-card__brand .brand-logo {
   justify-content: start;
-  width: 58px;
-  height: 18px;
+  width: 62px;
+  height: 19px;
 }
 
 .picker-product-card__body strong {
   display: -webkit-box;
   overflow: hidden;
-  min-height: 42px;
-  font-size: 15px;
+  min-height: 44px;
+  font-size: 16px;
+  font-weight: 900;
   line-height: 1.32;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
@@ -1521,7 +1538,7 @@ select {
 }
 
 .shoe-image--picker {
-  height: 124px;
+  height: 152px;
   border: 0;
   border-radius: 2px;
   background: #ffffff;
@@ -1854,7 +1871,7 @@ select {
 
   .picker-header {
     gap: 8px;
-    min-height: 68px;
+    min-height: 58px;
     padding: 0;
   }
 
@@ -1863,7 +1880,7 @@ select {
   }
 
   .picker-header h2 {
-    font-size: 24px;
+    font-size: 22px;
   }
 
   .picker-header__meta {
@@ -1875,9 +1892,9 @@ select {
   }
 
   .picker-header__meta strong {
-    min-height: 34px;
+    min-height: 0;
     max-width: 168px;
-    padding: 6px 8px;
+    padding: 0;
     overflow: hidden;
     font-size: 12px;
     text-overflow: ellipsis;
@@ -1889,8 +1906,8 @@ select {
   }
 
   .picker-header__actions .back-link {
-    min-height: 34px;
-    padding: 8px;
+    min-height: 28px;
+    padding: 6px 0 6px 8px;
     font-size: 12px;
   }
 
@@ -1963,7 +1980,7 @@ select {
   }
 
   .picker-axis--horizontal {
-    min-height: 52px;
+    min-height: 48px;
     padding-block: 4px;
     padding-inline: calc(50% - 50px);
     scroll-padding-inline: calc(50% - 50px);
@@ -1975,7 +1992,7 @@ select {
 
   .picker-axis-item {
     flex-basis: 100px;
-    height: 40px;
+    height: 38px;
     padding: 0 7px;
   }
 
@@ -1985,7 +2002,7 @@ select {
   }
 
   .picker-main {
-    grid-template-columns: 100px minmax(0, 1fr);
+    grid-template-columns: 84px minmax(0, 1fr);
     gap: 8px;
   }
 
@@ -1995,7 +2012,7 @@ select {
   }
 
   .picker-detail-card {
-    min-height: 348px;
+    min-height: 362px;
     padding: 0;
   }
 
@@ -2009,17 +2026,17 @@ select {
 
   .picker-product-list {
     grid-template-columns: 1fr;
-    gap: 18px;
-    max-height: 292px;
+    gap: 22px;
+    max-height: 306px;
   }
 
   .picker-product-card {
-    grid-template-columns: minmax(122px, 0.92fr) minmax(0, 1fr);
-    gap: 11px;
+    grid-template-columns: minmax(146px, 1fr) minmax(0, 0.86fr);
+    gap: 12px;
   }
 
   .shoe-image--picker {
-    height: 118px;
+    height: 144px;
   }
 
   .map-minimap {

@@ -616,11 +616,11 @@
   function pickerAxisCategoryLabel(category) {
     return (
       {
-        "맥스 쿠션화": "맥스쿠션",
-        "경량 트레이너": "경량트레이너",
-        "논 플레이트": "논플레이트",
-        "라이트 플레이트": "라이트플레이트",
-        "카본 플레이트": "카본플레이트",
+        "맥스 쿠션화": "맥스",
+        "경량 트레이너": "경량",
+        "논 플레이트": "논PL",
+        "라이트 플레이트": "라이트PL",
+        "카본 플레이트": "카본PL",
       }[category] || pickerCategoryLabel(category)
     );
   }
@@ -790,7 +790,10 @@
       <div class="picker-detail-card__head">
         <div class="picker-detail-card__title">
           <span class="picker-coordinate-badge">${escapeHtml(categoryGroup || "라인업")}</span>
-          <h3>${escapeHtml(coordinate)}</h3>
+          <h3 aria-label="${escapeHtml(coordinate)}">
+            ${brandLogoMarkup(brand)}
+            <span>${escapeHtml(pickerCategoryLabel(category))}</span>
+          </h3>
         </div>
         <span class="picker-count-pill">${products.length ? `${products.length}개 제품` : "라인업 없음"}</span>
       </div>
