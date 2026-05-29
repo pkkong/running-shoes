@@ -626,37 +626,24 @@
   }
 
   function brandLogoMarkup(brand) {
-    const wordmark = (text, width = 112) => `
-      <svg class="brand-logo__svg" viewBox="0 0 ${width} 40" aria-hidden="true" focusable="false">
-        <text x="${width / 2}" y="27" text-anchor="middle" font-size="22" font-weight="950" font-family="Pretendard, Arial, sans-serif" fill="currentColor">${text}</text>
-      </svg>
-    `;
     const logos = {
-      Nike: `
-        <svg class="brand-logo__svg" viewBox="0 0 120 40" aria-hidden="true" focusable="false">
-          <path fill="currentColor" d="M9 25.1c15.4 6.2 31.7 3.8 49.4-2.8L111 2.7 61.4 32.4C41.7 44.2 22.8 41.5 9 25.1Z"/>
-        </svg>
-      `,
-      Adidas: `
-        <svg class="brand-logo__svg" viewBox="0 0 120 40" aria-hidden="true" focusable="false">
-          <path fill="currentColor" d="M18 28h17L23 10H6l12 18Zm33 0h17L49 2H32l19 26Zm33 0h17L76 8H59l25 20Z"/>
-        </svg>
-      `,
-      ASICS: wordmark("asics", 112),
-      "New Balance": wordmark("NB", 96),
-      Saucony: `
-        <svg class="brand-logo__svg" viewBox="0 0 120 40" aria-hidden="true" focusable="false">
-          <path fill="currentColor" d="M14 25c23 5 45-13 75-9 9 1 15 4 20 8-24-6-47 12-77 8-8-1-14-4-18-7Z"/>
-          <circle cx="75" cy="18" r="3" fill="currentColor"/><circle cx="88" cy="18" r="3" fill="currentColor"/><circle cx="101" cy="21" r="3" fill="currentColor"/>
-        </svg>
-      `,
-      Puma: wordmark("PUMA", 112),
-      HOKA: wordmark("HOKA", 112),
-      Brooks: wordmark("BROOKS", 120),
-      Mizuno: wordmark("MIZUNO", 120),
-      On: wordmark("On", 76),
+      Nike: "assets/logos/nike.png",
+      Adidas: "assets/logos/adidas.svg",
+      ASICS: "assets/logos/asics.svg",
+      "New Balance": "assets/logos/new-balance.png",
+      Saucony: "assets/logos/saucony.svg",
+      Puma: "assets/logos/puma.svg",
+      HOKA: "assets/logos/hoka.ico",
+      Brooks: "assets/logos/brooks.png",
+      Mizuno: "assets/logos/mizuno.svg",
+      On: "assets/logos/on.ico",
     };
-    return `<span class="brand-logo brand-logo--${normalize(brand)}" aria-hidden="true">${logos[brand] || wordmark(escapeHtml(brand), 120)}</span>`;
+    const source = logos[brand];
+    const fallback = escapeHtml(brand);
+    const logo = source
+      ? `<img class="brand-logo__image" src="${source}" alt="" loading="lazy" decoding="async" onerror="this.closest('.brand-logo').classList.add('is-missing'); this.remove();" />`
+      : "";
+    return `<span class="brand-logo brand-logo--${normalize(brand)}" aria-hidden="true">${logo}<span class="brand-logo__fallback">${fallback}</span></span>`;
   }
 
   function selectedPickerBrand() {
