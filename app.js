@@ -3,8 +3,6 @@
 
   const brandOrder = ["Nike", "Adidas", "ASICS", "New Balance", "Saucony", "Puma", "HOKA", "Brooks", "Mizuno", "On"];
   const groupOrder = ["데일리", "슈퍼 트레이너", "레이싱"];
-  const pickerRepeatCount = 5;
-  const pickerMiddleRepeat = Math.floor(pickerRepeatCount / 2);
   const categoryOrder = [
     "입문화",
     "맥스 쿠션화",
@@ -49,18 +47,6 @@
     pickerBrandIndex: 0,
     pickerCategoryIndex: 0,
     pickerAxesReady: false,
-    pickerRaf: {
-      brand: 0,
-      category: 0,
-    },
-    pickerSnapTimer: {
-      brand: 0,
-      category: 0,
-    },
-    pickerRebalanceTimer: {
-      brand: 0,
-      category: 0,
-    },
     route: "home",
     detailId: "",
     lastBrowseRoute: "#/",
@@ -660,48 +646,35 @@
     return shoes.filter((shoe) => shoe.brand === brand && shoe.category === category);
   }
 
-  function repeatedPickerItems(values, axis) {
-    return Array.from({ length: pickerRepeatCount }, (_, repeatIndex) =>
-      values
-        .map((value, logicalIndex) => {
-          const label = axis === "category" ? pickerAxisCategoryLabel(value) : value;
-          const ariaLabel = axis === "category" ? pickerCategoryLabel(value) : value;
-          const visual = axis === "brand" ? brandLogoMarkup(value) : escapeHtml(label);
-          const isPrimaryCopy = repeatIndex === pickerMiddleRepeat;
-          return `
-            <button
-              ${isPrimaryCopy ? `id="picker-${axis}-option-${logicalIndex}"` : ""}
-              class="picker-axis-item"
-              type="button"
-              role="option"
-              data-axis="${axis}"
-              data-logical-index="${logicalIndex}"
-              data-repeat-index="${repeatIndex}"
-              aria-selected="false"
-              aria-label="${escapeHtml(ariaLabel)}"
-              tabindex="-1"
-            >
-              ${visual}
-            </button>
-          `;
-        })
-        .join("")
-    ).join("");
+  function pickerAxisItems(values, axis) {
+    return values
+      .map((value, logicalIndex) => {
+        const label = axis === "category" ? pickerAxisCategoryLabel(value) : value;
+        const ariaLabel = axis === "category" ? pickerCategoryLabel(value) : value;
+        const visual = axis === "brand" ? brandLogoMarkup(value) : escapeHtml(label);
+        return `
+          <button
+            id="picker-${axis}-option-${logicalIndex}"
+            class="picker-axis-item"
+            type="button"
+            role="option"
+            data-axis="${axis}"
+            data-logical-index="${logicalIndex}"
+            aria-selected="false"
+            aria-label="${escapeHtml(ariaLabel)}"
+          >
+            ${visual}
+          </button>
+        `;
+      })
+      .join("");
   }
 
   function renderPickerAxes() {
     if (state.pickerAxesReady) return;
-    el.pickerBrandAxis.innerHTML = repeatedPickerItems(brandOrder, "brand");
-    el.pickerCategoryAxis.innerHTML = repeatedPickerItems(categoryOrder, "category");
+    el.pickerBrandAxis.innerHTML = pickerAxisItems(brandOrder, "brand");
+    el.pickerCategoryAxis.innerHTML = pickerAxisItems(categoryOrder, "category");
     state.pickerAxesReady = true;
-
-    window.requestAnimationFrame(() => {
-      if (state.route !== "picker") return;
-      centerPickerAxis("brand", state.pickerBrandIndex, "auto");
-      centerPickerAxis("category", state.pickerCategoryIndex, "auto");
-      updatePickerAxisState("brand");
-      updatePickerAxisState("category");
-    });
   }
 
   function pickerAxisContainer(axis) {
@@ -724,53 +697,24 @@
     return axis === "brand" ? brandOrder.length : categoryOrder.length;
   }
 
-  function centerPickerAxis(axis, index, behavior = "smooth", repeatIndex = pickerMiddleRepeat) {
+  function revealPickerAxisItem(axis, index, behavior = "smooth") {
     const container = pickerAxisContainer(axis);
-    const target = container.querySelector(
-      `[data-axis="${axis}"][data-logical-index="${index}"][data-repeat-index="${repeatIndex}"]`
-    );
+    const target = container.querySelector(`[data-axis="${axis}"][data-logical-index="${index}"]`);
     if (!target) return;
 
-    const position =
-      axis === "brand"
-        ? target.offsetLeft - (container.clientWidth - target.offsetWidth) / 2
-        : target.offsetTop - (container.clientHeight - target.offsetHeight) / 2;
-    container.scrollTo(axis === "brand" ? { left: position, behavior } : { top: position, behavior });
-  }
-
-  function nearestPickerItem(axis) {
-    const container = pickerAxisContainer(axis);
-    const items = [...container.querySelectorAll(`[data-axis="${axis}"]`)];
-    if (!items.length) return null;
-
-    const center = axis === "brand" ? container.scrollLeft + container.clientWidth / 2 : container.scrollTop + container.clientHeight / 2;
-    return items.reduce((closest, item) => {
-      const itemCenter = axis === "brand" ? item.offsetLeft + item.offsetWidth / 2 : item.offsetTop + item.offsetHeight / 2;
-      const distance = Math.abs(center - itemCenter);
-      return !closest || distance < closest.distance ? { item, distance } : closest;
-    }, null)?.item;
+    if (axis === "brand") {
+      target.scrollIntoView({ behavior, block: "nearest", inline: "center" });
+    }
   }
 
   function updatePickerAxisState(axis) {
     const container = pickerAxisContainer(axis);
     const selectedIndex = pickerAxisIndex(axis);
-    const containerRect = container.getBoundingClientRect();
     container.setAttribute("aria-activedescendant", `picker-${axis}-option-${selectedIndex}`);
     container.querySelectorAll(`[data-axis="${axis}"]`).forEach((item) => {
       const isSelected = Number(item.dataset.logicalIndex) === selectedIndex;
-      const isPrimaryCopy = Number(item.dataset.repeatIndex) === pickerMiddleRepeat;
-      const itemRect = item.getBoundingClientRect();
-      const isVisible =
-        axis === "brand"
-          ? itemRect.right > containerRect.left && itemRect.left < containerRect.right
-          : itemRect.bottom > containerRect.top && itemRect.top < containerRect.bottom;
       item.classList.toggle("is-selected", isSelected);
-      if (isVisible) {
-        item.removeAttribute("aria-hidden");
-      } else {
-        item.setAttribute("aria-hidden", "true");
-      }
-      item.setAttribute("aria-selected", isSelected && isPrimaryCopy ? "true" : "false");
+      item.setAttribute("aria-selected", isSelected ? "true" : "false");
     });
   }
 
@@ -811,58 +755,6 @@
     `;
   }
 
-  function updatePickerSelectionFromCenter(axis) {
-    if (state.route !== "picker") return;
-    const nearest = nearestPickerItem(axis);
-    if (!nearest) return;
-    const nextIndex = Number(nearest.dataset.logicalIndex);
-    if (nextIndex !== pickerAxisIndex(axis)) {
-      setPickerAxisIndex(axis, nextIndex);
-      updatePickerAxisState(axis);
-      renderPickerDetail();
-    }
-  }
-
-  function rebalancePickerAxis(axis) {
-    if (state.route !== "picker") return;
-    const nearest = nearestPickerItem(axis);
-    if (!nearest) return;
-    const repeatIndex = Number(nearest.dataset.repeatIndex);
-    const logicalIndex = Number(nearest.dataset.logicalIndex);
-    if (repeatIndex === pickerMiddleRepeat) return;
-    centerPickerAxis(axis, logicalIndex, "auto", pickerMiddleRepeat);
-  }
-
-  function snapPickerAxis(axis) {
-    if (state.route !== "picker") return;
-    const nearest = nearestPickerItem(axis);
-    if (!nearest) return;
-    const logicalIndex = Number(nearest.dataset.logicalIndex);
-    setPickerAxisIndex(axis, logicalIndex);
-    updatePickerAxisState(axis);
-    renderPickerDetail();
-    const container = pickerAxisContainer(axis);
-    const position =
-      axis === "brand"
-        ? nearest.offsetLeft - (container.clientWidth - nearest.offsetWidth) / 2
-        : nearest.offsetTop - (container.clientHeight - nearest.offsetHeight) / 2;
-    container.scrollTo(axis === "brand" ? { left: position, behavior: "smooth" } : { top: position, behavior: "smooth" });
-    window.clearTimeout(state.pickerRebalanceTimer[axis]);
-    state.pickerRebalanceTimer[axis] = window.setTimeout(() => rebalancePickerAxis(axis), 220);
-  }
-
-  function schedulePickerAxis(axis) {
-    if (state.route !== "picker") return;
-    if (!state.pickerRaf[axis]) {
-      state.pickerRaf[axis] = window.requestAnimationFrame(() => {
-        state.pickerRaf[axis] = 0;
-        updatePickerSelectionFromCenter(axis);
-      });
-    }
-    window.clearTimeout(state.pickerSnapTimer[axis]);
-    state.pickerSnapTimer[axis] = window.setTimeout(() => snapPickerAxis(axis), 130);
-  }
-
   function selectPickerAxis(axis, index, behavior = "smooth") {
     if (state.route !== "picker") return;
     const length = pickerAxisLength(axis);
@@ -870,7 +762,7 @@
     setPickerAxisIndex(axis, nextIndex);
     updatePickerAxisState(axis);
     renderPickerDetail();
-    centerPickerAxis(axis, nextIndex, behavior);
+    revealPickerAxisItem(axis, nextIndex, behavior);
   }
 
   function renderPicker() {
@@ -882,16 +774,7 @@
   }
 
   function clearPickerTimers() {
-    ["brand", "category"].forEach((axis) => {
-      if (state.pickerRaf[axis]) {
-        window.cancelAnimationFrame(state.pickerRaf[axis]);
-        state.pickerRaf[axis] = 0;
-      }
-      window.clearTimeout(state.pickerSnapTimer[axis]);
-      window.clearTimeout(state.pickerRebalanceTimer[axis]);
-      state.pickerSnapTimer[axis] = 0;
-      state.pickerRebalanceTimer[axis] = 0;
-    });
+    return;
   }
 
   function renderDetail(shoe) {
@@ -1148,9 +1031,6 @@
   });
 
   el.mapViewport.addEventListener("scroll", scheduleMiniMapUpdate, { passive: true });
-
-  el.pickerBrandAxis.addEventListener("scroll", () => schedulePickerAxis("brand"), { passive: true });
-  el.pickerCategoryAxis.addEventListener("scroll", () => schedulePickerAxis("category"), { passive: true });
 
   [el.pickerBrandAxis, el.pickerCategoryAxis].forEach((container) => {
     container.addEventListener("click", (event) => {
