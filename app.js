@@ -613,6 +613,18 @@
     return mapCategoryLabels[category] || category;
   }
 
+  function pickerAxisCategoryLabel(category) {
+    return (
+      {
+        "맥스 쿠션화": "맥스쿠션",
+        "경량 트레이너": "경량트레이너",
+        "논 플레이트": "논플레이트",
+        "라이트 플레이트": "라이트플레이트",
+        "카본 플레이트": "카본플레이트",
+      }[category] || pickerCategoryLabel(category)
+    );
+  }
+
   function selectedPickerBrand() {
     return brandOrder[state.pickerBrandIndex] || brandOrder[0];
   }
@@ -631,7 +643,8 @@
     return Array.from({ length: pickerRepeatCount }, (_, repeatIndex) =>
       values
         .map((value, logicalIndex) => {
-          const label = axis === "category" ? pickerCategoryLabel(value) : value;
+          const label = axis === "category" ? pickerAxisCategoryLabel(value) : value;
+          const ariaLabel = axis === "category" ? pickerCategoryLabel(value) : value;
           const isPrimaryCopy = repeatIndex === pickerMiddleRepeat;
           return `
             <button
@@ -643,7 +656,7 @@
               data-logical-index="${logicalIndex}"
               data-repeat-index="${repeatIndex}"
               aria-selected="false"
-              aria-label="${escapeHtml(label)}"
+              aria-label="${escapeHtml(ariaLabel)}"
               ${isPrimaryCopy ? "" : `aria-hidden="true"`}
               tabindex="-1"
             >
