@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>러닝화 추천표</title>
-    <link rel="stylesheet" href="styles.css?v=20260529-map-view-1" />
+    <link rel="stylesheet" href="styles.css?v=20260529-map-photo-1" />
   </head>
   <body>
     <header class="topbar">
@@ -96,7 +96,6 @@
             <p>브랜드와 용도별 제품 분포를 한눈에 확인하세요.</p>
           </div>
           <div class="map-hero__actions">
-            <button id="mapModeToggle" class="back-link" type="button">원본표 보기</button>
             <a class="back-link" href="#/">목록 보기</a>
           </div>
         </div>
@@ -122,23 +121,21 @@
 
         <section id="mapViewShell" class="shoe-map-section" aria-label="전체 러닝화 맵">
           <div class="shoe-map-toolbar">
-            <p id="mapSummary" class="map-summary">추천표 전체</p>
-            <div class="zoom-controls" role="group" aria-label="맵 확대 축소">
-              <button id="zoomOutButton" class="zoom-button" type="button" aria-label="맵 축소">−</button>
-              <button id="zoomResetButton" class="zoom-button zoom-button--wide" type="button" aria-label="맵 배율 맞춤">맞춤</button>
-              <button id="zoomInButton" class="zoom-button" type="button" aria-label="맵 확대">+</button>
+            <div class="shoe-map-toolbar__main">
+              <p id="mapSummary" class="map-summary">추천표 전체</p>
+              <div class="zoom-controls" role="group" aria-label="맵 확대 축소">
+                <button id="zoomOutButton" class="zoom-button" type="button" aria-label="맵 축소">−</button>
+                <button id="zoomResetButton" class="zoom-button zoom-button--wide" type="button" aria-label="맵 배율 맞춤">맞춤</button>
+                <button id="zoomInButton" class="zoom-button" type="button" aria-label="맵 확대">+</button>
+              </div>
             </div>
+            <div id="mapMiniMap" class="map-minimap" aria-hidden="true"></div>
           </div>
           <div class="shoe-map-shell">
             <div id="mapViewport" class="shoe-map-viewport" tabindex="0" aria-label="브랜드와 카테고리 러닝화 맵">
               <div id="shoeMapCanvas" class="shoe-map-canvas"></div>
             </div>
-            <div id="mapMiniMap" class="map-minimap" aria-hidden="true"></div>
           </div>
-        </section>
-
-        <section id="originalTableShell" class="matrix-section" aria-label="원본표 보기" hidden>
-          <div id="overviewMatrix" class="matrix-scroll"></div>
         </section>
       </section>
 
@@ -159,7 +156,7 @@
       <p>가격 조회, 최저가 검색, 알림은 다음 단계 기능으로 예약되어 있습니다.</p>
     </footer>
 
-    <script src="data/shoes.js?v=20260529-map-view-1"></script>
-    <script src="app.js?v=20260529-map-view-1"></script>
+    <script src="data/shoes.js?v=20260529-map-photo-1"></script>
+    <script src="app.js?v=20260529-map-photo-1"></script>
   </body>
 </html>

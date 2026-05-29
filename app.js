@@ -50,7 +50,6 @@
     sort: "table",
     mapDisplayMode: "count",
     mapZoom: 1,
-    overviewMode: "map",
     route: "home",
     detailId: "",
     lastBrowseRoute: "#/",
@@ -69,7 +68,6 @@
     groupFilters: document.querySelector("#groupFilters"),
     categoryFilters: document.querySelector("#categoryFilters"),
     tagFilters: document.querySelector("#tagFilters"),
-    overviewMatrix: document.querySelector("#overviewMatrix"),
     shoeGrid: document.querySelector("#shoeGrid"),
     emptyState: document.querySelector("#emptyState"),
     overviewTitle: document.querySelector("#overviewTitle"),
@@ -78,7 +76,6 @@
     resetButton: document.querySelector("#resetButton"),
     listLink: document.querySelector("#listLink"),
     overviewLink: document.querySelector("#overviewLink"),
-    mapModeToggle: document.querySelector("#mapModeToggle"),
     mapControlPanel: document.querySelector("#mapControlPanel"),
     mapGroupFilters: document.querySelector("#mapGroupFilters"),
     mapBrandFilters: document.querySelector("#mapBrandFilters"),
@@ -86,7 +83,6 @@
     mapSearchInput: document.querySelector("#mapSearchInput"),
     mapSummary: document.querySelector("#mapSummary"),
     mapViewShell: document.querySelector("#mapViewShell"),
-    originalTableShell: document.querySelector("#originalTableShell"),
     mapViewport: document.querySelector("#mapViewport"),
     shoeMapCanvas: document.querySelector("#shoeMapCanvas"),
     mapMiniMap: document.querySelector("#mapMiniMap"),
@@ -146,17 +142,6 @@
         }
         return a.tableOrder - b.tableOrder;
       });
-  }
-
-  function getVisibleBrands() {
-    return state.brand === "전체" ? brandOrder : brandOrder.filter((brand) => brand === state.brand);
-  }
-
-  function getVisibleRows() {
-    return categoryOrder
-      .map((category) => ({ category, group: categoryGroupMap[category] }))
-      .filter((row) => state.group === "전체" || row.group === state.group)
-      .filter((row) => state.category === "전체" || row.category === state.category);
   }
 
   function getMapFilteredShoes() {
@@ -303,16 +288,27 @@
     `;
   }
 
-  function matrixTileMarkup(shoe) {
+  function mapImageMarkup(shoe) {
+    const imageStyle = [
+      `--shoe-fit: ${shoe.imageFit || "contain"}`,
+      `--shoe-position: ${shoe.imagePosition || "center"}`,
+      `--shoe-scale: ${shoe.imageScale || 1}`,
+    ].join("; ");
+
     return `
-      <a class="matrix-tile" href="#/shoe/${encodeURIComponent(shoe.id)}" title="${escapeHtml(`${shoe.brand} ${shoe.model}`)}">
-        ${imageMarkup(shoe, "matrix")}
-        <span class="matrix-tile__name">${escapeHtml(shoe.model)}</span>
-        <span class="matrix-tile__meta">
-          ${dropMarkup(shoe, false)}
-          <span class="tag-dots">${tagMarkup(shoe.tags, true)}</span>
+      <span class="shoe-image shoe-image--map" style="${escapeHtml(imageStyle)}">
+        <span class="shoe-image__placeholder">
+          <strong>${escapeHtml(shoe.brand)}</strong>
+          <span>${escapeHtml(shoe.displayName || shoe.model)}</span>
         </span>
-      </a>
+        <img
+          src="${escapeHtml(shoe.imageUrl)}"
+          alt="${escapeHtml(`${shoe.brand} ${shoe.model}`)}"
+          loading="lazy"
+          decoding="async"
+          data-shoe-image
+        />
+      </span>
     `;
   }
 
@@ -334,71 +330,6 @@
           <span class="price-pill">${priceLabel}</span>
         </span>
       </a>
-    `;
-  }
-
-  function renderMatrix(items, options = {}) {
-    const brands = options.brands || getVisibleBrands();
-    const rows = options.rows || getVisibleRows();
-    const brandCounts = items.reduce((acc, shoe) => {
-      acc[shoe.brand] = (acc[shoe.brand] || 0) + 1;
-      return acc;
-    }, {});
-    const groupSpan = rows.reduce((acc, row) => {
-      acc[row.group] = (acc[row.group] || 0) + 1;
-      return acc;
-    }, {});
-    const seenGroups = new Set();
-
-    const bodyRows = rows
-      .map((row) => {
-        const groupCell = seenGroups.has(row.group)
-          ? ""
-          : `<th class="matrix-group" scope="rowgroup" rowspan="${groupSpan[row.group]}">${escapeHtml(row.group)}</th>`;
-        seenGroups.add(row.group);
-
-        const cells = brands
-          .map((brand) => {
-            const cellShoes = items.filter((shoe) => shoe.brand === brand && shoe.category === row.category);
-            return `
-              <td>
-                <div class="matrix-cell ${cellShoes.length ? "" : "is-empty"}">
-                  ${cellShoes.map(matrixTileMarkup).join("")}
-                </div>
-              </td>
-            `;
-          })
-          .join("");
-
-        return `
-          <tr class="${groupClassName(row.group)}">
-            ${groupCell}
-            <th class="matrix-category" scope="row">${escapeHtml(row.category)}</th>
-            ${cells}
-          </tr>
-        `;
-      })
-      .join("");
-
-    el.overviewMatrix.innerHTML = `
-      <table class="matrix-table">
-        <thead>
-          <tr>
-            <th class="matrix-corner" colspan="2">구분</th>
-            ${brands
-              .map(
-                (brand) => `
-                  <th scope="col">
-                    <span class="matrix-brand">${escapeHtml(brand)}</span>
-                    <span class="matrix-brand-count">${brandCounts[brand] || 0}</span>
-                  </th>
-                `
-              )
-              .join("")}
-          </tr>
-        </thead>
-        <tbody>${bodyRows}</tbody>
-      </table>
     `;
   }
 
@@ -461,9 +392,6 @@
     if (document.activeElement !== el.mapSearchInput) {
       el.mapSearchInput.value = state.query;
     }
-
-    el.mapModeToggle.textContent = state.overviewMode === "map" ? "원본표 보기" : "맵 보기";
-    el.mapModeToggle.setAttribute("aria-pressed", state.overviewMode === "table" ? "true" : "false");
   }
 
   function renderShoeMap(items) {
@@ -484,12 +412,12 @@
           .map(
             (row) => `
               <div class="map-row-head ${groupClassName(row.group)}">
-                <span>${escapeHtml(groupLabel(row.group))}</span>
-                <strong>${escapeHtml(row.label)}</strong>
+                <strong title="${escapeHtml(`${groupLabel(row.group)} · ${row.label}`)}">${escapeHtml(row.label)}</strong>
               </div>
               ${row.cells
                 .map((cell) => {
                   const disabled = cell.count === 0;
+                  const primaryShoe = cell.shoes[0];
                   const label = disabled
                     ? `${cell.brand} ${row.label} 제품 없음`
                     : `${cell.brand} ${row.label} ${cell.count}개, 제품 목록 보기`;
@@ -497,7 +425,7 @@
                   const secondaryText = state.mapDisplayMode === "count" ? cell.representative : `${cell.count}개`;
                   return `
                     <button
-                      class="map-cell ${cellIntensity(cell.count, maxCount)}"
+                      class="map-cell ${cellIntensity(cell.count, maxCount)} map-cell--${state.mapDisplayMode}"
                       type="button"
                       data-map-cell="true"
                       data-brand="${escapeHtml(cell.brand)}"
@@ -505,9 +433,16 @@
                       aria-label="${escapeHtml(label)}"
                       ${disabled ? "disabled" : ""}
                     >
-                      <span class="map-cell__count">${cell.count ? escapeHtml(primaryText) : "없음"}</span>
-                      <span class="map-cell__name">
-                        ${cell.count ? escapeHtml(secondaryText) : "제품 없음"}
+                      ${
+                        primaryShoe
+                          ? `<span class="map-cell__media">${mapImageMarkup(primaryShoe)}</span>`
+                          : ""
+                      }
+                      <span class="map-cell__body">
+                        <span class="map-cell__count">${cell.count ? escapeHtml(primaryText) : "없음"}</span>
+                        <span class="map-cell__name">
+                          ${cell.count ? escapeHtml(secondaryText) : "제품 없음"}
+                        </span>
                       </span>
                     </button>
                   `;
@@ -526,19 +461,22 @@
 
   function renderMiniMap(rowData, brands) {
     el.mapMiniMap.innerHTML = `
-      <div class="map-minimap__grid" style="grid-template-columns: repeat(${brands.length}, 1fr); grid-template-rows: repeat(${rowData.length}, 1fr);">
-        ${rowData
-          .flatMap((row) =>
-            row.cells.map((cell) => `<span class="map-minimap__cell ${cell.count ? "is-filled" : ""}"></span>`)
-          )
-          .join("")}
-      </div>
-      <span class="map-minimap__window"></span>
+      <span class="map-minimap__label">미니맵</span>
+      <span class="map-minimap__frame">
+        <span class="map-minimap__grid" style="grid-template-columns: repeat(${brands.length}, 1fr); grid-template-rows: repeat(${rowData.length}, 1fr);">
+          ${rowData
+            .flatMap((row) =>
+              row.cells.map((cell) => `<span class="map-minimap__cell ${cell.count ? "is-filled" : ""}"></span>`)
+            )
+            .join("")}
+        </span>
+        <span class="map-minimap__window"></span>
+      </span>
     `;
   }
 
   function updateMiniMapViewport() {
-    if (!el.mapViewport || !el.mapMiniMap || state.overviewMode !== "map") return;
+    if (!el.mapViewport || !el.mapMiniMap) return;
     const indicator = el.mapMiniMap.querySelector(".map-minimap__window");
     if (!indicator) return;
 
@@ -638,20 +576,10 @@
 
   function renderOverview() {
     const items = getMapFilteredShoes();
-    el.overviewTitle.textContent = state.overviewMode === "map" ? "전체 러닝화 맵" : "원본표 보기";
+    el.overviewTitle.textContent = "전체 러닝화 맵";
     renderMapControls();
-    el.mapViewShell.hidden = state.overviewMode !== "map";
-    el.originalTableShell.hidden = state.overviewMode !== "table";
-
-    if (state.overviewMode === "map") {
-      renderShoeMap(items);
-    } else {
-      renderMatrix(items, {
-        brands: getMapVisibleBrands(),
-        rows: getMapVisibleRows(),
-      });
-      wireImages();
-    }
+    el.mapViewShell.hidden = false;
+    renderShoeMap(items);
     wireImages();
   }
 
@@ -864,11 +792,6 @@
 
   el.mapSearchInput.addEventListener("input", (event) => {
     state.query = event.target.value;
-    renderOverview();
-  });
-
-  el.mapModeToggle.addEventListener("click", () => {
-    state.overviewMode = state.overviewMode === "map" ? "table" : "map";
     renderOverview();
   });
 
