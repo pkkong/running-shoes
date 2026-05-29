@@ -70,8 +70,7 @@ body[data-route="picker"] .topbar {
 
 body[data-route="picker"] {
   min-height: 100dvh;
-  background:
-    linear-gradient(180deg, #eef2f1 0%, #f7f8f7 46%, #ecefed 100%);
+  background: #eeeeee;
 }
 
 body[data-route="picker"] .app-shell {
@@ -741,10 +740,10 @@ select {
 .picker-header,
 .picker-axis-block,
 .picker-detail-card {
-  border: 1px solid rgba(18, 32, 36, 0.1);
   border-radius: 8px;
+  border: 0;
   background: var(--surface);
-  box-shadow: 0 10px 30px rgba(24, 38, 42, 0.08);
+  box-shadow: none;
 }
 
 .picker-header {
@@ -756,19 +755,12 @@ select {
   min-height: 72px;
   overflow: hidden;
   padding: 12px 14px;
-  border-color: rgba(18, 32, 36, 0.14);
-  background:
-    linear-gradient(90deg, rgba(0, 168, 107, 0.12), rgba(24, 119, 212, 0.06) 36%, rgba(255, 255, 255, 0) 68%),
-    #ffffff;
+  background: #ffffff;
   color: var(--text);
 }
 
 .picker-header::before {
-  content: "";
-  position: absolute;
-  inset: 0 auto 0 0;
-  width: 4px;
-  background: #00a86b;
+  display: none;
 }
 
 .picker-header h2 {
@@ -791,10 +783,10 @@ select {
   min-height: 38px;
   max-width: 100%;
   padding: 8px 12px;
-  border: 1px solid rgba(0, 168, 107, 0.24);
+  border: 0;
   border-radius: 8px;
-  background: #ecf8f3;
-  color: #123f35;
+  background: #111111;
+  color: #ffffff;
   font-size: 14px;
   font-weight: 950;
   white-space: nowrap;
@@ -808,8 +800,9 @@ select {
 }
 
 .picker-header__actions .back-link {
-  border-color: rgba(18, 32, 36, 0.12);
-  background: rgba(255, 255, 255, 0.78);
+  border: 0;
+  background: #eeeeee;
+  color: #222222;
 }
 
 .picker-header__actions .back-link,
@@ -825,26 +818,23 @@ select {
 }
 
 .picker-axis-block--brand {
-  background:
-    linear-gradient(90deg, #ffffff 0%, rgba(255, 255, 255, 0) 12%),
-    linear-gradient(270deg, #ffffff 0%, rgba(255, 255, 255, 0) 12%),
-    var(--surface);
+  background: #f7f7f7;
 }
 
 .picker-axis-block--category {
-  background: #172123;
-  color: #ffffff;
+  background: #f7f7f7;
+  color: var(--text);
 }
 
 .picker-axis-label {
   margin: 0 0 6px;
-  color: #718187;
+  color: #858585;
   font-size: 11px;
   font-weight: 900;
 }
 
 .picker-axis-block--category .picker-axis-label {
-  color: rgba(255, 255, 255, 0.52);
+  color: #858585;
 }
 
 .picker-axis {
@@ -882,12 +872,7 @@ select {
 
 .picker-axis-block--brand::after,
 .picker-axis-block--category::after {
-  content: "";
-  position: absolute;
-  pointer-events: none;
-  border: 1px solid rgba(0, 168, 107, 0.72);
-  border-radius: 8px;
-  box-shadow: 0 8px 22px rgba(0, 168, 107, 0.14);
+  display: none;
 }
 
 .picker-axis-block--brand::after {
@@ -913,10 +898,10 @@ select {
   min-width: 0;
   height: 46px;
   padding: 0 9px;
-  border: 1px solid rgba(18, 32, 36, 0.08);
+  border: 0;
   border-radius: 8px;
-  background: #f3f5f4;
-  color: #617177;
+  background: #eeeeee;
+  color: #777777;
   font-size: 12px;
   font-weight: 850;
   line-height: 1.15;
@@ -938,24 +923,22 @@ select {
 .picker-axis--vertical .picker-axis-item {
   width: 100%;
   min-width: 0;
-  border-color: rgba(255, 255, 255, 0.08);
-  background: rgba(255, 255, 255, 0.07);
-  color: rgba(255, 255, 255, 0.72);
+  background: #eeeeee;
+  color: #777777;
   font-size: 11px;
 }
 
 .picker-axis-item.is-selected {
-  border-color: #00a86b;
-  background: #0c9f69;
+  background: #111111;
   color: #ffffff;
   opacity: 1;
   transform: scale(1);
-  box-shadow: 0 8px 18px rgba(15, 21, 23, 0.12);
+  box-shadow: none;
 }
 
 .picker-axis:focus-visible {
-  outline: 3px solid rgba(24, 119, 212, 0.28);
-  outline-offset: 3px;
+  outline: 2px solid #111111;
+  outline-offset: 2px;
 }
 
 .picker-main {
@@ -993,16 +976,7 @@ select {
 }
 
 .picker-focus-mark {
-  position: absolute;
-  top: 50%;
-  right: 0;
-  left: 0;
-  height: min(352px, 88%);
-  transform: translateY(-50%);
-  border: 1px solid rgba(24, 119, 212, 0.14);
-  border-radius: 8px;
-  background: rgba(255, 255, 255, 0.45);
-  pointer-events: none;
+  display: none;
 }
 
 .picker-detail-card {
@@ -1013,9 +987,7 @@ select {
   min-width: 0;
   min-height: 336px;
   padding: 12px;
-  border-color: rgba(18, 32, 36, 0.1);
-  background:
-    linear-gradient(180deg, #ffffff 0%, #fbfcfb 100%);
+  background: #ffffff;
 }
 
 .picker-detail-card__head {
@@ -1045,8 +1017,8 @@ select {
   overflow: hidden;
   padding: 4px 7px;
   border-radius: 6px;
-  background: #eaf2ff;
-  color: #24537d;
+  background: #eeeeee;
+  color: #555555;
   font-size: 11px;
   font-weight: 950;
   text-overflow: ellipsis;
@@ -1085,18 +1057,18 @@ select {
   align-content: start;
   min-width: 0;
   padding: 8px;
-  border: 1px solid rgba(18, 32, 36, 0.08);
+  border: 0;
   border-radius: 8px;
-  background: #ffffff;
+  background: #f4f4f4;
   color: var(--text);
   text-decoration: none;
-  box-shadow: 0 8px 18px rgba(24, 38, 42, 0.055);
+  box-shadow: none;
 }
 
 .picker-product-card:focus-visible,
 .picker-product-card:hover {
-  border-color: rgba(0, 168, 107, 0.54);
-  box-shadow: 0 10px 24px rgba(0, 168, 107, 0.1);
+  background: #eeeeee;
+  box-shadow: none;
   outline: none;
 }
 
@@ -1118,7 +1090,7 @@ select {
 
 .picker-product-card__category {
   overflow: hidden;
-  color: #758287;
+  color: #777777;
   font-size: 11px;
   font-weight: 850;
   text-overflow: ellipsis;
@@ -1516,11 +1488,22 @@ select {
 }
 
 .shoe-image--picker {
-  height: 88px;
-  border: 1px solid #edf1ef;
+  height: 112px;
+  border: 0;
   border-radius: 6px;
-  background:
-    linear-gradient(180deg, #ffffff 0%, #f5f7f6 100%);
+  background: #ffffff;
+}
+
+.picker-detail-card--filled .shoe-image--picker {
+  box-shadow: 0 12px 22px rgba(0, 0, 0, 0.08);
+}
+
+.picker-detail-card--filled .picker-product-card__body {
+  color: #4a4a4a;
+}
+
+.picker-detail-card--filled .picker-product-card__body strong {
+  color: #111111;
 }
 
 .shoe-image--card {
@@ -1984,7 +1967,7 @@ select {
   }
 
   .picker-focus-mark {
-    height: min(280px, 86%);
+    display: none;
   }
 
   .picker-product-list {
@@ -2000,7 +1983,7 @@ select {
   }
 
   .shoe-image--picker {
-    height: 76px;
+    height: 98px;
   }
 
   .map-minimap {
