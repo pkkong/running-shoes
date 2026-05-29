@@ -627,7 +627,7 @@
     const source = logos[brand];
     const fallback = escapeHtml(brand);
     const logo = source
-      ? `<img class="brand-logo__image" src="${source}" alt="" loading="lazy" decoding="async" onerror="this.closest('.brand-logo').classList.add('is-missing'); this.remove();" />`
+      ? `<img class="brand-logo__image" src="${source}" alt="" decoding="async" onerror="this.closest('.brand-logo').classList.add('is-missing'); this.remove();" />`
       : "";
     return `<span class="brand-logo brand-logo--${normalize(brand)}" aria-hidden="true">${logo}<span class="brand-logo__fallback">${fallback}</span></span>`;
   }
