@@ -43,7 +43,6 @@
     overviewMatrix: document.querySelector("#overviewMatrix"),
     shoeGrid: document.querySelector("#shoeGrid"),
     emptyState: document.querySelector("#emptyState"),
-    resultMeta: document.querySelector("#resultMeta"),
     resultTitle: document.querySelector("#resultTitle"),
     sortSelect: document.querySelector("#sortSelect"),
     resetButton: document.querySelector("#resetButton"),
@@ -65,6 +64,10 @@
       .replace(/>/g, "&gt;")
       .replace(/"/g, "&quot;")
       .replace(/'/g, "&#039;");
+  }
+
+  function groupClassName(group) {
+    return `matrix-row--${normalize(group)}`;
   }
 
   function getFilteredShoes() {
@@ -169,8 +172,14 @@
   }
 
   function imageMarkup(shoe, variant) {
+    const imageStyle = [
+      `--shoe-fit: ${shoe.imageFit || "contain"}`,
+      `--shoe-position: ${shoe.imagePosition || "center"}`,
+      `--shoe-scale: ${shoe.imageScale || 1}`,
+    ].join("; ");
+
     return `
-      <div class="shoe-image shoe-image--${variant}">
+      <div class="shoe-image shoe-image--${variant}" style="${escapeHtml(imageStyle)}">
         <div class="shoe-image__placeholder">
           <strong>${escapeHtml(shoe.brand)}</strong>
           <span>${escapeHtml(shoe.model)}</span>
@@ -223,6 +232,10 @@
   function renderMatrix(items) {
     const brands = getVisibleBrands();
     const rows = getVisibleRows();
+    const brandCounts = items.reduce((acc, shoe) => {
+      acc[shoe.brand] = (acc[shoe.brand] || 0) + 1;
+      return acc;
+    }, {});
     const groupSpan = rows.reduce((acc, row) => {
       acc[row.group] = (acc[row.group] || 0) + 1;
       return acc;
@@ -250,7 +263,7 @@
           .join("");
 
         return `
-          <tr>
+          <tr class="${groupClassName(row.group)}">
             ${groupCell}
             <th class="matrix-category" scope="row">${escapeHtml(row.category)}</th>
             ${cells}
@@ -264,7 +277,16 @@
         <thead>
           <tr>
             <th class="matrix-corner" colspan="2">구분</th>
-            ${brands.map((brand) => `<th scope="col">${escapeHtml(brand)}</th>`).join("")}
+            ${brands
+              .map(
+                (brand) => `
+                  <th scope="col">
+                    <span class="matrix-brand">${escapeHtml(brand)}</span>
+                    <span class="matrix-brand-count">${brandCounts[brand] || 0}</span>
+                  </th>
+                `
+              )
+              .join("")}
           </tr>
         </thead>
         <tbody>${bodyRows}</tbody>
@@ -307,7 +329,6 @@
     const items = getFilteredShoes();
     const titleParts = [state.brand, state.group, state.category].filter((value) => value !== "전체");
     el.resultTitle.textContent = titleParts.length ? titleParts.join(" · ") : "추천표 전체";
-    el.resultMeta.textContent = `${items.length}개 모델 · 공식 사진 기준`;
     renderFilters();
     renderMatrix(items);
     renderResults(items);
