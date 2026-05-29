@@ -616,7 +616,7 @@
   function pickerAxisCategoryLabel(category) {
     return (
       {
-        "맥스 쿠션화": "맥스",
+        "맥스 쿠션화": "맥스쿠션",
         "경량 트레이너": "경량",
         "논 플레이트": "논PL",
         "라이트 플레이트": "라이트PL",
