@@ -784,14 +784,8 @@
     el.pickerDetail.className = `picker-detail-card picker-detail-card--${products.length ? "filled" : "empty"}`;
 
     el.pickerDetail.innerHTML = `
-      <div class="picker-detail-card__head">
-        <div class="picker-detail-card__title">
-          <span class="picker-coordinate-badge">${escapeHtml(categoryGroup || "라인업")}</span>
-          <h3 aria-label="${escapeHtml(coordinate)}">
-            ${brandLogoMarkup(brand)}
-            <span>${escapeHtml(pickerCategoryLabel(category))}</span>
-          </h3>
-        </div>
+      <div class="picker-detail-card__head" aria-label="${escapeHtml(coordinate)}">
+        <h3 class="visually-hidden">${escapeHtml(`${categoryGroup ? `${categoryGroup} · ` : ""}${coordinate}`)}</h3>
         <span class="picker-count-pill">${products.length ? `${products.length}개 제품` : "라인업 없음"}</span>
       </div>
       ${
@@ -811,9 +805,7 @@
       <a class="picker-product-card" href="#/shoe/${encodeURIComponent(shoe.id)}" aria-label="${escapeHtml(`${shoe.brand} ${shoe.model} 상세 보기`)}">
         ${imageMarkup(shoe, "picker")}
         <span class="picker-product-card__body">
-          <span class="picker-product-card__brand">${brandLogoMarkup(shoe.brand)}</span>
           <strong>${escapeHtml(shoe.displayName || shoe.model)}</strong>
-          <span class="picker-product-card__category">${escapeHtml(pickerCategoryLabel(shoe.category))}</span>
           <span class="picker-product-card__meta">
             ${dropMarkup(shoe, false)}
           </span>

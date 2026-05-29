@@ -83,7 +83,7 @@ body[data-route="picker"] .topbar {
 
 body[data-route="picker"] {
   min-height: 100dvh;
-  background: #eeeeee;
+  background: #f1f1ef;
 }
 
 body[data-route="picker"] .app-shell {
@@ -745,7 +745,7 @@ select {
 
 .picker-shell {
   display: grid;
-  gap: 12px;
+  gap: 14px;
   max-width: 980px;
   margin: 0 auto;
 }
@@ -765,7 +765,7 @@ select {
   align-items: center;
   justify-content: space-between;
   gap: 12px;
-  min-height: 64px;
+  min-height: 62px;
   overflow: hidden;
   padding: 4px 0 0;
   background: transparent;
@@ -779,7 +779,7 @@ select {
 .picker-header h2 {
   position: relative;
   margin: 0;
-  font-size: clamp(22px, 4.8vw, 30px);
+  font-size: clamp(24px, 5vw, 32px);
   font-weight: 950;
   line-height: 1.04;
 }
@@ -817,9 +817,9 @@ select {
   border: 0;
   border-radius: 0;
   background: transparent;
-  color: #555555;
+  color: #4b4b4b;
   font-size: 12px;
-  font-weight: 850;
+  font-weight: 900;
 }
 
 .picker-header__actions .back-link,
@@ -867,7 +867,7 @@ select {
 
 .picker-axis--horizontal {
   display: flex;
-  gap: 7px;
+  gap: 8px;
   min-height: 50px;
   overflow-x: auto;
   overflow-y: hidden;
@@ -878,7 +878,7 @@ select {
 
 .picker-axis--vertical {
   display: grid;
-  gap: 7px;
+  gap: 8px;
   height: min(55vh, 456px);
   overflow-x: hidden;
   overflow-y: auto;
@@ -916,9 +916,9 @@ select {
   height: 38px;
   padding: 0 9px;
   border: 0;
-  border-radius: 2px;
+  border-radius: 1px;
   background: transparent;
-  color: #777777;
+  color: #686868;
   font-size: 12px;
   font-weight: 850;
   line-height: 1.15;
@@ -926,8 +926,8 @@ select {
   text-align: center;
   text-overflow: ellipsis;
   white-space: nowrap;
-  opacity: 0.46;
-  transform: scale(0.88);
+  opacity: 0.4;
+  transform: scale(0.86);
   scroll-snap-align: center;
   transition:
     opacity 160ms ease,
@@ -1008,8 +1008,8 @@ select {
   width: 100%;
   min-width: 0;
   background: transparent;
-  color: #777777;
-  font-size: 11px;
+  color: #6c6c6c;
+  font-size: 10.5px;
 }
 
 .picker-axis-item.is-selected {
@@ -1027,8 +1027,8 @@ select {
 
 .picker-main {
   display: grid;
-  grid-template-columns: 84px minmax(0, 1fr);
-  gap: 8px;
+  grid-template-columns: 72px minmax(0, 1fr);
+  gap: 12px;
   align-items: stretch;
 }
 
@@ -1067,7 +1067,7 @@ select {
   position: relative;
   z-index: 1;
   display: grid;
-  gap: 18px;
+  gap: 12px;
   min-width: 0;
   min-height: 336px;
   padding: 0;
@@ -1076,22 +1076,23 @@ select {
 
 .picker-detail-card__head {
   display: flex;
-  align-items: start;
-  justify-content: space-between;
+  align-items: center;
+  justify-content: flex-end;
   gap: 10px;
   min-width: 0;
+  min-height: 30px;
 }
 
 .picker-detail-card__title {
   display: grid;
-  gap: 8px;
+  gap: 6px;
   min-width: 0;
 }
 
 .picker-detail-card__head h3 {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 9px;
   margin: 0;
   font-size: clamp(22px, 5vw, 32px);
   font-weight: 950;
@@ -1112,7 +1113,7 @@ select {
   padding: 0;
   border-radius: 0;
   background: transparent;
-  color: #555555;
+  color: #5f5f5f;
   font-size: 11px;
   font-weight: 950;
   text-overflow: ellipsis;
@@ -1127,10 +1128,10 @@ select {
   flex: 0 0 auto;
   min-height: 28px;
   padding: 5px 7px;
-  border-radius: 2px;
+  border-radius: 1px;
   background: #111111;
   color: #ffffff;
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 900;
 }
 
@@ -1138,7 +1139,7 @@ select {
   display: grid;
   grid-template-columns: 1fr;
   align-content: start;
-  gap: 22px;
+  gap: 30px;
   max-height: none;
   overflow: visible;
   padding-right: 2px;
@@ -1146,9 +1147,9 @@ select {
 
 .picker-product-card {
   display: grid;
-  grid-template-columns: minmax(154px, 0.98fr) minmax(0, 1fr);
-  gap: 14px;
-  align-items: center;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 9px;
+  align-items: start;
   min-width: 0;
   padding: 0;
   border: 0;
@@ -1169,13 +1170,14 @@ select {
 
 .picker-product-card__body {
   display: grid;
-  align-content: center;
-  gap: 7px;
+  align-content: start;
+  gap: 6px;
   min-width: 0;
+  padding-inline: 1px;
 }
 
 .picker-product-card__brand {
-  display: inline-grid;
+  display: none;
   align-items: center;
   width: fit-content;
   max-width: 88px;
@@ -1193,33 +1195,36 @@ select {
 .picker-product-card__body strong {
   display: -webkit-box;
   overflow: hidden;
-  min-height: 44px;
-  font-size: 16px;
-  font-weight: 900;
-  line-height: 1.32;
+  min-height: 0;
+  font-size: clamp(18px, 4.8vw, 23px);
+  font-weight: 950;
+  line-height: 1.14;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
 }
 
 .picker-product-card__category {
   overflow: hidden;
-  color: #777777;
-  font-size: 11px;
-  font-weight: 850;
+  color: #707070;
+  font-size: 12px;
+  font-weight: 900;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
 
 .picker-product-card__meta {
   display: flex;
-  align-items: center;
+  align-items: baseline;
   justify-content: flex-start;
-  gap: 6px;
+  gap: 0;
   min-width: 0;
+  color: #707070;
+  font-size: 12px;
+  font-weight: 850;
 }
 
 .picker-product-card .drop-value {
-  min-width: 50px;
+  min-width: auto;
 }
 
 .picker-empty-cell {
@@ -1601,10 +1606,14 @@ select {
 }
 
 .shoe-image--picker {
-  height: 152px;
+  height: clamp(188px, 58vw, 236px);
   border: 0;
-  border-radius: 2px;
+  border-radius: 1px;
   background: #ffffff;
+}
+
+.shoe-image--picker img {
+  transform: scale(calc(var(--shoe-scale, 1) * 1.06));
 }
 
 .shoe-image--picker .shoe-image__placeholder {
@@ -1617,7 +1626,7 @@ select {
 }
 
 .picker-detail-card--filled .shoe-image--picker {
-  box-shadow: 0 12px 22px rgba(0, 0, 0, 0.08);
+  box-shadow: none;
 }
 
 .picker-detail-card--filled .picker-product-card__body {
@@ -1679,6 +1688,21 @@ select {
 
 .shoe-image.is-failed img {
   display: none;
+}
+
+@media (min-width: 760px) {
+  .picker-product-list {
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 30px 22px;
+  }
+
+  .shoe-image--picker {
+    height: clamp(190px, 22vw, 240px);
+  }
+
+  .picker-product-card__body strong {
+    font-size: 20px;
+  }
 }
 
 .detail-view {
@@ -2061,7 +2085,7 @@ select {
   }
 
   .picker-axis-item {
-    flex-basis: 100px;
+    flex-basis: 98px;
     height: 38px;
     padding: 0 7px;
   }
@@ -2072,8 +2096,8 @@ select {
   }
 
   .picker-main {
-    grid-template-columns: 84px minmax(0, 1fr);
-    gap: 8px;
+    grid-template-columns: 64px minmax(0, 1fr);
+    gap: 10px;
   }
 
   .picker-axis-block--category::after {
@@ -2096,17 +2120,17 @@ select {
 
   .picker-product-list {
     grid-template-columns: 1fr;
-    gap: 22px;
+    gap: 30px;
     max-height: none;
   }
 
   .picker-product-card {
-    grid-template-columns: minmax(146px, 1fr) minmax(0, 0.86fr);
-    gap: 12px;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 9px;
   }
 
   .shoe-image--picker {
-    height: 144px;
+    height: clamp(184px, 58vw, 220px);
   }
 
   .map-minimap {
