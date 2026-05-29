@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>러닝화 추천표</title>
-    <link rel="stylesheet" href="styles.css?v=20260529-ui-image-7" />
+    <link rel="stylesheet" href="styles.css?v=20260529-overview-route-1" />
   </head>
   <body>
     <header class="topbar">
@@ -25,55 +25,54 @@
     </header>
 
     <main class="app-shell">
-      <div id="homeView">
-        <section class="control-panel" aria-label="러닝화 필터">
-          <label class="search-field">
-            <span>검색</span>
-            <input id="searchInput" type="search" placeholder="모델명, 브랜드, 종류 검색" autocomplete="off" />
-          </label>
+      <section id="filterPanel" class="control-panel" aria-label="러닝화 필터">
+        <label class="search-field">
+          <span>검색</span>
+          <input id="searchInput" type="search" placeholder="모델명, 브랜드, 종류 검색" autocomplete="off" />
+        </label>
 
+        <div class="filter-block">
+          <div class="filter-block__head">
+            <h2>브랜드</h2>
+            <button id="resetButton" class="icon-button" type="button" aria-label="필터 초기화" title="필터 초기화">
+              ↺
+            </button>
+          </div>
+          <div id="brandFilters" class="chip-row" role="group" aria-label="브랜드 필터"></div>
+        </div>
+
+        <div class="filter-grid">
           <div class="filter-block">
-            <div class="filter-block__head">
-              <h2>브랜드</h2>
-              <button id="resetButton" class="icon-button" type="button" aria-label="필터 초기화" title="필터 초기화">
-                ↺
-              </button>
-            </div>
-            <div id="brandFilters" class="chip-row" role="group" aria-label="브랜드 필터"></div>
+            <h2>대분류</h2>
+            <div id="groupFilters" class="chip-row" role="group" aria-label="대분류 필터"></div>
           </div>
-
-          <div class="filter-grid">
-            <div class="filter-block">
-              <h2>대분류</h2>
-              <div id="groupFilters" class="chip-row" role="group" aria-label="대분류 필터"></div>
-            </div>
-            <div class="filter-block">
-              <h2>종류</h2>
-              <div id="categoryFilters" class="chip-row" role="group" aria-label="종류 필터"></div>
-            </div>
-          </div>
-
           <div class="filter-block">
-            <h2>추천 태그</h2>
-            <div id="tagFilters" class="chip-row" role="group" aria-label="추천 태그 필터"></div>
+            <h2>종류</h2>
+            <div id="categoryFilters" class="chip-row" role="group" aria-label="종류 필터"></div>
           </div>
-        </section>
+        </div>
 
-        <section class="matrix-section" aria-label="한눈에 보기">
-          <div class="section-head">
-            <div>
-              <h2>한눈에 보기</h2>
-            </div>
-            <select id="sortSelect" aria-label="목록 정렬">
+        <div class="filter-block">
+          <h2>추천 태그</h2>
+          <div id="tagFilters" class="chip-row" role="group" aria-label="추천 태그 필터"></div>
+        </div>
+
+        <div class="filter-block filter-block--view">
+          <h2>보기</h2>
+          <div class="view-actions">
+            <a id="listLink" class="view-link" href="#/">목록</a>
+            <a id="overviewLink" class="view-link" href="#/overview">한눈에 보기</a>
+            <select id="sortSelect" aria-label="정렬">
               <option value="table">원문 표 순서</option>
               <option value="brand">브랜드순</option>
               <option value="category">종류순</option>
               <option value="drop">드롭 낮은순</option>
             </select>
           </div>
-          <div id="overviewMatrix" class="matrix-scroll"></div>
-        </section>
+        </div>
+      </section>
 
+      <div id="homeView">
         <section class="results-head" aria-live="polite">
           <div>
             <p class="eyebrow">목록 보기</p>
@@ -89,6 +88,19 @@
         </section>
       </div>
 
+      <section id="overviewView" class="overview-view" aria-label="한눈에 보기" hidden>
+        <div class="section-head overview-head">
+          <div>
+            <p class="eyebrow">한눈에 보기</p>
+            <h2 id="overviewTitle">추천표 전체</h2>
+          </div>
+          <a class="back-link" href="#/">목록 보기</a>
+        </div>
+        <section class="matrix-section" aria-label="한눈에 보기 표">
+          <div id="overviewMatrix" class="matrix-scroll"></div>
+        </section>
+      </section>
+
       <section id="detailView" class="detail-view" aria-label="러닝화 상세" hidden></section>
     </main>
 
@@ -96,7 +108,7 @@
       <p>가격 조회, 최저가 검색, 알림은 다음 단계 기능으로 예약되어 있습니다.</p>
     </footer>
 
-    <script src="data/shoes.js?v=20260529-ui-image-7"></script>
-    <script src="app.js?v=20260529-ui-image-7"></script>
+    <script src="data/shoes.js?v=20260529-overview-route-1"></script>
+    <script src="app.js?v=20260529-overview-route-1"></script>
   </body>
 </html>

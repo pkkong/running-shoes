@@ -29,11 +29,15 @@
     category: "전체",
     tags: new Set(),
     sort: "table",
+    route: "home",
     detailId: "",
+    lastBrowseRoute: "#/",
   };
 
   const el = {
+    filterPanel: document.querySelector("#filterPanel"),
     homeView: document.querySelector("#homeView"),
+    overviewView: document.querySelector("#overviewView"),
     detailView: document.querySelector("#detailView"),
     searchInput: document.querySelector("#searchInput"),
     brandFilters: document.querySelector("#brandFilters"),
@@ -43,9 +47,12 @@
     overviewMatrix: document.querySelector("#overviewMatrix"),
     shoeGrid: document.querySelector("#shoeGrid"),
     emptyState: document.querySelector("#emptyState"),
+    overviewTitle: document.querySelector("#overviewTitle"),
     resultTitle: document.querySelector("#resultTitle"),
     sortSelect: document.querySelector("#sortSelect"),
     resetButton: document.querySelector("#resetButton"),
+    listLink: document.querySelector("#listLink"),
+    overviewLink: document.querySelector("#overviewLink"),
   };
 
   const categoryGroupMap = shoes.reduce((acc, shoe) => {
@@ -146,7 +153,7 @@
         } else {
           state.tags.add(value);
         }
-        renderHome();
+        renderCurrentRoute();
       });
     });
   }
@@ -312,34 +319,64 @@
 
     renderChoiceButtons(el.brandFilters, ["전체", ...brandOrder], state.brand, (value) => {
       state.brand = value;
-      renderHome();
+      renderCurrentRoute();
     });
     renderChoiceButtons(el.groupFilters, ["전체", ...groupOrder], state.group, (value) => {
       state.group = value;
-      renderHome();
+      renderCurrentRoute();
     });
     renderChoiceButtons(el.categoryFilters, ["전체", ...categoryOptions], state.category, (value) => {
       state.category = value;
-      renderHome();
+      renderCurrentRoute();
     });
     renderTagButtons();
   }
 
+  function titleForActiveFilters() {
+    const titleParts = [state.brand, state.group, state.category].filter((value) => value !== "전체");
+    return titleParts.length ? titleParts.join(" · ") : "추천표 전체";
+  }
+
+  function updateViewLinks() {
+    el.listLink.classList.toggle("is-active", state.route === "home");
+    el.overviewLink.classList.toggle("is-active", state.route === "overview");
+  }
+
+  function renderCurrentRoute() {
+    if (state.route === "overview") {
+      renderOverview();
+      return;
+    }
+    if (state.route === "home") {
+      renderHome();
+    }
+  }
+
   function renderHome() {
     const items = getFilteredShoes();
-    const titleParts = [state.brand, state.group, state.category].filter((value) => value !== "전체");
-    el.resultTitle.textContent = titleParts.length ? titleParts.join(" · ") : "추천표 전체";
+    el.resultTitle.textContent = titleForActiveFilters();
     renderFilters();
-    renderMatrix(items);
+    updateViewLinks();
     renderResults(items);
+    wireImages();
+  }
+
+  function renderOverview() {
+    const items = getFilteredShoes();
+    el.overviewTitle.textContent = titleForActiveFilters();
+    renderFilters();
+    updateViewLinks();
+    renderMatrix(items);
     wireImages();
   }
 
   function renderDetail(shoe) {
     const priceLabel = shoe.priceStatus === "planned" ? "시세 조회 예정" : "가격 확인";
+    const backHref = state.lastBrowseRoute || "#/";
+    const backLabel = backHref === "#/overview" ? "한눈에 보기" : "목록 보기";
 
     el.detailView.innerHTML = `
-      <a class="back-link" href="#/">← 한눈에 보기</a>
+      <a class="back-link" href="${escapeHtml(backHref)}">← ${backLabel}</a>
       <article class="detail-card">
         <div class="detail-card__media">
           ${imageMarkup(shoe, "detail")}
@@ -390,14 +427,17 @@
     state.detailId = match ? match[1] : "";
 
     if (state.detailId) {
+      state.route = "detail";
       const shoe = shoes.find((item) => item.id === state.detailId);
+      el.filterPanel.hidden = true;
       el.homeView.hidden = true;
+      el.overviewView.hidden = true;
       el.detailView.hidden = false;
       if (shoe) {
         renderDetail(shoe);
       } else {
         el.detailView.innerHTML = `
-          <a class="back-link" href="#/">← 한눈에 보기</a>
+          <a class="back-link" href="${escapeHtml(state.lastBrowseRoute || "#/")}">← 목록 보기</a>
           <section class="empty-state">
             <h2>상세 정보를 찾을 수 없습니다</h2>
             <p>추천표로 돌아가 다시 선택해 주세요.</p>
@@ -408,19 +448,35 @@
       return;
     }
 
+    if (hash === "#/overview") {
+      state.route = "overview";
+      state.lastBrowseRoute = "#/overview";
+      el.filterPanel.hidden = false;
+      el.homeView.hidden = true;
+      el.overviewView.hidden = false;
+      el.detailView.hidden = true;
+      renderOverview();
+      window.scrollTo(0, 0);
+      return;
+    }
+
+    state.route = "home";
+    state.lastBrowseRoute = "#/";
+    el.filterPanel.hidden = false;
     el.homeView.hidden = false;
+    el.overviewView.hidden = true;
     el.detailView.hidden = true;
     renderHome();
   }
 
   el.searchInput.addEventListener("input", (event) => {
     state.query = event.target.value;
-    renderHome();
+    renderCurrentRoute();
   });
 
   el.sortSelect.addEventListener("change", (event) => {
     state.sort = event.target.value;
-    renderHome();
+    renderCurrentRoute();
   });
 
   el.resetButton.addEventListener("click", () => {
@@ -432,7 +488,7 @@
     state.sort = "table";
     el.searchInput.value = "";
     el.sortSelect.value = "table";
-    renderHome();
+    renderCurrentRoute();
   });
 
   window.addEventListener("hashchange", syncRoute);
