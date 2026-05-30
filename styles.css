@@ -3205,3 +3205,198 @@ select:focus-visible,
     gap: 30px;
   }
 }
+
+/* Map view rescue: on mobile the matrix must appear before secondary controls dominate. */
+@media (max-width: 640px) {
+  body[data-route="overview"] .app-shell {
+    padding-top: 10px;
+  }
+
+  body[data-route="overview"] .period-archive {
+    margin-bottom: 8px;
+    padding-bottom: 8px;
+  }
+
+  body[data-route="overview"] .global-view-nav {
+    margin-bottom: 12px;
+  }
+
+  .overview-view {
+    padding-top: 0;
+  }
+
+  .map-hero {
+    padding: 8px 0 10px;
+    border-bottom: 0;
+  }
+
+  .map-hero .eyebrow,
+  .map-hero__copy p:last-child {
+    display: none;
+  }
+
+  .map-hero__copy h2 {
+    margin-bottom: 0;
+    font-size: 23px;
+  }
+
+  .map-control-panel {
+    display: grid;
+    gap: 8px;
+    margin-top: 0;
+    padding: 0 0 10px;
+    border: 0;
+    background: transparent;
+  }
+
+  .map-control-panel h3,
+  .map-search-field {
+    display: none;
+  }
+
+  .map-control-panel > div {
+    min-width: 0;
+  }
+
+  .segmented-control,
+  .map-chip-row {
+    flex-wrap: nowrap;
+    gap: 6px;
+    overflow-x: auto;
+    padding-bottom: 0;
+    scrollbar-width: none;
+  }
+
+  .segmented-control::-webkit-scrollbar,
+  .map-chip-row::-webkit-scrollbar {
+    display: none;
+  }
+
+  .segment-button {
+    min-height: 34px;
+    padding: 0 11px;
+    border-radius: var(--radius);
+    font-size: 12px;
+  }
+
+  .shoe-map-section {
+    margin-top: 0;
+    padding: 10px 0 0;
+    border-top: 1px solid var(--line);
+    border-bottom: 0;
+    background: transparent;
+  }
+
+  .shoe-map-toolbar {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    gap: 8px;
+    margin-bottom: 8px;
+  }
+
+  .shoe-map-toolbar__main {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 8px;
+    padding: 0;
+  }
+
+  .map-summary {
+    flex: 1 1 auto;
+    min-width: 0;
+    overflow: hidden;
+    font-size: 12px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .zoom-controls {
+    display: none;
+  }
+
+  .zoom-button {
+    flex: 0 0 auto;
+    min-width: 34px;
+    min-height: 34px;
+    padding: 0 10px;
+  }
+
+  .zoom-button--wide {
+    display: none;
+  }
+
+  .map-minimap {
+    display: none;
+  }
+
+  .shoe-map-viewport {
+    min-height: 430px;
+    max-height: calc(100dvh - 350px);
+    border-radius: var(--radius);
+    background: #eeeeeb;
+  }
+
+  .shoe-map-canvas {
+    --map-row-width: 72px;
+    --map-cell-width-1: 132px;
+    --map-cell-width-2: 164px;
+    --map-cell-width-3: 214px;
+    --map-cell-height: 124px;
+  }
+
+  .map-axis-corner,
+  .map-brand-head {
+    min-height: 44px;
+  }
+
+  .map-axis-corner {
+    font-size: 11px;
+  }
+
+  .map-brand-head .brand-logo {
+    width: 78px;
+    height: 25px;
+  }
+
+  .map-row-head {
+    padding: 6px;
+  }
+
+  .map-row-head strong {
+    font-size: 12px;
+    line-height: 1.15;
+  }
+
+  .map-cell {
+    gap: 5px;
+    padding: 6px;
+  }
+
+  .map-cell__media {
+    gap: 4px;
+  }
+
+  .shoe-image--map {
+    height: 58px;
+  }
+
+  .map-cell__media--4 .shoe-image--map,
+  .map-cell__media--5 .shoe-image--map,
+  .map-cell__media--6 .shoe-image--map {
+    height: 38px;
+  }
+
+  .map-cell__body {
+    gap: 0;
+  }
+
+  .map-cell__count {
+    font-size: 12px;
+    line-height: 1.15;
+  }
+
+  .map-cell__name {
+    display: none;
+  }
+}
