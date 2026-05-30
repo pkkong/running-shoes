@@ -1,5 +1,6 @@
 (function () {
   const shoes = window.RUNNING_SHOES || [];
+  const periods = window.RUNNING_LINEUP_PERIODS || [];
 
   const brandOrder = ["Nike", "Adidas", "ASICS", "New Balance", "Saucony", "Puma", "HOKA", "Brooks", "Mizuno", "On"];
   const groupOrder = ["데일리", "슈퍼 트레이너", "레이싱"];
@@ -57,6 +58,7 @@
 
   const el = {
     filterPanel: document.querySelector("#filterPanel"),
+    periodArchive: document.querySelector("#periodArchive"),
     homeView: document.querySelector("#homeView"),
     overviewView: document.querySelector("#overviewView"),
     pickerView: document.querySelector("#pickerView"),
@@ -115,6 +117,12 @@
 
   function groupClassName(group) {
     return `matrix-row--${normalize(group)}`;
+  }
+
+  function isGroupStartCategory(category) {
+    const index = categoryOrder.indexOf(category);
+    if (index <= 0) return false;
+    return categoryGroupMap[category] !== categoryGroupMap[categoryOrder[index - 1]];
   }
 
   function getFilteredShoes() {
@@ -321,7 +329,7 @@
       <a class="shoe-card" href="#/shoe/${encodeURIComponent(shoe.id)}">
         ${imageMarkup(shoe, "card")}
         <span class="shoe-card__body">
-          <span class="shoe-card__brand">${escapeHtml(shoe.brand)}</span>
+          <span class="shoe-card__brand">${brandLogoMarkup(shoe.brand)}</span>
           <strong>${escapeHtml(shoe.model)}</strong>
           <span class="shoe-card__meta">
             <span>${escapeHtml(shoe.categoryGroup)}</span>
@@ -410,11 +418,22 @@
     el.shoeMapCanvas.innerHTML = `
       <div class="shoe-map-grid" style="grid-template-columns: ${escapeHtml(gridColumns)};">
         <div class="map-axis-corner">용도</div>
-        ${brands.map((brand) => `<div class="map-brand-head">${escapeHtml(brand)}</div>`).join("")}
+        ${brands
+          .map(
+            (brand) => `
+              <div class="map-brand-head">
+                ${brandLogoMarkup(brand)}
+                <span class="visually-hidden">${escapeHtml(brand)}</span>
+              </div>
+            `
+          )
+          .join("")}
         ${rowData
           .map(
             (row) => `
-              <div class="map-row-head ${groupClassName(row.group)}">
+              <div class="map-row-head ${groupClassName(row.group)} ${
+                isGroupStartCategory(row.category) ? "map-row-head--group-start" : ""
+              }">
                 <strong title="${escapeHtml(`${groupLabel(row.group)} · ${row.label}`)}">${escapeHtml(row.label)}</strong>
               </div>
               ${row.cells
@@ -425,7 +444,9 @@
                     : `${cell.brand} ${row.label} ${cell.count}개: ${cell.productNames}. 제품 목록 보기`;
                   return `
                     <button
-                      class="map-cell ${cellIntensity(cell.count, maxCount)}"
+                      class="map-cell ${cellIntensity(cell.count, maxCount)} ${
+                        isGroupStartCategory(row.category) ? "map-cell--group-start" : ""
+                      }"
                       type="button"
                       data-map-cell="true"
                       data-brand="${escapeHtml(cell.brand)}"
@@ -547,6 +568,44 @@
     renderTagButtons();
   }
 
+  function renderPeriodArchive() {
+    if (!el.periodArchive || !periods.length) return;
+    const active = periods.find((period) => period.active) || periods[periods.length - 1];
+    const sourceLinks = [...periods]
+      .reverse()
+      .map(
+        (period) => `
+          <a
+            class="period-link ${period.id === active.id ? "is-active" : ""}"
+            href="${escapeHtml(period.sourcePostUrl)}"
+            target="_blank"
+            rel="noreferrer"
+            aria-label="${escapeHtml(`${period.label} 러닝화 라인업 원문 보기`)}"
+          >
+            <span>${escapeHtml(period.label)}</span>
+            <small>${escapeHtml(period.status)}</small>
+          </a>
+        `
+      )
+      .join("");
+
+    el.periodArchive.innerHTML = `
+      <div class="period-archive__head">
+        <div>
+          <p class="eyebrow">Lineup Archive</p>
+          <h2>분기별 라인업</h2>
+        </div>
+        <div class="period-archive__actions">
+          <a class="period-source" href="${escapeHtml(active.sourcePostUrl)}" target="_blank" rel="noreferrer">최신 원문</a>
+          <a class="period-source" href="${escapeHtml(active.tableImageUrl)}" target="_blank" rel="noreferrer">원본표</a>
+        </div>
+      </div>
+      <div class="period-archive__rail" aria-label="분기별 원문 링크">
+        ${sourceLinks}
+      </div>
+    `;
+  }
+
   function titleForActiveFilters() {
     const titleParts = [state.brand, state.group, state.category].filter((value) => value !== "전체");
     return titleParts.length ? titleParts.join(" · ") : "추천표 전체";
@@ -652,10 +711,11 @@
         const label = axis === "category" ? pickerAxisCategoryLabel(value) : value;
         const ariaLabel = axis === "category" ? pickerCategoryLabel(value) : value;
         const visual = axis === "brand" ? brandLogoMarkup(value) : escapeHtml(label);
+        const groupStartClass = axis === "category" && isGroupStartCategory(value) ? " picker-axis-item--group-start" : "";
         return `
           <button
             id="picker-${axis}-option-${logicalIndex}"
-            class="picker-axis-item"
+            class="picker-axis-item${groupStartClass}"
             type="button"
             role="option"
             data-axis="${axis}"
@@ -925,12 +985,14 @@
     const hash = decodeURIComponent(window.location.hash || "#/");
     const match = hash.match(/^#\/shoe\/(.+)$/);
     state.detailId = match ? match[1] : "";
+    renderPeriodArchive();
 
     if (state.detailId) {
       setRoute("detail");
       const shoe = shoes.find((item) => item.id === state.detailId);
       closeMapSheet(false);
       clearPickerTimers();
+      el.periodArchive.hidden = true;
       el.filterPanel.hidden = true;
       el.homeView.hidden = true;
       el.overviewView.hidden = true;
@@ -955,6 +1017,7 @@
       setRoute("overview");
       state.lastBrowseRoute = "#/overview";
       clearPickerTimers();
+      el.periodArchive.hidden = false;
       el.filterPanel.hidden = true;
       el.homeView.hidden = true;
       el.overviewView.hidden = false;
@@ -969,6 +1032,7 @@
       setRoute("picker");
       state.lastBrowseRoute = "#/picker";
       closeMapSheet(false);
+      el.periodArchive.hidden = true;
       el.filterPanel.hidden = true;
       el.homeView.hidden = true;
       el.overviewView.hidden = true;
@@ -983,6 +1047,7 @@
     state.lastBrowseRoute = "#/";
     closeMapSheet(false);
     clearPickerTimers();
+    el.periodArchive.hidden = false;
     el.filterPanel.hidden = false;
     el.homeView.hidden = false;
     el.overviewView.hidden = true;

@@ -180,6 +180,92 @@ select {
   padding: 18px 0 42px;
 }
 
+.period-archive {
+  display: grid;
+  gap: 14px;
+  margin-bottom: 16px;
+  padding: 16px 0;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.period-archive__head {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.period-archive__head h2 {
+  font-size: clamp(24px, 3.6vw, 36px);
+  font-weight: 950;
+  line-height: 1;
+}
+
+.period-archive__actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 12px;
+}
+
+.period-source,
+.period-link {
+  color: var(--text);
+  text-decoration: none;
+}
+
+.period-source {
+  font-size: 13px;
+  font-weight: 900;
+}
+
+.period-archive__rail {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding-bottom: 2px;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+}
+
+.period-archive__rail::-webkit-scrollbar {
+  display: none;
+}
+
+.period-link {
+  display: grid;
+  flex: 0 0 auto;
+  gap: 3px;
+  min-width: 88px;
+  padding: 9px 10px;
+  border: 1px solid var(--line);
+  background: #ffffff;
+}
+
+.period-link span {
+  font-size: 14px;
+  font-weight: 950;
+  line-height: 1;
+}
+
+.period-link small {
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 850;
+}
+
+.period-link.is-active {
+  border-color: var(--ink);
+  background: var(--ink);
+  color: #ffffff;
+}
+
+.period-link.is-active small {
+  color: rgba(255, 255, 255, 0.68);
+}
+
 .control-panel {
   display: grid;
   grid-template-columns: minmax(250px, 0.72fr) minmax(0, 1.28fr);
@@ -557,6 +643,16 @@ select {
   text-align: center;
 }
 
+.map-brand-head .brand-logo {
+  width: 82px;
+  height: 27px;
+}
+
+.map-brand-head .brand-logo__image {
+  filter: grayscale(1) brightness(0) invert(1);
+  opacity: 1;
+}
+
 .map-axis-corner {
   left: 0;
   z-index: 9;
@@ -572,6 +668,11 @@ select {
   padding: 8px 7px;
   background: #f5f5f2;
   color: #242424;
+}
+
+.map-row-head--group-start,
+.map-cell--group-start {
+  border-top: 2px solid #111111;
 }
 
 .map-row-head strong {
@@ -1055,6 +1156,17 @@ select {
   font-weight: 900;
   line-height: 1;
   opacity: 0.58;
+}
+
+.picker-axis--vertical .picker-axis-item--group-start {
+  height: 50px;
+  margin-top: 14px;
+  padding-top: 8px;
+  border-top: 1px solid #9f9f98;
+}
+
+.picker-axis--vertical .picker-axis-item--group-start::before {
+  display: none;
 }
 
 .picker-axis-item.is-selected {
@@ -1552,10 +1664,22 @@ select {
 }
 
 .shoe-card__brand {
+  display: flex;
+  align-items: center;
+  width: 92px;
+  height: 22px;
+  overflow: hidden;
   color: var(--muted);
-  font-size: 12px;
-  font-weight: 900;
-  text-transform: uppercase;
+}
+
+.shoe-card__brand .brand-logo {
+  justify-content: start;
+  width: 86px;
+  height: 22px;
+}
+
+.shoe-card__brand .brand-logo__image {
+  opacity: 0.5;
 }
 
 .shoe-card strong {
@@ -2033,6 +2157,31 @@ select {
   .topbar h1 {
     font-size: 27px;
     line-height: 1.05;
+  }
+
+  .period-archive {
+    gap: 12px;
+    margin-bottom: 14px;
+    padding: 14px 0;
+  }
+
+  .period-archive__head {
+    align-items: start;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .period-archive__actions {
+    justify-content: flex-start;
+    gap: 14px;
+  }
+
+  .period-source {
+    font-size: 13px;
+  }
+
+  .period-link {
+    min-width: 88px;
   }
 
   .source-link {
