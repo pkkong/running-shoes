@@ -21,3 +21,11 @@ python3 -m http.server 4173
 - 상세 페이지: `#/shoe/{id}`
 - 사진: 브랜드 공식 사이트, 공식 CDN, 공식 뉴스룸 출처 URL
 - 가격 조회, 최저가 검색, 알림 기능은 `priceStatus: "planned"` 상태로 UI 자리만 준비되어 있습니다.
+
+## 검증
+
+```sh
+node --check app.js
+node --check data/shoes.js
+node scripts/audit-images.mjs
+```

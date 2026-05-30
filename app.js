@@ -335,7 +335,6 @@
           <span class="shoe-card__meta">
             <span>${escapeHtml(shoe.categoryGroup)}</span>
             <span>${escapeHtml(shoe.category)}</span>
-            ${dropMarkup(shoe)}
           </span>
           <span class="tag-list">${tagMarkup(shoe.tags)}</span>
           <span class="price-pill">${priceLabel}</span>
@@ -463,7 +462,7 @@
                           : ""
                       }
                       <span class="map-cell__body">
-                        <span class="map-cell__count">${cell.count ? `${cell.count}개 제품` : "없음"}</span>
+                        <span class="map-cell__count">${cell.count ? `${cell.count}개` : "없음"}</span>
                         <span class="map-cell__name">
                           ${cell.count ? escapeHtml(cell.productNames) : "제품 없음"}
                         </span>
