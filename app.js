@@ -59,6 +59,7 @@
   const el = {
     filterPanel: document.querySelector("#filterPanel"),
     periodArchive: document.querySelector("#periodArchive"),
+    globalViewNav: document.querySelector(".global-view-nav"),
     homeView: document.querySelector("#homeView"),
     overviewView: document.querySelector("#overviewView"),
     pickerView: document.querySelector("#pickerView"),
@@ -593,7 +594,7 @@
       <div class="period-archive__head">
         <div>
           <p class="eyebrow">Lineup Archive</p>
-          <h2>분기별 라인업</h2>
+          <h2>분기</h2>
         </div>
         <div class="period-archive__actions">
           <a class="period-source" href="${escapeHtml(active.sourcePostUrl)}" target="_blank" rel="noreferrer">최신 원문</a>
@@ -647,7 +648,8 @@
 
   function renderOverview() {
     const items = getMapFilteredShoes();
-    el.overviewTitle.textContent = "전체 러닝화 맵";
+    el.overviewTitle.textContent = "브랜드 × 용도 맵";
+    updateViewLinks();
     renderMapControls();
     el.mapViewShell.hidden = false;
     renderShoeMap(items);
@@ -993,6 +995,7 @@
       closeMapSheet(false);
       clearPickerTimers();
       el.periodArchive.hidden = true;
+      el.globalViewNav.hidden = true;
       el.filterPanel.hidden = true;
       el.homeView.hidden = true;
       el.overviewView.hidden = true;
@@ -1018,6 +1021,7 @@
       state.lastBrowseRoute = "#/overview";
       clearPickerTimers();
       el.periodArchive.hidden = false;
+      el.globalViewNav.hidden = false;
       el.filterPanel.hidden = true;
       el.homeView.hidden = true;
       el.overviewView.hidden = false;
@@ -1032,7 +1036,8 @@
       setRoute("picker");
       state.lastBrowseRoute = "#/picker";
       closeMapSheet(false);
-      el.periodArchive.hidden = true;
+      el.periodArchive.hidden = false;
+      el.globalViewNav.hidden = false;
       el.filterPanel.hidden = true;
       el.homeView.hidden = true;
       el.overviewView.hidden = true;
@@ -1048,6 +1053,7 @@
     closeMapSheet(false);
     clearPickerTimers();
     el.periodArchive.hidden = false;
+    el.globalViewNav.hidden = false;
     el.filterPanel.hidden = false;
     el.homeView.hidden = false;
     el.overviewView.hidden = true;

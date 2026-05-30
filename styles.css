@@ -80,18 +80,14 @@ a {
   backdrop-filter: blur(16px);
 }
 
-body[data-route="picker"] .topbar {
-  display: none;
-}
-
 body[data-route="picker"] {
   min-height: 100dvh;
   background: #ffffff;
 }
 
 body[data-route="picker"] .app-shell {
-  width: min(1160px, calc(100vw - 30px));
-  padding: 18px 0 34px;
+  width: min(1560px, calc(100vw - 32px));
+  padding: 18px 0 42px;
 }
 
 .topbar__inner,
@@ -106,8 +102,8 @@ body[data-route="picker"] .app-shell {
   align-items: center;
   justify-content: space-between;
   gap: 24px;
-  min-height: 78px;
-  padding: 18px 0;
+  min-height: 70px;
+  padding: 14px 0;
 }
 
 .eyebrow {
@@ -128,7 +124,7 @@ p {
 
 h1 {
   margin-bottom: 0;
-  font-size: clamp(28px, 3.4vw, 40px);
+  font-size: clamp(26px, 3vw, 36px);
   letter-spacing: 0;
 }
 
@@ -181,32 +177,39 @@ select {
 }
 
 .period-archive {
-  display: grid;
+  display: flex;
+  align-items: center;
   gap: 14px;
-  margin-bottom: 16px;
-  padding: 16px 0;
-  border-top: 1px solid var(--line);
+  min-width: 0;
+  margin-bottom: 10px;
+  padding: 8px 0 12px;
   border-bottom: 1px solid var(--line);
 }
 
 .period-archive__head {
   display: flex;
-  align-items: end;
-  justify-content: space-between;
-  gap: 16px;
+  align-items: center;
+  flex: 0 0 auto;
+  gap: 10px;
+  min-width: 0;
+}
+
+.period-archive__head .eyebrow {
+  display: none;
 }
 
 .period-archive__head h2 {
-  font-size: clamp(24px, 3.6vw, 36px);
+  font-size: 14px;
   font-weight: 950;
   line-height: 1;
 }
 
 .period-archive__actions {
   display: flex;
+  flex: 0 0 auto;
   flex-wrap: wrap;
   justify-content: flex-end;
-  gap: 12px;
+  gap: 10px;
 }
 
 .period-source,
@@ -216,13 +219,16 @@ select {
 }
 
 .period-source {
-  font-size: 13px;
+  color: var(--muted);
+  font-size: 12px;
   font-weight: 900;
 }
 
 .period-archive__rail {
   display: flex;
-  gap: 8px;
+  flex: 1 1 auto;
+  gap: 6px;
+  min-width: 0;
   overflow-x: auto;
   overflow-y: hidden;
   padding-bottom: 2px;
@@ -237,22 +243,22 @@ select {
 .period-link {
   display: grid;
   flex: 0 0 auto;
-  gap: 3px;
-  min-width: 88px;
-  padding: 9px 10px;
+  gap: 2px;
+  min-width: 72px;
+  padding: 7px 9px;
   border: 1px solid var(--line);
   background: #ffffff;
 }
 
 .period-link span {
-  font-size: 14px;
+  font-size: 12.5px;
   font-weight: 950;
   line-height: 1;
 }
 
 .period-link small {
   color: var(--muted);
-  font-size: 11px;
+  font-size: 10.5px;
   font-weight: 850;
 }
 
@@ -264,6 +270,35 @@ select {
 
 .period-link.is-active small {
   color: rgba(255, 255, 255, 0.68);
+}
+
+.global-view-nav {
+  display: flex;
+  gap: 6px;
+  width: min(100%, 380px);
+  margin-bottom: 12px;
+  padding: 4px;
+  background: #f0f0ec;
+}
+
+.global-view-nav .view-link {
+  display: grid;
+  place-items: center;
+  flex: 0 1 calc((100% - 12px) / 3);
+  max-width: calc((100% - 12px) / 3);
+  min-width: 0;
+  min-height: 38px;
+  padding: 0 12px;
+  border: 0;
+  background: transparent;
+  color: #5f5f5a;
+  font-size: 14px;
+  font-weight: 950;
+}
+
+.global-view-nav .view-link.is-active {
+  background: #111111;
+  color: #ffffff;
 }
 
 .control-panel {
@@ -2160,28 +2195,27 @@ select {
   }
 
   .period-archive {
-    gap: 12px;
-    margin-bottom: 14px;
-    padding: 14px 0;
+    gap: 8px;
+    margin-bottom: 10px;
+    padding: 8px 0 10px;
   }
 
   .period-archive__head {
-    align-items: start;
-    flex-direction: column;
-    gap: 10px;
+    align-items: center;
+    flex-direction: row;
+    gap: 8px;
   }
 
   .period-archive__actions {
-    justify-content: flex-start;
-    gap: 14px;
+    display: none;
   }
 
   .period-source {
-    font-size: 13px;
+    font-size: 12px;
   }
 
   .period-link {
-    min-width: 88px;
+    min-width: 70px;
   }
 
   .source-link {
@@ -2192,8 +2226,19 @@ select {
     font-size: 13px;
   }
 
+  .global-view-nav {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    width: min(100%, 380px);
+  }
+
+  .global-view-nav .view-link {
+    max-width: none;
+    width: auto;
+  }
+
   body[data-route="picker"] .app-shell {
-    width: min(1560px, calc(100% - 16px));
+    width: min(1560px, calc(100% - 20px));
     padding-top: 12px;
     padding-bottom: 18px;
   }
