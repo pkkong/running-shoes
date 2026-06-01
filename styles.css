@@ -3415,3 +3415,162 @@ select:focus-visible,
     display: none;
   }
 }
+
+.shoe-card .price-pill {
+  display: inline-flex;
+}
+
+.price-pill--ready {
+  background: #111111;
+  color: #ffffff;
+}
+
+.price-pill--pending {
+  background: #f1f1ef;
+  color: #777777;
+}
+
+.price-panel {
+  display: grid;
+  gap: 14px;
+  margin-top: clamp(22px, 4vw, 40px);
+  padding: clamp(18px, 3vw, 28px) 0;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.price-panel__head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 18px;
+}
+
+.price-panel__head h3 {
+  margin: 0;
+  font-size: clamp(21px, 2.6vw, 30px);
+  font-weight: var(--fw-semibold);
+  letter-spacing: 0;
+}
+
+.price-panel__lowest {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 12px 0;
+  color: inherit;
+  text-decoration: none;
+}
+
+.price-panel__lowest strong {
+  display: block;
+  margin-top: 2px;
+  font-size: clamp(30px, 5vw, 54px);
+  font-weight: var(--fw-semibold);
+  letter-spacing: 0;
+  line-height: 1;
+}
+
+.price-panel__label,
+.price-panel__mall,
+.price-panel__meta,
+.price-panel--pending p {
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.price-panel__mall {
+  flex: 0 1 220px;
+  text-align: right;
+}
+
+.price-panel__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 14px;
+}
+
+.price-panel__meta a {
+  color: var(--text);
+  font-weight: var(--fw-medium);
+  text-decoration: none;
+}
+
+.price-offer-list {
+  display: grid;
+  border-top: 1px solid var(--line);
+}
+
+.price-offer {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 14px;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--line);
+  color: inherit;
+  text-decoration: none;
+}
+
+.price-offer__title {
+  min-width: 0;
+  overflow: hidden;
+  color: #343434;
+  font-size: 14px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.price-offer__meta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+  min-width: 150px;
+  color: var(--muted);
+  font-size: 13px;
+  text-align: right;
+}
+
+.price-offer__meta strong {
+  color: var(--text);
+  font-size: 15px;
+  font-weight: var(--fw-semibold);
+}
+
+.primary-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-color: #111111;
+  background: #111111;
+  color: #ffffff;
+}
+
+.price-panel .primary-link {
+  justify-self: start;
+}
+
+@media (max-width: 760px) {
+  .price-panel__lowest,
+  .price-offer {
+    grid-template-columns: 1fr;
+  }
+
+  .price-panel__lowest {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .price-panel__mall {
+    flex-basis: auto;
+    text-align: left;
+  }
+
+  .price-offer__meta {
+    justify-content: space-between;
+    min-width: 0;
+    text-align: left;
+  }
+}

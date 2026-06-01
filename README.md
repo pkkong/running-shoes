@@ -20,12 +20,33 @@ python3 -m http.server 4173
 - 분기 아카이브: 2024.08, 2024.11, 2025.02, 2025.05, 2025.08, 2025.11, 2026.02, 2026.05
 - 상세 페이지: `#/shoe/{id}`
 - 사진: 브랜드 공식 사이트, 공식 CDN, 공식 뉴스룸 출처 URL
-- 가격 조회, 최저가 검색, 알림 기능은 `priceStatus: "planned"` 상태로 UI 자리만 준비되어 있습니다.
+- 가격 스냅샷: `data/prices/latest.js`
+- 가격 조회는 네이버 쇼핑 검색 API를 GitHub Actions에서 주기 실행해 정적 스냅샷으로 반영합니다. 브라우저에는 API 키를 노출하지 않습니다.
+- 가격 알림 기능은 다음 단계 기능입니다.
+
+## 가격 스냅샷 설정
+
+GitHub 저장소 Secrets에 다음 값을 넣으면 매일 06:00, 18:00(KST)에 가격 스냅샷이 갱신됩니다.
+
+- `NAVER_CLIENT_ID`
+- `NAVER_CLIENT_SECRET`
+
+수동 실행:
+
+```sh
+NAVER_CLIENT_ID=... NAVER_CLIENT_SECRET=... node scripts/collect-prices.mjs --limit 3 --dry-run
+NAVER_CLIENT_ID=... NAVER_CLIENT_SECRET=... node scripts/collect-prices.mjs
+```
 
 ## 검증
 
 ```sh
 node --check app.js
 node --check data/shoes.js
+node --check data/price-queries.js
+node --check data/prices/latest.js
+node --check scripts/collect-prices.mjs
+node --check scripts/audit-prices.mjs
 node scripts/audit-images.mjs
+node scripts/audit-prices.mjs
 ```

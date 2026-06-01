@@ -1,0 +1,41 @@
+name: Collect price snapshot
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 21 * * *"
+    - cron: "0 9 * * *"
+
+permissions:
+  contents: write
+
+jobs:
+  collect-prices:
+    runs-on: ubuntu-latest
+    env:
+      NAVER_CLIENT_ID: ${{ secrets.NAVER_CLIENT_ID }}
+      NAVER_CLIENT_SECRET: ${{ secrets.NAVER_CLIENT_SECRET }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Collect Naver Shopping prices
+        if: ${{ env.NAVER_CLIENT_ID != '' && env.NAVER_CLIENT_SECRET != '' }}
+        run: node scripts/collect-prices.mjs
+
+      - name: Audit snapshot
+        run: node scripts/audit-prices.mjs
+
+      - name: Commit snapshot
+        if: ${{ env.NAVER_CLIENT_ID != '' && env.NAVER_CLIENT_SECRET != '' }}
+        run: |
+          if ! git diff --quiet data/prices/latest.js; then
+            git config user.name "github-actions[bot]"
+            git config user.email "github-actions[bot]@users.noreply.github.com"
+            git add data/prices/latest.js
+            git commit -m "Update price snapshot"
+            git push
+          fi

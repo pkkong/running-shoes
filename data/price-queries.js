@@ -1,0 +1,40 @@
+(function () {
+  window.RUNNING_PRICE_QUERY_CONFIG = {
+    defaultSuffix: "러닝화",
+    brandQueryNames: {
+      Nike: "나이키",
+      Adidas: "아디다스",
+      ASICS: "아식스",
+      "New Balance": "뉴발란스",
+      Saucony: "써코니",
+      Puma: "푸마",
+      HOKA: "호카",
+      Brooks: "브룩스",
+      Mizuno: "미즈노",
+      On: "온러닝",
+    },
+    aliases: {
+      "New Balance": ["뉴발란스", "newbalance", "nb"],
+      ASICS: ["아식스"],
+      HOKA: ["호카"],
+      Saucony: ["써코니", "사코니"],
+      On: ["온러닝", "onrunning"],
+    },
+    blockTerms: [
+      "키링",
+      "양말",
+      "삭스",
+      "티셔츠",
+      "팬츠",
+      "의류",
+      "가방",
+      "스파이크",
+      "중고",
+      "렌탈",
+      "교환권",
+      "응모",
+      "raffle",
+    ],
+    overrides: {},
+  };
+})();
