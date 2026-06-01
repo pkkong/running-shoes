@@ -381,10 +381,8 @@
     }));
   }
 
-  function mapColumnWidthToken(maxCount) {
-    if (maxCount >= 3) return "var(--map-cell-width-3)";
-    if (maxCount === 2) return "var(--map-cell-width-2)";
-    return "var(--map-cell-width-1)";
+  function mapColumnWidthToken() {
+    return "var(--map-cell-width)";
   }
 
   function renderMapControls() {
@@ -439,6 +437,8 @@
               ${row.cells
                 .map((cell) => {
                   const disabled = cell.count === 0;
+                  const primaryShoe = cell.shoes[0];
+                  const primaryLabel = primaryShoe ? primaryShoe.displayName || primaryShoe.model : "";
                   const label = disabled
                     ? `${cell.brand} ${row.label} 제품 없음`
                     : `${cell.brand} ${row.label} ${cell.count}개: ${cell.productNames}. 제품 목록 보기`;
@@ -456,15 +456,22 @@
                     >
                       ${
                         cell.count
-                          ? `<span class="map-cell__media map-cell__media--${cell.count}">${cell.shoes
-                              .map(mapImageMarkup)
-                              .join("")}</span>`
+                          ? `<span class="map-cell__media">
+                              ${mapImageMarkup(primaryShoe)}
+                              ${
+                                cell.count > 1
+                                  ? `<span class="map-cell__badge" aria-hidden="true">${cell.count}개</span>`
+                                  : ""
+                              }
+                        </span>`
                           : ""
                       }
                       <span class="map-cell__body">
-                        <span class="map-cell__count">${cell.count ? `${cell.count}개` : "없음"}</span>
+                        <span class="map-cell__count">${
+                          cell.count ? escapeHtml(cell.count === 1 ? primaryLabel : "전체 보기") : "없음"
+                        }</span>
                         <span class="map-cell__name">
-                          ${cell.count ? escapeHtml(cell.productNames) : "제품 없음"}
+                          ${cell.count ? escapeHtml(cell.count === 1 ? "1개 제품" : `${cell.count}개 제품`) : "제품 없음"}
                         </span>
                       </span>
                     </button>
