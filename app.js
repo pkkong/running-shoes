@@ -326,10 +326,24 @@
     return `https://search.shopping.naver.com/search/all?query=${encodeURIComponent(shoppingSearchQuery(shoe))}`;
   }
 
-  function priceBadgeMarkup(shoe, showPending = true) {
+  function priceOfferLinkFor(shoe) {
+    const info = priceInfoFor(shoe);
+    return info?.status === "found" ? info.lowestOffer?.link || shoppingSearchUrl(shoe) : "";
+  }
+
+  function priceBadgeMarkup(shoe, showPending = true, mode = "span") {
     const info = priceInfoFor(shoe);
     if (info?.status === "found") {
-      return `<span class="price-pill price-pill--ready">최저 ${formatWon(info.lowestPrice)}</span>`;
+      const label = `최저 ${formatWon(info.lowestPrice)}`;
+      const link = priceOfferLinkFor(shoe);
+      const ariaLabel = `${shoe.brand} ${shoe.model} ${label} 쇼핑몰 열기`;
+      if (mode === "anchor") {
+        return `<a class="price-pill price-pill--ready price-pill--link" href="${escapeHtml(link)}" target="_blank" rel="noreferrer" aria-label="${escapeHtml(ariaLabel)}">${label}</a>`;
+      }
+      if (mode === "inlineLink") {
+        return `<span class="price-pill price-pill--ready price-pill--link" role="link" tabindex="0" data-price-link="${escapeHtml(link)}" aria-label="${escapeHtml(ariaLabel)}">${label}</span>`;
+      }
+      return `<span class="price-pill price-pill--ready">${label}</span>`;
     }
     if (!showPending) {
       return "";
@@ -403,7 +417,7 @@
             <span>${escapeHtml(shoe.category)}</span>
           </span>
           <span class="tag-list">${tagMarkup(shoe.tags)}</span>
-          ${priceBadgeMarkup(shoe, false)}
+          ${priceBadgeMarkup(shoe, false, "inlineLink")}
         </span>
       </a>
     `;
@@ -999,7 +1013,7 @@
             <a class="primary-link" href="${escapeHtml(shoe.officialProductUrl || shoe.imageSourceUrl)}" target="_blank" rel="noreferrer">
               공식 출처 보기
             </a>
-            ${priceBadgeMarkup(shoe)}
+            ${priceBadgeMarkup(shoe, true, "anchor")}
           </div>
         </div>
       </article>
@@ -1219,6 +1233,28 @@
     el.searchInput.value = "";
     el.sortSelect.value = "table";
     renderCurrentRoute();
+  });
+
+  function openExternalPriceLink(link) {
+    if (!link) return;
+    window.open(link, "_blank", "noopener,noreferrer");
+  }
+
+  el.shoeGrid.addEventListener("click", (event) => {
+    const priceLink = event.target.closest("[data-price-link]");
+    if (!priceLink) return;
+    event.preventDefault();
+    event.stopPropagation();
+    openExternalPriceLink(priceLink.dataset.priceLink);
+  });
+
+  el.shoeGrid.addEventListener("keydown", (event) => {
+    if (event.key !== "Enter" && event.key !== " ") return;
+    const priceLink = event.target.closest("[data-price-link]");
+    if (!priceLink) return;
+    event.preventDefault();
+    event.stopPropagation();
+    openExternalPriceLink(priceLink.dataset.priceLink);
   });
 
   el.mapSearchInput.addEventListener("input", (event) => {

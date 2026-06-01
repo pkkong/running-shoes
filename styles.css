@@ -3430,6 +3430,17 @@ select:focus-visible,
   color: #777777;
 }
 
+.price-pill--link {
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.price-pill--link:hover,
+.price-pill--link:focus-visible {
+  background: #000000;
+  color: #ffffff;
+}
+
 .price-panel {
   display: grid;
   gap: 14px;
