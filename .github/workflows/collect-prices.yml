@@ -2,6 +2,15 @@ name: Collect price snapshot
 
 on:
   workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - data/shoes.js
+      - data/price-queries.js
+      - scripts/collect-prices.mjs
+      - scripts/audit-prices.mjs
+      - .github/workflows/collect-prices.yml
   schedule:
     - cron: "0 21 * * *"
     - cron: "0 9 * * *"
