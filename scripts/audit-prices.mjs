@@ -39,6 +39,9 @@ Object.entries(snapshot.items).forEach(([shoeId, item]) => {
     if (!Number.isFinite(item.lowestPrice) || item.lowestPrice <= 0) {
       fail(`${shoeId}: lowestPrice must be a positive number.`);
     }
+    if (item.lowestPrice < 45000) {
+      fail(`${shoeId}: lowestPrice is suspiciously low.`);
+    }
     if (!item.lowestOffer || item.lowestOffer.price !== item.lowestPrice) {
       fail(`${shoeId}: lowestOffer must match lowestPrice.`);
     }

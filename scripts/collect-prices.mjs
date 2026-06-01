@@ -107,6 +107,7 @@ function buildQuerySpec(shoe, config) {
   const brandAliases = [shoe.brand, brandQuery, ...(config.aliases?.[shoe.brand] || []), ...(override.brandAliases || [])];
   const modelAliases = unique([shoe.model, shoe.displayName, ...(override.modelAliases || [])].filter(Boolean));
   const blockTerms = unique([...(config.blockTerms || []), ...(override.blockTerms || [])]);
+  const minimumPrice = Number(override.minimumPrice ?? config.minimumPrice ?? 0);
 
   return {
     query,
@@ -114,6 +115,7 @@ function buildQuerySpec(shoe, config) {
     modelAliases,
     requiredTerms: override.requiredTerms || [],
     blockTerms,
+    minimumPrice: Number.isFinite(minimumPrice) ? minimumPrice : 0,
   };
 }
 
@@ -165,6 +167,7 @@ function rankOffers(shoe, items, querySpec) {
 function scoreOffer(shoe, item, querySpec) {
   const price = Number(item.lprice);
   if (!Number.isFinite(price) || price <= 0) return null;
+  if (querySpec.minimumPrice && price < querySpec.minimumPrice) return null;
 
   const title = cleanText(item.title);
   const titleNorm = compact(title);
@@ -179,13 +182,16 @@ function scoreOffer(shoe, item, querySpec) {
   const brandMatched = querySpec.brandAliases.some((brand) => catalogText.includes(compact(brand)));
   const aliasHits = querySpec.modelAliases
     .map((alias) => matchAliasScore(titleNorm, alias))
+    .filter((match) => match.usable)
     .sort((a, b) => b.hitScore - a.hitScore);
   const bestAlias = aliasHits[0] || { hitScore: 0, hits: 0, total: 0 };
+  const exactAliasMatched = aliasHits.some((match) => match.exact);
   const requiredMatched = querySpec.requiredTerms.every((term) => catalogText.includes(compact(term)));
   const hasRequiredTerms = querySpec.requiredTerms.length > 0;
   const shoeSignal = /러닝|운동화|신발|슈즈|running|runner|shoe|shoes|road/.test(catalogText);
 
   if (hasRequiredTerms && !requiredMatched) return null;
+  if (!exactAliasMatched) return null;
   if (bestAlias.hits === 0) return null;
   if (!brandMatched && bestAlias.hitScore < 4) return null;
 
@@ -201,8 +207,10 @@ function scoreOffer(shoe, item, querySpec) {
 }
 
 function matchAliasScore(textNorm, alias) {
+  const aliasNorm = compact(alias);
   const terms = tokenize(alias);
-  if (!terms.length) return { hitScore: 0, hits: 0, total: 0 };
+  const usable = aliasNorm.length >= 5;
+  if (!terms.length || !usable) return { hitScore: 0, hits: 0, total: 0, exact: false, usable: false };
 
   let hits = 0;
   let hitScore = 0;
@@ -217,6 +225,8 @@ function matchAliasScore(textNorm, alias) {
     hitScore,
     hits,
     total: terms.length,
+    exact: textNorm.includes(aliasNorm),
+    usable,
   };
 }
 
