@@ -107,7 +107,8 @@ function buildQuerySpec(shoe, config) {
   const brandAliases = [shoe.brand, brandQuery, ...(config.aliases?.[shoe.brand] || []), ...(override.brandAliases || [])];
   const modelAliases = unique([shoe.model, shoe.displayName, ...(override.modelAliases || [])].filter(Boolean));
   const blockTerms = unique([...(config.blockTerms || []), ...(override.blockTerms || [])]);
-  const minimumPrice = Number(override.minimumPrice ?? config.minimumPrice ?? 0);
+  const groupMinimumPrice = config.categoryMinimumPrices?.[shoe.categoryGroup];
+  const minimumPrice = Number(override.minimumPrice ?? groupMinimumPrice ?? config.minimumPrice ?? 0);
 
   return {
     query,

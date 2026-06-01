@@ -2,6 +2,10 @@
   window.RUNNING_PRICE_QUERY_CONFIG = {
     defaultSuffix: "러닝화",
     minimumPrice: 45000,
+    categoryMinimumPrices: {
+      "슈퍼 트레이너": 60000,
+      레이싱: 80000,
+    },
     brandQueryNames: {
       Nike: "나이키",
       Adidas: "아디다스",
@@ -58,7 +62,18 @@
       "트레이너 니트",
       "한조",
       "갤럭시",
+      "주니어",
+      "키즈",
+      "아동",
+      "학생",
+      "junior",
+      "jnr",
+      " gs ",
     ],
-    overrides: {},
+    overrides: {
+      "nike-페가수스-플러스": {
+        blockTerms: ["페가수스 플러스 29", "526630"],
+      },
+    },
   };
 })();
