@@ -4725,6 +4725,102 @@ select {
   white-space: nowrap;
 }
 
+/* 2026-06 period comparison pass. */
+.period-link {
+  appearance: none;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.period-link:focus-visible {
+  outline: 2px solid #111111;
+  outline-offset: 2px;
+}
+
+.period-archive__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 12px;
+  color: #777777;
+  font-size: 12px;
+}
+
+.change-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  justify-self: start;
+  min-height: 22px;
+  padding: 0 8px;
+  border-radius: 999px;
+  background: #111111;
+  color: #ffffff;
+  font-size: 11px;
+  font-weight: 500;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.change-pill--continued,
+.change-pill--consecutive {
+  background: #111111;
+  color: #ffffff;
+}
+
+.change-pill--new,
+.change-pill--returned {
+  background: #f0f0f0;
+  color: #111111;
+}
+
+.change-pill--dropped {
+  background: #e8e8e8;
+  color: #777777;
+}
+
+.change-pill--compact {
+  min-height: 20px;
+  padding-inline: 7px;
+  font-size: 10px;
+}
+
+.shoe-card--static,
+.picker-product-card--static,
+.sheet-product--static {
+  cursor: default;
+}
+
+.shoe-card--static:hover,
+.shoe-card--static:focus-visible {
+  border-bottom-color: var(--line);
+}
+
+.map-cell__change {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 20px;
+  padding: 0 7px;
+  border-radius: 999px;
+  background: #111111;
+  color: #ffffff;
+  font-size: 10px;
+  font-weight: 500;
+  line-height: 1;
+}
+
+.sheet-product .change-pill,
+.picker-product-card .change-pill {
+  margin-top: 2px;
+}
+
+@media (min-width: 900px) {
+  .map-control-panel {
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.35fr) minmax(0, 1fr) minmax(220px, 0.8fr);
+  }
+}
+
 .shoe-card .history-pill {
   min-height: 22px;
   background: #f1f1f1;

@@ -28,6 +28,18 @@ const periodIds = new Set(periods.map((period) => period.id));
 const brands = new Set(shoes.map((shoe) => shoe.brand));
 const categories = new Set(shoes.map((shoe) => shoe.category));
 const activePeriod = periods.find((period) => period.active);
+const metadataPattern = /(런갤|런리핏|Great|이상|선호|디시인사이드)/i;
+const ocrNoisePatterns = [
+  /^[0-9]+(?:\.[0-9]+)?$/,
+  /[?？]/,
+  /원/,
+  /_/,
+  /\.\s*$/,
+  /\.00\b/,
+  /\b[1-9]00\b/,
+  /\d\s+0\b/,
+  /V\d+\s*0\b/i,
+];
 
 if (!activePeriod) {
   fail("Missing active history period");
@@ -41,6 +53,10 @@ entries.forEach((entry, index) => {
   if (!Array.isArray(models) || models.length === 0) fail(`Entry ${index} has no models`);
   models.forEach((model, modelIndex) => {
     if (!String(model || "").trim()) fail(`Entry ${index} model ${modelIndex} is empty`);
+    if (metadataPattern.test(model)) fail(`Entry ${index} model ${modelIndex} looks like metadata: ${model}`);
+    if (ocrNoisePatterns.some((pattern) => pattern.test(model))) {
+      fail(`Entry ${index} model ${modelIndex} has suspicious OCR residue: ${model}`);
+    }
   });
 });
 

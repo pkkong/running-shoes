@@ -26,6 +26,15 @@
     newProduct: { label: "신제품", className: "tag--red" },
   };
 
+  const changeOptions = [
+    { value: "전체", label: "전체" },
+    { value: "new", label: "신규" },
+    { value: "continued", label: "유지" },
+    { value: "returned", label: "복귀" },
+    { value: "dropped", label: "제외" },
+    { value: "consecutive", label: "연속" },
+  ];
+
   const mapGroupLabels = {
     "슈퍼 트레이너": "슈퍼트레이너",
   };
@@ -45,6 +54,8 @@
     brand: "전체",
     group: "전체",
     category: "전체",
+    periodId: "",
+    change: "전체",
     tags: new Set(),
     sort: "table",
     mapZoom: 1,
@@ -72,6 +83,7 @@
     groupFilters: document.querySelector("#groupFilters"),
     categoryFilters: document.querySelector("#categoryFilters"),
     tagFilters: document.querySelector("#tagFilters"),
+    changeFilters: document.querySelector("#changeFilters"),
     shoeGrid: document.querySelector("#shoeGrid"),
     emptyState: document.querySelector("#emptyState"),
     overviewTitle: document.querySelector("#overviewTitle"),
@@ -84,6 +96,7 @@
     mapControlPanel: document.querySelector("#mapControlPanel"),
     mapGroupFilters: document.querySelector("#mapGroupFilters"),
     mapBrandFilters: document.querySelector("#mapBrandFilters"),
+    mapChangeFilters: document.querySelector("#mapChangeFilters"),
     mapSearchInput: document.querySelector("#mapSearchInput"),
     mapSummary: document.querySelector("#mapSummary"),
     mapViewShell: document.querySelector("#mapViewShell"),
@@ -126,6 +139,7 @@
   }, new Map());
   const activeHistoryPeriod = historyPeriods.find((period) => period.active) || historyPeriods[historyPeriods.length - 1] || null;
   const historyTotalModelCount = [...historyStatsByPeriod.values()].reduce((sum, stats) => sum + stats.models, 0);
+  state.periodId = activeHistoryPeriod?.id || historyPeriods[historyPeriods.length - 1]?.id || "";
 
   function normalize(value) {
     return String(value || "").toLowerCase().replace(/\s+/g, "");
@@ -165,6 +179,18 @@
     return text;
   }
 
+  function lineKey(value) {
+    return normalizeHistoryText(lineageText(value));
+  }
+
+  function lineKeyMatches(left, right) {
+    const a = normalizeHistoryText(left);
+    const b = normalizeHistoryText(right);
+    if (a.length < 2 || b.length < 2) return false;
+    if (a === b) return true;
+    return a.length >= 3 && b.length >= 3 && (a.includes(b) || b.includes(a));
+  }
+
   function historyAliases(shoe) {
     const aliases = new Set();
     [shoe.model, shoe.displayName, lineageText(shoe.model), lineageText(shoe.displayName)]
@@ -184,15 +210,13 @@
   }
 
   function historyTimelineFor(shoe) {
-    const aliases = historyAliases(shoe);
+    const aliases = [lineKey(shoe.model), lineKey(shoe.displayName)].filter(Boolean);
     const timeline = historyPeriods.map((period) => {
       const entry = historyEntryFor(period.id, shoe.brand, shoe.category);
       const models = entry?.models || [];
       const matched = models.some((model) => {
-        const normalized = normalizeHistoryText(lineageText(model));
-        const exact = normalizeHistoryText(model);
-        if (normalized.length < 2 && exact.length < 2) return false;
-        return aliases.some((alias) => exact.includes(alias) || normalized.includes(alias) || alias.includes(normalized));
+        const normalized = lineKey(model);
+        return aliases.some((alias) => lineKeyMatches(normalized, alias));
       });
       return {
         period,
@@ -297,6 +321,246 @@
     `;
   }
 
+  function selectedHistoryPeriod() {
+    return historyPeriods.find((period) => period.id === state.periodId) || activeHistoryPeriod || historyPeriods[historyPeriods.length - 1] || null;
+  }
+
+  function historyPeriodIndex(periodId) {
+    return historyPeriods.findIndex((period) => period.id === periodId);
+  }
+
+  function previousHistoryPeriod(periodId) {
+    const index = historyPeriodIndex(periodId);
+    return index > 0 ? historyPeriods[index - 1] : null;
+  }
+
+  function changeOptionLabel(value) {
+    return changeOptions.find((option) => option.value === value)?.label || value;
+  }
+
+  function isLineupModelValue(model) {
+    const value = String(model || "").trim();
+    return Boolean(value) && !/(런갤|런리핏|Great|이상|선호|디시인사이드)/i.test(value);
+  }
+
+  function findCurrentShoeForHistory(brand, category, model) {
+    const exactModel = normalizeHistoryText(model);
+    const sameCell = shoes.filter((shoe) => shoe.brand === brand && shoe.category === category);
+    return (
+      sameCell.find((shoe) => normalizeHistoryText(shoe.model) === exactModel || normalizeHistoryText(shoe.displayName) === exactModel) ||
+      sameCell.find((shoe) => [lineKey(shoe.model), lineKey(shoe.displayName)].some((key) => lineKeyMatches(key, lineKey(model)))) ||
+      null
+    );
+  }
+
+  function historyItemId(periodId, brand, category, model) {
+    return `history-${[periodId, brand, category, model].map((value) => normalizeHistoryText(value) || "item").join("-")}`;
+  }
+
+  function createLineupItem({ periodId, brand, category, model, tableOrder, changeStatus = "" }) {
+    const period = historyPeriods.find((item) => item.id === periodId) || selectedHistoryPeriod();
+    const currentShoe = findCurrentShoeForHistory(brand, category, model);
+    const exactCurrent =
+      periodId === activeHistoryPeriod?.id &&
+      currentShoe &&
+      (normalizeHistoryText(currentShoe.model) === normalizeHistoryText(model) ||
+        normalizeHistoryText(currentShoe.displayName) === normalizeHistoryText(model));
+    const imageSource = currentShoe || {};
+
+    return {
+      ...(exactCurrent ? currentShoe : {}),
+      id: exactCurrent ? currentShoe.id : historyItemId(periodId, brand, category, model),
+      detailId: currentShoe?.id || "",
+      brand,
+      model,
+      displayName: exactCurrent ? currentShoe.displayName || currentShoe.model : model,
+      categoryGroup: categoryGroupMap[category] || currentShoe?.categoryGroup || "",
+      category,
+      dropMm: exactCurrent ? currentShoe.dropMm : null,
+      tags: exactCurrent ? currentShoe.tags || [] : [],
+      imageUrl: imageSource.imageUrl || "",
+      imageFit: imageSource.imageFit || "contain",
+      imagePosition: imageSource.imagePosition || "center",
+      imageScale: imageSource.imageScale || 1,
+      tableOrder,
+      priceStatus: exactCurrent ? currentShoe.priceStatus : "planned",
+      periodId,
+      periodLabel: period?.label || periodId,
+      changeStatus,
+      isHistoryItem: !exactCurrent,
+      hasCurrentDetail: Boolean(currentShoe),
+      hasCurrentData: Boolean(exactCurrent),
+    };
+  }
+
+  function periodLineupItems(periodId) {
+    let order = 0;
+    return historyEntries
+      .filter((entry) => entry.periodId === periodId)
+      .flatMap((entry) =>
+        entry.models.filter(isLineupModelValue).map((model) =>
+          createLineupItem({
+            periodId,
+            brand: entry.brand,
+            category: entry.category,
+            model,
+            tableOrder: order++,
+          })
+        )
+      );
+  }
+
+  function linePresenceFor(brand, category, model) {
+    const targetKey = lineKey(model);
+    return historyPeriods.map((period) => {
+      const entry = historyEntryFor(period.id, brand, category);
+      const matchedModels = (entry?.models || []).filter((candidate) => isLineupModelValue(candidate) && lineKeyMatches(lineKey(candidate), targetKey));
+      return {
+        period,
+        matched: matchedModels.length > 0,
+        models: matchedModels,
+      };
+    });
+  }
+
+  function changeInfoForItem(item) {
+    if (item.changeStatus === "dropped") {
+      return {
+        status: "dropped",
+        label: "제외",
+        streak: 0,
+      };
+    }
+
+    const periodId = item.periodId || state.periodId;
+    const periodIndex = historyPeriodIndex(periodId);
+    const presence = linePresenceFor(item.brand, item.category, item.model);
+    const appears = presence[periodIndex]?.matched;
+    const previousAppears = periodIndex > 0 && presence[periodIndex - 1]?.matched;
+    const earlierAppears = periodIndex > 0 && presence.slice(0, periodIndex).some((entry) => entry.matched);
+
+    let streak = 0;
+    if (appears) {
+      for (let index = periodIndex; index >= 0; index -= 1) {
+        if (!presence[index]?.matched) break;
+        streak += 1;
+      }
+    }
+
+    let status = "new";
+    if (periodIndex > 0 && previousAppears) {
+      status = "continued";
+    } else if (earlierAppears) {
+      status = "returned";
+    }
+
+    const label =
+      status === "new"
+        ? periodIndex === 0
+          ? "첫 기록"
+          : "신규"
+        : status === "returned"
+          ? "복귀"
+          : streak >= 2
+            ? `${streak}분기 연속`
+            : "유지";
+
+    return {
+      status,
+      label,
+      streak,
+    };
+  }
+
+  function changeBadgeMarkup(item, compact = false) {
+    const info = changeInfoForItem(item);
+    if (!info.label) return "";
+    const className = info.streak >= 2 && info.status === "continued" ? "consecutive" : info.status;
+    return `<span class="change-pill change-pill--${className} ${compact ? "change-pill--compact" : ""}">${escapeHtml(info.label)}</span>`;
+  }
+
+  function droppedLineupItems(periodId) {
+    const previousPeriod = previousHistoryPeriod(periodId);
+    if (!previousPeriod) return [];
+
+    const dropped = [];
+    const seen = new Set();
+    let order = 0;
+
+    historyEntries
+      .filter((entry) => entry.periodId === previousPeriod.id)
+      .forEach((entry) => {
+        entry.models.filter(isLineupModelValue).forEach((model) => {
+          const key = `${entry.brand}|||${entry.category}|||${lineKey(model)}`;
+          const appearsInSelected = linePresenceFor(entry.brand, entry.category, model)[historyPeriodIndex(periodId)]?.matched;
+          if (appearsInSelected || seen.has(key)) return;
+          seen.add(key);
+          dropped.push(
+            createLineupItem({
+              periodId,
+              brand: entry.brand,
+              category: entry.category,
+              model,
+              tableOrder: order++,
+              changeStatus: "dropped",
+            })
+          );
+        });
+      });
+
+    return dropped;
+  }
+
+  function matchesChangeFilter(item) {
+    if (state.change === "전체") return true;
+    const info = changeInfoForItem(item);
+    if (state.change === "consecutive") return info.status !== "dropped" && info.streak >= 2;
+    return info.status === state.change;
+  }
+
+  function baseLineupItemsForSelectedPeriod() {
+    const period = selectedHistoryPeriod();
+    if (!period) return [];
+    if (state.change === "dropped") return droppedLineupItems(period.id);
+    return periodLineupItems(period.id).filter(matchesChangeFilter);
+  }
+
+  function periodChangeSummary(periodId) {
+    const previous = previousHistoryPeriod(periodId);
+    const summary = {
+      new: 0,
+      continued: 0,
+      returned: 0,
+      dropped: droppedLineupItems(periodId).length,
+      consecutive: 0,
+    };
+
+    periodLineupItems(periodId).forEach((item) => {
+      const info = changeInfoForItem(item);
+      summary[info.status] += 1;
+      if (info.streak >= 2) summary.consecutive += 1;
+    });
+
+    return {
+      ...summary,
+      hasPrevious: Boolean(previous),
+    };
+  }
+
+  function cellChangeSummary(items) {
+    if (!items.length) return "";
+    const infos = items.map(changeInfoForItem);
+    const dropped = infos.filter((info) => info.status === "dropped").length;
+    const added = infos.filter((info) => info.status === "new").length;
+    const returned = infos.filter((info) => info.status === "returned").length;
+    const maxStreak = Math.max(0, ...infos.map((info) => info.streak || 0));
+    if (dropped) return `${dropped}개 제외`;
+    if (added) return `신규 ${added}`;
+    if (returned) return `복귀 ${returned}`;
+    if (maxStreak >= 2) return `${maxStreak}분기 연속`;
+    return "유지";
+  }
+
   function groupClassName(group) {
     return `matrix-row--${normalize(group)}`;
   }
@@ -310,7 +574,7 @@
   function getFilteredShoes() {
     const query = normalize(state.query);
 
-    return shoes
+    return baseLineupItemsForSelectedPeriod()
       .filter((shoe) => {
         const haystack = normalize([shoe.brand, shoe.model, shoe.displayName, shoe.categoryGroup, shoe.category].join(" "));
         const matchesQuery = !query || haystack.includes(query);
@@ -339,7 +603,7 @@
   function getMapFilteredShoes() {
     const query = normalize(state.query);
 
-    return shoes
+    return baseLineupItemsForSelectedPeriod()
       .filter((shoe) => {
         const haystack = normalize([shoe.brand, shoe.model, shoe.displayName, shoe.categoryGroup, shoe.category].join(" "));
         const matchesQuery = !query || haystack.includes(query);
@@ -433,6 +697,31 @@
         }
         renderCurrentRoute();
       });
+    });
+  }
+
+  function renderChangeButtons(container, renderer = "chip") {
+    if (!container) return;
+    const onSelect = (value) => {
+      state.change = value;
+      renderCurrentRoute();
+    };
+    if (renderer === "segment") {
+      renderSegmentButtons(container, changeOptions, state.change, onSelect);
+      return;
+    }
+    container.innerHTML = changeOptions
+      .map(
+        (option) => `
+          <button class="chip ${option.value === state.change ? "is-active" : ""}" type="button" data-value="${escapeHtml(option.value)}">
+            ${escapeHtml(option.label)}
+          </button>
+        `
+      )
+      .join("");
+
+    container.querySelectorAll("button").forEach((button) => {
+      button.addEventListener("click", () => onSelect(button.dataset.value));
     });
   }
 
@@ -549,13 +838,17 @@
           <strong>${escapeHtml(shoe.brand)}</strong>
           <span>${escapeHtml(shoe.model)}</span>
         </div>
-        <img
-          src="${escapeHtml(shoe.imageUrl)}"
-          alt="${escapeHtml(`${shoe.brand} ${shoe.model}`)}"
-          loading="lazy"
-          decoding="async"
-          data-shoe-image
-        />
+        ${
+          shoe.imageUrl
+            ? `<img
+                src="${escapeHtml(shoe.imageUrl)}"
+                alt="${escapeHtml(`${shoe.brand} ${shoe.model}`)}"
+                loading="lazy"
+                decoding="async"
+                data-shoe-image
+              />`
+            : ""
+        }
       </div>
     `;
   }
@@ -573,20 +866,32 @@
           <strong>${escapeHtml(shoe.brand)}</strong>
           <span>${escapeHtml(shoe.displayName || shoe.model)}</span>
         </span>
-        <img
-          src="${escapeHtml(shoe.imageUrl)}"
-          alt="${escapeHtml(`${shoe.brand} ${shoe.model}`)}"
-          loading="lazy"
-          decoding="async"
-          data-shoe-image
-        />
+        ${
+          shoe.imageUrl
+            ? `<img
+                src="${escapeHtml(shoe.imageUrl)}"
+                alt="${escapeHtml(`${shoe.brand} ${shoe.model}`)}"
+                loading="lazy"
+                decoding="async"
+                data-shoe-image
+              />`
+            : ""
+        }
       </span>
     `;
   }
 
+  function detailHrefForItem(item) {
+    return item.detailId ? `#/shoe/${encodeURIComponent(item.detailId)}` : "";
+  }
+
   function cardMarkup(shoe) {
+    const href = detailHrefForItem(shoe);
+    const openTag = href ? `<a class="shoe-card" href="${escapeHtml(href)}">` : `<article class="shoe-card shoe-card--static">`;
+    const closeTag = href ? "</a>" : "</article>";
+
     return `
-      <a class="shoe-card" href="#/shoe/${encodeURIComponent(shoe.id)}">
+      ${openTag}
         ${imageMarkup(shoe, "card")}
         <span class="shoe-card__body">
           <span class="shoe-card__brand">${brandLogoMarkup(shoe.brand)}</span>
@@ -594,12 +899,13 @@
           <span class="shoe-card__meta">
             <span>${escapeHtml(shoe.categoryGroup)}</span>
             <span>${escapeHtml(shoe.category)}</span>
+            <span>${escapeHtml(shoe.periodLabel || selectedHistoryPeriod()?.label || "")}</span>
           </span>
-          ${historyBadgeMarkup(shoe)}
+          ${changeBadgeMarkup(shoe)}
           <span class="tag-list">${tagMarkup(shoe.tags)}</span>
-          ${priceBadgeMarkup(shoe, false, "inlineLink")}
+          ${shoe.hasCurrentData ? priceBadgeMarkup(shoe, false, "inlineLink") : ""}
         </span>
-      </a>
+      ${closeTag}
     `;
   }
 
@@ -658,6 +964,8 @@
       renderOverview();
     }, (value) => (value === "전체" ? "전체 브랜드" : value));
 
+    renderChangeButtons(el.mapChangeFilters, "segment");
+
     if (document.activeElement !== el.mapSearchInput) {
       el.mapSearchInput.value = state.query;
     }
@@ -673,7 +981,7 @@
     const totalCells = brands.length * rows.length;
     const filledCells = rowData.flatMap((row) => row.cells).filter((cell) => cell.count > 0).length;
 
-    el.mapSummary.textContent = `${items.length}개 제품 · ${filledCells}/${totalCells}개 구역`;
+    el.mapSummary.textContent = `${selectedHistoryPeriod()?.label || ""} · ${changeOptionLabel(state.change)} · ${items.length}개 제품 · ${filledCells}/${totalCells}개 구역`;
     el.shoeMapCanvas.style.setProperty("--map-zoom", state.mapZoom);
     el.shoeMapCanvas.innerHTML = `
       <div class="shoe-map-grid" style="grid-template-columns: ${escapeHtml(gridColumns)};">
@@ -707,6 +1015,7 @@
                   const visibleShoes = cell.shoes.slice(0, 3);
                   const mediaClass = `map-cell__media map-cell__media--${Math.min(Math.max(cell.count, 1), 3)}`;
                   const primaryLabel = cell.shoes[0] ? cell.shoes[0].displayName || cell.shoes[0].model : "";
+                  const changeLabel = cellChangeSummary(cell.shoes);
                   const label = disabled
                     ? `${cell.brand} ${row.label} 제품 없음`
                     : `${cell.brand} ${row.label} ${cell.count}개: ${cell.productNames}. 제품 목록 보기`;
@@ -738,6 +1047,7 @@
                         <span class="map-cell__count">${
                           cell.count ? escapeHtml(cell.count === 1 ? primaryLabel : `${cell.count}개 제품`) : "없음"
                         }</span>
+                        ${changeLabel ? `<span class="map-cell__change">${escapeHtml(changeLabel)}</span>` : ""}
                         <span class="map-cell__name">
                           ${cell.count ? escapeHtml(cell.count === 1 ? row.label : "눌러서 목록 보기") : "제품 없음"}
                         </span>
@@ -819,10 +1129,11 @@
   }
 
   function renderFilters() {
+    const baseItems = baseLineupItemsForSelectedPeriod();
     const categoryOptions =
       state.group === "전체"
         ? categoryOrder
-        : categoryOrder.filter((category) => shoes.some((shoe) => shoe.categoryGroup === state.group && shoe.category === category));
+        : categoryOrder.filter((category) => baseItems.some((shoe) => shoe.categoryGroup === state.group && shoe.category === category));
 
     if (state.category !== "전체" && !categoryOptions.includes(state.category)) {
       state.category = "전체";
@@ -841,27 +1152,28 @@
       renderCurrentRoute();
     });
     renderTagButtons();
+    renderChangeButtons(el.changeFilters);
   }
 
   function renderPeriodArchive() {
     if (!el.periodArchive || !historyPeriods.length) return;
-    const active = activeHistoryPeriod || historyPeriods[historyPeriods.length - 1];
+    const active = selectedHistoryPeriod();
+    const summary = periodChangeSummary(active.id);
     const sourceLinks = [...historyPeriods]
       .reverse()
       .map((period) => {
         const stats = historyStatsByPeriod.get(period.id);
         const status = period.active ? `${stats?.models || shoes.length}개 현재` : `${stats?.models || 0}개 OCR`;
         return `
-          <a
+          <button
             class="period-link ${period.id === active.id ? "is-active" : ""}"
-            href="${escapeHtml(period.sourcePostUrl)}"
-            target="_blank"
-            rel="noreferrer"
-            aria-label="${escapeHtml(`${period.label} 러닝화 라인업 원문 보기`)}"
+            type="button"
+            data-period-id="${escapeHtml(period.id)}"
+            aria-label="${escapeHtml(`${period.label} 러닝화 라인업 선택`)}"
           >
             <span>${escapeHtml(period.label)}</span>
             <small>${escapeHtml(status)}</small>
-          </a>
+          </button>
         `;
       })
       .join("");
@@ -871,13 +1183,21 @@
         <div>
           <p class="eyebrow">Archive</p>
           <h2>분기별 추천 변화</h2>
-          <p>2024.08부터 ${historyPeriods.length}개 분기, 총 ${historyTotalModelCount}개 모델 후보를 구조화했습니다.</p>
+          <p>
+            ${escapeHtml(active.label)} 기준
+            신규 ${summary.new} · 유지 ${summary.continued} · 복귀 ${summary.returned} · 제외 ${summary.dropped}
+          </p>
         </div>
         <div class="period-archive__actions">
-          <a class="period-source" href="${escapeHtml(active.sourcePostUrl)}" target="_blank" rel="noreferrer">현재 원문</a>
+          <a class="period-source" href="${escapeHtml(active.sourcePostUrl)}" target="_blank" rel="noreferrer">선택 원문</a>
         </div>
       </div>
-      <div class="period-archive__rail" aria-label="분기별 원문 링크와 구조화 상태">
+      <div class="period-archive__meta" aria-label="분기 구조화 요약">
+        <span>${historyPeriods.length}개 분기</span>
+        <span>총 ${historyTotalModelCount}개 모델 후보</span>
+        <span>${active.structured ? "앱 구조화" : "OCR 구조화"}</span>
+      </div>
+      <div class="period-archive__rail" aria-label="분기 선택">
         ${sourceLinks}
       </div>
     `;
@@ -885,7 +1205,10 @@
 
   function titleForActiveFilters() {
     const titleParts = [state.brand, state.group, state.category].filter((value) => value !== "전체");
-    return titleParts.length ? titleParts.join(" · ") : "추천표 전체";
+    const periodLabel = selectedHistoryPeriod()?.label || "";
+    const changeLabel = state.change === "전체" ? "" : changeOptionLabel(state.change);
+    const baseTitle = titleParts.length ? titleParts.join(" · ") : "라인업 전체";
+    return [periodLabel, changeLabel, baseTitle].filter(Boolean).join(" · ");
   }
 
   function updateViewLinks() {
@@ -924,7 +1247,7 @@
 
   function renderOverview() {
     const items = getMapFilteredShoes();
-    el.overviewTitle.textContent = "러닝화 맵";
+    el.overviewTitle.textContent = `${selectedHistoryPeriod()?.label || ""} 러닝화 맵`;
     updateViewLinks();
     renderMapControls();
     el.mapViewShell.hidden = false;
@@ -980,7 +1303,7 @@
   function pickerProducts() {
     const brand = selectedPickerBrand();
     const category = selectedPickerCategory();
-    return shoes.filter((shoe) => shoe.brand === brand && shoe.category === category);
+    return baseLineupItemsForSelectedPeriod().filter((shoe) => shoe.brand === brand && shoe.category === category);
   }
 
   function pickerAxisItems(values, axis) {
@@ -1068,7 +1391,7 @@
     el.pickerDetail.innerHTML = `
       <div class="picker-detail-card__head" aria-label="${escapeHtml(coordinate)}">
         <h3 class="visually-hidden">${escapeHtml(`${categoryGroup ? `${categoryGroup} · ` : ""}${coordinate}`)}</h3>
-        <span class="picker-count-pill">${products.length ? `${products.length}개 제품` : "라인업 없음"}</span>
+        <span class="picker-count-pill">${selectedHistoryPeriod()?.label || ""} · ${products.length ? `${products.length}개 제품` : "라인업 없음"}</span>
       </div>
       ${
         products.length
@@ -1083,13 +1406,19 @@
   }
 
   function pickerProductMarkup(shoe) {
+    const href = detailHrefForItem(shoe);
+    const openTag = href
+      ? `<a class="picker-product-card" href="${escapeHtml(href)}" aria-label="${escapeHtml(`${shoe.brand} ${shoe.model} 상세 보기`)}">`
+      : `<article class="picker-product-card picker-product-card--static">`;
+    const closeTag = href ? "</a>" : "</article>";
     return `
-      <a class="picker-product-card" href="#/shoe/${encodeURIComponent(shoe.id)}" aria-label="${escapeHtml(`${shoe.brand} ${shoe.model} 상세 보기`)}">
+      ${openTag}
         ${imageMarkup(shoe, "picker")}
         <span class="picker-product-card__body">
           <strong>${escapeHtml(shoe.displayName || shoe.model)}</strong>
+          ${changeBadgeMarkup(shoe, true)}
         </span>
-      </a>
+      ${closeTag}
     `;
   }
 
@@ -1223,12 +1552,16 @@
   }
 
   function sheetProductMarkup(shoe) {
+    const href = detailHrefForItem(shoe);
+    const openTag = href ? `<a class="sheet-product" href="${escapeHtml(href)}">` : `<article class="sheet-product sheet-product--static">`;
+    const closeTag = href ? "</a>" : "</article>";
     return `
-      <a class="sheet-product" href="#/shoe/${encodeURIComponent(shoe.id)}">
+      ${openTag}
         <span class="sheet-product__name">${escapeHtml(shoe.model)}</span>
-        <span class="sheet-product__meta">${escapeHtml(shoe.categoryGroup)} · ${escapeHtml(shoe.category)}</span>
+        <span class="sheet-product__meta">${escapeHtml(shoe.periodLabel || "")} · ${escapeHtml(shoe.categoryGroup)} · ${escapeHtml(shoe.category)}</span>
+        ${changeBadgeMarkup(shoe, true)}
         <span class="sheet-product__tags">${tagMarkup(shoe.tags)}</span>
-      </a>
+      ${closeTag}
     `;
   }
 
@@ -1240,7 +1573,7 @@
         <div>
           <p class="eyebrow">${escapeHtml(cell.brand)} · ${escapeHtml(groupLabel(cell.row.group))}</p>
           <h2 id="mapSheetTitle">${escapeHtml(cell.brand)} · ${escapeHtml(cell.row.label)}</h2>
-          <p>이 구역에는 제품 ${countText}가 있습니다.</p>
+          <p>${escapeHtml(selectedHistoryPeriod()?.label || "")} ${escapeHtml(changeOptionLabel(state.change))} 기준 제품 ${countText}가 있습니다.</p>
         </div>
         <button class="sheet-close" type="button" data-sheet-close aria-label="바텀시트 닫기">×</button>
       </div>
@@ -1428,10 +1761,24 @@
     state.brand = "전체";
     state.group = "전체";
     state.category = "전체";
+    state.periodId = activeHistoryPeriod?.id || state.periodId;
+    state.change = "전체";
     state.tags.clear();
     state.sort = "table";
     el.searchInput.value = "";
     el.sortSelect.value = "table";
+    renderPeriodArchive();
+    renderCurrentRoute();
+  });
+
+  el.periodArchive.addEventListener("click", (event) => {
+    const button = event.target.closest("[data-period-id]");
+    if (!button) return;
+    state.periodId = button.dataset.periodId;
+    state.change = "전체";
+    state.tags.clear();
+    if (el.searchInput) el.searchInput.value = state.query;
+    renderPeriodArchive();
     renderCurrentRoute();
   });
 
