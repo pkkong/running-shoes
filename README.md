@@ -17,10 +17,13 @@ python3 -m http.server 4173
 ## 데이터
 
 - 구조화 데이터: `data/shoes.js`
+- 분기별 라인업 이력: `data/lineup-history.js`
 - 분기 아카이브: 2024.08, 2024.11, 2025.02, 2025.05, 2025.08, 2025.11, 2026.02, 2026.05
 - 앱 구조화 데이터: 2026.05 기준 118개
 - 보기 방식: 리스트, 맵, 집중 보기, 상세 페이지
 - 상세 페이지: `#/shoe/{id}`
+- 상세 페이지에는 같은 브랜드·종류 셀 기준의 분기별 라인 등장 이력을 표시합니다.
+- 2024.08~2026.02 이력은 원문표 이미지 OCR 구조화 기준이고, 2026.05는 앱 구조화 데이터 기준입니다.
 - 사진: 브랜드 공식 사이트, 공식 CDN, 공식 뉴스룸 출처 URL
 - 가격 스냅샷: `data/prices/latest.js`
 - 가격 조회는 네이버 쇼핑 검색 API를 GitHub Actions에서 주기 실행해 정적 스냅샷으로 반영합니다. 브라우저에는 API 키를 노출하지 않습니다.
@@ -46,10 +49,13 @@ NAVER_CLIENT_ID=... NAVER_CLIENT_SECRET=... node scripts/collect-prices.mjs
 ```sh
 node --check app.js
 node --check data/shoes.js
+node --check data/lineup-history.js
 node --check data/price-queries.js
 node --check data/prices/latest.js
 node --check scripts/collect-prices.mjs
+node --check scripts/audit-lineup-history.mjs
 node --check scripts/audit-prices.mjs
+node scripts/audit-lineup-history.mjs
 node scripts/audit-images.mjs
 node scripts/audit-prices.mjs
 ```

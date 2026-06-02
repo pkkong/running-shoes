@@ -1,6 +1,7 @@
 (function () {
   const shoes = window.RUNNING_SHOES || [];
   const periods = window.RUNNING_LINEUP_PERIODS || [];
+  const lineupHistory = window.RUNNING_LINEUP_HISTORY || { periods: [], entries: [] };
   const priceSnapshot = window.RUNNING_PRICE_SNAPSHOT || { generatedAt: "", source: "pending", currency: "KRW", items: {} };
   const priceQueryConfig = window.RUNNING_PRICE_QUERY_CONFIG || {};
 
@@ -105,6 +106,27 @@
     return acc;
   }, {});
 
+  const historyPeriods = lineupHistory.periods?.length ? lineupHistory.periods : periods;
+  const historyEntries = (lineupHistory.entries || []).map(([periodId, brand, category, models]) => ({
+    periodId,
+    brand,
+    category,
+    models,
+  }));
+  const historyEntryMap = historyEntries.reduce((acc, entry) => {
+    acc.set(`${entry.periodId}|||${entry.brand}|||${entry.category}`, entry);
+    return acc;
+  }, new Map());
+  const historyStatsByPeriod = historyEntries.reduce((acc, entry) => {
+    const stats = acc.get(entry.periodId) || { cells: 0, models: 0 };
+    if (entry.models.length) stats.cells += 1;
+    stats.models += entry.models.length;
+    acc.set(entry.periodId, stats);
+    return acc;
+  }, new Map());
+  const activeHistoryPeriod = historyPeriods.find((period) => period.active) || historyPeriods[historyPeriods.length - 1] || null;
+  const historyTotalModelCount = [...historyStatsByPeriod.values()].reduce((sum, stats) => sum + stats.models, 0);
+
   function normalize(value) {
     return String(value || "").toLowerCase().replace(/\s+/g, "");
   }
@@ -116,6 +138,163 @@
       .replace(/>/g, "&gt;")
       .replace(/"/g, "&quot;")
       .replace(/'/g, "&#039;");
+  }
+
+  function normalizeHistoryText(value) {
+    return String(value || "")
+      .toLowerCase()
+      .replace(/[·+]/g, " ")
+      .replace(/[^a-z0-9가-힣]+/g, "")
+      .trim();
+  }
+
+  function lineageText(value) {
+    let text = String(value || "")
+      .replace(/[·+]/g, " ")
+      .replace(/\bV\s*\d+\b/gi, "")
+      .replace(/\bX\s*(\d+)\b/gi, "X")
+      .replace(/\bGTS\s*\d+\b/gi, "GTS")
+      .replace(/\s+\d+(\.\d+)?\b/g, "")
+      .replace(/\s+/g, " ")
+      .trim();
+
+    if (/^\d+$/.test(String(value).trim().split(/\s+/)[0] || "")) {
+      text = String(value).trim().split(/\s+/)[0];
+    }
+
+    return text;
+  }
+
+  function historyAliases(shoe) {
+    const aliases = new Set();
+    [shoe.model, shoe.displayName, lineageText(shoe.model), lineageText(shoe.displayName)]
+      .filter(Boolean)
+      .forEach((value) => {
+        aliases.add(normalizeHistoryText(value));
+        const firstToken = String(value).trim().split(/\s+/)[0];
+        if (firstToken && firstToken.length >= 3 && !/^\d+$/.test(firstToken)) {
+          aliases.add(normalizeHistoryText(firstToken));
+        }
+      });
+    return [...aliases].filter((alias) => alias.length >= 2);
+  }
+
+  function historyEntryFor(periodId, brand, category) {
+    return historyEntryMap.get(`${periodId}|||${brand}|||${category}`) || null;
+  }
+
+  function historyTimelineFor(shoe) {
+    const aliases = historyAliases(shoe);
+    const timeline = historyPeriods.map((period) => {
+      const entry = historyEntryFor(period.id, shoe.brand, shoe.category);
+      const models = entry?.models || [];
+      const matched = models.some((model) => {
+        const normalized = normalizeHistoryText(lineageText(model));
+        const exact = normalizeHistoryText(model);
+        if (normalized.length < 2 && exact.length < 2) return false;
+        return aliases.some((alias) => exact.includes(alias) || normalized.includes(alias) || alias.includes(normalized));
+      });
+      return {
+        period,
+        models,
+        matched,
+      };
+    });
+
+    let streak = 0;
+    for (let index = timeline.length - 1; index >= 0; index -= 1) {
+      if (!timeline[index].matched) break;
+      streak += 1;
+    }
+
+    const matchedPeriods = timeline.filter((item) => item.matched);
+    return {
+      timeline,
+      matchedPeriods,
+      count: matchedPeriods.length,
+      streak,
+      firstPeriod: matchedPeriods[0]?.period || null,
+      isNew: matchedPeriods.length <= 1,
+    };
+  }
+
+  function historyBadgeMarkup(shoe) {
+    const history = historyTimelineFor(shoe);
+    if (!history.count) return "";
+    const label = history.isNew
+      ? "신규 라인"
+      : history.streak >= 2
+        ? `${history.streak}분기 연속`
+        : `${history.count}회 등장`;
+    return `<span class="history-pill">${escapeHtml(label)}</span>`;
+  }
+
+  function historyModelsMarkup(models, maxItems = 4) {
+    if (!models.length) return `<span class="history-period__empty">기록 없음</span>`;
+    const visibleModels = models.slice(0, maxItems);
+    const restCount = models.length - visibleModels.length;
+    return `
+      ${visibleModels.map((model) => `<span>${escapeHtml(model)}</span>`).join("")}
+      ${restCount > 0 ? `<span class="history-period__more">+${restCount}</span>` : ""}
+    `;
+  }
+
+  function historyPanelMarkup(shoe) {
+    const history = historyTimelineFor(shoe);
+    if (!history.timeline.length) return "";
+
+    const firstLabel = history.firstPeriod?.label || "이전 분기 미확인";
+    const headline = history.count
+      ? history.isNew
+        ? `${activeHistoryPeriod?.label || "현재"} 첫 등장 라인`
+        : `${firstLabel}부터 ${history.count}개 분기 등장`
+      : "분기 이력 미확인";
+    const streakLabel = history.streak >= 2 ? `${history.streak}분기 연속` : history.count ? "간헐 등장" : "등장 없음";
+
+    return `
+      <section class="history-panel" aria-label="분기별 라인 이력">
+        <div class="history-panel__head">
+          <div>
+            <p class="eyebrow">LINEUP HISTORY</p>
+            <h3>분기별 라인 이력</h3>
+          </div>
+          ${historyBadgeMarkup(shoe)}
+        </div>
+        <p class="history-panel__lead">
+          같은 브랜드·종류 셀 기준의 반복 등장 흐름입니다.
+        </p>
+        <div class="history-stats" aria-label="라인 이력 요약">
+          <span>
+            <strong>${escapeHtml(String(history.count))}</strong>
+            <small>등장 분기</small>
+          </span>
+          <span>
+            <strong>${escapeHtml(streakLabel)}</strong>
+            <small>최근 흐름</small>
+          </span>
+          <span>
+            <strong>${escapeHtml(headline)}</strong>
+            <small>요약</small>
+          </span>
+        </div>
+        <ol class="history-timeline">
+          ${history.timeline
+            .map(
+              ({ period, models, matched }) => `
+                <li class="history-period ${matched ? "is-matched" : ""}">
+                  <span class="history-period__date">${escapeHtml(period.label || period.id)}</span>
+                  <span class="history-period__status">${matched ? "라인 등장" : models.length ? "같은 셀 기록" : "기록 없음"}</span>
+                  <span class="history-period__models">${historyModelsMarkup(models)}</span>
+                </li>
+              `
+            )
+            .join("")}
+        </ol>
+        <p class="history-panel__note">
+          2024.08~2026.02는 원문표 이미지 OCR 구조화, 2026.05는 앱 구조화 데이터 기준입니다.
+        </p>
+      </section>
+    `;
   }
 
   function groupClassName(group) {
@@ -416,6 +595,7 @@
             <span>${escapeHtml(shoe.categoryGroup)}</span>
             <span>${escapeHtml(shoe.category)}</span>
           </span>
+          ${historyBadgeMarkup(shoe)}
           <span class="tag-list">${tagMarkup(shoe.tags)}</span>
           ${priceBadgeMarkup(shoe, false, "inlineLink")}
         </span>
@@ -664,12 +844,14 @@
   }
 
   function renderPeriodArchive() {
-    if (!el.periodArchive || !periods.length) return;
-    const active = periods.find((period) => period.active) || periods[periods.length - 1];
-    const sourceLinks = [...periods]
+    if (!el.periodArchive || !historyPeriods.length) return;
+    const active = activeHistoryPeriod || historyPeriods[historyPeriods.length - 1];
+    const sourceLinks = [...historyPeriods]
       .reverse()
-      .map(
-        (period) => `
+      .map((period) => {
+        const stats = historyStatsByPeriod.get(period.id);
+        const status = period.active ? `${stats?.models || shoes.length}개 현재` : `${stats?.models || 0}개 OCR`;
+        return `
           <a
             class="period-link ${period.id === active.id ? "is-active" : ""}"
             href="${escapeHtml(period.sourcePostUrl)}"
@@ -678,24 +860,24 @@
             aria-label="${escapeHtml(`${period.label} 러닝화 라인업 원문 보기`)}"
           >
             <span>${escapeHtml(period.label)}</span>
-            <small>${period.active ? `${shoes.length}개 구조화` : "원문 확보"}</small>
+            <small>${escapeHtml(status)}</small>
           </a>
-        `
-      )
+        `;
+      })
       .join("");
 
     el.periodArchive.innerHTML = `
       <div class="period-archive__head">
         <div>
           <p class="eyebrow">Archive</p>
-          <h2>시기별 라인업</h2>
-          <p>2024.08부터 원문을 연결했고, 현재 앱 데이터는 ${escapeHtml(active.label)} 기준 ${shoes.length}개입니다.</p>
+          <h2>분기별 추천 변화</h2>
+          <p>2024.08부터 ${historyPeriods.length}개 분기, 총 ${historyTotalModelCount}개 모델 후보를 구조화했습니다.</p>
         </div>
         <div class="period-archive__actions">
           <a class="period-source" href="${escapeHtml(active.sourcePostUrl)}" target="_blank" rel="noreferrer">현재 원문</a>
         </div>
       </div>
-      <div class="period-archive__rail" aria-label="분기별 원문 링크">
+      <div class="period-archive__rail" aria-label="분기별 원문 링크와 구조화 상태">
         ${sourceLinks}
       </div>
     `;
@@ -1034,6 +1216,7 @@
           </div>
         </div>
       </article>
+      ${historyPanelMarkup(shoe)}
       ${pricePanelMarkup(shoe)}
     `;
     wireImages();
