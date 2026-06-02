@@ -38,6 +38,7 @@ function dimensions(filePath) {
 const ids = new Set();
 let localCount = 0;
 let measuredCount = 0;
+let customImageScaleCount = 0;
 
 for (const shoe of shoes) {
   if (ids.has(shoe.id)) errors.push(`duplicate id: ${shoe.id}`);
@@ -51,6 +52,14 @@ for (const shoe of shoes) {
   if (!shoe.officialProductUrl) errors.push(`${shoe.id}: officialProductUrl is empty`);
   if (!shoe.displayName) warnings.push(`${shoe.id}: displayName is empty`);
   if (!shoe.officialImageUrl) warnings.push(`${shoe.id}: officialImageUrl metadata is empty`);
+  if (!shoe.imageFit) errors.push(`${shoe.id}: imageFit is empty`);
+  if (!shoe.imagePosition) errors.push(`${shoe.id}: imagePosition is empty`);
+  if (!Number.isFinite(Number(shoe.imageScale)) || Number(shoe.imageScale) <= 0) {
+    errors.push(`${shoe.id}: imageScale is invalid`);
+  }
+  if (Number(shoe.imageScale) !== 1) customImageScaleCount += 1;
+  if (!shoe.imageQuality) warnings.push(`${shoe.id}: imageQuality metadata is empty`);
+  if (!shoe.imageFacing) warnings.push(`${shoe.id}: imageFacing metadata is empty`);
 
   const filePath = localPathFromUrl(shoe.imageUrl);
   if (!filePath) continue;
@@ -89,6 +98,7 @@ if (unused.length) warnings.push(`${unused.length} local shoe assets are not ref
 console.log(`Shoes: ${shoes.length}`);
 console.log(`Local images: ${localCount}`);
 console.log(`Measured images: ${measuredCount}`);
+console.log(`Custom image scale metadata: ${customImageScaleCount}`);
 console.log(`Warnings: ${warnings.length}`);
 warnings.slice(0, 30).forEach((warning) => console.log(`warning: ${warning}`));
 if (warnings.length > 30) console.log(`warning: ...and ${warnings.length - 30} more`);

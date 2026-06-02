@@ -259,7 +259,7 @@
 
   function tagMarkup(tags, compact = false) {
     if (!tags.length) {
-      return compact ? "" : '<span class="muted">표시 없음</span>';
+      return "";
     }
 
     return tags
@@ -334,7 +334,7 @@
   function priceBadgeMarkup(shoe, showPending = true, mode = "span") {
     const info = priceInfoFor(shoe);
     if (info?.status === "found") {
-      const label = `최저 ${formatWon(info.lowestPrice)}`;
+      const label = `최저가 후보 ${formatWon(info.lowestPrice)}`;
       const link = priceOfferLinkFor(shoe);
       const ariaLabel = `${shoe.brand} ${shoe.model} ${label} 쇼핑몰 열기`;
       if (mode === "anchor") {
@@ -461,20 +461,22 @@
     }));
   }
 
-  function mapColumnWidthToken() {
-    return "var(--map-cell-width)";
+  function mapColumnWidthToken(count) {
+    if (count >= 3) return "var(--map-cell-width-3)";
+    if (count >= 2) return "var(--map-cell-width-2)";
+    return "var(--map-cell-width-1)";
   }
 
   function renderMapControls() {
     renderSegmentButtons(el.mapGroupFilters, ["전체", ...groupOrder], state.group, (value) => {
       state.group = value;
       renderOverview();
-    }, groupLabel);
+    }, (value) => (value === "전체" ? "전체 용도" : groupLabel(value)));
 
     renderSegmentButtons(el.mapBrandFilters, ["전체", ...brandOrder], state.brand, (value) => {
       state.brand = value;
       renderOverview();
-    });
+    }, (value) => (value === "전체" ? "전체 브랜드" : value));
 
     if (document.activeElement !== el.mapSearchInput) {
       el.mapSearchInput.value = state.query;
@@ -495,7 +497,7 @@
     el.shoeMapCanvas.style.setProperty("--map-zoom", state.mapZoom);
     el.shoeMapCanvas.innerHTML = `
       <div class="shoe-map-grid" style="grid-template-columns: ${escapeHtml(gridColumns)};">
-        <div class="map-axis-corner">용도</div>
+        <div class="map-axis-corner"><span class="visually-hidden">용도</span></div>
         ${brands
           .map(
             (brand) => `
@@ -512,19 +514,25 @@
               <div class="map-row-head ${groupClassName(row.group)} ${
                 isGroupStartCategory(row.category) ? "map-row-head--group-start" : ""
               }">
+                ${
+                  isGroupStartCategory(row.category)
+                    ? `<span class="map-row-head__group">${escapeHtml(groupLabel(row.group))}</span>`
+                    : ""
+                }
                 <strong title="${escapeHtml(`${groupLabel(row.group)} · ${row.label}`)}">${escapeHtml(row.label)}</strong>
               </div>
               ${row.cells
                 .map((cell) => {
                   const disabled = cell.count === 0;
-                  const primaryShoe = cell.shoes[0];
-                  const primaryLabel = primaryShoe ? primaryShoe.displayName || primaryShoe.model : "";
+                  const visibleShoes = cell.shoes.slice(0, 3);
+                  const mediaClass = `map-cell__media map-cell__media--${Math.min(Math.max(cell.count, 1), 3)}`;
+                  const primaryLabel = cell.shoes[0] ? cell.shoes[0].displayName || cell.shoes[0].model : "";
                   const label = disabled
                     ? `${cell.brand} ${row.label} 제품 없음`
                     : `${cell.brand} ${row.label} ${cell.count}개: ${cell.productNames}. 제품 목록 보기`;
                   return `
                     <button
-                      class="map-cell ${cellIntensity(cell.count, maxCount)} ${
+                      class="map-cell ${cellIntensity(cell.count, maxCount)} ${cell.count > 1 ? "map-cell--multi" : ""} ${
                         isGroupStartCategory(row.category) ? "map-cell--group-start" : ""
                       }"
                       type="button"
@@ -536,11 +544,11 @@
                     >
                       ${
                         cell.count
-                          ? `<span class="map-cell__media">
-                              ${mapImageMarkup(primaryShoe)}
+                          ? `<span class="${mediaClass}">
+                              ${visibleShoes.map(mapImageMarkup).join("")}
                               ${
                                 cell.count > 1
-                                  ? `<span class="map-cell__badge" aria-hidden="true">${cell.count}개</span>`
+                                  ? `<span class="map-cell__badge" aria-hidden="true">${cell.count}</span>`
                                   : ""
                               }
                         </span>`
@@ -548,10 +556,10 @@
                       }
                       <span class="map-cell__body">
                         <span class="map-cell__count">${
-                          cell.count ? escapeHtml(cell.count === 1 ? primaryLabel : "전체 보기") : "없음"
+                          cell.count ? escapeHtml(cell.count === 1 ? primaryLabel : `${cell.count}개 제품`) : "없음"
                         }</span>
                         <span class="map-cell__name">
-                          ${cell.count ? escapeHtml(cell.count === 1 ? "1개 제품" : `${cell.count}개 제품`) : "제품 없음"}
+                          ${cell.count ? escapeHtml(cell.count === 1 ? row.label : "눌러서 목록 보기") : "제품 없음"}
                         </span>
                       </span>
                     </button>
@@ -670,7 +678,7 @@
             aria-label="${escapeHtml(`${period.label} 러닝화 라인업 원문 보기`)}"
           >
             <span>${escapeHtml(period.label)}</span>
-            <small>${escapeHtml(period.status)}</small>
+            <small>${period.active ? `${shoes.length}개 구조화` : "원문 확보"}</small>
           </a>
         `
       )
@@ -679,12 +687,12 @@
     el.periodArchive.innerHTML = `
       <div class="period-archive__head">
         <div>
-          <p class="eyebrow">Lineup Archive</p>
-          <h2>분기</h2>
+          <p class="eyebrow">Archive</p>
+          <h2>시기별 라인업</h2>
+          <p>2024.08부터 원문을 연결했고, 현재 앱 데이터는 ${escapeHtml(active.label)} 기준 ${shoes.length}개입니다.</p>
         </div>
         <div class="period-archive__actions">
-          <a class="period-source" href="${escapeHtml(active.sourcePostUrl)}" target="_blank" rel="noreferrer">최신 원문</a>
-          <a class="period-source" href="${escapeHtml(active.tableImageUrl)}" target="_blank" rel="noreferrer">원본표</a>
+          <a class="period-source" href="${escapeHtml(active.sourcePostUrl)}" target="_blank" rel="noreferrer">현재 원문</a>
         </div>
       </div>
       <div class="period-archive__rail" aria-label="분기별 원문 링크">
@@ -734,7 +742,7 @@
 
   function renderOverview() {
     const items = getMapFilteredShoes();
-    el.overviewTitle.textContent = "브랜드 × 용도 맵";
+    el.overviewTitle.textContent = "러닝화 맵";
     updateViewLinks();
     renderMapControls();
     el.mapViewShell.hidden = false;
@@ -933,23 +941,24 @@
     if (info?.status === "found") {
       const offers = info.offers || [];
       return `
-        <section class="price-panel" aria-label="최저가 탐색">
+        <section class="price-panel" aria-label="가격 후보">
           <div class="price-panel__head">
             <div>
               <p class="eyebrow">PRICE</p>
-              <h3>최저가 탐색</h3>
+              <h3>가격 후보</h3>
             </div>
             <span class="price-pill price-pill--ready">${priceConfidenceLabel(info.confidence)}</span>
           </div>
           <a class="price-panel__lowest" href="${escapeHtml(info.lowestOffer?.link || searchUrl)}" target="_blank" rel="noreferrer">
             <span>
-              <span class="price-panel__label">현재 최저가</span>
+              <span class="price-panel__label">최저가 후보</span>
               <strong>${formatWon(info.lowestPrice)}</strong>
             </span>
             <span class="price-panel__mall">${escapeHtml(info.lowestOffer?.mallName || "네이버 쇼핑")}</span>
           </a>
           <div class="price-panel__meta">
             <span>${generatedLabel ? `${escapeHtml(generatedLabel)} 기준` : "최근 스냅샷 기준"}</span>
+            <span>사이즈, 배송비, 재고는 쇼핑몰에서 확인 필요</span>
             <a href="${escapeHtml(searchUrl)}" target="_blank" rel="noreferrer">네이버 쇼핑 검색</a>
           </div>
           <div class="price-offer-list" aria-label="가격 후보">
@@ -960,15 +969,15 @@
     }
 
     const message = !hasPriceSnapshot()
-      ? "아직 가격 스냅샷이 없습니다. API 키가 연결되면 GitHub Actions가 자동으로 최저가를 채웁니다."
+      ? "아직 가격 스냅샷이 없습니다. API 키가 연결되면 GitHub Actions가 자동으로 가격 후보를 채웁니다."
       : info?.message || "조건에 맞는 자동 매칭 결과가 없습니다. 검색 결과를 직접 확인해 주세요.";
 
     return `
-      <section class="price-panel price-panel--pending" aria-label="최저가 탐색">
+      <section class="price-panel price-panel--pending" aria-label="가격 후보">
         <div class="price-panel__head">
           <div>
             <p class="eyebrow">PRICE</p>
-            <h3>최저가 탐색</h3>
+            <h3>가격 후보</h3>
           </div>
           ${priceBadgeMarkup(shoe)}
         </div>
@@ -992,7 +1001,7 @@
 
   function renderDetail(shoe) {
     const backHref = state.lastBrowseRoute || "#/";
-    const backLabel = backHref === "#/overview" ? "한눈에 보기" : backHref === "#/picker" ? "피커 보기" : "목록 보기";
+    const backLabel = backHref === "#/overview" ? "맵 보기" : backHref === "#/picker" ? "집중 보기" : "리스트";
 
     el.detailView.innerHTML = `
       <a class="back-link" href="${escapeHtml(backHref)}">← ${backLabel}</a>
@@ -1001,8 +1010,16 @@
           ${imageMarkup(shoe, "detail")}
         </div>
         <div class="detail-card__content">
-          <p class="eyebrow">${escapeHtml(shoe.brand)} · ${escapeHtml(shoe.displayName || shoe.model)}</p>
-          <h2>${escapeHtml(shoe.model)}</h2>
+          <div class="detail-brand-line">
+            ${brandLogoMarkup(shoe.brand)}
+            <span>2026.05 구조화</span>
+          </div>
+          <h2>${escapeHtml(shoe.displayName || shoe.model)}</h2>
+          ${
+            shoe.displayName && shoe.displayName !== shoe.model
+              ? `<p class="detail-card__subtitle">${escapeHtml(shoe.model)}</p>`
+              : ""
+          }
           <div class="detail-meta">
             <span>${escapeHtml(shoe.categoryGroup)}</span>
             <span>${escapeHtml(shoe.category)}</span>
@@ -1156,7 +1173,7 @@
         renderDetail(shoe);
       } else {
         el.detailView.innerHTML = `
-          <a class="back-link" href="${escapeHtml(state.lastBrowseRoute || "#/")}">← 목록 보기</a>
+          <a class="back-link" href="${escapeHtml(state.lastBrowseRoute || "#/")}">← 리스트</a>
           <section class="empty-state">
             <h2>상세 정보를 찾을 수 없습니다</h2>
             <p>추천표로 돌아가 다시 선택해 주세요.</p>
