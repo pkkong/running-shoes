@@ -109,6 +109,7 @@
     mapSheetBackdrop: document.querySelector("#mapSheetBackdrop"),
     mapSheet: document.querySelector("#mapSheet"),
     pickerCoordinate: document.querySelector("#pickerCoordinate"),
+    pickerSummary: document.querySelector("#pickerSummary"),
     pickerBrandAxis: document.querySelector("#pickerBrandAxis"),
     pickerCategoryAxis: document.querySelector("#pickerCategoryAxis"),
     pickerDetail: document.querySelector("#pickerDetail"),
@@ -746,7 +747,7 @@
   }
 
   function priceInfoFor(shoe) {
-    return priceSnapshot.items?.[shoe.id] || null;
+    return priceSnapshot.items?.[shoe.id] || (shoe.detailId ? priceSnapshot.items?.[shoe.detailId] : null) || null;
   }
 
   function hasPriceSnapshot() {
@@ -797,6 +798,31 @@
   function priceOfferLinkFor(shoe) {
     const info = priceInfoFor(shoe);
     return info?.status === "found" ? info.lowestOffer?.link || shoppingSearchUrl(shoe) : "";
+  }
+
+  function pickerPriceActionMarkup(shoe) {
+    const info = priceInfoFor(shoe);
+    const searchUrl = shoppingSearchUrl(shoe);
+
+    if (info?.status === "found") {
+      const link = priceOfferLinkFor(shoe) || searchUrl;
+      const mallName = info.lowestOffer?.mallName || "쇼핑몰";
+      return `
+        <a class="picker-shop-link picker-shop-link--price" href="${escapeHtml(link)}" target="_blank" rel="noreferrer">
+          <span>최저가 후보</span>
+          <strong>${formatWon(info.lowestPrice)}</strong>
+          <small>${escapeHtml(mallName)}</small>
+        </a>
+      `;
+    }
+
+    return `
+      <a class="picker-shop-link" href="${escapeHtml(searchUrl)}" target="_blank" rel="noreferrer">
+        <span>가격 검색</span>
+        <strong>네이버 쇼핑</strong>
+        <small>${hasPriceSnapshot() ? "직접 확인" : "스냅샷 준비 중"}</small>
+      </a>
+    `;
   }
 
   function priceBadgeMarkup(shoe, showPending = true, mode = "span") {
@@ -1385,13 +1411,29 @@
     const products = pickerProducts();
     const categoryGroup = categoryGroupMap[category] || "";
     const coordinate = `${brand} × ${pickerCategoryLabel(category)}`;
+    const periodLabel = selectedHistoryPeriod()?.label || "";
+    const countText = products.length ? `${products.length}개 제품` : "라인업 없음";
     el.pickerCoordinate.textContent = coordinate;
+    if (el.pickerSummary) {
+      el.pickerSummary.textContent = [periodLabel, countText].filter(Boolean).join(" · ");
+    }
     el.pickerDetail.className = `picker-detail-card picker-detail-card--${products.length ? "filled" : "empty"}`;
 
     el.pickerDetail.innerHTML = `
-      <div class="picker-detail-card__head" aria-label="${escapeHtml(coordinate)}">
-        <h3 class="visually-hidden">${escapeHtml(`${categoryGroup ? `${categoryGroup} · ` : ""}${coordinate}`)}</h3>
-        <span class="picker-count-pill">${selectedHistoryPeriod()?.label || ""} · ${products.length ? `${products.length}개 제품` : "라인업 없음"}</span>
+      <div class="picker-stage" aria-label="${escapeHtml(coordinate)}">
+        <div class="picker-stage__identity">
+          ${brandLogoMarkup(brand)}
+          <span class="visually-hidden">${escapeHtml(brand)}</span>
+          <span class="picker-stage__copy">
+            <span>${escapeHtml(categoryGroup || "라인업")}</span>
+            <strong>${escapeHtml(pickerCategoryLabel(category))}</strong>
+          </span>
+        </div>
+        <div class="picker-stage__stats" aria-label="${escapeHtml(`${periodLabel} ${countText}`)}">
+          <span>${escapeHtml(periodLabel)}</span>
+          <span>${escapeHtml(countText)}</span>
+          ${state.change !== "전체" ? `<span>${escapeHtml(changeOptionLabel(state.change))}</span>` : ""}
+        </div>
       </div>
       ${
         products.length
@@ -1407,18 +1449,28 @@
 
   function pickerProductMarkup(shoe) {
     const href = detailHrefForItem(shoe);
-    const openTag = href
-      ? `<a class="picker-product-card" href="${escapeHtml(href)}" aria-label="${escapeHtml(`${shoe.brand} ${shoe.model} 상세 보기`)}">`
-      : `<article class="picker-product-card picker-product-card--static">`;
-    const closeTag = href ? "</a>" : "</article>";
+    const detailLink = href
+      ? `<a class="picker-detail-link" href="${escapeHtml(href)}" aria-label="${escapeHtml(`${shoe.brand} ${shoe.model} 상세 보기`)}">상세 보기</a>`
+      : "";
+
     return `
-      ${openTag}
-        ${imageMarkup(shoe, "picker")}
-        <span class="picker-product-card__body">
-          <strong>${escapeHtml(shoe.displayName || shoe.model)}</strong>
-          ${changeBadgeMarkup(shoe, true)}
-        </span>
-      ${closeTag}
+      <article class="picker-product-card ${href ? "" : "picker-product-card--static"}">
+        <div class="picker-product-card__media">
+          ${imageMarkup(shoe, "picker")}
+        </div>
+        <div class="picker-product-card__body">
+          <span class="picker-product-card__meta">
+            <span>${escapeHtml(shoe.periodLabel || selectedHistoryPeriod()?.label || "")}</span>
+            ${changeBadgeMarkup(shoe, true)}
+          </span>
+          <strong class="picker-product-card__name">${escapeHtml(shoe.displayName || shoe.model)}</strong>
+          <span class="picker-product-card__sub">${escapeHtml(shoe.categoryGroup)} · ${escapeHtml(shoe.category)}</span>
+          <div class="picker-product-card__actions">
+            ${pickerPriceActionMarkup(shoe)}
+            ${detailLink}
+          </div>
+        </div>
+      </article>
     `;
   }
 
@@ -1512,7 +1564,7 @@
 
   function renderDetail(shoe) {
     const backHref = state.lastBrowseRoute || "#/";
-    const backLabel = backHref === "#/overview" ? "맵 보기" : backHref === "#/picker" ? "집중 보기" : "리스트";
+    const backLabel = backHref === "#/overview" ? "맵 보기" : backHref === "#/list" ? "리스트" : "집중 보기";
 
     el.detailView.innerHTML = `
       <a class="back-link" href="${escapeHtml(backHref)}">← ${backLabel}</a>
@@ -1635,7 +1687,7 @@
     el.searchInput.value = "";
     el.sortSelect.value = state.sort;
     closeMapSheet(false);
-    window.location.hash = "#/";
+    window.location.hash = "#/list";
     renderHome();
   }
 
@@ -1689,7 +1741,7 @@
         renderDetail(shoe);
       } else {
         el.detailView.innerHTML = `
-          <a class="back-link" href="${escapeHtml(state.lastBrowseRoute || "#/")}">← 리스트</a>
+          <a class="back-link" href="${escapeHtml(state.lastBrowseRoute || "#/")}">← 집중 보기</a>
           <section class="empty-state">
             <h2>상세 정보를 찾을 수 없습니다</h2>
             <p>추천표로 돌아가 다시 선택해 주세요.</p>
@@ -1716,9 +1768,26 @@
       return;
     }
 
-    if (hash === "#/picker") {
+    if (hash === "#/list") {
+      setRoute("home");
+      state.lastBrowseRoute = "#/list";
+      closeMapSheet(false);
+      clearPickerTimers();
+      el.periodArchive.hidden = false;
+      el.globalViewNav.hidden = false;
+      el.filterPanel.hidden = false;
+      el.homeView.hidden = false;
+      el.overviewView.hidden = true;
+      el.pickerView.hidden = true;
+      el.detailView.hidden = true;
+      renderHome();
+      window.scrollTo(0, 0);
+      return;
+    }
+
+    if (hash === "#/" || hash === "" || hash === "#/picker") {
       setRoute("picker");
-      state.lastBrowseRoute = "#/picker";
+      state.lastBrowseRoute = hash === "#/picker" ? "#/picker" : "#/";
       closeMapSheet(false);
       el.periodArchive.hidden = false;
       el.globalViewNav.hidden = false;
@@ -1732,18 +1801,18 @@
       return;
     }
 
-    setRoute("home");
+    setRoute("picker");
     state.lastBrowseRoute = "#/";
     closeMapSheet(false);
     clearPickerTimers();
     el.periodArchive.hidden = false;
     el.globalViewNav.hidden = false;
-    el.filterPanel.hidden = false;
-    el.homeView.hidden = false;
+    el.filterPanel.hidden = true;
+    el.homeView.hidden = true;
     el.overviewView.hidden = true;
-    el.pickerView.hidden = true;
+    el.pickerView.hidden = false;
     el.detailView.hidden = true;
-    renderHome();
+    renderPicker();
   }
 
   el.searchInput.addEventListener("input", (event) => {

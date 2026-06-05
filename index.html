@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>러닝화 라인업</title>
-    <link rel="stylesheet" href="styles.css?v=20260602-period-compare-1" />
+    <link rel="stylesheet" href="styles.css?v=20260605-picker-mobile-1" />
   </head>
   <body>
     <header class="topbar">
@@ -28,9 +28,9 @@
       <section id="periodArchive" class="period-archive" aria-label="분기별 러닝화 라인업"></section>
 
       <nav class="global-view-nav" aria-label="보기 전환">
-        <a id="listLink" class="view-link" href="#/">리스트</a>
+        <a id="pickerLink" class="view-link" href="#/">집중 보기</a>
+        <a id="listLink" class="view-link" href="#/list">리스트</a>
         <a id="overviewLink" class="view-link" href="#/overview">맵</a>
-        <a id="pickerLink" class="view-link" href="#/picker">집중 보기</a>
       </nav>
 
       <section id="filterPanel" class="control-panel" aria-label="러닝화 필터">
@@ -151,10 +151,12 @@
         <div class="picker-shell">
           <header class="picker-header">
             <div>
-              <h2>집중 보기</h2>
+              <p class="eyebrow">Pick</p>
+              <h2>러닝화 고르기</h2>
             </div>
             <div class="picker-header__meta">
               <strong id="pickerCoordinate" class="visually-hidden">Nike × 입문화</strong>
+              <span id="pickerSummary">2026.05 · 제품 선택</span>
             </div>
           </header>
 
@@ -203,10 +205,10 @@
       <p>가격은 네이버 쇼핑 검색 API 기반 후보입니다. 구매 전 사이즈, 배송비, 재고를 확인하세요.</p>
     </footer>
 
-    <script src="data/shoes.js?v=20260602-period-compare-1"></script>
-    <script src="data/lineup-history.js?v=20260602-period-compare-1"></script>
-    <script src="data/price-queries.js?v=20260602-period-compare-1"></script>
-    <script src="data/prices/latest.js?v=20260602-period-compare-1"></script>
-    <script src="app.js?v=20260602-period-compare-1"></script>
+    <script src="data/shoes.js?v=20260605-picker-mobile-1"></script>
+    <script src="data/lineup-history.js?v=20260605-picker-mobile-1"></script>
+    <script src="data/price-queries.js?v=20260605-picker-mobile-1"></script>
+    <script src="data/prices/latest.js?v=20260605-picker-mobile-1"></script>
+    <script src="app.js?v=20260605-picker-mobile-1"></script>
   </body>
 </html>
