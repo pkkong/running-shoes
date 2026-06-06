@@ -602,21 +602,12 @@
   }
 
   function getMapFilteredShoes() {
-    const query = normalize(state.query);
-
-    return baseLineupItemsForSelectedPeriod()
-      .filter((shoe) => {
-        const haystack = normalize([shoe.brand, shoe.model, shoe.displayName, shoe.categoryGroup, shoe.category].join(" "));
-        const matchesQuery = !query || haystack.includes(query);
-        const matchesBrand = state.brand === "전체" || shoe.brand === state.brand;
-        const matchesGroup = state.group === "전체" || shoe.categoryGroup === state.group;
-        return matchesQuery && matchesBrand && matchesGroup;
-      })
-      .sort((a, b) => a.tableOrder - b.tableOrder);
+    const period = selectedHistoryPeriod();
+    return period ? periodLineupItems(period.id).sort((a, b) => a.tableOrder - b.tableOrder) : [];
   }
 
   function getMapVisibleBrands() {
-    return state.brand === "전체" ? brandOrder : brandOrder.filter((brand) => brand === state.brand);
+    return brandOrder;
   }
 
   function getMapVisibleRows() {
@@ -625,8 +616,7 @@
         category,
         group: categoryGroupMap[category],
         label: mapCategoryLabels[category] || category,
-      }))
-      .filter((row) => state.group === "전체" || row.group === state.group);
+      }));
   }
 
   function groupLabel(group) {
@@ -1238,9 +1228,17 @@
   }
 
   function updateViewLinks() {
-    el.listLink.classList.toggle("is-active", state.route === "home");
-    el.overviewLink.classList.toggle("is-active", state.route === "overview");
-    el.pickerLink.classList.toggle("is-active", state.route === "picker");
+    const activeRoute =
+      state.route === "detail"
+        ? state.lastBrowseRoute === "#/overview"
+          ? "overview"
+          : state.lastBrowseRoute === "#/list"
+            ? "home"
+            : "picker"
+        : state.route;
+    el.listLink.classList.toggle("is-active", activeRoute === "home");
+    el.overviewLink.classList.toggle("is-active", activeRoute === "overview");
+    el.pickerLink.classList.toggle("is-active", activeRoute === "picker");
   }
 
   function setRoute(route) {
@@ -1731,12 +1729,13 @@
       closeMapSheet(false);
       clearPickerTimers();
       el.periodArchive.hidden = true;
-      el.globalViewNav.hidden = true;
+      el.globalViewNav.hidden = false;
       el.filterPanel.hidden = true;
       el.homeView.hidden = true;
       el.overviewView.hidden = true;
       el.pickerView.hidden = true;
       el.detailView.hidden = false;
+      updateViewLinks();
       if (shoe) {
         renderDetail(shoe);
       } else {

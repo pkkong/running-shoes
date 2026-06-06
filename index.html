@@ -3,35 +3,51 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>러닝화 라인업</title>
-    <link rel="stylesheet" href="styles.css?v=20260605-unified-mobile-1" />
+    <title>디시인사이드 러닝갤러리 러닝화 추천</title>
+    <link rel="stylesheet" href="styles.css?v=20260606-app-frame-2" />
   </head>
   <body>
     <header class="topbar">
       <div class="topbar__inner">
-        <div>
-          <p class="eyebrow">DC RUNNING GALLERY · 2024.08-2026.05</p>
-          <h1>러닝화 라인업</h1>
+        <div class="topbar__brand">
+          <h1>디시인사이드 러닝갤러리 러닝화 추천</h1>
+          <a
+            class="source-link"
+            href="https://gall.dcinside.com/mgallery/board/view/?id=running&no=1042108&page=1"
+            target="_blank"
+            rel="noreferrer"
+          >
+            원문보기
+          </a>
         </div>
-        <a
-          class="source-link"
-          href="https://gall.dcinside.com/mgallery/board/view/?id=running&no=1042108&page=1"
-          target="_blank"
-          rel="noreferrer"
-        >
-          최신 원문
-        </a>
+        <nav class="global-view-nav" aria-label="보기 전환">
+          <a id="pickerLink" class="view-link" href="#/" aria-label="집중 보기" title="집중 보기">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <circle cx="12" cy="12" r="7"></circle>
+              <circle cx="12" cy="12" r="2"></circle>
+              <path d="M12 2v3M12 19v3M2 12h3M19 12h3"></path>
+            </svg>
+            <span class="visually-hidden">집중 보기</span>
+          </a>
+          <a id="listLink" class="view-link" href="#/list" aria-label="리스트" title="리스트">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M8 6h12M8 12h12M8 18h12"></path>
+              <path d="M4 6h.01M4 12h.01M4 18h.01"></path>
+            </svg>
+            <span class="visually-hidden">리스트</span>
+          </a>
+          <a id="overviewLink" class="view-link" href="#/overview" aria-label="맵" title="맵">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M4 4h6v6H4zM14 4h6v6h-6zM4 14h6v6H4zM14 14h6v6h-6z"></path>
+            </svg>
+            <span class="visually-hidden">맵</span>
+          </a>
+        </nav>
       </div>
     </header>
 
     <main class="app-shell">
       <section id="periodArchive" class="period-archive" aria-label="분기별 러닝화 라인업"></section>
-
-      <nav class="global-view-nav" aria-label="보기 전환">
-        <a id="pickerLink" class="view-link" href="#/">집중 보기</a>
-        <a id="listLink" class="view-link" href="#/list">리스트</a>
-        <a id="overviewLink" class="view-link" href="#/overview">맵</a>
-      </nav>
 
       <section id="filterPanel" class="control-panel" aria-label="러닝화 필터">
         <label class="search-field">
@@ -205,10 +221,10 @@
       <p>가격은 네이버 쇼핑 검색 API 기반 후보입니다. 구매 전 사이즈, 배송비, 재고를 확인하세요.</p>
     </footer>
 
-    <script src="data/shoes.js?v=20260605-unified-mobile-1"></script>
-    <script src="data/lineup-history.js?v=20260605-unified-mobile-1"></script>
-    <script src="data/price-queries.js?v=20260605-unified-mobile-1"></script>
-    <script src="data/prices/latest.js?v=20260605-unified-mobile-1"></script>
-    <script src="app.js?v=20260605-unified-mobile-1"></script>
+    <script src="data/shoes.js?v=20260606-app-frame-2"></script>
+    <script src="data/lineup-history.js?v=20260606-app-frame-2"></script>
+    <script src="data/price-queries.js?v=20260606-app-frame-2"></script>
+    <script src="data/prices/latest.js?v=20260606-app-frame-2"></script>
+    <script src="app.js?v=20260606-app-frame-2"></script>
   </body>
 </html>
