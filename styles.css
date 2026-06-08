@@ -6637,3 +6637,274 @@ body[data-route] .topbar .global-view-nav .view-link.is-active::after {
   content: none !important;
   display: none !important;
 }
+
+/* 2026-06 focus rail pass: category chips + circular brand logos. */
+body[data-route="picker"] .picker-shell {
+  gap: 14px !important;
+  max-width: none !important;
+}
+
+body[data-route="picker"] .picker-header {
+  display: none !important;
+}
+
+body[data-route="picker"] .picker-choice-rail {
+  display: grid;
+  gap: 14px;
+  min-width: 0;
+  padding: 0 0 10px;
+}
+
+body[data-route="picker"] .picker-axis-block {
+  position: static !important;
+  min-width: 0;
+  padding: 0 !important;
+  overflow: visible !important;
+  background: transparent !important;
+}
+
+body[data-route="picker"] .picker-axis {
+  scrollbar-width: none;
+}
+
+body[data-route="picker"] .picker-axis::-webkit-scrollbar {
+  display: none;
+}
+
+body[data-route="picker"] .picker-axis--horizontal {
+  display: flex !important;
+  min-height: 0 !important;
+  overflow-x: auto !important;
+  overflow-y: hidden !important;
+  padding: 0 0 2px !important;
+  scroll-padding-inline: 0;
+  scroll-snap-type: none !important;
+  -webkit-overflow-scrolling: touch;
+}
+
+body[data-route="picker"] .picker-axis--category {
+  gap: 8px !important;
+}
+
+body[data-route="picker"] .picker-axis--category .picker-axis-item {
+  flex: 0 0 auto !important;
+  width: auto !important;
+  min-width: 54px !important;
+  max-width: none !important;
+  height: 40px !important;
+  min-height: 40px !important;
+  padding: 0 13px !important;
+  border: 1px solid #d7d7d7 !important;
+  border-radius: 6px !important;
+  background: #f8f8f8 !important;
+  color: #6f6f6f !important;
+  font-size: 15px !important;
+  font-weight: 500 !important;
+  line-height: 1 !important;
+  opacity: 1 !important;
+  white-space: nowrap;
+}
+
+body[data-route="picker"] .picker-axis--category .picker-axis-item--group-start {
+  margin-left: 6px !important;
+  margin-top: 0 !important;
+}
+
+body[data-route="picker"] .picker-axis--category .picker-axis-item--group-start::before {
+  display: none !important;
+}
+
+body[data-route="picker"] .picker-axis--category .picker-axis-item.is-selected {
+  border-color: #111111 !important;
+  border-width: 2px !important;
+  background: #ffffff !important;
+  color: #111111 !important;
+  font-weight: 700 !important;
+}
+
+body[data-route="picker"] .picker-axis--brand {
+  gap: 18px !important;
+  padding-bottom: 4px !important;
+}
+
+body[data-route="picker"] .picker-axis--brand .picker-axis-item {
+  flex: 0 0 74px !important;
+  width: 74px !important;
+  min-width: 74px !important;
+  max-width: 74px !important;
+  height: 104px !important;
+  min-height: 104px !important;
+  padding: 0 !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  color: #777777 !important;
+  opacity: 1 !important;
+  overflow: visible !important;
+}
+
+.picker-brand-token {
+  display: grid;
+  justify-items: center;
+  gap: 8px;
+  min-width: 0;
+  width: 74px;
+}
+
+.picker-brand-token__mark {
+  display: grid;
+  place-items: center;
+  width: 68px;
+  height: 68px;
+  border-radius: 999px;
+  background: #ffffff;
+  box-shadow: 0 0 0 1px #eeeeee inset;
+  overflow: hidden;
+}
+
+.picker-brand-token__mark .brand-logo {
+  --brand-logo-width: 52px;
+  --brand-logo-height: 30px;
+  width: var(--brand-logo-width);
+  height: var(--brand-logo-height);
+}
+
+.picker-brand-token__mark .brand-logo__image {
+  opacity: 1 !important;
+  filter: grayscale(1) brightness(0) !important;
+}
+
+.picker-brand-token__mark .brand-logo--nike {
+  --brand-logo-scale: 1.1;
+}
+
+.picker-brand-token__mark .brand-logo--adidas,
+.picker-brand-token__mark .brand-logo--asics,
+.picker-brand-token__mark .brand-logo--saucony,
+.picker-brand-token__mark .brand-logo--hoka,
+.picker-brand-token__mark .brand-logo--brooks,
+.picker-brand-token__mark .brand-logo--mizuno,
+.picker-brand-token__mark .brand-logo--on {
+  --brand-logo-scale: 0.92;
+}
+
+.picker-brand-token__mark .brand-logo--newbalance {
+  --brand-logo-scale: 0.82;
+}
+
+.picker-brand-token__mark .brand-logo--puma {
+  --brand-logo-scale: 0.94;
+}
+
+.picker-brand-token__label {
+  display: -webkit-box;
+  overflow: hidden;
+  min-height: 31px;
+  color: currentColor;
+  font-size: 12.5px;
+  font-weight: 500;
+  line-height: 1.18;
+  text-align: center;
+  white-space: normal;
+  word-break: keep-all;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+body[data-route="picker"] .picker-axis--brand .picker-axis-item.is-selected {
+  background: transparent !important;
+  color: #111111 !important;
+  font-weight: 700 !important;
+}
+
+body[data-route="picker"] .picker-axis--brand .picker-axis-item.is-selected .picker-brand-token__mark {
+  background: #111111;
+  box-shadow: none;
+}
+
+body[data-route="picker"] .picker-axis--brand .picker-axis-item.is-selected .brand-logo__image {
+  filter: grayscale(1) brightness(0) invert(1) !important;
+}
+
+body[data-route="picker"] .picker-axis--brand .picker-axis-item.is-selected .picker-brand-token__label {
+  font-weight: 700;
+}
+
+body[data-route="picker"] .picker-axis-item:focus-visible {
+  outline: 2px solid #111111;
+  outline-offset: 3px;
+}
+
+body[data-route="picker"] .picker-main {
+  display: block !important;
+  margin-top: 6px;
+}
+
+body[data-route="picker"] .picker-detail-zone {
+  min-height: 0 !important;
+}
+
+body[data-route="picker"] .picker-detail-card {
+  gap: 18px !important;
+  min-height: 0 !important;
+  padding: 0 !important;
+}
+
+body[data-route="picker"] .picker-stage {
+  gap: 8px;
+  padding: 0 0 14px;
+  border-bottom: 1px solid #eeeeee;
+}
+
+.picker-stage__title {
+  display: block;
+  overflow: hidden;
+  color: #111111;
+  font-size: clamp(20px, 5.4vw, 28px);
+  font-weight: 650;
+  line-height: 1.08;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+body[data-route="picker"] .picker-stage__identity {
+  display: none !important;
+}
+
+body[data-route="picker"] .picker-stage__stats {
+  gap: 6px;
+}
+
+body[data-route="picker"] .picker-stage__stats span {
+  min-height: 0;
+  padding: 0;
+  background: transparent;
+  color: #777777;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+@media (max-width: 430px) {
+  body[data-route="picker"] .picker-axis--category .picker-axis-item {
+    height: 38px !important;
+    min-height: 38px !important;
+    padding-inline: 12px !important;
+    font-size: 14px !important;
+  }
+
+  body[data-route="picker"] .picker-axis--brand {
+    gap: 16px !important;
+  }
+
+  body[data-route="picker"] .picker-axis--brand .picker-axis-item,
+  .picker-brand-token {
+    width: 70px !important;
+    min-width: 70px !important;
+    max-width: 70px !important;
+  }
+
+  .picker-brand-token__mark {
+    width: 64px;
+    height: 64px;
+  }
+}

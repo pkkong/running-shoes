@@ -19,6 +19,7 @@
     "중거리",
     "장거리",
   ];
+  const pickerCategoryOptions = ["전체", ...categoryOrder];
 
   const tagMeta = {
     runGalleryPick: { label: "런갤러 선호", className: "tag--green" },
@@ -1280,10 +1281,12 @@
   }
 
   function pickerCategoryLabel(category) {
+    if (category === "전체") return "전체";
     return mapCategoryLabels[category] || category;
   }
 
   function pickerAxisCategoryLabel(category) {
+    if (category === "전체") return "전체";
     return (
       {
         "맥스 쿠션화": "맥스쿠션",
@@ -1321,13 +1324,17 @@
   }
 
   function selectedPickerCategory() {
-    return categoryOrder[state.pickerCategoryIndex] || categoryOrder[0];
+    return pickerCategoryOptions[state.pickerCategoryIndex] || pickerCategoryOptions[0];
   }
 
   function pickerProducts() {
     const brand = selectedPickerBrand();
     const category = selectedPickerCategory();
-    return baseLineupItemsForSelectedPeriod().filter((shoe) => shoe.brand === brand && shoe.category === category);
+    return baseLineupItemsForSelectedPeriod().filter((shoe) => {
+      const matchesBrand = shoe.brand === brand;
+      const matchesCategory = category === "전체" || shoe.category === category;
+      return matchesBrand && matchesCategory;
+    });
   }
 
   function pickerAxisItems(values, axis) {
@@ -1335,8 +1342,15 @@
       .map((value, logicalIndex) => {
         const label = axis === "category" ? pickerAxisCategoryLabel(value) : value;
         const ariaLabel = axis === "category" ? pickerCategoryLabel(value) : value;
-        const visual = axis === "brand" ? brandLogoMarkup(value) : escapeHtml(label);
-        const groupStartClass = axis === "category" && isGroupStartCategory(value) ? " picker-axis-item--group-start" : "";
+        const visual =
+          axis === "brand"
+            ? `<span class="picker-brand-token">
+                <span class="picker-brand-token__mark">${brandLogoMarkup(value)}</span>
+                <span class="picker-brand-token__label">${escapeHtml(value)}</span>
+              </span>`
+            : escapeHtml(label);
+        const groupStartClass =
+          axis === "category" && value !== "전체" && isGroupStartCategory(value) ? " picker-axis-item--group-start" : "";
         return `
           <button
             id="picker-${axis}-option-${logicalIndex}"
@@ -1358,7 +1372,7 @@
   function renderPickerAxes() {
     if (state.pickerAxesReady) return;
     el.pickerBrandAxis.innerHTML = pickerAxisItems(brandOrder, "brand");
-    el.pickerCategoryAxis.innerHTML = pickerAxisItems(categoryOrder, "category");
+    el.pickerCategoryAxis.innerHTML = pickerAxisItems(pickerCategoryOptions, "category");
     state.pickerAxesReady = true;
   }
 
@@ -1379,7 +1393,7 @@
   }
 
   function pickerAxisLength(axis) {
-    return axis === "brand" ? brandOrder.length : categoryOrder.length;
+    return axis === "brand" ? brandOrder.length : pickerCategoryOptions.length;
   }
 
   function revealPickerAxisItem(axis, index, behavior = "smooth") {
@@ -1387,9 +1401,7 @@
     const target = container.querySelector(`[data-axis="${axis}"][data-logical-index="${index}"]`);
     if (!target) return;
 
-    if (axis === "brand") {
-      target.scrollIntoView({ behavior, block: "nearest", inline: "center" });
-    }
+    target.scrollIntoView({ behavior, block: "nearest", inline: "center" });
   }
 
   function updatePickerAxisState(axis) {
@@ -1407,7 +1419,7 @@
     const brand = selectedPickerBrand();
     const category = selectedPickerCategory();
     const products = pickerProducts();
-    const categoryGroup = categoryGroupMap[category] || "";
+    const categoryGroup = category === "전체" ? "브랜드 전체" : categoryGroupMap[category] || "";
     const coordinate = `${brand} × ${pickerCategoryLabel(category)}`;
     const periodLabel = selectedHistoryPeriod()?.label || "";
     const countText = products.length ? `${products.length}개 제품` : "라인업 없음";
@@ -1419,16 +1431,10 @@
 
     el.pickerDetail.innerHTML = `
       <div class="picker-stage" aria-label="${escapeHtml(coordinate)}">
-        <div class="picker-stage__identity">
-          ${brandLogoMarkup(brand)}
-          <span class="visually-hidden">${escapeHtml(brand)}</span>
-          <span class="picker-stage__copy">
-            <span>${escapeHtml(categoryGroup || "라인업")}</span>
-            <strong>${escapeHtml(pickerCategoryLabel(category))}</strong>
-          </span>
-        </div>
+        <strong class="picker-stage__title">${escapeHtml(brand)} · ${escapeHtml(pickerCategoryLabel(category))}</strong>
         <div class="picker-stage__stats" aria-label="${escapeHtml(`${periodLabel} ${countText}`)}">
           <span>${escapeHtml(periodLabel)}</span>
+          <span>${escapeHtml(categoryGroup || "라인업")}</span>
           <span>${escapeHtml(countText)}</span>
           ${state.change !== "전체" ? `<span>${escapeHtml(changeOptionLabel(state.change))}</span>` : ""}
         </div>
@@ -1903,25 +1909,28 @@
     if (state.route !== "picker") return;
     const brandAxisFocused = Boolean(event.target.closest("#pickerBrandAxis"));
     const categoryAxisFocused = Boolean(event.target.closest("#pickerCategoryAxis"));
+    const focusedAxis = brandAxisFocused ? "brand" : categoryAxisFocused ? "category" : "";
     if (event.key === "ArrowLeft") {
-      if (!brandAxisFocused) return;
+      if (!focusedAxis) return;
       event.preventDefault();
-      selectPickerAxis("brand", state.pickerBrandIndex - 1);
+      selectPickerAxis(focusedAxis, pickerAxisIndex(focusedAxis) - 1);
     }
     if (event.key === "ArrowRight") {
-      if (!brandAxisFocused) return;
+      if (!focusedAxis) return;
       event.preventDefault();
-      selectPickerAxis("brand", state.pickerBrandIndex + 1);
+      selectPickerAxis(focusedAxis, pickerAxisIndex(focusedAxis) + 1);
     }
     if (event.key === "ArrowUp") {
-      if (!categoryAxisFocused) return;
+      if (!brandAxisFocused) return;
       event.preventDefault();
-      selectPickerAxis("category", state.pickerCategoryIndex - 1);
+      const target = el.pickerCategoryAxis.querySelector(`[data-axis="category"][data-logical-index="${state.pickerCategoryIndex}"]`);
+      target?.focus();
     }
     if (event.key === "ArrowDown") {
       if (!categoryAxisFocused) return;
       event.preventDefault();
-      selectPickerAxis("category", state.pickerCategoryIndex + 1);
+      const target = el.pickerBrandAxis.querySelector(`[data-axis="brand"][data-logical-index="${state.pickerBrandIndex}"]`);
+      target?.focus();
     }
   });
 
