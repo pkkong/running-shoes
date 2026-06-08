@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>디시인사이드 러닝갤러리 러닝화 추천</title>
-    <link rel="stylesheet" href="styles.css?v=20260608-cutout-1" />
+    <link rel="stylesheet" href="styles.css?v=20260609-compact-filter-1" />
   </head>
   <body>
     <header class="topbar">
@@ -170,6 +170,26 @@
           </header>
 
           <section class="picker-choice-rail" aria-label="라인업 선택">
+            <div class="picker-filter-dock" aria-label="라인업 조건">
+              <button
+                id="pickerPeriodTrigger"
+                class="picker-filter-trigger"
+                type="button"
+                aria-expanded="false"
+                aria-controls="pickerPeriodPanel"
+              ></button>
+              <button
+                id="pickerCategoryTrigger"
+                class="picker-filter-trigger"
+                type="button"
+                aria-expanded="false"
+                aria-controls="pickerCategoryPanel"
+              ></button>
+            </div>
+
+            <div id="pickerPeriodPanel" class="picker-filter-panel" hidden></div>
+            <div id="pickerCategoryPanel" class="picker-filter-panel" hidden></div>
+
             <div class="picker-axis-block picker-axis-block--category" aria-label="카테고리 선택">
               <div
                 id="pickerCategoryAxis"
@@ -216,10 +236,10 @@
       <p>가격은 네이버 쇼핑 검색 API 기반 후보입니다. 구매 전 사이즈, 배송비, 재고를 확인하세요.</p>
     </footer>
 
-    <script src="data/shoes.js?v=20260608-cutout-1"></script>
-    <script src="data/lineup-history.js?v=20260608-cutout-1"></script>
-    <script src="data/price-queries.js?v=20260608-cutout-1"></script>
-    <script src="data/prices/latest.js?v=20260608-cutout-1"></script>
-    <script src="app.js?v=20260608-cutout-1"></script>
+    <script src="data/shoes.js?v=20260609-compact-filter-1"></script>
+    <script src="data/lineup-history.js?v=20260609-compact-filter-1"></script>
+    <script src="data/price-queries.js?v=20260609-compact-filter-1"></script>
+    <script src="data/prices/latest.js?v=20260609-compact-filter-1"></script>
+    <script src="app.js?v=20260609-compact-filter-1"></script>
   </body>
 </html>

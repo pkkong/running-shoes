@@ -63,6 +63,7 @@
     pickerBrandIndex: 0,
     pickerCategoryIndex: 0,
     pickerAxesReady: false,
+    pickerFilterPanel: "",
     route: "home",
     detailId: "",
     lastBrowseRoute: "#/",
@@ -110,6 +111,10 @@
     mapSheet: document.querySelector("#mapSheet"),
     pickerCoordinate: document.querySelector("#pickerCoordinate"),
     pickerSummary: document.querySelector("#pickerSummary"),
+    pickerPeriodTrigger: document.querySelector("#pickerPeriodTrigger"),
+    pickerCategoryTrigger: document.querySelector("#pickerCategoryTrigger"),
+    pickerPeriodPanel: document.querySelector("#pickerPeriodPanel"),
+    pickerCategoryPanel: document.querySelector("#pickerCategoryPanel"),
     pickerBrandAxis: document.querySelector("#pickerBrandAxis"),
     pickerCategoryAxis: document.querySelector("#pickerCategoryAxis"),
     pickerDetail: document.querySelector("#pickerDetail"),
@@ -799,12 +804,7 @@
   }
 
   function syncScrollRails() {
-    ensureScrollRail(el.periodArchive?.querySelector(".period-archive__rail"), "period", "시기");
-    ensureScrollRail(el.pickerCategoryAxis, "category", "운동화 종류");
-    ensureScrollRail(el.pickerBrandAxis, "brand", "브랜드");
-    ensureScrollRail(el.mapGroupFilters, "map-group", "맵 용도");
-    ensureScrollRail(el.mapBrandFilters, "map-brand", "맵 브랜드");
-    ensureScrollRail(el.mapChangeFilters, "map-change", "맵 변화");
+    return;
   }
 
   function tagMarkup(tags, compact = false) {
@@ -1312,6 +1312,110 @@
     syncScrollRails();
   }
 
+  function closePickerFilterPanels() {
+    state.pickerFilterPanel = "";
+    renderPickerControls();
+  }
+
+  function setPickerFilterPanel(panel) {
+    state.pickerFilterPanel = state.pickerFilterPanel === panel ? "" : panel;
+    renderPickerControls();
+  }
+
+  function selectPickerPeriod(periodId) {
+    state.periodId = periodId;
+    state.change = "전체";
+    state.tags.clear();
+    state.pickerFilterPanel = "";
+    renderPeriodArchive();
+    renderPicker();
+  }
+
+  function pickerFilterButtonMarkup({ active, label, subLabel, value, attr }) {
+    return `
+      <button
+        class="picker-filter-option ${active ? "is-active" : ""}"
+        type="button"
+        ${attr}="${escapeHtml(value)}"
+        aria-pressed="${active ? "true" : "false"}"
+      >
+        <span>${escapeHtml(label)}</span>
+        ${subLabel ? `<small>${escapeHtml(subLabel)}</small>` : ""}
+      </button>
+    `;
+  }
+
+  function renderPickerControls() {
+    if (!el.pickerPeriodTrigger || !el.pickerCategoryTrigger) return;
+
+    const activePeriod = selectedHistoryPeriod();
+    const category = selectedPickerCategory();
+    const brand = selectedPickerBrand();
+    const count = pickerProducts().length;
+    const periodPanelOpen = state.pickerFilterPanel === "period";
+    const categoryPanelOpen = state.pickerFilterPanel === "category";
+
+    el.pickerPeriodTrigger.innerHTML = `
+      <span>시기</span>
+      <strong>${escapeHtml(activePeriod?.label || "선택")}</strong>
+    `;
+    el.pickerPeriodTrigger.classList.toggle("is-open", periodPanelOpen);
+    el.pickerPeriodTrigger.setAttribute("aria-expanded", periodPanelOpen ? "true" : "false");
+
+    el.pickerCategoryTrigger.innerHTML = `
+      <span>종류</span>
+      <strong>${escapeHtml(pickerCategoryLabel(category))}</strong>
+    `;
+    el.pickerCategoryTrigger.classList.toggle("is-open", categoryPanelOpen);
+    el.pickerCategoryTrigger.setAttribute("aria-expanded", categoryPanelOpen ? "true" : "false");
+    el.pickerCategoryTrigger.setAttribute("aria-label", `${brand} ${pickerCategoryLabel(category)} ${count}개 제품`);
+
+    el.pickerPeriodPanel.hidden = !periodPanelOpen;
+    el.pickerCategoryPanel.hidden = !categoryPanelOpen;
+
+    if (periodPanelOpen) {
+      el.pickerPeriodPanel.innerHTML = `
+        <div class="picker-filter-panel__grid picker-filter-panel__grid--period">
+          ${[...historyPeriods]
+            .reverse()
+            .map((period) => {
+              const stats = historyStatsByPeriod.get(period.id);
+              return pickerFilterButtonMarkup({
+                active: period.id === activePeriod?.id,
+                label: period.label,
+                subLabel: `${stats?.models || 0}개`,
+                value: period.id,
+                attr: "data-picker-period-id",
+              });
+            })
+            .join("")}
+        </div>
+      `;
+    } else {
+      el.pickerPeriodPanel.innerHTML = "";
+    }
+
+    if (categoryPanelOpen) {
+      el.pickerCategoryPanel.innerHTML = `
+        <div class="picker-filter-panel__grid picker-filter-panel__grid--category">
+          ${pickerCategoryOptions
+            .map((option, index) =>
+              pickerFilterButtonMarkup({
+                active: index === state.pickerCategoryIndex,
+                label: pickerAxisCategoryLabel(option),
+                subLabel: option === "전체" ? "전체 종류" : categoryGroupMap[option] || "",
+                value: index,
+                attr: "data-picker-category-index",
+              })
+            )
+            .join("")}
+        </div>
+      `;
+    } else {
+      el.pickerCategoryPanel.innerHTML = "";
+    }
+  }
+
   function titleForActiveFilters() {
     const titleParts = [state.brand, state.group, state.category].filter((value) => value !== "전체");
     const periodLabel = selectedHistoryPeriod()?.label || "";
@@ -1569,7 +1673,11 @@
     const length = pickerAxisLength(axis);
     const nextIndex = (index + length) % length;
     setPickerAxisIndex(axis, nextIndex);
+    if (axis === "category") {
+      state.pickerFilterPanel = "";
+    }
     updatePickerAxisState(axis);
+    renderPickerControls();
     renderPickerDetail();
     revealPickerAxisItem(axis, nextIndex, behavior);
   }
@@ -1579,6 +1687,7 @@
     updateViewLinks();
     updatePickerAxisState("brand");
     updatePickerAxisState("category");
+    renderPickerControls();
     renderPickerDetail();
   }
 
@@ -1875,7 +1984,7 @@
       setRoute("picker");
       state.lastBrowseRoute = hash === "#/picker" ? "#/picker" : "#/";
       closeMapSheet(false);
-      el.periodArchive.hidden = false;
+      el.periodArchive.hidden = true;
       el.globalViewNav.hidden = false;
       el.filterPanel.hidden = true;
       el.homeView.hidden = true;
@@ -1891,7 +2000,7 @@
     state.lastBrowseRoute = "#/";
     closeMapSheet(false);
     clearPickerTimers();
-    el.periodArchive.hidden = false;
+    el.periodArchive.hidden = true;
     el.globalViewNav.hidden = false;
     el.filterPanel.hidden = true;
     el.homeView.hidden = true;
@@ -1935,6 +2044,26 @@
     if (el.searchInput) el.searchInput.value = state.query;
     renderPeriodArchive();
     renderCurrentRoute();
+  });
+
+  el.pickerPeriodTrigger.addEventListener("click", () => {
+    setPickerFilterPanel("period");
+  });
+
+  el.pickerCategoryTrigger.addEventListener("click", () => {
+    setPickerFilterPanel("category");
+  });
+
+  el.pickerPeriodPanel.addEventListener("click", (event) => {
+    const button = event.target.closest("[data-picker-period-id]");
+    if (!button) return;
+    selectPickerPeriod(button.dataset.pickerPeriodId);
+  });
+
+  el.pickerCategoryPanel.addEventListener("click", (event) => {
+    const button = event.target.closest("[data-picker-category-index]");
+    if (!button) return;
+    selectPickerAxis("category", Number(button.dataset.pickerCategoryIndex));
   });
 
   function openExternalPriceLink(link) {
@@ -1988,6 +2117,11 @@
 
   el.pickerView.addEventListener("keydown", (event) => {
     if (state.route !== "picker") return;
+    if (event.key === "Escape" && state.pickerFilterPanel) {
+      event.preventDefault();
+      closePickerFilterPanels();
+      return;
+    }
     const brandAxisFocused = Boolean(event.target.closest("#pickerBrandAxis"));
     const categoryAxisFocused = Boolean(event.target.closest("#pickerCategoryAxis"));
     const focusedAxis = brandAxisFocused ? "brand" : categoryAxisFocused ? "category" : "";
