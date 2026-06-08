@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>디시인사이드 러닝갤러리 러닝화 추천</title>
-    <link rel="stylesheet" href="styles.css?v=20260608-desktop-polish-2" />
+    <link rel="stylesheet" href="styles.css?v=20260608-no-list-polish-2" />
   </head>
   <body>
     <header class="topbar">
@@ -28,13 +28,6 @@
               <path d="M12 2v3M12 19v3M2 12h3M19 12h3"></path>
             </svg>
             <span class="visually-hidden">집중 보기</span>
-          </a>
-          <a id="listLink" class="view-link" href="#/list" aria-label="리스트" title="리스트">
-            <svg viewBox="0 0 24 24" aria-hidden="true">
-              <path d="M8 6h12M8 12h12M8 18h12"></path>
-              <path d="M4 6h.01M4 12h.01M4 18h.01"></path>
-            </svg>
-            <span class="visually-hidden">리스트</span>
           </a>
           <a id="overviewLink" class="view-link" href="#/overview" aria-label="맵" title="맵">
             <svg viewBox="0 0 24 24" aria-hidden="true">
@@ -99,7 +92,7 @@
         </div>
       </section>
 
-      <div id="homeView">
+      <div id="homeView" hidden aria-hidden="true">
         <section class="results-head" aria-live="polite">
           <div>
             <p class="eyebrow">List</p>
@@ -223,10 +216,10 @@
       <p>가격은 네이버 쇼핑 검색 API 기반 후보입니다. 구매 전 사이즈, 배송비, 재고를 확인하세요.</p>
     </footer>
 
-    <script src="data/shoes.js?v=20260608-desktop-polish-2"></script>
-    <script src="data/lineup-history.js?v=20260608-desktop-polish-2"></script>
-    <script src="data/price-queries.js?v=20260608-desktop-polish-2"></script>
-    <script src="data/prices/latest.js?v=20260608-desktop-polish-2"></script>
-    <script src="app.js?v=20260608-desktop-polish-2"></script>
+    <script src="data/shoes.js?v=20260608-no-list-polish-2"></script>
+    <script src="data/lineup-history.js?v=20260608-no-list-polish-2"></script>
+    <script src="data/price-queries.js?v=20260608-no-list-polish-2"></script>
+    <script src="data/prices/latest.js?v=20260608-no-list-polish-2"></script>
+    <script src="app.js?v=20260608-no-list-polish-2"></script>
   </body>
 </html>

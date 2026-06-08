@@ -7126,3 +7126,120 @@ body[data-route="picker"] .picker-detail-link {
     margin-inline: -1px;
   }
 }
+
+/* 2026-06 no-list polish: two-mode nav, calmer mobile margins, centered brand marks. */
+body[data-route] .topbar .global-view-nav,
+.topbar .global-view-nav {
+  grid-template-columns: repeat(2, 32px) !important;
+}
+
+@media (max-width: 759px) {
+  .topbar__inner,
+  .app-shell,
+  .footer,
+  body[data-route] .topbar__inner,
+  body[data-route] .app-shell,
+  body[data-route="overview"] .app-shell,
+  body[data-route="picker"] .app-shell,
+  body[data-route="detail"] .app-shell {
+    width: calc(100% - 36px) !important;
+  }
+
+  body[data-route="picker"] .picker-choice-rail {
+    margin-inline: 0 !important;
+  }
+
+  body[data-route="picker"] .picker-axis--category .picker-axis-item {
+    min-width: 58px !important;
+  }
+
+  body[data-route="picker"] .picker-axis--brand {
+    gap: 14px !important;
+  }
+
+  body[data-route="picker"] .picker-axis--brand .picker-axis-item,
+  .picker-brand-token {
+    width: 68px !important;
+    min-width: 68px !important;
+    max-width: 68px !important;
+  }
+
+  .picker-brand-token__mark {
+    width: 62px !important;
+    height: 62px !important;
+  }
+
+  .picker-brand-token__mark .brand-logo {
+    --brand-logo-width: 42px;
+    --brand-logo-height: 24px;
+    display: grid !important;
+    place-items: center !important;
+    width: var(--brand-logo-width) !important;
+    height: var(--brand-logo-height) !important;
+    max-width: 42px !important;
+    max-height: 24px !important;
+  }
+
+  .picker-brand-token__mark .brand-logo__image {
+    width: 100% !important;
+    height: 100% !important;
+    max-width: 100% !important;
+    max-height: 100% !important;
+    object-fit: contain !important;
+    transform: translateX(var(--brand-logo-shift-x, 0)) scale(var(--brand-logo-scale, 0.78)) !important;
+  }
+
+  .picker-brand-token__mark .brand-logo--nike {
+    --brand-logo-scale: 0.84;
+    --brand-logo-shift-x: 0;
+  }
+
+  .picker-brand-token__mark .brand-logo--adidas {
+    --brand-logo-scale: 0.8;
+    --brand-logo-shift-x: 0;
+  }
+
+  .picker-brand-token__mark .brand-logo--asics {
+    --brand-logo-scale: 0.8;
+    --brand-logo-shift-x: 0;
+  }
+
+  .picker-brand-token__mark .brand-logo--newbalance {
+    --brand-logo-scale: 0.72;
+    --brand-logo-shift-x: 0;
+  }
+
+  .picker-brand-token__mark .brand-logo--saucony {
+    --brand-logo-scale: 0.74;
+    --brand-logo-shift-x: 0;
+  }
+
+  .picker-brand-token__mark .brand-logo--puma {
+    --brand-logo-scale: 0.78;
+    --brand-logo-shift-x: 0;
+  }
+
+  .picker-brand-token__mark .brand-logo--hoka {
+    --brand-logo-scale: 0.74;
+    --brand-logo-shift-x: 0;
+  }
+
+  .picker-brand-token__mark .brand-logo--brooks {
+    --brand-logo-scale: 0.72;
+    --brand-logo-shift-x: 0;
+  }
+
+  .picker-brand-token__mark .brand-logo--mizuno {
+    --brand-logo-scale: 0.76;
+    --brand-logo-shift-x: 0;
+  }
+
+  .picker-brand-token__mark .brand-logo--on {
+    --brand-logo-scale: 0.74;
+    --brand-logo-shift-x: 0;
+  }
+
+  .picker-brand-token__label {
+    font-size: 12px;
+  }
+}

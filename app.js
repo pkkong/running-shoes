@@ -91,7 +91,6 @@
     resultTitle: document.querySelector("#resultTitle"),
     sortSelect: document.querySelector("#sortSelect"),
     resetButton: document.querySelector("#resetButton"),
-    listLink: document.querySelector("#listLink"),
     overviewLink: document.querySelector("#overviewLink"),
     pickerLink: document.querySelector("#pickerLink"),
     mapControlPanel: document.querySelector("#mapControlPanel"),
@@ -1035,7 +1034,7 @@
                   const changeLabel = cellChangeSummary(cell.shoes);
                   const label = disabled
                     ? `${cell.brand} ${row.label} 제품 없음`
-                    : `${cell.brand} ${row.label} ${cell.count}개: ${cell.productNames}. 제품 목록 보기`;
+                    : `${cell.brand} ${row.label} ${cell.count}개: ${cell.productNames}. 자세히 보기`;
                   return `
                     <button
                       class="map-cell ${cellIntensity(cell.count, maxCount)} ${cell.count > 1 ? "map-cell--multi" : ""} ${
@@ -1066,7 +1065,7 @@
                         }</span>
                         ${changeLabel ? `<span class="map-cell__change">${escapeHtml(changeLabel)}</span>` : ""}
                         <span class="map-cell__name">
-                          ${cell.count ? escapeHtml(cell.count === 1 ? row.label : "눌러서 목록 보기") : "제품 없음"}
+                          ${cell.count ? escapeHtml(cell.count === 1 ? row.label : "눌러서 보기") : "제품 없음"}
                         </span>
                       </span>
                     </button>
@@ -1229,15 +1228,7 @@
   }
 
   function updateViewLinks() {
-    const activeRoute =
-      state.route === "detail"
-        ? state.lastBrowseRoute === "#/overview"
-          ? "overview"
-          : state.lastBrowseRoute === "#/list"
-            ? "home"
-            : "picker"
-        : state.route;
-    el.listLink.classList.toggle("is-active", activeRoute === "home");
+    const activeRoute = state.route === "detail" ? (state.lastBrowseRoute === "#/overview" ? "overview" : "picker") : state.route;
     el.overviewLink.classList.toggle("is-active", activeRoute === "overview");
     el.pickerLink.classList.toggle("is-active", activeRoute === "picker");
   }
@@ -1567,8 +1558,8 @@
   }
 
   function renderDetail(shoe) {
-    const backHref = state.lastBrowseRoute || "#/";
-    const backLabel = backHref === "#/overview" ? "맵 보기" : backHref === "#/list" ? "리스트" : "집중 보기";
+    const backHref = state.lastBrowseRoute === "#/list" ? "#/" : state.lastBrowseRoute || "#/";
+    const backLabel = backHref === "#/overview" ? "맵 보기" : "집중 보기";
 
     el.detailView.innerHTML = `
       <a class="back-link" href="${escapeHtml(backHref)}">← ${backLabel}</a>
@@ -1688,11 +1679,17 @@
     state.group = categoryGroupMap[category] || "전체";
     state.query = "";
     state.tags.clear();
+    const brandIndex = brandOrder.indexOf(brand);
+    const categoryIndex = pickerCategoryOptions.indexOf(category);
+    state.pickerBrandIndex = brandIndex >= 0 ? brandIndex : 0;
+    state.pickerCategoryIndex = categoryIndex >= 0 ? categoryIndex : 0;
     el.searchInput.value = "";
     el.sortSelect.value = state.sort;
     closeMapSheet(false);
-    window.location.hash = "#/list";
-    renderHome();
+    window.location.hash = "#/";
+    if (state.route === "picker") {
+      renderPicker();
+    }
   }
 
   function wireImages() {
@@ -1774,19 +1771,8 @@
     }
 
     if (hash === "#/list") {
-      setRoute("home");
-      state.lastBrowseRoute = "#/list";
-      closeMapSheet(false);
-      clearPickerTimers();
-      el.periodArchive.hidden = false;
-      el.globalViewNav.hidden = false;
-      el.filterPanel.hidden = false;
-      el.homeView.hidden = false;
-      el.overviewView.hidden = true;
-      el.pickerView.hidden = true;
-      el.detailView.hidden = true;
-      renderHome();
-      window.scrollTo(0, 0);
+      history.replaceState(null, "", `${window.location.pathname}${window.location.search}#/`);
+      syncRoute();
       return;
     }
 
