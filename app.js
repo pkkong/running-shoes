@@ -716,6 +716,97 @@
     });
   }
 
+  function updateScrollRailState(wrapper) {
+    const rail = wrapper.querySelector("[data-scroll-rail]");
+    if (!rail) return;
+
+    const isScrollable = rail.scrollWidth > rail.clientWidth + 2;
+    wrapper.classList.toggle("is-scrollable", isScrollable);
+
+    wrapper.querySelectorAll(".scroll-rail-button").forEach((button) => {
+      button.disabled = !isScrollable;
+    });
+  }
+
+  function navigateScrollRail(rail, direction) {
+    if (rail === el.pickerBrandAxis) {
+      selectPickerAxis("brand", state.pickerBrandIndex + direction);
+      return;
+    }
+
+    if (rail === el.pickerCategoryAxis) {
+      selectPickerAxis("category", state.pickerCategoryIndex + direction);
+      return;
+    }
+
+    if (rail.classList.contains("period-archive__rail")) {
+      const buttons = [...rail.querySelectorAll("[data-period-id]")];
+      const activeIndex = buttons.findIndex((button) => button.classList.contains("is-active"));
+      const nextButton = buttons[(activeIndex + direction + buttons.length) % buttons.length];
+      nextButton?.click();
+      nextButton?.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "center" });
+      return;
+    }
+
+    rail.scrollBy({
+      left: direction * Math.max(160, rail.clientWidth * 0.74),
+      behavior: "smooth",
+    });
+  }
+
+  function ensureScrollRail(rail, kind, label) {
+    if (!rail) return;
+
+    let wrapper = rail.parentElement?.classList.contains("scroll-rail-shell") ? rail.parentElement : null;
+    if (!wrapper) {
+      wrapper = document.createElement("div");
+      wrapper.className = `scroll-rail-shell scroll-rail-shell--${kind}`;
+      rail.parentNode.insertBefore(wrapper, rail);
+      wrapper.appendChild(rail);
+    }
+
+    rail.dataset.scrollRail = kind;
+    wrapper.classList.add(`scroll-rail-shell--${kind}`);
+
+    if (!wrapper.querySelector(".scroll-rail-button--prev")) {
+      const prev = document.createElement("button");
+      prev.className = "scroll-rail-button scroll-rail-button--prev";
+      prev.type = "button";
+      prev.setAttribute("aria-label", `${label} 이전 항목 보기`);
+      prev.innerHTML = `<span aria-hidden="true">‹</span>`;
+
+      const next = document.createElement("button");
+      next.className = "scroll-rail-button scroll-rail-button--next";
+      next.type = "button";
+      next.setAttribute("aria-label", `${label} 다음 항목 보기`);
+      next.innerHTML = `<span aria-hidden="true">›</span>`;
+
+      prev.addEventListener("click", () => navigateScrollRail(rail, -1));
+      next.addEventListener("click", () => navigateScrollRail(rail, 1));
+      rail.addEventListener(
+        "scroll",
+        () => {
+          window.requestAnimationFrame(() => updateScrollRailState(wrapper));
+        },
+        { passive: true }
+      );
+
+      wrapper.prepend(prev);
+      wrapper.append(next);
+    }
+
+    window.requestAnimationFrame(() => updateScrollRailState(wrapper));
+  }
+
+  function syncScrollRails() {
+    ensureScrollRail(el.periodArchive?.querySelector(".period-archive__rail"), "period", "시기");
+    ensureScrollRail(el.pickerCategoryAxis, "category", "운동화 종류");
+    ensureScrollRail(el.pickerBrandAxis, "brand", "브랜드");
+    ensureScrollRail(el.mapGroupFilters, "map-group", "맵 용도");
+    ensureScrollRail(el.mapBrandFilters, "map-brand", "맵 브랜드");
+    ensureScrollRail(el.mapChangeFilters, "map-change", "맵 변화");
+  }
+
   function tagMarkup(tags, compact = false) {
     if (!tags.length) {
       return "";
@@ -985,6 +1076,7 @@
     if (document.activeElement !== el.mapSearchInput) {
       el.mapSearchInput.value = state.query;
     }
+    syncScrollRails();
   }
 
   function renderShoeMap(items) {
@@ -1217,6 +1309,7 @@
         ${sourceLinks}
       </div>
     `;
+    syncScrollRails();
   }
 
   function titleForActiveFilters() {
@@ -1365,6 +1458,7 @@
     el.pickerBrandAxis.innerHTML = pickerAxisItems(brandOrder, "brand");
     el.pickerCategoryAxis.innerHTML = pickerAxisItems(pickerCategoryOptions, "category");
     state.pickerAxesReady = true;
+    syncScrollRails();
   }
 
   function pickerAxisContainer(axis) {
@@ -1404,6 +1498,7 @@
       item.classList.toggle("is-selected", isSelected);
       item.setAttribute("aria-selected", isSelected ? "true" : "false");
     });
+    syncScrollRails();
   }
 
   function renderPickerDetail() {
@@ -1445,7 +1540,7 @@
   function pickerProductMarkup(shoe) {
     const href = detailHrefForItem(shoe);
     const detailLink = href
-      ? `<a class="picker-detail-link" href="${escapeHtml(href)}" aria-label="${escapeHtml(`${shoe.brand} ${shoe.model} 상세 보기`)}">상세 보기</a>`
+      ? `<a class="picker-detail-link" href="${escapeHtml(href)}" aria-label="${escapeHtml(`${shoe.brand} ${shoe.model} 상세 보기`)}">자세히</a>`
       : "";
 
     return `

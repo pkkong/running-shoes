@@ -7,7 +7,7 @@
 
   const SOURCE_POST =
     "https://gall.dcinside.com/mgallery/board/view/?id=running&no=1042108&page=1";
-  const IMAGE_VERSION = "20260608-right-facing-1";
+  const IMAGE_VERSION = "20260608-cutout-1";
   const LINEUP_VERSION = "20260530-lineup-archive-1";
 
   window.RUNNING_LINEUP_VERSION = LINEUP_VERSION;
@@ -349,7 +349,7 @@
       category,
       dropMm,
       tags: [...tagCodes].map((code) => TAGS[code]).filter(Boolean),
-      imageUrl: `assets/shoes/${id}.jpg?v=${IMAGE_VERSION}`,
+      imageUrl: `assets/shoes-cutout/${id}.webp?v=${IMAGE_VERSION}`,
       officialImageUrl: image.imageUrl || "",
       imageSourceUrl: image.imageSourceUrl || SOURCE_POST,
       officialProductUrl: image.officialProductUrl || image.imageSourceUrl || SOURCE_POST,

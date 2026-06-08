@@ -81,7 +81,7 @@ for (const shoe of shoes) {
   }
 }
 
-const assetDir = path.join(root, "assets", "shoes");
+const assetDir = path.join(root, "assets", "shoes-cutout");
 const referenced = new Set(
   shoes
     .map((shoe) => localPathFromUrl(shoe.imageUrl))
