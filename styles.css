@@ -6835,6 +6835,15 @@ body[data-route="picker"] .picker-axis-item:focus-visible {
   outline-offset: 3px;
 }
 
+body[data-route="picker"] .picker-axis--brand .picker-axis-item:focus-visible {
+  outline: 0 !important;
+}
+
+body[data-route="picker"] .picker-axis--brand .picker-axis-item:focus-visible .picker-brand-token__mark {
+  outline: 2px solid #111111;
+  outline-offset: 3px;
+}
+
 body[data-route="picker"] .picker-main {
   display: block !important;
   margin-top: 6px;
@@ -6906,5 +6915,214 @@ body[data-route="picker"] .picker-stage__stats span {
   .picker-brand-token__mark {
     width: 64px;
     height: 64px;
+  }
+}
+
+/* 2026-06 desktop polish: make the focus view credible outside mobile. */
+body[data-route="picker"] .app-shell {
+  width: min(1180px, calc(100vw - 48px)) !important;
+}
+
+body[data-route="picker"] .picker-choice-rail {
+  gap: 16px;
+  padding: 2px 0 18px;
+  border-bottom: 1px solid #eeeeee;
+}
+
+body[data-route="picker"] .picker-axis--category {
+  gap: 9px !important;
+}
+
+body[data-route="picker"] .picker-axis--brand {
+  gap: 20px !important;
+}
+
+body[data-route="picker"] .picker-main {
+  margin-top: 14px !important;
+}
+
+body[data-route="picker"] .picker-stage {
+  margin-bottom: 20px;
+  padding-bottom: 16px;
+}
+
+body[data-route="picker"] .picker-stage__title {
+  font-size: clamp(22px, 2.1vw, 28px);
+  font-weight: 650;
+  letter-spacing: 0;
+}
+
+body[data-route="picker"] .picker-stage__stats span {
+  color: #7a7a7a;
+  font-size: 12px;
+}
+
+body[data-route="picker"] .picker-product-list {
+  display: grid !important;
+  grid-template-columns: 1fr;
+  gap: 0 !important;
+  padding: 0 0 40px !important;
+}
+
+body[data-route="picker"] .picker-product-card {
+  position: relative;
+  display: grid !important;
+  min-width: 0;
+  gap: 12px !important;
+  padding: 0 0 30px !important;
+  border-bottom: 1px solid #eeeeee !important;
+  background: transparent !important;
+  overflow: hidden;
+}
+
+body[data-route="picker"] .picker-product-card + .picker-product-card {
+  padding-top: 30px !important;
+}
+
+body[data-route="picker"] .picker-product-card__media,
+body[data-route="picker"] .picker-product-card__body {
+  min-width: 0;
+}
+
+body[data-route="picker"] .shoe-image--picker {
+  width: 100%;
+  min-height: 0 !important;
+  aspect-ratio: 16 / 9.8 !important;
+  border: 0 !important;
+  background: #fafafa !important;
+}
+
+body[data-route="picker"] .shoe-image--picker img {
+  object-fit: contain !important;
+  transform: scale(calc(var(--shoe-scale, 1) * 1.02)) !important;
+}
+
+body[data-route="picker"] .picker-product-card__body {
+  display: grid !important;
+  gap: 7px !important;
+}
+
+body[data-route="picker"] .picker-product-card__meta {
+  min-width: 0;
+  color: #858585 !important;
+  font-size: 12px !important;
+  line-height: 1.2;
+}
+
+body[data-route="picker"] .picker-product-card__name {
+  display: -webkit-box !important;
+  min-width: 0;
+  overflow: hidden !important;
+  color: #111111 !important;
+  font-size: clamp(22px, 6vw, 30px) !important;
+  font-weight: 650 !important;
+  line-height: 1.08 !important;
+  letter-spacing: 0 !important;
+  overflow-wrap: anywhere;
+  word-break: keep-all;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+}
+
+body[data-route="picker"] .picker-product-card__sub {
+  min-width: 0;
+  overflow: hidden;
+  color: #666666;
+  font-size: 13px;
+  line-height: 1.35;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+body[data-route="picker"] .picker-product-card__actions {
+  display: grid !important;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 8px !important;
+  align-items: stretch;
+  min-width: 0;
+  margin-top: 8px !important;
+}
+
+body[data-route="picker"] .picker-shop-link,
+body[data-route="picker"] .picker-detail-link {
+  min-width: 0;
+  min-height: 48px !important;
+}
+
+body[data-route="picker"] .picker-shop-link {
+  overflow: hidden;
+}
+
+body[data-route="picker"] .picker-detail-link {
+  min-width: 72px !important;
+}
+
+@media (min-width: 760px) {
+  body[data-route="picker"] .picker-choice-rail {
+    padding-bottom: 22px;
+  }
+
+  body[data-route="picker"] .picker-product-list {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 38px 24px !important;
+  }
+
+  body[data-route="picker"] .picker-product-card {
+    grid-template-rows: auto minmax(0, 1fr);
+    gap: 14px !important;
+    padding: 0 0 24px !important;
+    overflow: hidden;
+  }
+
+  body[data-route="picker"] .picker-product-card + .picker-product-card {
+    padding-top: 0 !important;
+  }
+
+  body[data-route="picker"] .shoe-image--picker {
+    aspect-ratio: 16 / 10 !important;
+  }
+
+  body[data-route="picker"] .picker-product-card__body {
+    align-content: start;
+    gap: 8px !important;
+  }
+
+  body[data-route="picker"] .picker-product-card__name {
+    min-height: 54px;
+    font-size: clamp(20px, 2vw, 24px) !important;
+    line-height: 1.12 !important;
+    -webkit-line-clamp: 2;
+  }
+
+  body[data-route="picker"] .picker-product-card__actions {
+    grid-template-columns: 1fr;
+    gap: 8px !important;
+    margin-top: 10px !important;
+  }
+
+  body[data-route="picker"] .picker-shop-link {
+    min-height: 50px !important;
+  }
+
+  body[data-route="picker"] .picker-detail-link {
+    width: 100%;
+    min-width: 0 !important;
+    min-height: 42px !important;
+  }
+}
+
+@media (min-width: 1200px) {
+  body[data-route="picker"] .picker-product-list {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 759px) {
+  body[data-route="picker"] .app-shell {
+    width: calc(100vw - 20px) !important;
+  }
+
+  body[data-route="picker"] .picker-choice-rail {
+    margin-inline: -1px;
   }
 }
