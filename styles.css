@@ -8215,3 +8215,8 @@ body[data-route] .topbar__brand .source-link::after {
     white-space: nowrap;
   }
 }
+
+/* 2026-06 focus-only app: remove view switching from the product surface. */
+.global-view-nav {
+  display: none !important;
+}

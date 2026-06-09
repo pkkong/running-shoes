@@ -64,7 +64,7 @@
     pickerCategoryIndex: 0,
     pickerAxesReady: false,
     pickerFilterPanel: "",
-    route: "home",
+    route: "picker",
     detailId: "",
     lastBrowseRoute: "#/",
     selectedCell: null,
@@ -119,6 +119,10 @@
     pickerCategoryAxis: document.querySelector("#pickerCategoryAxis"),
     pickerDetail: document.querySelector("#pickerDetail"),
   };
+
+  function setHidden(node, hidden) {
+    if (node) node.hidden = hidden;
+  }
 
   const categoryGroupMap = shoes.reduce((acc, shoe) => {
     acc[shoe.category] = shoe.categoryGroup;
@@ -1425,7 +1429,8 @@
   }
 
   function updateViewLinks() {
-    const activeRoute = state.route === "detail" ? (state.lastBrowseRoute === "#/overview" ? "overview" : "picker") : state.route;
+    if (!el.overviewLink || !el.pickerLink) return;
+    const activeRoute = state.route === "detail" ? "picker" : state.route;
     el.overviewLink.classList.toggle("is-active", activeRoute === "overview");
     el.pickerLink.classList.toggle("is-active", activeRoute === "picker");
   }
@@ -1436,10 +1441,6 @@
   }
 
   function renderCurrentRoute() {
-    if (state.route === "overview") {
-      renderOverview();
-      return;
-    }
     if (state.route === "picker") {
       renderPicker();
       return;
@@ -1762,8 +1763,8 @@
   }
 
   function renderDetail(shoe) {
-    const backHref = state.lastBrowseRoute === "#/list" ? "#/" : state.lastBrowseRoute || "#/";
-    const backLabel = backHref === "#/overview" ? "맵 보기" : "집중 보기";
+    const backHref = "#/";
+    const backLabel = "집중 보기";
 
     el.detailView.innerHTML = `
       <a class="back-link" href="${escapeHtml(backHref)}">← ${backLabel}</a>
@@ -1935,13 +1936,13 @@
       const shoe = shoes.find((item) => item.id === state.detailId);
       closeMapSheet(false);
       clearPickerTimers();
-      el.periodArchive.hidden = true;
-      el.globalViewNav.hidden = false;
-      el.filterPanel.hidden = true;
-      el.homeView.hidden = true;
-      el.overviewView.hidden = true;
-      el.pickerView.hidden = true;
-      el.detailView.hidden = false;
+      setHidden(el.periodArchive, true);
+      setHidden(el.globalViewNav, true);
+      setHidden(el.filterPanel, true);
+      setHidden(el.homeView, true);
+      setHidden(el.overviewView, true);
+      setHidden(el.pickerView, true);
+      setHidden(el.detailView, false);
       updateViewLinks();
       if (shoe) {
         renderDetail(shoe);
@@ -1959,22 +1960,12 @@
     }
 
     if (hash === "#/overview") {
-      setRoute("overview");
-      state.lastBrowseRoute = "#/overview";
-      clearPickerTimers();
-      el.periodArchive.hidden = false;
-      el.globalViewNav.hidden = false;
-      el.filterPanel.hidden = true;
-      el.homeView.hidden = true;
-      el.overviewView.hidden = false;
-      el.pickerView.hidden = true;
-      el.detailView.hidden = true;
-      renderOverview();
-      window.scrollTo(0, 0);
+      history.replaceState(null, "", `${window.location.pathname}${window.location.search}#/`);
+      syncRoute();
       return;
     }
 
-    if (hash === "#/list") {
+    if (hash === "#/list" || hash === "#/home") {
       history.replaceState(null, "", `${window.location.pathname}${window.location.search}#/`);
       syncRoute();
       return;
@@ -1982,15 +1973,15 @@
 
     if (hash === "#/" || hash === "" || hash === "#/picker") {
       setRoute("picker");
-      state.lastBrowseRoute = hash === "#/picker" ? "#/picker" : "#/";
+      state.lastBrowseRoute = "#/";
       closeMapSheet(false);
-      el.periodArchive.hidden = true;
-      el.globalViewNav.hidden = false;
-      el.filterPanel.hidden = true;
-      el.homeView.hidden = true;
-      el.overviewView.hidden = true;
-      el.pickerView.hidden = false;
-      el.detailView.hidden = true;
+      setHidden(el.periodArchive, true);
+      setHidden(el.globalViewNav, true);
+      setHidden(el.filterPanel, true);
+      setHidden(el.homeView, true);
+      setHidden(el.overviewView, true);
+      setHidden(el.pickerView, false);
+      setHidden(el.detailView, true);
       renderPicker();
       window.scrollTo(0, 0);
       return;
@@ -2000,13 +1991,13 @@
     state.lastBrowseRoute = "#/";
     closeMapSheet(false);
     clearPickerTimers();
-    el.periodArchive.hidden = true;
-    el.globalViewNav.hidden = false;
-    el.filterPanel.hidden = true;
-    el.homeView.hidden = true;
-    el.overviewView.hidden = true;
-    el.pickerView.hidden = false;
-    el.detailView.hidden = true;
+    setHidden(el.periodArchive, true);
+    setHidden(el.globalViewNav, true);
+    setHidden(el.filterPanel, true);
+    setHidden(el.homeView, true);
+    setHidden(el.overviewView, true);
+    setHidden(el.pickerView, false);
+    setHidden(el.detailView, true);
     renderPicker();
   }
 
