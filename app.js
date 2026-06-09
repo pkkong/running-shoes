@@ -321,7 +321,7 @@
             .join("")}
         </ol>
         <p class="history-panel__note">
-          2024.08~2026.02는 원문표 이미지 OCR 구조화, 2026.05는 앱 구조화 데이터 기준입니다.
+          디시인사이드 러닝 갤러리 원문표를 기준으로 2024.08~2026.02는 OCR 구조화, 2026.05는 앱 구조화 데이터입니다.
         </p>
       </section>
     `;
@@ -1297,7 +1297,7 @@
           </p>
         </div>
         <div class="period-archive__actions">
-          <a class="period-source" href="${escapeHtml(active.sourcePostUrl)}" target="_blank" rel="noreferrer">선택 원문</a>
+          <a class="period-source" href="${escapeHtml(active.sourcePostUrl)}" target="_blank" rel="noreferrer">디시인사이드 러닝 갤러리 원문</a>
         </div>
       </div>
       <div class="period-archive__meta" aria-label="분기 구조화 요약">
@@ -1950,7 +1950,7 @@
           <a class="back-link" href="${escapeHtml(state.lastBrowseRoute || "#/")}">← 집중 보기</a>
           <section class="empty-state">
             <h2>상세 정보를 찾을 수 없습니다</h2>
-            <p>추천표로 돌아가 다시 선택해 주세요.</p>
+            <p>라인업으로 돌아가 다시 선택해 주세요.</p>
           </section>
         `;
       }

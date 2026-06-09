@@ -8178,3 +8178,40 @@ body[data-route="picker"] .picker-axis--brand .picker-axis-item.is-selected .pic
     font-size: 12px !important;
   }
 }
+
+/* 2026-06 explicit source credit. */
+.footer {
+  display: grid;
+  gap: 6px;
+}
+
+.footer__source {
+  color: #4e5968;
+  font-weight: 600;
+}
+
+.footer__source a {
+  color: #191f28;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+body[data-route] .topbar__brand .source-link {
+  color: #4e5968 !important;
+  font-weight: 600 !important;
+}
+
+body[data-route] .topbar__brand .source-link::before,
+body[data-route] .topbar__brand .source-link::after {
+  content: "" !important;
+}
+
+@media (max-width: 759px) {
+  body[data-route] .topbar__brand .source-link {
+    max-width: min(70vw, 260px);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+}
