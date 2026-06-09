@@ -8018,3 +8018,163 @@ body[data-route="picker"] .picker-axis--brand {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
+
+/* 2026-06 Safari-safe brand logo normalization. */
+body[data-route="picker"] .picker-axis--brand .picker-axis-item,
+body[data-route="picker"] .picker-brand-token {
+  width: 86px !important;
+  min-width: 86px !important;
+  max-width: 86px !important;
+}
+
+body[data-route="picker"] .picker-brand-token {
+  align-content: start;
+  gap: 9px !important;
+}
+
+body[data-route="picker"] .picker-brand-token__mark {
+  display: grid !important;
+  place-items: center !important;
+  width: 70px !important;
+  height: 70px !important;
+  border-radius: 999px !important;
+  overflow: hidden !important;
+  background: #ffffff !important;
+  box-shadow: inset 0 0 0 1px #e9edf1 !important;
+}
+
+body[data-route="picker"] .picker-brand-token__mark .brand-logo {
+  display: grid !important;
+  place-items: center !important;
+  width: var(--picker-logo-frame-width, 50px) !important;
+  height: var(--picker-logo-frame-height, 30px) !important;
+  max-width: var(--picker-logo-frame-width, 50px) !important;
+  max-height: var(--picker-logo-frame-height, 30px) !important;
+  overflow: visible !important;
+  transform: none !important;
+}
+
+body[data-route="picker"] .picker-brand-token__mark .brand-logo__image {
+  display: block !important;
+  width: 100% !important;
+  height: 100% !important;
+  max-width: 100% !important;
+  max-height: 100% !important;
+  object-fit: contain !important;
+  object-position: center !important;
+  opacity: 1 !important;
+  transform: translateZ(0) scale(var(--picker-logo-scale, 1)) !important;
+  transform-origin: center center !important;
+  filter: grayscale(1) brightness(0) !important;
+}
+
+body[data-route="picker"] .picker-brand-token__mark .brand-logo--nike {
+  --picker-logo-frame-width: 33px;
+  --picker-logo-frame-height: 33px;
+  --picker-logo-scale: 1.42;
+}
+
+body[data-route="picker"] .picker-brand-token__mark .brand-logo--adidas {
+  --picker-logo-frame-width: 48px;
+  --picker-logo-frame-height: 28px;
+  --picker-logo-scale: 0.9;
+}
+
+body[data-route="picker"] .picker-brand-token__mark .brand-logo--asics {
+  --picker-logo-frame-width: 51px;
+  --picker-logo-frame-height: 28px;
+  --picker-logo-scale: 0.92;
+}
+
+body[data-route="picker"] .picker-brand-token__mark .brand-logo--newbalance {
+  --picker-logo-frame-width: 42px;
+  --picker-logo-frame-height: 32px;
+  --picker-logo-scale: 0.86;
+}
+
+body[data-route="picker"] .picker-brand-token__mark .brand-logo--saucony {
+  --picker-logo-frame-width: 52px;
+  --picker-logo-frame-height: 24px;
+  --picker-logo-scale: 0.82;
+}
+
+body[data-route="picker"] .picker-brand-token__mark .brand-logo--puma {
+  --picker-logo-frame-width: 34px;
+  --picker-logo-frame-height: 34px;
+  --picker-logo-scale: 1.02;
+}
+
+body[data-route="picker"] .picker-brand-token__mark .brand-logo--hoka {
+  --picker-logo-frame-width: 50px;
+  --picker-logo-frame-height: 27px;
+  --picker-logo-scale: 0.9;
+}
+
+body[data-route="picker"] .picker-brand-token__mark .brand-logo--brooks {
+  --picker-logo-frame-width: 51px;
+  --picker-logo-frame-height: 24px;
+  --picker-logo-scale: 0.82;
+}
+
+body[data-route="picker"] .picker-brand-token__mark .brand-logo--mizuno {
+  --picker-logo-frame-width: 43px;
+  --picker-logo-frame-height: 31px;
+  --picker-logo-scale: 0.86;
+}
+
+body[data-route="picker"] .picker-brand-token__mark .brand-logo--on {
+  --picker-logo-frame-width: 26px;
+  --picker-logo-frame-height: 34px;
+  --picker-logo-scale: 0.92;
+}
+
+body[data-route="picker"] .picker-axis--brand .picker-axis-item.is-selected .picker-brand-token__mark {
+  background: #191f28 !important;
+  box-shadow: none !important;
+}
+
+body[data-route="picker"] .picker-axis--brand .picker-axis-item.is-selected .brand-logo__image {
+  filter: grayscale(1) brightness(0) invert(1) !important;
+}
+
+body[data-route="picker"] .picker-brand-token__label {
+  color: #6b7684 !important;
+  font-size: 12.5px !important;
+  font-weight: 600 !important;
+  line-height: 1.18 !important;
+  letter-spacing: 0 !important;
+}
+
+body[data-route="picker"] .picker-axis--brand .picker-axis-item.is-selected .picker-brand-token__label {
+  color: #191f28 !important;
+  font-weight: 700 !important;
+}
+
+@media (max-width: 759px) {
+  body[data-route="picker"] .picker-axis--brand .picker-axis-item,
+  body[data-route="picker"] .picker-brand-token {
+    width: 74px !important;
+    min-width: 74px !important;
+    max-width: 74px !important;
+  }
+
+  body[data-route="picker"] .picker-axis--brand {
+    gap: 11px !important;
+  }
+
+  body[data-route="picker"] .picker-brand-token__mark {
+    width: 62px !important;
+    height: 62px !important;
+  }
+
+  body[data-route="picker"] .picker-brand-token__mark .brand-logo {
+    width: calc(var(--picker-logo-frame-width, 50px) * 0.9) !important;
+    height: calc(var(--picker-logo-frame-height, 30px) * 0.9) !important;
+    max-width: calc(var(--picker-logo-frame-width, 50px) * 0.9) !important;
+    max-height: calc(var(--picker-logo-frame-height, 30px) * 0.9) !important;
+  }
+
+  body[data-route="picker"] .picker-brand-token__label {
+    font-size: 12px !important;
+  }
+}
