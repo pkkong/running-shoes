@@ -8220,3 +8220,29 @@ body[data-route] .topbar__brand .source-link::after {
 .global-view-nav {
   display: none !important;
 }
+
+/* 2026-06 focus layout alignment: header, content, and footer share one rail. */
+body[data-route="picker"] {
+  --focus-content-max: 1040px;
+  --focus-content-gutter: 56px;
+}
+
+body[data-route="picker"] .topbar__inner,
+body[data-route="picker"] .app-shell,
+body[data-route="picker"] .footer {
+  width: min(var(--focus-content-max), calc(100vw - var(--focus-content-gutter))) !important;
+  margin-right: auto !important;
+  margin-left: auto !important;
+}
+
+@media (max-width: 759px) {
+  body[data-route="picker"] {
+    --focus-content-gutter: 28px;
+  }
+
+  body[data-route="picker"] .topbar__inner,
+  body[data-route="picker"] .app-shell,
+  body[data-route="picker"] .footer {
+    width: calc(100% - var(--focus-content-gutter)) !important;
+  }
+}
