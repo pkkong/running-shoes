@@ -1,6 +1,6 @@
 (function () {
   window.RUNNING_PRICE_SNAPSHOT = {
-  "generatedAt": "2026-06-10T22:50:03.035Z",
+  "generatedAt": "2026-06-11T12:43:53.923Z",
   "source": "naver-shopping-search-api",
   "currency": "KRW",
   "display": 30,
@@ -8,15 +8,15 @@
     "nike-페가수스-42": {
       "status": "found",
       "query": "나이키 페가수스 42 러닝화",
-      "fetchedAt": "2026-06-10T22:50:04.134Z",
-      "lowestPrice": 69990,
+      "fetchedAt": "2026-06-11T12:43:55.041Z",
+      "lowestPrice": 63300,
       "lowestOffer": {
-        "title": "나이키 에어 줌 페가수스 42 화이트 라피스 IB1873-102",
-        "link": "https://kor123.kr/product/detail.html?product_no=10894&cate_no=45&display_group=1&utm_source=naver&utm_medium=shopping&utm_campaign=knowledge_shopping&mkt_in=Y&ghost_mall_id=naver&ref=naver_open",
-        "image": "https://shopping-phinf.pstatic.net/main_6034640/60346405733.jpg",
-        "price": 69990,
-        "mallName": "스이큐",
-        "productId": "60346405733",
+        "title": "나이키 페가수스 42 블랙 로드 러닝화 IB1881-001",
+        "link": "https://terbo.kr/product/detail.html?product_no=4521&cate_no=44&display_group=1&utm_source=naver&utm_medium=shopping&utm_campaign=knowledge_shopping&mkt_in=Y&ghost_mall_id=naver&ref=naver_open",
+        "image": "https://shopping-phinf.pstatic.net/main_5984576/59845767708.jpg",
+        "price": 63300,
+        "mallName": "LALABOBO",
+        "productId": "59845767708",
         "productType": 2,
         "brand": "",
         "maker": "",
@@ -30,12 +30,12 @@
       },
       "offers": [
         {
-          "title": "나이키 에어 줌 페가수스 42 화이트 라피스 IB1873-102",
-          "link": "https://kor123.kr/product/detail.html?product_no=10894&cate_no=45&display_group=1&utm_source=naver&utm_medium=shopping&utm_campaign=knowledge_shopping&mkt_in=Y&ghost_mall_id=naver&ref=naver_open",
-          "image": "https://shopping-phinf.pstatic.net/main_6034640/60346405733.jpg",
-          "price": 69990,
-          "mallName": "스이큐",
-          "productId": "60346405733",
+          "title": "나이키 페가수스 42 블랙 로드 러닝화 IB1881-001",
+          "link": "https://terbo.kr/product/detail.html?product_no=4521&cate_no=44&display_group=1&utm_source=naver&utm_medium=shopping&utm_campaign=knowledge_shopping&mkt_in=Y&ghost_mall_id=naver&ref=naver_open",
+          "image": "https://shopping-phinf.pstatic.net/main_5984576/59845767708.jpg",
+          "price": 63300,
+          "mallName": "LALABOBO",
+          "productId": "59845767708",
           "productType": 2,
           "brand": "",
           "maker": "",
@@ -102,15 +102,15 @@
           "confidence": "high"
         },
         {
-          "title": "나이키 페가수스 42 화이트 래피스 토탈 오렌지 메탈릭 실버 IB1873-102",
-          "link": "https://www.itsomemall.com/goods/view?no=198139&market=naver",
-          "image": "https://shopping-phinf.pstatic.net/main_5976205/59762057237.jpg",
-          "price": 82000,
-          "mallName": "잇썸몰",
-          "productId": "59762057237",
+          "title": "나이키 에어 줌 페가수스 42 화이트 라피스 IB1873-102",
+          "link": "https://kor123.kr/product/detail.html?product_no=10894&cate_no=45&display_group=1&utm_source=naver&utm_medium=shopping&utm_campaign=knowledge_shopping&mkt_in=Y&ghost_mall_id=naver&ref=naver_open",
+          "image": "https://shopping-phinf.pstatic.net/main_6034640/60346405733.jpg",
+          "price": 69990,
+          "mallName": "스이큐",
+          "productId": "60346405733",
           "productType": 2,
-          "brand": "나이키",
-          "maker": "나이키",
+          "brand": "",
+          "maker": "",
           "category": [
             "패션잡화",
             "남성신발",
@@ -126,18 +126,18 @@
     "nike-페가수스-프리미엄": {
       "status": "found",
       "query": "나이키 페가수스 프리미엄 러닝화",
-      "fetchedAt": "2026-06-10T22:50:04.551Z",
-      "lowestPrice": 80000,
+      "fetchedAt": "2026-06-11T12:43:55.430Z",
+      "lowestPrice": 54340,
       "lowestOffer": {
-        "title": "나이키운동화 HQS HQ2593-102 페가수스 프리미엄",
-        "link": "https://www.place707.com/goods/view?no=193804&market=naver",
-        "image": "https://shopping-phinf.pstatic.net/main_5559673/55596732603.jpg",
-        "price": 80000,
-        "mallName": "플레이스707",
-        "productId": "55596732603",
+        "title": "나이키 페가수스 프리미엄 화이트 서밋 화이트 HQ2592-100",
+        "link": "https://nadomall.co.kr/product/detail.html?product_no=9060&cate_no=54&display_group=1&utm_source=naver&utm_medium=shopping&utm_campaign=knowledge_shopping&mkt_in=Y&ghost_mall_id=naver&ref=naver_open",
+        "image": "https://shopping-phinf.pstatic.net/main_5940256/59402562252.jpg",
+        "price": 54340,
+        "mallName": "프르티억",
+        "productId": "59402562252",
         "productType": 2,
-        "brand": "나이키",
-        "maker": "나이키",
+        "brand": "",
+        "maker": "",
         "category": [
           "패션잡화",
           "여성신발",
@@ -148,15 +148,15 @@
       },
       "offers": [
         {
-          "title": "나이키운동화 HQS HQ2593-102 페가수스 프리미엄",
-          "link": "https://www.place707.com/goods/view?no=193804&market=naver",
-          "image": "https://shopping-phinf.pstatic.net/main_5559673/55596732603.jpg",
-          "price": 80000,
-          "mallName": "플레이스707",
-          "productId": "55596732603",
+          "title": "나이키 페가수스 프리미엄 화이트 서밋 화이트 HQ2592-100",
+          "link": "https://nadomall.co.kr/product/detail.html?product_no=9060&cate_no=54&display_group=1&utm_source=naver&utm_medium=shopping&utm_campaign=knowledge_shopping&mkt_in=Y&ghost_mall_id=naver&ref=naver_open",
+          "image": "https://shopping-phinf.pstatic.net/main_5940256/59402562252.jpg",
+          "price": 54340,
+          "mallName": "프르티억",
+          "productId": "59402562252",
           "productType": 2,
-          "brand": "나이키",
-          "maker": "나이키",
+          "brand": "",
+          "maker": "",
           "category": [
             "패션잡화",
             "여성신발",
@@ -166,15 +166,15 @@
           "confidence": "high"
         },
         {
-          "title": "나이키 페가수스 프리미엄 여성 로드 러닝화 HQ2593-601",
-          "link": "https://www.itsomemall.com/goods/view?no=196997&market=naver",
-          "image": "https://shopping-phinf.pstatic.net/main_5559741/55597415735.jpg",
-          "price": 86000,
-          "mallName": "잇썸몰",
-          "productId": "55597415735",
+          "title": "나이키 에어 줌 페가수스 프리미엄 화이트 볼트 HQ2592 100",
+          "link": "https://seoulselect.co.kr/product/detail.html?product_no=17937&cate_no=258&display_group=1&utm_source=naver&utm_medium=shopping&utm_campaign=knowledge_shopping&mkt_in=Y&ghost_mall_id=naver&ref=naver_open",
+          "image": "https://shopping-phinf.pstatic.net/main_5970549/59705492266.jpg",
+          "price": 54900,
+          "mallName": "브르게드",
+          "productId": "59705492266",
           "productType": 2,
-          "brand": "나이키",
-          "maker": "나이키",
+          "brand": "",
+          "maker": "",
           "category": [
             "패션잡화",
             "여성신발",
@@ -184,15 +184,15 @@
           "confidence": "high"
         },
         {
-          "title": "나이키 페가수스 프리미엄 런닝화 여성 운동화 HQ2593-001",
-          "link": "https://www.itsomemall.com/goods/view?no=196996&market=naver",
-          "image": "https://shopping-phinf.pstatic.net/main_5559730/55597309112.jpg",
-          "price": 86000,
-          "mallName": "잇썸몰",
-          "productId": "55597309112",
+          "title": "나이키 페가수스 프리미엄 화이트 서밋 화이트 HQ2592-100",
+          "link": "https://aerowood.shop/product/detail.html?product_no=5514&cate_no=70&display_group=1&utm_source=naver&utm_medium=shopping&utm_campaign=knowledge_shopping&mkt_in=Y&ghost_mall_id=naver&ref=naver_open",
+          "image": "https://shopping-phinf.pstatic.net/main_6005436/60054367992.jpg",
+          "price": 55000,
+          "mallName": "에어로우드",
+          "productId": "60054367992",
           "productType": 2,
-          "brand": "나이키",
-          "maker": "나이키",
+          "brand": "조쿠",
+          "maker": "",
           "category": [
             "패션잡화",
             "여성신발",
@@ -202,18 +202,36 @@
           "confidence": "high"
         },
         {
-          "title": "나이키 페가수스 프리미엄 여성 로드 러닝화 HQ2593-102",
-          "link": "https://www.itsomemall.com/goods/view?no=196995&market=naver",
-          "image": "https://shopping-phinf.pstatic.net/main_5559721/55597213171.jpg",
-          "price": 86000,
-          "mallName": "잇썸몰",
-          "productId": "55597213171",
+          "title": "나이키 페가수스 프리미엄 고스트 페르시안 바이올렛 HQ2592-004",
+          "link": "https://nadomall.co.kr/product/detail.html?product_no=8062&cate_no=54&display_group=1&utm_source=naver&utm_medium=shopping&utm_campaign=knowledge_shopping&mkt_in=Y&ghost_mall_id=naver&ref=naver_open",
+          "image": "https://shopping-phinf.pstatic.net/main_5940255/59402550119.jpg",
+          "price": 55240,
+          "mallName": "프르티억",
+          "productId": "59402550119",
           "productType": 2,
-          "brand": "나이키",
-          "maker": "나이키",
+          "brand": "",
+          "maker": "",
           "category": [
             "패션잡화",
             "여성신발",
+            "운동화",
+            "러닝화"
+          ],
+          "confidence": "high"
+        },
+        {
+          "title": "나이키 페가수스 프리미엄 블랙 브라이트 크림슨 HQ2592-003",
+          "link": "https://nadomall.co.kr/product/detail.html?product_no=8535&cate_no=54&display_group=1&utm_source=naver&utm_medium=shopping&utm_campaign=knowledge_shopping&mkt_in=Y&ghost_mall_id=naver&ref=naver_open",
+          "image": "https://shopping-phinf.pstatic.net/main_5940260/59402603681.jpg",
+          "price": 55240,
+          "mallName": "프르티억",
+          "productId": "59402603681",
+          "productType": 2,
+          "brand": "",
+          "maker": "",
+          "category": [
+            "패션잡화",
+            "남성신발",
             "운동화",
             "러닝화"
           ],
@@ -226,7 +244,7 @@
     "adidas-아디스타-4": {
       "status": "no_match",
       "query": "아디다스 아디스타 4 러닝화",
-      "fetchedAt": "2026-06-10T22:50:05.000Z",
+      "fetchedAt": "2026-06-11T12:43:55.852Z",
       "lowestPrice": null,
       "lowestOffer": null,
       "offers": [],
@@ -236,7 +254,7 @@
     "adidas-슈퍼노바-라이즈-3": {
       "status": "found",
       "query": "아디다스 슈퍼노바 라이즈 3 러닝화",
-      "fetchedAt": "2026-06-10T22:50:05.423Z",
+      "fetchedAt": "2026-06-11T12:43:56.249Z",
       "lowestPrice": 59620,
       "lowestOffer": {
         "title": "아디다스 슈퍼노바 라이즈 3 W JQ6996_G",
@@ -276,24 +294,6 @@
           "confidence": "high"
         },
         {
-          "title": "아디다스오리지널 아디다스 오리지널스 슈퍼노바 라이즈 3 W JQ6996",
-          "link": "https://link.auction.co.kr/gate/pcs?item-no=F542050816&sub-id=1&service-code=10000003",
-          "image": "https://shopping-phinf.pstatic.net/main_5975832/59758321044.jpg",
-          "price": 84220,
-          "mallName": "옥션",
-          "productId": "59758321044",
-          "productType": 2,
-          "brand": "아디다스",
-          "maker": "아디다스",
-          "category": [
-            "패션잡화",
-            "여성신발",
-            "운동화",
-            "러닝화"
-          ],
-          "confidence": "high"
-        },
-        {
           "title": "아디다스오리지널 아디다스 오리지널스 우먼스 슈퍼노바 라이즈3 W JQ6996",
           "link": "https://link.auction.co.kr/gate/pcs?item-no=F549176545&sub-id=1&service-code=10000003",
           "image": "https://shopping-phinf.pstatic.net/main_5984455/59844551365.jpg",
@@ -312,15 +312,15 @@
           "confidence": "high"
         },
         {
-          "title": "아디다스 오리지널스 우먼스 슈퍼노바 라이즈3 W JQ6996",
-          "link": "https://link.auction.co.kr/gate/pcs?item-no=F549169778&sub-id=1&service-code=10000003",
-          "image": "https://shopping-phinf.pstatic.net/main_5984453/59844531092.jpg",
+          "title": "아디다스오리지널 아디다스 오리지널스 슈퍼노바 라이즈 3 W JQ6996",
+          "link": "https://link.auction.co.kr/gate/pcs?item-no=F542050816&sub-id=1&service-code=10000003",
+          "image": "https://shopping-phinf.pstatic.net/main_5975832/59758321044.jpg",
           "price": 84220,
           "mallName": "옥션",
-          "productId": "59844531092",
+          "productId": "59758321044",
           "productType": 2,
-          "brand": "",
-          "maker": "",
+          "brand": "아디다스",
+          "maker": "아디다스",
           "category": [
             "패션잡화",
             "여성신발",
@@ -346,6 +346,24 @@
             "러닝화"
           ],
           "confidence": "high"
+        },
+        {
+          "title": "아디다스 오리지널스 우먼스 슈퍼노바 라이즈3 W JQ6996",
+          "link": "https://link.auction.co.kr/gate/pcs?item-no=F549169778&sub-id=1&service-code=10000003",
+          "image": "https://shopping-phinf.pstatic.net/main_5984453/59844531092.jpg",
+          "price": 84220,
+          "mallName": "옥션",
+          "productId": "59844531092",
+          "productType": 2,
+          "brand": "",
+          "maker": "",
+          "category": [
+            "패션잡화",
+            "여성신발",
+            "운동화",
+            "러닝화"
+          ],
+          "confidence": "high"
         }
       ],
       "confidence": "high",
@@ -354,7 +372,7 @@
     "asics-젤-큐물러스-28": {
       "status": "no_match",
       "query": "아식스 젤 큐물러스 28 러닝화",
-      "fetchedAt": "2026-06-10T22:50:05.857Z",
+      "fetchedAt": "2026-06-11T12:43:56.650Z",
       "lowestPrice": null,
       "lowestOffer": null,
       "offers": [],
@@ -364,27 +382,99 @@
     "new-balance-880-v15": {
       "status": "found",
       "query": "뉴발란스 880 V15 러닝화",
-      "fetchedAt": "2026-06-10T22:50:06.265Z",
-      "lowestPrice": 122900,
+      "fetchedAt": "2026-06-11T12:43:57.062Z",
+      "lowestPrice": 91190,
       "lowestOffer": {
-        "title": "W230 (W) 뉴발란스 프레쉬 폼 X 880v15 펄 그레이 더스크 샤워 - D 와이드 W880C15",
-        "link": "https://kream.co.kr/shopping-products/480922?utm_campaign=NAVER_SHOPPING_PARTNER_CPC&utm_content=NewBalance&utm_medium=cpc&utm_source=naver_shopping&utm_term=480922_2&size=230",
-        "image": "https://shopping-phinf.pstatic.net/main_5672871/56728715715.jpg",
-        "price": 122900,
-        "mallName": "KREAM",
-        "productId": "56728715715",
+        "title": "뉴발란스 (WMNS) 프레쉬폼 X 880v15 블랙 시멘트 씨솔트 W880H15",
+        "link": "https://nadomall.co.kr/product/detail.html?product_no=3259&cate_no=57&display_group=1&utm_source=naver&utm_medium=shopping&utm_campaign=knowledge_shopping&mkt_in=Y&ghost_mall_id=naver&ref=naver_open",
+        "image": "https://shopping-phinf.pstatic.net/main_5952074/59520744186.jpg",
+        "price": 91190,
+        "mallName": "프르티억",
+        "productId": "59520744186",
         "productType": 2,
-        "brand": "뉴발란스",
+        "brand": "",
         "maker": "",
         "category": [
           "패션잡화",
           "여성신발",
-          "단화",
-          "스니커즈"
+          "운동화",
+          "러닝화"
         ],
         "confidence": "high"
       },
       "offers": [
+        {
+          "title": "뉴발란스 (WMNS) 프레쉬폼 X 880v15 블랙 시멘트 씨솔트 W880H15",
+          "link": "https://nadomall.co.kr/product/detail.html?product_no=3259&cate_no=57&display_group=1&utm_source=naver&utm_medium=shopping&utm_campaign=knowledge_shopping&mkt_in=Y&ghost_mall_id=naver&ref=naver_open",
+          "image": "https://shopping-phinf.pstatic.net/main_5952074/59520744186.jpg",
+          "price": 91190,
+          "mallName": "프르티억",
+          "productId": "59520744186",
+          "productType": 2,
+          "brand": "",
+          "maker": "",
+          "category": [
+            "패션잡화",
+            "여성신발",
+            "운동화",
+            "러닝화"
+          ],
+          "confidence": "high"
+        },
+        {
+          "title": "뉴발란스 프레쉬폼 X 880v15 블랙 화이트 M880B15",
+          "link": "https://nadomall.co.kr/product/detail.html?product_no=3260&cate_no=57&display_group=1&utm_source=naver&utm_medium=shopping&utm_campaign=knowledge_shopping&mkt_in=Y&ghost_mall_id=naver&ref=naver_open",
+          "image": "https://shopping-phinf.pstatic.net/main_5952071/59520711975.jpg",
+          "price": 97040,
+          "mallName": "프르티억",
+          "productId": "59520711975",
+          "productType": 2,
+          "brand": "",
+          "maker": "",
+          "category": [
+            "패션잡화",
+            "남성신발",
+            "운동화",
+            "러닝화"
+          ],
+          "confidence": "high"
+        },
+        {
+          "title": "뉴발란스 프레시폼 X 880v15 리플렉션 일렉트릭 제이드 그레이 M880D15",
+          "link": "https://nadomall.co.kr/product/detail.html?product_no=3205&cate_no=57&display_group=1&utm_source=naver&utm_medium=shopping&utm_campaign=knowledge_shopping&mkt_in=Y&ghost_mall_id=naver&ref=naver_open",
+          "image": "https://shopping-phinf.pstatic.net/main_5952072/59520727934.jpg",
+          "price": 109240,
+          "mallName": "프르티억",
+          "productId": "59520727934",
+          "productType": 2,
+          "brand": "",
+          "maker": "",
+          "category": [
+            "패션잡화",
+            "남성신발",
+            "운동화",
+            "러닝화"
+          ],
+          "confidence": "high"
+        },
+        {
+          "title": "뉴발란스 (WMNS) 프레쉬폼 X 880v15 고어텍스 블랙 팀버울프 W880GB15",
+          "link": "https://nadomall.co.kr/product/detail.html?product_no=2851&cate_no=57&display_group=1&utm_source=naver&utm_medium=shopping&utm_campaign=knowledge_shopping&mkt_in=Y&ghost_mall_id=naver&ref=naver_open",
+          "image": "https://shopping-phinf.pstatic.net/main_5952074/59520745423.jpg",
+          "price": 118440,
+          "mallName": "프르티억",
+          "productId": "59520745423",
+          "productType": 2,
+          "brand": "",
+          "maker": "",
+          "category": [
+            "패션잡화",
+            "여성신발",
+            "운동화",
+            "러닝화"
+          ],
+          "confidence": "high"
+        },
         {
           "title": "W230 (W) 뉴발란스 프레쉬 폼 X 880v15 펄 그레이 더스크 샤워 - D 와이드 W880C15",
           "link": "https://kream.co.kr/shopping-products/480922?utm_campaign=NAVER_SHOPPING_PARTNER_CPC&utm_content=NewBalance&utm_medium=cpc&utm_source=naver_shopping&utm_term=480922_2&size=230",
@@ -402,78 +492,6 @@
             "스니커즈"
           ],
           "confidence": "high"
-        },
-        {
-          "title": "뉴발란스 발편한 운동화 러닝화 프레쉬폼x 880 V15 265 블랙01",
-          "link": "https://link.coupang.com/re/PCSNAVERPCSDP?pageKey=9565707673&ctag=9565707673&lptag=V95492996040&itemId=28548197100&vendorItemId=95492996040&spec=10305199",
-          "image": "https://shopping-phinf.pstatic.net/main_6031569/60315696017.jpg",
-          "price": 123300,
-          "mallName": "쿠팡",
-          "productId": "60315696017",
-          "productType": 2,
-          "brand": "뉴발란스",
-          "maker": "뉴발란스",
-          "category": [
-            "패션잡화",
-            "남성신발",
-            "운동화",
-            "러닝화"
-          ],
-          "confidence": "high"
-        },
-        {
-          "title": "뉴발란스 발편한 운동화 러닝화 프레쉬폼x 880 V15 275 그레이03",
-          "link": "https://link.coupang.com/re/PCSNAVERPCSDP?pageKey=9565707673&ctag=9565707673&lptag=V95492996039&itemId=28548197104&vendorItemId=95492996039&spec=10305199",
-          "image": "https://shopping-phinf.pstatic.net/main_6038115/60381151917.jpg",
-          "price": 123300,
-          "mallName": "쿠팡",
-          "productId": "60381151917",
-          "productType": 2,
-          "brand": "뉴발란스",
-          "maker": "뉴발란스",
-          "category": [
-            "패션잡화",
-            "남성신발",
-            "운동화",
-            "러닝화"
-          ],
-          "confidence": "high"
-        },
-        {
-          "title": "뉴발란스 발편한 운동화 러닝화 프레쉬폼x 880 V15 265 블루02",
-          "link": "https://link.coupang.com/re/PCSNAVERPCSDP?pageKey=9565707673&ctag=9565707673&lptag=V95492996053&itemId=28548197121&vendorItemId=95492996053&spec=10305199",
-          "image": "https://shopping-phinf.pstatic.net/main_6025805/60258057177.jpg",
-          "price": 123300,
-          "mallName": "쿠팡",
-          "productId": "60258057177",
-          "productType": 2,
-          "brand": "뉴발란스",
-          "maker": "뉴발란스",
-          "category": [
-            "패션잡화",
-            "남성신발",
-            "운동화",
-            "러닝화"
-          ],
-          "confidence": "high"
-        },
-        {
-          "title": "뉴발란스 발편한 운동화 러닝화 프레쉬폼x 880 V15 270 블랙01",
-          "link": "https://link.coupang.com/re/PCSNAVERPCSDP?pageKey=9565707673&ctag=9565707673&lptag=V95492996038&itemId=28548197101&vendorItemId=95492996038&spec=10305199",
-          "image": "https://shopping-phinf.pstatic.net/main_6025794/60257943417.jpg",
-          "price": 123300,
-          "mallName": "쿠팡",
-          "productId": "60257943417",
-          "productType": 2,
-          "brand": "뉴발란스",
-          "maker": "뉴발란스",
-          "category": [
-            "패션잡화",
-            "남성신발",
-            "운동화",
-            "러닝화"
-          ],
-          "confidence": "high"
         }
       ],
       "confidence": "high",
@@ -482,45 +500,27 @@
     "new-balance-엘립스-v1": {
       "status": "found",
       "query": "뉴발란스 엘립스 V1 러닝화",
-      "fetchedAt": "2026-06-10T22:50:06.693Z",
+      "fetchedAt": "2026-06-11T12:43:57.469Z",
       "lowestPrice": 151200,
       "lowestOffer": {
-        "title": "(여) 뉴발란스 엘립스 V1 (D) WELPS13W(D)",
-        "link": "https://smartstore.naver.com/main/products/13244230749",
-        "image": "https://shopping-phinf.pstatic.net/main_9078874/90788741081.jpg",
+        "title": "(남) 뉴발란스 엘립스 V1 (2E) MELPS4B2(2E)",
+        "link": "https://smartstore.naver.com/main/products/13244208951",
+        "image": "https://shopping-phinf.pstatic.net/main_9078871/90788719283.jpg",
         "price": 151200,
         "mallName": "플릿러너",
-        "productId": "90788741081",
+        "productId": "90788719283",
         "productType": 2,
         "brand": "뉴발란스",
         "maker": "뉴발란스",
         "category": [
           "패션잡화",
-          "여성신발",
+          "남성신발",
           "운동화",
           "러닝화"
         ],
         "confidence": "high"
       },
       "offers": [
-        {
-          "title": "(여) 뉴발란스 엘립스 V1 (D) WELPS13W(D)",
-          "link": "https://smartstore.naver.com/main/products/13244230749",
-          "image": "https://shopping-phinf.pstatic.net/main_9078874/90788741081.jpg",
-          "price": 151200,
-          "mallName": "플릿러너",
-          "productId": "90788741081",
-          "productType": 2,
-          "brand": "뉴발란스",
-          "maker": "뉴발란스",
-          "category": [
-            "패션잡화",
-            "여성신발",
-            "운동화",
-            "러닝화"
-          ],
-          "confidence": "high"
-        },
         {
           "title": "(남) 뉴발란스 엘립스 V1 (2E) MELPS4B2(2E)",
           "link": "https://smartstore.naver.com/main/products/13244208951",
@@ -534,6 +534,24 @@
           "category": [
             "패션잡화",
             "남성신발",
+            "운동화",
+            "러닝화"
+          ],
+          "confidence": "high"
+        },
+        {
+          "title": "(여) 뉴발란스 엘립스 V1 (D) WELPS13W(D)",
+          "link": "https://smartstore.naver.com/main/products/13244230749",
+          "image": "https://shopping-phinf.pstatic.net/main_9078874/90788741081.jpg",
+          "price": 151200,
+          "mallName": "플릿러너",
+          "productId": "90788741081",
+          "productType": 2,
+          "brand": "뉴발란스",
+          "maker": "뉴발란스",
+          "category": [
+            "패션잡화",
+            "여성신발",
             "운동화",
             "러닝화"
           ],
@@ -562,28 +580,79 @@
       "message": ""
     },
     "saucony-타이드-2": {
-      "status": "no_match",
+      "status": "found",
       "query": "써코니 타이드 2 러닝화",
-      "fetchedAt": "2026-06-10T22:50:07.109Z",
-      "lowestPrice": null,
-      "lowestOffer": null,
-      "offers": [],
-      "confidence": "low",
-      "message": "조건에 맞는 가격 결과를 찾지 못했습니다."
+      "fetchedAt": "2026-06-11T12:43:57.869Z",
+      "lowestPrice": 65000,
+      "lowestOffer": {
+        "title": "써코니 여성 러닝화 타이드 2 TIDE 2 S11012-102 CLOUD/SILVER",
+        "link": "https://www.lfsquare.com/goods/detail/form?goodsCd=SQ001255449&utm_source=naver&utm_medium=shopping&utm_campaign=&enterc=naverep",
+        "image": "https://shopping-phinf.pstatic.net/main_5665134/56651347808.jpg",
+        "price": 65000,
+        "mallName": "LF스퀘어몰",
+        "productId": "56651347808",
+        "productType": 3,
+        "brand": "",
+        "maker": "",
+        "category": [
+          "스포츠/레저",
+          "배구",
+          "배구화"
+        ],
+        "confidence": "high"
+      },
+      "offers": [
+        {
+          "title": "써코니 여성 러닝화 타이드 2 TIDE 2 S11012-102 CLOUD/SILVER",
+          "link": "https://www.lfsquare.com/goods/detail/form?goodsCd=SQ001255449&utm_source=naver&utm_medium=shopping&utm_campaign=&enterc=naverep",
+          "image": "https://shopping-phinf.pstatic.net/main_5665134/56651347808.jpg",
+          "price": 65000,
+          "mallName": "LF스퀘어몰",
+          "productId": "56651347808",
+          "productType": 3,
+          "brand": "",
+          "maker": "",
+          "category": [
+            "스포츠/레저",
+            "배구",
+            "배구화"
+          ],
+          "confidence": "high"
+        },
+        {
+          "title": "써코니 러닝화 타이드 2 TIDE 2 S18216-70 WHITE/SILVER",
+          "link": "https://www.lfsquare.com/goods/detail/form?goodsCd=SQ001251608&utm_source=naver&utm_medium=shopping&utm_campaign=&enterc=naverep",
+          "image": "https://shopping-phinf.pstatic.net/main_6001218/60012186207.jpg",
+          "price": 65000,
+          "mallName": "LF스퀘어몰",
+          "productId": "60012186207",
+          "productType": 3,
+          "brand": "",
+          "maker": "",
+          "category": [
+            "스포츠/레저",
+            "배구",
+            "배구화"
+          ],
+          "confidence": "high"
+        }
+      ],
+      "confidence": "high",
+      "message": ""
     },
     "saucony-라이드-19": {
       "status": "found",
       "query": "써코니 라이드 19 러닝화",
-      "fetchedAt": "2026-06-10T22:50:07.528Z",
+      "fetchedAt": "2026-06-11T12:43:58.277Z",
       "lowestPrice": 125300,
       "lowestOffer": {
-        "title": "써코니 라이드 19 S21055",
-        "link": "https://search.shopping.naver.com/catalog/60293571010",
-        "image": "https://shopping-phinf.pstatic.net/main_6029357/60293571010.20260603154323.jpg",
+        "title": "(여) 써코니 라이드 19 (D) S11056-128",
+        "link": "https://fleetrunner.co.kr/goods/goods_view.php?goodsNo=11185&inflow=naver",
+        "image": "https://shopping-phinf.pstatic.net/main_5834360/58343605592.jpg",
         "price": 125300,
-        "mallName": "네이버",
-        "productId": "60293571010",
-        "productType": 1,
+        "mallName": "플릿러너",
+        "productId": "58343605592",
+        "productType": 3,
         "brand": "써코니",
         "maker": "써코니",
         "category": [
@@ -596,13 +665,13 @@
       },
       "offers": [
         {
-          "title": "써코니 라이드 19 S21055",
-          "link": "https://search.shopping.naver.com/catalog/60293571010",
-          "image": "https://shopping-phinf.pstatic.net/main_6029357/60293571010.20260603154323.jpg",
+          "title": "(여) 써코니 라이드 19 (D) S11056-128",
+          "link": "https://fleetrunner.co.kr/goods/goods_view.php?goodsNo=11185&inflow=naver",
+          "image": "https://shopping-phinf.pstatic.net/main_5834360/58343605592.jpg",
           "price": 125300,
-          "mallName": "네이버",
-          "productId": "60293571010",
-          "productType": 1,
+          "mallName": "플릿러너",
+          "productId": "58343605592",
+          "productType": 3,
           "brand": "써코니",
           "maker": "써코니",
           "category": [
@@ -615,11 +684,11 @@
         },
         {
           "title": "써코니 라이드 19 와이드 S21056",
-          "link": "https://search.shopping.naver.com/catalog/60014663410",
-          "image": "https://shopping-phinf.pstatic.net/main_6001466/60014663410.20260512171949.jpg",
+          "link": "https://search.shopping.naver.com/catalog/60014663412",
+          "image": "https://shopping-phinf.pstatic.net/main_6001466/60014663412.20260512172315.jpg",
           "price": 125300,
           "mallName": "네이버",
-          "productId": "60014663410",
+          "productId": "60014663412",
           "productType": 1,
           "brand": "써코니",
           "maker": "써코니",
@@ -632,30 +701,12 @@
           "confidence": "high"
         },
         {
-          "title": "(남) 써코니 라이드 19 S21055-110",
-          "link": "https://fleetrunner.co.kr/goods/goods_view.php?goodsNo=11181&inflow=naver",
-          "image": "https://shopping-phinf.pstatic.net/main_5834359/58343592821.jpg",
+          "title": "(여) 써코니 라이드 19 S11055-142",
+          "link": "https://fleetrunner.co.kr/goods/goods_view.php?goodsNo=11255&inflow=naver",
+          "image": "https://shopping-phinf.pstatic.net/main_5857565/58575650936.jpg",
           "price": 125300,
           "mallName": "플릿러너",
-          "productId": "58343592821",
-          "productType": 2,
-          "brand": "써코니",
-          "maker": "써코니",
-          "category": [
-            "패션잡화",
-            "남성신발",
-            "운동화",
-            "러닝화"
-          ],
-          "confidence": "high"
-        },
-        {
-          "title": "(여) 써코니 라이드 19 S11055-103",
-          "link": "https://fleetrunner.co.kr/goods/goods_view.php?goodsNo=11186&inflow=naver",
-          "image": "https://shopping-phinf.pstatic.net/main_5834359/58343596386.jpg",
-          "price": 125300,
-          "mallName": "플릿러너",
-          "productId": "58343596386",
+          "productId": "58575650936",
           "productType": 2,
           "brand": "써코니",
           "maker": "써코니",
@@ -684,6 +735,24 @@
             "러닝화"
           ],
           "confidence": "high"
+        },
+        {
+          "title": "(남) 써코니 라이드 19 S21055-110",
+          "link": "https://fleetrunner.co.kr/goods/goods_view.php?goodsNo=11181&inflow=naver",
+          "image": "https://shopping-phinf.pstatic.net/main_5834359/58343592821.jpg",
+          "price": 125300,
+          "mallName": "플릿러너",
+          "productId": "58343592821",
+          "productType": 2,
+          "brand": "써코니",
+          "maker": "써코니",
+          "category": [
+            "패션잡화",
+            "남성신발",
+            "운동화",
+            "러닝화"
+          ],
+          "confidence": "high"
         }
       ],
       "confidence": "high",
@@ -692,7 +761,7 @@
     "puma-일렉트리파이-나이트로-4": {
       "status": "no_match",
       "query": "푸마 일렉트리파이 나이트로 4 러닝화",
-      "fetchedAt": "2026-06-10T22:50:07.968Z",
+      "fetchedAt": "2026-06-11T12:43:58.699Z",
       "lowestPrice": null,
       "lowestOffer": null,
       "offers": [],
@@ -702,13 +771,13 @@
     "hoka-클리프톤-10": {
       "status": "found",
       "query": "호카 클리프톤 10 러닝화",
-      "fetchedAt": "2026-06-10T22:50:08.390Z",
-      "lowestPrice": 52530,
+      "fetchedAt": "2026-06-11T12:43:59.088Z",
+      "lowestPrice": 51730,
       "lowestOffer": {
         "title": "호카-Hoka 클리프톤 10 여성 러닝화 1162031-WWH",
         "link": "https://kor123.kr/product/detail.html?product_no=8592&cate_no=48&display_group=1&utm_source=naver&utm_medium=shopping&utm_campaign=knowledge_shopping&mkt_in=Y&ghost_mall_id=naver&ref=naver_open",
         "image": "https://shopping-phinf.pstatic.net/main_5957518/59575184769.jpg",
-        "price": 52530,
+        "price": 51730,
         "mallName": "스이큐",
         "productId": "59575184769",
         "productType": 2,
@@ -727,7 +796,7 @@
           "title": "호카-Hoka 클리프톤 10 여성 러닝화 1162031-WWH",
           "link": "https://kor123.kr/product/detail.html?product_no=8592&cate_no=48&display_group=1&utm_source=naver&utm_medium=shopping&utm_campaign=knowledge_shopping&mkt_in=Y&ghost_mall_id=naver&ref=naver_open",
           "image": "https://shopping-phinf.pstatic.net/main_5957518/59575184769.jpg",
-          "price": 52530,
+          "price": 51730,
           "mallName": "스이큐",
           "productId": "59575184769",
           "productType": 2,
@@ -742,12 +811,12 @@
           "confidence": "high"
         },
         {
-          "title": "호카-Hoka CLIFTON 10 남자 러닝화 1162030-MTFL",
-          "link": "https://kor123.kr/product/detail.html?product_no=8595&cate_no=48&display_group=1&utm_source=naver&utm_medium=shopping&utm_campaign=knowledge_shopping&mkt_in=Y&ghost_mall_id=naver&ref=naver_open",
-          "image": "https://shopping-phinf.pstatic.net/main_5957515/59575156384.jpg",
-          "price": 59700,
-          "mallName": "스이큐",
-          "productId": "59575156384",
+          "title": "호카오네오네 클리프톤 10 Clifton 10 가벼운 운동화 남자 러닝화 남녀공용 1162031-WWH",
+          "link": "https://olvui.co.kr/product/detail.html?product_no=21690&cate_no=198&display_group=1&utm_source=naver&utm_medium=shopping&utm_campaign=knowledge_shopping&mkt_in=Y&ghost_mall_id=naver&ref=naver_open",
+          "image": "https://shopping-phinf.pstatic.net/main_5898414/58984143047.jpg",
+          "price": 52230,
+          "mallName": "아리크레",
+          "productId": "58984143047",
           "productType": 2,
           "brand": "",
           "maker": "",
@@ -760,12 +829,12 @@
           "confidence": "high"
         },
         {
-          "title": "호카-Hoka 클리프톤 10 남성 러닝화 1162030-NWT",
-          "link": "https://kor123.kr/product/detail.html?product_no=8594&cate_no=48&display_group=1&utm_source=naver&utm_medium=shopping&utm_campaign=knowledge_shopping&mkt_in=Y&ghost_mall_id=naver&ref=naver_open",
-          "image": "https://shopping-phinf.pstatic.net/main_5957516/59575169494.jpg",
-          "price": 59700,
-          "mallName": "스이큐",
-          "productId": "59575169494",
+          "title": "호카오네오네 클리프톤 10 Clifton 10 가벼운 운동화 남자 러닝화 남녀공용 1162031-WWH",
+          "link": "https://seoulselect.co.kr/product/detail.html?product_no=16220&cate_no=238&display_group=1&utm_source=naver&utm_medium=shopping&utm_campaign=knowledge_shopping&mkt_in=Y&ghost_mall_id=naver&ref=naver_open",
+          "image": "https://shopping-phinf.pstatic.net/main_5933603/59336031182.jpg",
+          "price": 52230,
+          "mallName": "브르게드",
+          "productId": "59336031182",
           "productType": 2,
           "brand": "",
           "maker": "",
@@ -778,12 +847,12 @@
           "confidence": "high"
         },
         {
-          "title": "호카-Hoka 클리프톤 10 남성용 1162030 STLLR",
-          "link": "https://kor123.kr/product/detail.html?product_no=8593&cate_no=48&display_group=1&utm_source=naver&utm_medium=shopping&utm_campaign=knowledge_shopping&mkt_in=Y&ghost_mall_id=naver&ref=naver_open",
-          "image": "https://shopping-phinf.pstatic.net/main_5957515/59575158254.jpg",
-          "price": 59920,
-          "mallName": "스이큐",
-          "productId": "59575158254",
+          "title": "호카오네오네 클리프톤 10 Clifton 10 가벼운 운동화 남자 러닝화 1162030-HSK",
+          "link": "https://olvui.co.kr/product/detail.html?product_no=21654&cate_no=198&display_group=1&utm_source=naver&utm_medium=shopping&utm_campaign=knowledge_shopping&mkt_in=Y&ghost_mall_id=naver&ref=naver_open",
+          "image": "https://shopping-phinf.pstatic.net/main_5898413/58984130021.jpg",
+          "price": 52930,
+          "mallName": "아리크레",
+          "productId": "58984130021",
           "productType": 2,
           "brand": "",
           "maker": "",
@@ -796,15 +865,15 @@
           "confidence": "high"
         },
         {
-          "title": "호카 클리프톤 10 1162030",
-          "link": "https://search.shopping.naver.com/catalog/59243084881",
-          "image": "https://shopping-phinf.pstatic.net/main_5924308/59243084881.20260313123642.jpg",
-          "price": 107000,
-          "mallName": "네이버",
-          "productId": "59243084881",
-          "productType": 1,
-          "brand": "호카",
-          "maker": "호카",
+          "title": "호카오네오네 클리프톤 10 Clifton 10 가벼운 운동화 남자 러닝화 1162030-HSK",
+          "link": "https://seoulselect.co.kr/product/detail.html?product_no=16184&cate_no=238&display_group=1&utm_source=naver&utm_medium=shopping&utm_campaign=knowledge_shopping&mkt_in=Y&ghost_mall_id=naver&ref=naver_open",
+          "image": "https://shopping-phinf.pstatic.net/main_5933598/59335981917.jpg",
+          "price": 52930,
+          "mallName": "브르게드",
+          "productId": "59335981917",
+          "productType": 2,
+          "brand": "",
+          "maker": "",
           "category": [
             "패션잡화",
             "남성신발",
@@ -820,15 +889,15 @@
     "brooks-고스트-17": {
       "status": "found",
       "query": "브룩스 고스트 17 러닝화",
-      "fetchedAt": "2026-06-10T22:50:08.813Z",
-      "lowestPrice": 83500,
+      "fetchedAt": "2026-06-11T12:43:59.497Z",
+      "lowestPrice": 62600,
       "lowestOffer": {
-        "title": "브룩스 고스트 17 화이트 그레이 1104421D-112",
-        "link": "http://weping.co.kr/goods/view?no=1410147&market=naver",
-        "image": "https://shopping-phinf.pstatic.net/main_5836557/58365578730.jpg",
-        "price": 83500,
-        "mallName": "위핑",
-        "productId": "58365578730",
+        "title": "[NEW] 브룩스 남성 러닝화 고스트 17 와이드 화이트1104422E112",
+        "link": "https://evolove.kr/product/detail.html?product_no=7681&cate_no=58&display_group=1&utm_source=naver&utm_medium=shopping&utm_campaign=knowledge_shopping&mkt_in=Y&ghost_mall_id=naver&ref=naver_open",
+        "image": "https://shopping-phinf.pstatic.net/main_5967764/59677640012.jpg",
+        "price": 62600,
+        "mallName": "alali",
+        "productId": "59677640012",
         "productType": 2,
         "brand": "",
         "maker": "",
@@ -842,12 +911,12 @@
       },
       "offers": [
         {
-          "title": "브룩스 고스트 17 화이트 그레이 1104421D-112",
-          "link": "http://weping.co.kr/goods/view?no=1410147&market=naver",
-          "image": "https://shopping-phinf.pstatic.net/main_5836557/58365578730.jpg",
-          "price": 83500,
-          "mallName": "위핑",
-          "productId": "58365578730",
+          "title": "[NEW] 브룩스 남성 러닝화 고스트 17 와이드 화이트1104422E112",
+          "link": "https://evolove.kr/product/detail.html?product_no=7681&cate_no=58&display_group=1&utm_source=naver&utm_medium=shopping&utm_campaign=knowledge_shopping&mkt_in=Y&ghost_mall_id=naver&ref=naver_open",
+          "image": "https://shopping-phinf.pstatic.net/main_5967764/59677640012.jpg",
+          "price": 62600,
+          "mallName": "alali",
+          "productId": "59677640012",
           "productType": 2,
           "brand": "",
           "maker": "",
@@ -860,74 +929,36 @@
           "confidence": "high"
         },
         {
-          "title": "브룩스 고스트 17 라이트 그레이 1104421D-048",
-          "link": "http://weping.co.kr/goods/view?no=1410131&market=naver",
-          "image": "https://shopping-phinf.pstatic.net/main_5836565/58365658187.jpg",
-          "price": 83500,
-          "mallName": "위핑",
-          "productId": "58365658187",
+          "title": "브룩스 고스트 17 남성용 러닝화 운동화 런닝화 머쉬롬 오렌지 1104421D048",
+          "link": "https://evolove.kr/product/detail.html?product_no=91&cate_no=58&display_group=1&utm_source=naver&utm_medium=shopping&utm_campaign=knowledge_shopping&mkt_in=Y&ghost_mall_id=naver&ref=naver_open",
+          "image": "https://shopping-phinf.pstatic.net/main_5903165/59031650623.1.jpg",
+          "price": 63050,
+          "mallName": "alali",
+          "productId": "59031650623",
           "productType": 2,
           "brand": "",
           "maker": "",
           "category": [
             "패션잡화",
             "남성신발",
-            "운동화",
-            "러닝화"
+            "스니커즈"
           ],
           "confidence": "high"
         },
         {
-          "title": "브룩스 고스트 17 그레이 핑크 1204311D-070",
-          "link": "http://weping.co.kr/goods/view?no=1410128&market=naver",
-          "image": "https://shopping-phinf.pstatic.net/main_5836562/58365624284.jpg",
-          "price": 83600,
-          "mallName": "위핑",
-          "productId": "58365624284",
+          "title": "브룩스 고스트 17 여성용 러닝화 운동화 런닝화 블루 오렌지 1204311B443",
+          "link": "https://evolove.kr/product/detail.html?product_no=93&cate_no=58&display_group=1&utm_source=naver&utm_medium=shopping&utm_campaign=knowledge_shopping&mkt_in=Y&ghost_mall_id=naver&ref=naver_open",
+          "image": "https://shopping-phinf.pstatic.net/main_5903160/59031609300.1.jpg",
+          "price": 63050,
+          "mallName": "alali",
+          "productId": "59031609300",
           "productType": 2,
           "brand": "",
           "maker": "",
           "category": [
             "패션잡화",
             "남성신발",
-            "운동화",
-            "러닝화"
-          ],
-          "confidence": "high"
-        },
-        {
-          "title": "브룩스 고스트 17 카키 1104422E-297",
-          "link": "http://weping.co.kr/goods/view?no=1410143&market=naver",
-          "image": "https://shopping-phinf.pstatic.net/main_5836564/58365642717.jpg",
-          "price": 83600,
-          "mallName": "위핑",
-          "productId": "58365642717",
-          "productType": 2,
-          "brand": "",
-          "maker": "",
-          "category": [
-            "패션잡화",
-            "남성신발",
-            "운동화",
-            "러닝화"
-          ],
-          "confidence": "high"
-        },
-        {
-          "title": "브룩스 고스트 17 그레이 화이트 1204311B-151",
-          "link": "http://weping.co.kr/goods/view?no=1377116&market=naver",
-          "image": "https://shopping-phinf.pstatic.net/main_5836556/58365568281.jpg",
-          "price": 83700,
-          "mallName": "위핑",
-          "productId": "58365568281",
-          "productType": 2,
-          "brand": "",
-          "maker": "",
-          "category": [
-            "패션잡화",
-            "남성신발",
-            "운동화",
-            "러닝화"
+            "스니커즈"
           ],
           "confidence": "high"
         }
@@ -938,7 +969,7 @@
     "mizuno-웨이브-라이더-29": {
       "status": "no_match",
       "query": "미즈노 웨이브 라이더 29 러닝화",
-      "fetchedAt": "2026-06-10T22:50:09.245Z",
+      "fetchedAt": "2026-06-11T12:43:59.904Z",
       "lowestPrice": null,
       "lowestOffer": null,
       "offers": [],
@@ -948,15 +979,15 @@
     "mizuno-네오-코스모": {
       "status": "found",
       "query": "미즈노 네오 코스모 러닝화",
-      "fetchedAt": "2026-06-10T22:50:09.659Z",
+      "fetchedAt": "2026-06-11T12:44:00.312Z",
       "lowestPrice": 79790,
       "lowestOffer": {
-        "title": "[현대미아점] [미즈노] 네오 코스모 남여공용 러닝화 J1GC251331 J1GC251331",
-        "link": "https://www.hmall.com/md/pda/itemPtc?ReferCode=429&slitmCd=2250684776&utm_source=naver&utm_medium=cps_pcs&utm_campaign=sale",
-        "image": "https://shopping-phinf.pstatic.net/main_6006081/60060810039.jpg",
+        "title": "[ 현대백화점 ][미즈노] 네오 코스모 남여공용 러닝화 J1GC251331 J1GC251331",
+        "link": "http://with.gsshop.com/alia/aliaGate.gs?media=OB&ecpid=1122283227&vodFlag=N&prdseqnum=1122283227&utm_source=price&utm_medium=affiliate&utm_campaign=naver",
+        "image": "https://shopping-phinf.pstatic.net/main_6011652/60116521092.jpg",
         "price": 79790,
-        "mallName": "현대Hmall",
-        "productId": "60060810039",
+        "mallName": "GSSHOP",
+        "productId": "60116521092",
         "productType": 2,
         "brand": "미즈노",
         "maker": "미즈노",
@@ -970,48 +1001,12 @@
       },
       "offers": [
         {
-          "title": "[현대미아점] [미즈노] 네오 코스모 남여공용 러닝화 J1GC251331 J1GC251331",
-          "link": "https://www.hmall.com/md/pda/itemPtc?ReferCode=429&slitmCd=2250684776&utm_source=naver&utm_medium=cps_pcs&utm_campaign=sale",
-          "image": "https://shopping-phinf.pstatic.net/main_6006081/60060810039.jpg",
+          "title": "[ 현대백화점 ][미즈노] 네오 코스모 남여공용 러닝화 J1GC251331 J1GC251331",
+          "link": "http://with.gsshop.com/alia/aliaGate.gs?media=OB&ecpid=1122283227&vodFlag=N&prdseqnum=1122283227&utm_source=price&utm_medium=affiliate&utm_campaign=naver",
+          "image": "https://shopping-phinf.pstatic.net/main_6011652/60116521092.jpg",
           "price": 79790,
-          "mallName": "현대Hmall",
-          "productId": "60060810039",
-          "productType": 2,
-          "brand": "미즈노",
-          "maker": "미즈노",
-          "category": [
-            "패션잡화",
-            "남성신발",
-            "운동화",
-            "러닝화"
-          ],
-          "confidence": "medium"
-        },
-        {
-          "title": "[현대미아점] [미즈노] 네오 코스모 남여공용 러닝화 J1GC251335 J1GC251335",
-          "link": "https://www.hmall.com/md/pda/itemPtc?ReferCode=429&slitmCd=2250684723&utm_source=naver&utm_medium=cps_pcs&utm_campaign=sale",
-          "image": "https://shopping-phinf.pstatic.net/main_6006081/60060811390.jpg",
-          "price": 79790,
-          "mallName": "현대Hmall",
-          "productId": "60060811390",
-          "productType": 2,
-          "brand": "미즈노",
-          "maker": "미즈노",
-          "category": [
-            "패션잡화",
-            "남성신발",
-            "운동화",
-            "러닝화"
-          ],
-          "confidence": "medium"
-        },
-        {
-          "title": "[현대미아점] [미즈노] 네오 코스모 남여공용 러닝화 J1GC251332 J1GC251332",
-          "link": "https://www.hmall.com/md/pda/itemPtc?ReferCode=429&slitmCd=2250684711&utm_source=naver&utm_medium=cps_pcs&utm_campaign=sale",
-          "image": "https://shopping-phinf.pstatic.net/main_6006080/60060806170.jpg",
-          "price": 79790,
-          "mallName": "현대Hmall",
-          "productId": "60060806170",
+          "mallName": "GSSHOP",
+          "productId": "60116521092",
           "productType": 2,
           "brand": "미즈노",
           "maker": "미즈노",
@@ -1042,12 +1037,48 @@
           "confidence": "medium"
         },
         {
-          "title": "[ 현대백화점 ][미즈노] 네오 코스모 남여공용 러닝화 J1GC251335 J1GC251335",
-          "link": "http://with.gsshop.com/alia/aliaGate.gs?media=OB&ecpid=1122283230&vodFlag=N&prdseqnum=1122283230&utm_source=price&utm_medium=affiliate&utm_campaign=naver",
-          "image": "https://shopping-phinf.pstatic.net/main_6011651/60116514718.jpg",
+          "title": "[현대미아점] [미즈노] 네오 코스모 남여공용 러닝화 J1GC251332 J1GC251332",
+          "link": "https://www.hmall.com/md/pda/itemPtc?ReferCode=429&slitmCd=2250684711&utm_source=naver&utm_medium=cps_pcs&utm_campaign=sale",
+          "image": "https://shopping-phinf.pstatic.net/main_6006080/60060806170.jpg",
           "price": 79790,
-          "mallName": "GSSHOP",
-          "productId": "60116514718",
+          "mallName": "현대Hmall",
+          "productId": "60060806170",
+          "productType": 2,
+          "brand": "미즈노",
+          "maker": "미즈노",
+          "category": [
+            "패션잡화",
+            "남성신발",
+            "운동화",
+            "러닝화"
+          ],
+          "confidence": "medium"
+        },
+        {
+          "title": "[현대미아점] [미즈노] 네오 코스모 남여공용 러닝화 J1GC251335 J1GC251335",
+          "link": "https://www.hmall.com/md/pda/itemPtc?ReferCode=429&slitmCd=2250684723&utm_source=naver&utm_medium=cps_pcs&utm_campaign=sale",
+          "image": "https://shopping-phinf.pstatic.net/main_6006081/60060811390.jpg",
+          "price": 79790,
+          "mallName": "현대Hmall",
+          "productId": "60060811390",
+          "productType": 2,
+          "brand": "미즈노",
+          "maker": "미즈노",
+          "category": [
+            "패션잡화",
+            "남성신발",
+            "운동화",
+            "러닝화"
+          ],
+          "confidence": "medium"
+        },
+        {
+          "title": "[현대미아점] [미즈노] 네오 코스모 남여공용 러닝화 J1GC251331 J1GC251331",
+          "link": "https://www.hmall.com/md/pda/itemPtc?ReferCode=429&slitmCd=2250684776&utm_source=naver&utm_medium=cps_pcs&utm_campaign=sale",
+          "image": "https://shopping-phinf.pstatic.net/main_6006081/60060810039.jpg",
+          "price": 79790,
+          "mallName": "현대Hmall",
+          "productId": "60060810039",
           "productType": 2,
           "brand": "미즈노",
           "maker": "미즈노",
@@ -1064,131 +1095,23 @@
       "message": ""
     },
     "on-클라우드-서퍼-2": {
-      "status": "found",
+      "status": "no_match",
       "query": "온러닝 클라우드 서퍼 2 러닝화",
-      "fetchedAt": "2026-06-10T22:50:10.070Z",
-      "lowestPrice": 76700,
-      "lowestOffer": {
-        "title": "온 러닝화 클라우드 서퍼 2 라이트 그린 3MF10123205",
-        "link": "http://weping.co.kr/goods/view?no=1377027&market=naver",
-        "image": "https://shopping-phinf.pstatic.net/main_5836563/58365635243.jpg",
-        "price": 76700,
-        "mallName": "위핑",
-        "productId": "58365635243",
-        "productType": 2,
-        "brand": "",
-        "maker": "",
-        "category": [
-          "패션잡화",
-          "남성신발",
-          "운동화",
-          "러닝화"
-        ],
-        "confidence": "high"
-      },
-      "offers": [
-        {
-          "title": "온 러닝화 클라우드 서퍼 2 라이트 그린 3MF10123205",
-          "link": "http://weping.co.kr/goods/view?no=1377027&market=naver",
-          "image": "https://shopping-phinf.pstatic.net/main_5836563/58365635243.jpg",
-          "price": 76700,
-          "mallName": "위핑",
-          "productId": "58365635243",
-          "productType": 2,
-          "brand": "",
-          "maker": "",
-          "category": [
-            "패션잡화",
-            "남성신발",
-            "운동화",
-            "러닝화"
-          ],
-          "confidence": "high"
-        },
-        {
-          "title": "온 러닝화 클라우드 서퍼 2 화이트 3MF10123334",
-          "link": "http://weping.co.kr/goods/view?no=1377016&market=naver",
-          "image": "https://shopping-phinf.pstatic.net/main_5836568/58365680570.jpg",
-          "price": 76900,
-          "mallName": "위핑",
-          "productId": "58365680570",
-          "productType": 2,
-          "brand": "",
-          "maker": "",
-          "category": [
-            "패션잡화",
-            "남성신발",
-            "운동화",
-            "러닝화"
-          ],
-          "confidence": "high"
-        },
-        {
-          "title": "온 러닝화 클라우드 서퍼 2 블랙 3MF10121043",
-          "link": "http://weping.co.kr/goods/view?no=1377015&market=naver",
-          "image": "https://shopping-phinf.pstatic.net/main_5836557/58365577002.jpg",
-          "price": 77000,
-          "mallName": "위핑",
-          "productId": "58365577002",
-          "productType": 3,
-          "brand": "온",
-          "maker": "",
-          "category": [
-            "패션잡화",
-            "남성신발",
-            "운동화",
-            "러닝화"
-          ],
-          "confidence": "high"
-        },
-        {
-          "title": "온 러닝화 클라우드 서퍼 2 오렌지 3MF10123126",
-          "link": "http://weping.co.kr/goods/view?no=1414858&market=naver",
-          "image": "https://shopping-phinf.pstatic.net/main_5836565/58365652685.jpg",
-          "price": 82500,
-          "mallName": "위핑",
-          "productId": "58365652685",
-          "productType": 2,
-          "brand": "",
-          "maker": "",
-          "category": [
-            "패션잡화",
-            "남성신발",
-            "운동화",
-            "러닝화"
-          ],
-          "confidence": "high"
-        },
-        {
-          "title": "온 러닝화 클라우드 서퍼 2 그레이 3MF10120981",
-          "link": "http://weping.co.kr/goods/view?no=1414857&market=naver",
-          "image": "https://shopping-phinf.pstatic.net/main_5836571/58365712266.jpg",
-          "price": 82600,
-          "mallName": "위핑",
-          "productId": "58365712266",
-          "productType": 2,
-          "brand": "",
-          "maker": "",
-          "category": [
-            "패션잡화",
-            "남성신발",
-            "운동화",
-            "러닝화"
-          ],
-          "confidence": "high"
-        }
-      ],
-      "confidence": "high",
-      "message": ""
+      "fetchedAt": "2026-06-11T12:44:00.711Z",
+      "lowestPrice": null,
+      "lowestOffer": null,
+      "offers": [],
+      "confidence": "low",
+      "message": "조건에 맞는 가격 결과를 찾지 못했습니다."
     },
     "on-클라우드-서퍼-넥스트": {
       "status": "found",
       "query": "온러닝 클라우드 서퍼 넥스트 러닝화",
-      "fetchedAt": "2026-06-10T22:50:10.484Z",
+      "fetchedAt": "2026-06-11T12:44:01.107Z",
       "lowestPrice": 76700,
       "lowestOffer": {
         "title": "온 러닝화 클라우드 서퍼 넥스트 화이트 3ME30020256",
-        "link": "http://weping.co.kr/goods/view?no=1376680&market=naver",
+        "link": "https://weping.co.kr/goods/view?no=1376680&market=naver",
         "image": "https://shopping-phinf.pstatic.net/main_5836569/58365698266.jpg",
         "price": 76700,
         "mallName": "위핑",
@@ -1207,7 +1130,7 @@
       "offers": [
         {
           "title": "온 러닝화 클라우드 서퍼 넥스트 화이트 3ME30020256",
-          "link": "http://weping.co.kr/goods/view?no=1376680&market=naver",
+          "link": "https://weping.co.kr/goods/view?no=1376680&market=naver",
           "image": "https://shopping-phinf.pstatic.net/main_5836569/58365698266.jpg",
           "price": 76700,
           "mallName": "위핑",
@@ -1224,26 +1147,8 @@
           "confidence": "high"
         },
         {
-          "title": "온 러닝화 클라우드 서퍼 넥스트 블랙 3ME30511242",
-          "link": "http://weping.co.kr/goods/view?no=1411343&market=naver",
-          "image": "https://shopping-phinf.pstatic.net/main_5836566/58365667199.jpg",
-          "price": 83500,
-          "mallName": "위핑",
-          "productId": "58365667199",
-          "productType": 2,
-          "brand": "",
-          "maker": "",
-          "category": [
-            "패션잡화",
-            "남성신발",
-            "운동화",
-            "러닝화"
-          ],
-          "confidence": "high"
-        },
-        {
           "title": "온 러닝화 클라우드 서퍼 넥스트 화이트 레드 3ME30020682",
-          "link": "http://weping.co.kr/goods/view?no=1411374&market=naver",
+          "link": "https://weping.co.kr/goods/view?no=1411374&market=naver",
           "image": "https://shopping-phinf.pstatic.net/main_5836565/58365658295.jpg",
           "price": 83500,
           "mallName": "위핑",
@@ -1260,12 +1165,12 @@
           "confidence": "high"
         },
         {
-          "title": "온 러닝화 클라우드 서퍼 넥스트 Z5 오렌지 3MF10323004",
-          "link": "http://weping.co.kr/goods/view?no=1411308&market=naver",
-          "image": "https://shopping-phinf.pstatic.net/main_5836562/58365621898.jpg",
+          "title": "온 러닝화 클라우드 서퍼 넥스트 아이보리 3ME30052050",
+          "link": "https://weping.co.kr/goods/view?no=1411359&market=naver",
+          "image": "https://shopping-phinf.pstatic.net/main_5836566/58365669831.jpg",
           "price": 83500,
           "mallName": "위핑",
-          "productId": "58365621898",
+          "productId": "58365669831",
           "productType": 2,
           "brand": "",
           "maker": "",
@@ -1278,12 +1183,30 @@
           "confidence": "high"
         },
         {
-          "title": "온 러닝화 클라우드 서퍼 넥스트 아이보리 3ME30052050",
-          "link": "http://weping.co.kr/goods/view?no=1411359&market=naver",
-          "image": "https://shopping-phinf.pstatic.net/main_5836566/58365669831.jpg",
+          "title": "온 러닝화 클라우드 서퍼 넥스트 블랙 3ME30511242",
+          "link": "https://weping.co.kr/goods/view?no=1411343&market=naver",
+          "image": "https://shopping-phinf.pstatic.net/main_5836566/58365667199.jpg",
           "price": 83500,
           "mallName": "위핑",
-          "productId": "58365669831",
+          "productId": "58365667199",
+          "productType": 2,
+          "brand": "",
+          "maker": "",
+          "category": [
+            "패션잡화",
+            "남성신발",
+            "운동화",
+            "러닝화"
+          ],
+          "confidence": "high"
+        },
+        {
+          "title": "온 러닝화 클라우드 서퍼 넥스트 Z5 오렌지 3MF10323004",
+          "link": "https://weping.co.kr/goods/view?no=1411308&market=naver",
+          "image": "https://shopping-phinf.pstatic.net/main_5836562/58365621898.jpg",
+          "price": 83500,
+          "mallName": "위핑",
+          "productId": "58365621898",
           "productType": 2,
           "brand": "",
           "maker": "",
@@ -1302,13 +1225,13 @@
     "nike-보메로-18": {
       "status": "found",
       "query": "나이키 보메로 18 러닝화",
-      "fetchedAt": "2026-06-10T22:50:10.907Z",
-      "lowestPrice": 49670,
+      "fetchedAt": "2026-06-11T12:44:01.502Z",
+      "lowestPrice": 49370,
       "lowestOffer": {
         "title": "나이키 줌 보메로 18 운동화 화이트 청록색 HM6803-103",
         "link": "https://kor123.kr/product/detail.html?product_no=6772&cate_no=45&display_group=1&utm_source=naver&utm_medium=shopping&utm_campaign=knowledge_shopping&mkt_in=Y&ghost_mall_id=naver&ref=naver_open",
         "image": "https://shopping-phinf.pstatic.net/main_5957515/59575156424.jpg",
-        "price": 49670,
+        "price": 49370,
         "mallName": "스이큐",
         "productId": "59575156424",
         "productType": 2,
@@ -1327,7 +1250,7 @@
           "title": "나이키 줌 보메로 18 운동화 화이트 청록색 HM6803-103",
           "link": "https://kor123.kr/product/detail.html?product_no=6772&cate_no=45&display_group=1&utm_source=naver&utm_medium=shopping&utm_campaign=knowledge_shopping&mkt_in=Y&ghost_mall_id=naver&ref=naver_open",
           "image": "https://shopping-phinf.pstatic.net/main_5957515/59575156424.jpg",
-          "price": 49670,
+          "price": 49370,
           "mallName": "스이큐",
           "productId": "59575156424",
           "productType": 2,
@@ -1342,12 +1265,12 @@
           "confidence": "high"
         },
         {
-          "title": "나이키 여성 보메로 18 HM6804-101",
-          "link": "https://kor123.kr/product/detail.html?product_no=6770&cate_no=45&display_group=1&utm_source=naver&utm_medium=shopping&utm_campaign=knowledge_shopping&mkt_in=Y&ghost_mall_id=naver&ref=naver_open",
-          "image": "https://shopping-phinf.pstatic.net/main_5957516/59575165571.jpg",
-          "price": 58720,
-          "mallName": "스이큐",
-          "productId": "59575165571",
+          "title": "나이키 보메로 18 서밋 화이트 더스티 캑터스 HM6803-103",
+          "link": "https://nadomall.co.kr/product/detail.html?product_no=8027&cate_no=54&display_group=1&utm_source=naver&utm_medium=shopping&utm_campaign=knowledge_shopping&mkt_in=Y&ghost_mall_id=naver&ref=naver_open",
+          "image": "https://shopping-phinf.pstatic.net/main_5940258/59402586054.jpg",
+          "price": 49460,
+          "mallName": "프르티억",
+          "productId": "59402586054",
           "productType": 2,
           "brand": "",
           "maker": "",
@@ -1360,54 +1283,54 @@
           "confidence": "high"
         },
         {
-          "title": "나이키 보메로 18 여성 로드 러닝화 HM6804-100",
-          "link": "https://kor123.kr/product/detail.html?product_no=6771&cate_no=45&display_group=1&utm_source=naver&utm_medium=shopping&utm_campaign=knowledge_shopping&mkt_in=Y&ghost_mall_id=naver&ref=naver_open",
-          "image": "https://shopping-phinf.pstatic.net/main_5957518/59575184240.jpg",
-          "price": 58740,
-          "mallName": "스이큐",
-          "productId": "59575184240",
+          "title": "나이키 보메로 18 남성 로드 러닝화 HM6803-103",
+          "link": "https://seoulselect.co.kr/product/detail.html?product_no=18415&cate_no=258&display_group=1&utm_source=naver&utm_medium=shopping&utm_campaign=knowledge_shopping&mkt_in=Y&ghost_mall_id=naver&ref=naver_open",
+          "image": "https://shopping-phinf.pstatic.net/main_5970544/59705443719.jpg",
+          "price": 49870,
+          "mallName": "브르게드",
+          "productId": "59705443719",
           "productType": 2,
           "brand": "",
           "maker": "",
           "category": [
             "패션잡화",
-            "여성신발",
+            "남성신발",
             "운동화",
             "러닝화"
           ],
           "confidence": "high"
         },
         {
-          "title": "나이키 보메로 18 여성 로드 러닝화 HM6804-102",
-          "link": "https://kor123.kr/product/detail.html?product_no=6769&cate_no=45&display_group=1&utm_source=naver&utm_medium=shopping&utm_campaign=knowledge_shopping&mkt_in=Y&ghost_mall_id=naver&ref=naver_open",
-          "image": "https://shopping-phinf.pstatic.net/main_5957518/59575186088.jpg",
-          "price": 58840,
-          "mallName": "스이큐",
-          "productId": "59575186088",
+          "title": "나이키 보메로 18 블루 보이드 블루 라이트닝 HM6803-401",
+          "link": "https://nadomall.co.kr/product/detail.html?product_no=8405&cate_no=54&display_group=1&utm_source=naver&utm_medium=shopping&utm_campaign=knowledge_shopping&mkt_in=Y&ghost_mall_id=naver&ref=naver_open",
+          "image": "https://shopping-phinf.pstatic.net/main_5940253/59402539066.jpg",
+          "price": 57340,
+          "mallName": "프르티억",
+          "productId": "59402539066",
           "productType": 2,
           "brand": "",
           "maker": "",
           "category": [
             "패션잡화",
-            "여성신발",
+            "남성신발",
             "운동화",
             "러닝화"
           ],
           "confidence": "high"
         },
         {
-          "title": "나이키 보메로 18 핑크 스펠 핑크 폼 HQ2157-601 여성 런닝화",
-          "link": "https://smartstore.naver.com/main/products/13563396420",
-          "image": "https://shopping-phinf.pstatic.net/main_9110790/91107906799.jpg",
-          "price": 60000,
-          "mallName": "new vic",
-          "productId": "91107906799",
+          "title": "나이키 줌 보메로 18 경량 러닝화 HM6803-104",
+          "link": "https://nadomall.co.kr/product/detail.html?product_no=9541&cate_no=54&display_group=1&utm_source=naver&utm_medium=shopping&utm_campaign=knowledge_shopping&mkt_in=Y&ghost_mall_id=naver&ref=naver_open",
+          "image": "https://shopping-phinf.pstatic.net/main_5940254/59402545370.jpg",
+          "price": 58240,
+          "mallName": "프르티억",
+          "productId": "59402545370",
           "productType": 2,
-          "brand": "나이키",
-          "maker": "나이키",
+          "brand": "",
+          "maker": "",
           "category": [
             "패션잡화",
-            "여성신발",
+            "남성신발",
             "운동화",
             "러닝화"
           ],
@@ -1420,15 +1343,15 @@
     "nike-보메로-플러스": {
       "status": "found",
       "query": "나이키 보메로 플러스 러닝화",
-      "fetchedAt": "2026-06-10T22:50:11.325Z",
-      "lowestPrice": 60000,
+      "fetchedAt": "2026-06-11T12:44:01.902Z",
+      "lowestPrice": 59080,
       "lowestOffer": {
-        "title": "나이키 보메로 플러스 런 서밋 화이트 바스트 그레이 IH2268-100",
-        "link": "https://kor123.kr/product/detail.html?product_no=10902&cate_no=45&display_group=1&utm_source=naver&utm_medium=shopping&utm_campaign=knowledge_shopping&mkt_in=Y&ghost_mall_id=naver&ref=naver_open",
-        "image": "https://shopping-phinf.pstatic.net/main_6034644/60346442222.jpg",
-        "price": 60000,
-        "mallName": "스이큐",
-        "productId": "60346442222",
+        "title": "나이키 보메로 플러스 블랙 메탈릭 다크 그레이 HV8154-001",
+        "link": "https://nadomall.co.kr/product/detail.html?product_no=8422&cate_no=54&display_group=1&utm_source=naver&utm_medium=shopping&utm_campaign=knowledge_shopping&mkt_in=Y&ghost_mall_id=naver&ref=naver_open",
+        "image": "https://shopping-phinf.pstatic.net/main_5940256/59402566190.jpg",
+        "price": 59080,
+        "mallName": "프르티억",
+        "productId": "59402566190",
         "productType": 2,
         "brand": "",
         "maker": "",
@@ -1441,6 +1364,42 @@
         "confidence": "medium"
       },
       "offers": [
+        {
+          "title": "나이키 보메로 플러스 블랙 메탈릭 다크 그레이 HV8154-001",
+          "link": "https://nadomall.co.kr/product/detail.html?product_no=8422&cate_no=54&display_group=1&utm_source=naver&utm_medium=shopping&utm_campaign=knowledge_shopping&mkt_in=Y&ghost_mall_id=naver&ref=naver_open",
+          "image": "https://shopping-phinf.pstatic.net/main_5940256/59402566190.jpg",
+          "price": 59080,
+          "mallName": "프르티억",
+          "productId": "59402566190",
+          "productType": 2,
+          "brand": "",
+          "maker": "",
+          "category": [
+            "패션잡화",
+            "남성신발",
+            "운동화",
+            "러닝화"
+          ],
+          "confidence": "medium"
+        },
+        {
+          "title": "나이키 보메로 플러스 서밋 화이트 바스트 그레이 IH2268-100",
+          "link": "https://nadomall.co.kr/product/detail.html?product_no=7918&cate_no=54&display_group=1&utm_source=naver&utm_medium=shopping&utm_campaign=knowledge_shopping&mkt_in=Y&ghost_mall_id=naver&ref=naver_open",
+          "image": "https://shopping-phinf.pstatic.net/main_5940257/59402574316.jpg",
+          "price": 59790,
+          "mallName": "프르티억",
+          "productId": "59402574316",
+          "productType": 2,
+          "brand": "",
+          "maker": "",
+          "category": [
+            "패션잡화",
+            "여성신발",
+            "운동화",
+            "러닝화"
+          ],
+          "confidence": "medium"
+        },
         {
           "title": "나이키 보메로 플러스 런 서밋 화이트 바스트 그레이 IH2268-100",
           "link": "https://kor123.kr/product/detail.html?product_no=10902&cate_no=45&display_group=1&utm_source=naver&utm_medium=shopping&utm_campaign=knowledge_shopping&mkt_in=Y&ghost_mall_id=naver&ref=naver_open",
@@ -1460,33 +1419,15 @@
           "confidence": "medium"
         },
         {
-          "title": "나이키 보메로 플러스 블랙 쿨 그레이 HV8150-002",
-          "link": "https://kor123.kr/product/detail.html?product_no=10899&cate_no=45&display_group=1&utm_source=naver&utm_medium=shopping&utm_campaign=knowledge_shopping&mkt_in=Y&ghost_mall_id=naver&ref=naver_open",
-          "image": "https://shopping-phinf.pstatic.net/main_6034637/60346374420.jpg",
-          "price": 68000,
-          "mallName": "스이큐",
-          "productId": "60346374420",
+          "title": "나이키 보메로 플러스 여성 로드 러닝화 HV8154-001",
+          "link": "https://evolove.kr/product/detail.html?product_no=7961&cate_no=53&display_group=1&utm_source=naver&utm_medium=shopping&utm_campaign=knowledge_shopping&mkt_in=Y&ghost_mall_id=naver&ref=naver_open",
+          "image": "https://shopping-phinf.pstatic.net/main_5970546/59705460016.jpg",
+          "price": 60000,
+          "mallName": "alali",
+          "productId": "59705460016",
           "productType": 2,
           "brand": "",
           "maker": "",
-          "category": [
-            "패션잡화",
-            "남성신발",
-            "운동화",
-            "러닝화"
-          ],
-          "confidence": "medium"
-        },
-        {
-          "title": "나이키 여성 보메로 플러스 HV8154-100",
-          "link": "https://www.place707.com/goods/view?no=194055&market=naver",
-          "image": "https://shopping-phinf.pstatic.net/main_5721583/57215838789.jpg",
-          "price": 69000,
-          "mallName": "플레이스707",
-          "productId": "57215838789",
-          "productType": 2,
-          "brand": "나이키",
-          "maker": "나이키",
           "category": [
             "패션잡화",
             "여성신발",
@@ -1496,36 +1437,18 @@
           "confidence": "medium"
         },
         {
-          "title": "나이키 보메로 플러스 로드 러닝화 HV8150-100",
-          "link": "https://www.place707.com/goods/view?no=194056&market=naver",
-          "image": "https://shopping-phinf.pstatic.net/main_5721583/57215835617.jpg",
-          "price": 70000,
-          "mallName": "플레이스707",
-          "productId": "57215835617",
-          "productType": 2,
-          "brand": "나이키",
-          "maker": "나이키",
-          "category": [
-            "패션잡화",
-            "남성신발",
-            "운동화",
-            "러닝화"
-          ],
-          "confidence": "medium"
-        },
-        {
-          "title": "나이키 보메로 플러스 블랙 메탈릭 다크 그레이 HV8150-003",
-          "link": "https://kor123.kr/product/detail.html?product_no=10901&cate_no=45&display_group=1&utm_source=naver&utm_medium=shopping&utm_campaign=knowledge_shopping&mkt_in=Y&ghost_mall_id=naver&ref=naver_open",
-          "image": "https://shopping-phinf.pstatic.net/main_6034641/60346417722.jpg",
-          "price": 74000,
-          "mallName": "스이큐",
-          "productId": "60346417722",
+          "title": "나이키 줌 보메로 플러스 화이트 브라이트 크림슨 HV8150-100",
+          "link": "https://nadomall.co.kr/product/detail.html?product_no=7896&cate_no=54&display_group=1&utm_source=naver&utm_medium=shopping&utm_campaign=knowledge_shopping&mkt_in=Y&ghost_mall_id=naver&ref=naver_open",
+          "image": "https://shopping-phinf.pstatic.net/main_5940256/59402564666.jpg",
+          "price": 62880,
+          "mallName": "프르티억",
+          "productId": "59402564666",
           "productType": 2,
           "brand": "",
           "maker": "",
           "category": [
             "패션잡화",
-            "남성신발",
+            "여성신발",
             "운동화",
             "러닝화"
           ],
@@ -1538,13 +1461,13 @@
     "nike-보메로-프리미엄": {
       "status": "found",
       "query": "나이키 보메로 프리미엄 러닝화",
-      "fetchedAt": "2026-06-10T22:50:11.741Z",
-      "lowestPrice": 59080,
+      "fetchedAt": "2026-06-11T12:44:02.293Z",
+      "lowestPrice": 58780,
       "lowestOffer": {
         "title": "나이키 보메로 프리미엄 블랙 아이언 그레이 HQ2050-001",
         "link": "https://kor123.kr/product/detail.html?product_no=9582&cate_no=45&display_group=1&utm_source=naver&utm_medium=shopping&utm_campaign=knowledge_shopping&mkt_in=Y&ghost_mall_id=naver&ref=naver_open",
         "image": "https://shopping-phinf.pstatic.net/main_5957519/59575191520.jpg",
-        "price": 59080,
+        "price": 58780,
         "mallName": "스이큐",
         "productId": "59575191520",
         "productType": 2,
@@ -1563,9 +1486,27 @@
           "title": "나이키 보메로 프리미엄 블랙 아이언 그레이 HQ2050-001",
           "link": "https://kor123.kr/product/detail.html?product_no=9582&cate_no=45&display_group=1&utm_source=naver&utm_medium=shopping&utm_campaign=knowledge_shopping&mkt_in=Y&ghost_mall_id=naver&ref=naver_open",
           "image": "https://shopping-phinf.pstatic.net/main_5957519/59575191520.jpg",
-          "price": 59080,
+          "price": 58780,
           "mallName": "스이큐",
           "productId": "59575191520",
+          "productType": 2,
+          "brand": "",
+          "maker": "",
+          "category": [
+            "패션잡화",
+            "남성신발",
+            "운동화",
+            "러닝화"
+          ],
+          "confidence": "high"
+        },
+        {
+          "title": "나이키 보메로 프리미엄 블랙 아이언 그레이 HQ2050-001",
+          "link": "https://nadomall.co.kr/product/detail.html?product_no=7841&cate_no=54&display_group=1&utm_source=naver&utm_medium=shopping&utm_campaign=knowledge_shopping&mkt_in=Y&ghost_mall_id=naver&ref=naver_open",
+          "image": "https://shopping-phinf.pstatic.net/main_5940256/59402560053.jpg",
+          "price": 58870,
+          "mallName": "프르티억",
+          "productId": "59402560053",
           "productType": 2,
           "brand": "",
           "maker": "",
@@ -1581,7 +1522,7 @@
           "title": "나이키 보메로 프리미엄 베얼리 그린 클레이 그린 HQ2050-300",
           "link": "https://kor123.kr/product/detail.html?product_no=9579&cate_no=45&display_group=1&utm_source=naver&utm_medium=shopping&utm_campaign=knowledge_shopping&mkt_in=Y&ghost_mall_id=naver&ref=naver_open",
           "image": "https://shopping-phinf.pstatic.net/main_5957517/59575176289.jpg",
-          "price": 59600,
+          "price": 59300,
           "mallName": "스이큐",
           "productId": "59575176289",
           "productType": 2,
@@ -1596,12 +1537,12 @@
           "confidence": "high"
         },
         {
-          "title": "나이키 보메로 프리미엄 로드 러닝화 IQ4035-100",
-          "link": "https://kor123.kr/product/detail.html?product_no=9224&cate_no=45&display_group=1&utm_source=naver&utm_medium=shopping&utm_campaign=knowledge_shopping&mkt_in=Y&ghost_mall_id=naver&ref=naver_open",
-          "image": "https://shopping-phinf.pstatic.net/main_5957519/59575191197.jpg",
-          "price": 59700,
-          "mallName": "스이큐",
-          "productId": "59575191197",
+          "title": "나이키 보메로 프리미엄 다크 그린 HQ2050-001",
+          "link": "https://seoulselect.co.kr/product/detail.html?product_no=22387&cate_no=258&display_group=1&utm_source=naver&utm_medium=shopping&utm_campaign=knowledge_shopping&mkt_in=Y&ghost_mall_id=naver&ref=naver_open",
+          "image": "https://shopping-phinf.pstatic.net/main_6030574/60305742515.jpg",
+          "price": 59380,
+          "mallName": "브르게드",
+          "productId": "60305742515",
           "productType": 2,
           "brand": "",
           "maker": "",
@@ -1614,36 +1555,18 @@
           "confidence": "high"
         },
         {
-          "title": "나이키 보메로 프리미엄 하이퍼 핑크 디지털 핑크 HM5973-603",
-          "link": "https://kor123.kr/product/detail.html?product_no=9585&cate_no=45&display_group=1&utm_source=naver&utm_medium=shopping&utm_campaign=knowledge_shopping&mkt_in=Y&ghost_mall_id=naver&ref=naver_open",
-          "image": "https://shopping-phinf.pstatic.net/main_5957516/59575164057.jpg",
-          "price": 60000,
-          "mallName": "스이큐",
-          "productId": "59575164057",
+          "title": "나이키 보메로 프리미엄 블루 틴트 알루미늄 HM5973-400",
+          "link": "https://nadomall.co.kr/product/detail.html?product_no=7979&cate_no=54&display_group=1&utm_source=naver&utm_medium=shopping&utm_campaign=knowledge_shopping&mkt_in=Y&ghost_mall_id=naver&ref=naver_open",
+          "image": "https://shopping-phinf.pstatic.net/main_5940253/59402536657.jpg",
+          "price": 59390,
+          "mallName": "프르티억",
+          "productId": "59402536657",
           "productType": 2,
           "brand": "",
           "maker": "",
           "category": [
             "패션잡화",
-            "여성신발",
-            "운동화",
-            "러닝화"
-          ],
-          "confidence": "high"
-        },
-        {
-          "title": "나이키 보메로 프리미엄 화이트 브라이트 크림슨 HQ2050-103",
-          "link": "https://kor123.kr/product/detail.html?product_no=9584&cate_no=45&display_group=1&utm_source=naver&utm_medium=shopping&utm_campaign=knowledge_shopping&mkt_in=Y&ghost_mall_id=naver&ref=naver_open",
-          "image": "https://shopping-phinf.pstatic.net/main_5957516/59575166474.jpg",
-          "price": 67000,
-          "mallName": "스이큐",
-          "productId": "59575166474",
-          "productType": 2,
-          "brand": "",
-          "maker": "",
-          "category": [
-            "패션잡화",
-            "여성신발",
+            "남성신발",
             "운동화",
             "러닝화"
           ],
@@ -1656,7 +1579,7 @@
     "adidas-슈퍼노바-프리마-2": {
       "status": "found",
       "query": "아디다스 슈퍼노바 프리마 2 러닝화",
-      "fetchedAt": "2026-06-10T22:50:12.143Z",
+      "fetchedAt": "2026-06-11T12:44:02.657Z",
       "lowestPrice": 156500,
       "lowestOffer": {
         "title": "아디다스 남성 쿠셔닝 러닝화 슈퍼노바 프리마 2 JR3197 A1K",
@@ -1738,7 +1661,7 @@
     "asics-젤님버스-28": {
       "status": "no_match",
       "query": "아식스 젤님버스 28 러닝화",
-      "fetchedAt": "2026-06-10T22:50:12.569Z",
+      "fetchedAt": "2026-06-11T12:44:03.064Z",
       "lowestPrice": null,
       "lowestOffer": null,
       "offers": [],
@@ -1748,15 +1671,15 @@
     "asics-글라이드라이드-맥스-2": {
       "status": "found",
       "query": "아식스 글라이드라이드 맥스 2 러닝화",
-      "fetchedAt": "2026-06-10T22:50:12.970Z",
+      "fetchedAt": "2026-06-11T12:44:03.453Z",
       "lowestPrice": 198200,
       "lowestOffer": {
-        "title": "아식스 러닝화 글라이드 라이드 맥스 2 핑크 마라톤화 1012B928-700",
-        "link": "https://smartstore.naver.com/main/products/13021054424",
-        "image": "https://shopping-phinf.pstatic.net/main_9056556/90565565515.jpg",
+        "title": "아식스 러닝화 글라이드 라이드 맥스 2 블랙 마라톤화 1011C155-001",
+        "link": "https://smartstore.naver.com/main/products/13021054361",
+        "image": "https://shopping-phinf.pstatic.net/main_9056556/90565565451.jpg",
         "price": 198200,
         "mallName": "ShoeBox스토어",
-        "productId": "90565565515",
+        "productId": "90565565451",
         "productType": 2,
         "brand": "아식스",
         "maker": "아식스",
@@ -1769,42 +1692,6 @@
         "confidence": "high"
       },
       "offers": [
-        {
-          "title": "아식스 러닝화 글라이드 라이드 맥스 2 핑크 마라톤화 1012B928-700",
-          "link": "https://smartstore.naver.com/main/products/13021054424",
-          "image": "https://shopping-phinf.pstatic.net/main_9056556/90565565515.jpg",
-          "price": 198200,
-          "mallName": "ShoeBox스토어",
-          "productId": "90565565515",
-          "productType": 2,
-          "brand": "아식스",
-          "maker": "아식스",
-          "category": [
-            "패션잡화",
-            "남성신발",
-            "운동화",
-            "러닝화"
-          ],
-          "confidence": "high"
-        },
-        {
-          "title": "아식스 러닝화 글라이드 라이드 맥스 2 볼트 마라톤화 1011C156-300",
-          "link": "https://smartstore.naver.com/main/products/13021054362",
-          "image": "https://shopping-phinf.pstatic.net/main_9056556/90565565452.jpg",
-          "price": 198200,
-          "mallName": "ShoeBox스토어",
-          "productId": "90565565452",
-          "productType": 2,
-          "brand": "아식스",
-          "maker": "아식스",
-          "category": [
-            "패션잡화",
-            "남성신발",
-            "운동화",
-            "러닝화"
-          ],
-          "confidence": "high"
-        },
         {
           "title": "아식스 러닝화 글라이드 라이드 맥스 2 블랙 마라톤화 1011C155-001",
           "link": "https://smartstore.naver.com/main/products/13021054361",
@@ -1858,6 +1745,42 @@
             "러닝화"
           ],
           "confidence": "high"
+        },
+        {
+          "title": "아식스 러닝화 글라이드 라이드 맥스 2 볼트 마라톤화 1011C156-300",
+          "link": "https://smartstore.naver.com/main/products/13021054362",
+          "image": "https://shopping-phinf.pstatic.net/main_9056556/90565565452.jpg",
+          "price": 198200,
+          "mallName": "ShoeBox스토어",
+          "productId": "90565565452",
+          "productType": 2,
+          "brand": "아식스",
+          "maker": "아식스",
+          "category": [
+            "패션잡화",
+            "남성신발",
+            "운동화",
+            "러닝화"
+          ],
+          "confidence": "high"
+        },
+        {
+          "title": "아식스 러닝화 글라이드 라이드 맥스 2 핑크 마라톤화 1012B928-700",
+          "link": "https://smartstore.naver.com/main/products/13021054424",
+          "image": "https://shopping-phinf.pstatic.net/main_9056556/90565565515.jpg",
+          "price": 198200,
+          "mallName": "ShoeBox스토어",
+          "productId": "90565565515",
+          "productType": 2,
+          "brand": "아식스",
+          "maker": "아식스",
+          "category": [
+            "패션잡화",
+            "남성신발",
+            "운동화",
+            "러닝화"
+          ],
+          "confidence": "high"
         }
       ],
       "confidence": "high",
@@ -1866,7 +1789,7 @@
     "new-balance-모어-v6": {
       "status": "no_match",
       "query": "뉴발란스 모어 V6 러닝화",
-      "fetchedAt": "2026-06-10T22:50:13.391Z",
+      "fetchedAt": "2026-06-11T12:44:03.856Z",
       "lowestPrice": null,
       "lowestOffer": null,
       "offers": [],
@@ -1876,7 +1799,7 @@
     "saucony-트라이엄프-24": {
       "status": "no_match",
       "query": "써코니 트라이엄프 24 러닝화",
-      "fetchedAt": "2026-06-10T22:50:13.842Z",
+      "fetchedAt": "2026-06-11T12:44:04.277Z",
       "lowestPrice": null,
       "lowestOffer": null,
       "offers": [],
@@ -1886,15 +1809,15 @@
     "puma-매그니파이-나이트로-3": {
       "status": "found",
       "query": "푸마 매그니파이 나이트로 3 러닝화",
-      "fetchedAt": "2026-06-10T22:50:14.252Z",
+      "fetchedAt": "2026-06-11T12:44:04.760Z",
       "lowestPrice": 122900,
       "lowestOffer": {
-        "title": "285 푸마 x 세이스카이 매그니파이 나이트로 3 웜 화이트 허니 버터 312320-01",
-        "link": "https://kream.co.kr/shopping-products/707249?utm_campaign=NAVER_SHOPPING_PARTNER_CPC&utm_content=Puma&utm_medium=cpc&utm_source=naver_shopping&utm_term=707249_13&size=285",
-        "image": "https://shopping-phinf.pstatic.net/main_5808520/58085203755.1.jpg",
+        "title": "260 푸마 x 세이스카이 매그니파이 나이트로 3 웜 화이트 허니 버터 312320-01",
+        "link": "https://kream.co.kr/shopping-products/707249?utm_campaign=NAVER_SHOPPING_PARTNER_CPC&utm_content=Puma&utm_medium=cpc&utm_source=naver_shopping&utm_term=707249_8&size=260",
+        "image": "https://shopping-phinf.pstatic.net/main_5937368/59373682112.jpg",
         "price": 122900,
         "mallName": "KREAM",
-        "productId": "58085203755",
+        "productId": "59373682112",
         "productType": 2,
         "brand": "푸마",
         "maker": "",
@@ -1906,6 +1829,40 @@
         "confidence": "high"
       },
       "offers": [
+        {
+          "title": "260 푸마 x 세이스카이 매그니파이 나이트로 3 웜 화이트 허니 버터 312320-01",
+          "link": "https://kream.co.kr/shopping-products/707249?utm_campaign=NAVER_SHOPPING_PARTNER_CPC&utm_content=Puma&utm_medium=cpc&utm_source=naver_shopping&utm_term=707249_8&size=260",
+          "image": "https://shopping-phinf.pstatic.net/main_5937368/59373682112.jpg",
+          "price": 122900,
+          "mallName": "KREAM",
+          "productId": "59373682112",
+          "productType": 2,
+          "brand": "푸마",
+          "maker": "",
+          "category": [
+            "패션잡화",
+            "남성신발",
+            "스니커즈"
+          ],
+          "confidence": "high"
+        },
+        {
+          "title": "280 푸마 x 세이스카이 매그니파이 나이트로 3 웜 화이트 허니 버터 312320-01",
+          "link": "https://kream.co.kr/shopping-products/707249?utm_campaign=NAVER_SHOPPING_PARTNER_CPC&utm_content=Puma&utm_medium=cpc&utm_source=naver_shopping&utm_term=707249_12&size=280",
+          "image": "https://shopping-phinf.pstatic.net/main_5937368/59373682450.jpg",
+          "price": 122900,
+          "mallName": "KREAM",
+          "productId": "59373682450",
+          "productType": 2,
+          "brand": "푸마",
+          "maker": "",
+          "category": [
+            "패션잡화",
+            "남성신발",
+            "스니커즈"
+          ],
+          "confidence": "high"
+        },
         {
           "title": "285 푸마 x 세이스카이 매그니파이 나이트로 3 웜 화이트 허니 버터 312320-01",
           "link": "https://kream.co.kr/shopping-products/707249?utm_campaign=NAVER_SHOPPING_PARTNER_CPC&utm_content=Puma&utm_medium=cpc&utm_source=naver_shopping&utm_term=707249_13&size=285",
@@ -1941,46 +1898,12 @@
           "confidence": "high"
         },
         {
-          "title": "280 푸마 x 세이스카이 매그니파이 나이트로 3 웜 화이트 허니 버터 312320-01",
-          "link": "https://kream.co.kr/shopping-products/707249?utm_campaign=NAVER_SHOPPING_PARTNER_CPC&utm_content=Puma&utm_medium=cpc&utm_source=naver_shopping&utm_term=707249_12&size=280",
-          "image": "https://shopping-phinf.pstatic.net/main_5937368/59373682450.jpg",
-          "price": 122900,
-          "mallName": "KREAM",
-          "productId": "59373682450",
-          "productType": 2,
-          "brand": "푸마",
-          "maker": "",
-          "category": [
-            "패션잡화",
-            "남성신발",
-            "스니커즈"
-          ],
-          "confidence": "high"
-        },
-        {
           "title": "265 푸마 x 세이스카이 매그니파이 나이트로 3 웜 화이트 허니 버터 312320-01",
           "link": "https://kream.co.kr/shopping-products/707249?utm_campaign=NAVER_SHOPPING_PARTNER_CPC&utm_content=Puma&utm_medium=cpc&utm_source=naver_shopping&utm_term=707249_9&size=265",
           "image": "https://shopping-phinf.pstatic.net/main_5937368/59373683188.jpg",
           "price": 122900,
           "mallName": "KREAM",
           "productId": "59373683188",
-          "productType": 2,
-          "brand": "푸마",
-          "maker": "",
-          "category": [
-            "패션잡화",
-            "남성신발",
-            "스니커즈"
-          ],
-          "confidence": "high"
-        },
-        {
-          "title": "260 푸마 x 세이스카이 매그니파이 나이트로 3 웜 화이트 허니 버터 312320-01",
-          "link": "https://kream.co.kr/shopping-products/707249?utm_campaign=NAVER_SHOPPING_PARTNER_CPC&utm_content=Puma&utm_medium=cpc&utm_source=naver_shopping&utm_term=707249_8&size=260",
-          "image": "https://shopping-phinf.pstatic.net/main_5937368/59373682112.jpg",
-          "price": 122900,
-          "mallName": "KREAM",
-          "productId": "59373682112",
           "productType": 2,
           "brand": "푸마",
           "maker": "",
@@ -1998,7 +1921,7 @@
     "puma-매그맥스-나이트로-2": {
       "status": "found",
       "query": "푸마 매그맥스 나이트로 2 러닝화",
-      "fetchedAt": "2026-06-10T22:50:14.678Z",
+      "fetchedAt": "2026-06-11T12:44:05.158Z",
       "lowestPrice": 147980,
       "lowestOffer": {
         "title": "푸마 여성 매그맥스 나이트로2 런닝화_31008913",
@@ -2026,24 +1949,6 @@
           "price": 147980,
           "mallName": "옥션",
           "productId": "59704701791",
-          "productType": 2,
-          "brand": "",
-          "maker": "",
-          "category": [
-            "패션잡화",
-            "여성신발",
-            "운동화",
-            "러닝화"
-          ],
-          "confidence": "high"
-        },
-        {
-          "title": "푸마 여성 매그맥스 나이트로2 런닝화_31008913",
-          "link": "https://link.gmarket.co.kr/gate/pcs?item-no=4730141582&sub-id=1003&service-code=10000003&lcd=100000043",
-          "image": "https://shopping-phinf.pstatic.net/main_5970177/59701770212.jpg",
-          "price": 147990,
-          "mallName": "G마켓",
-          "productId": "59701770212",
           "productType": 2,
           "brand": "",
           "maker": "",
@@ -2092,18 +1997,36 @@
           "confidence": "high"
         },
         {
-          "title": "푸마 [푸마] 여성 매그맥스 나이트로2 런닝화_31008913",
-          "link": "https://www.lotteon.com/p/product/LI3288289143?sitmNo=LI3288289143_1&ch_no=100065&ch_dtl_no=1000030&entryPoint=pcs&dp_infw_cd=CHT",
-          "image": "https://shopping-phinf.pstatic.net/main_5962590/59625905262.jpg",
-          "price": 150360,
-          "mallName": "롯데ON",
-          "productId": "59625905262",
+          "title": "패션아일랜드푸마푸마 매그맥스 나이트로 2 남여공용 312125 11 312126 11",
+          "link": "https://link.gmarket.co.kr/gate/pcs?item-no=4716762042&sub-id=1003&service-code=10000003&lcd=100000043",
+          "image": "https://shopping-phinf.pstatic.net/main_5950517/59505174397.1.jpg",
+          "price": 153120,
+          "mallName": "G마켓",
+          "productId": "59505174397",
+          "productType": 2,
+          "brand": "",
+          "maker": "",
+          "category": [
+            "패션잡화",
+            "남성신발",
+            "운동화",
+            "러닝화"
+          ],
+          "confidence": "high"
+        },
+        {
+          "title": "[푸마] 남성 매그맥스 나이트로2 런닝화_31008812 265 블루",
+          "link": "https://link.coupang.com/re/PCSNAVERPCSDP?pageKey=9487056850&ctag=9487056850&lptag=P9487056850&itemId=28251513918&vendorItemId=95204898152&spec=10305199",
+          "image": "https://shopping-phinf.pstatic.net/main_5961934/59619343442.jpg",
+          "price": 154450,
+          "mallName": "쿠팡",
+          "productId": "59619343442",
           "productType": 2,
           "brand": "푸마",
           "maker": "",
           "category": [
             "패션잡화",
-            "여성신발",
+            "남성신발",
             "운동화",
             "러닝화"
           ],
@@ -2114,27 +2037,17 @@
       "message": ""
     },
     "hoka-본디-9": {
-      "status": "no_match",
-      "query": "호카 본디 9 러닝화",
-      "fetchedAt": "2026-06-10T22:50:15.091Z",
-      "lowestPrice": null,
-      "lowestOffer": null,
-      "offers": [],
-      "confidence": "low",
-      "message": "조건에 맞는 가격 결과를 찾지 못했습니다."
-    },
-    "brooks-고스트-맥스-3": {
       "status": "found",
-      "query": "브룩스 고스트 맥스 3 러닝화",
-      "fetchedAt": "2026-06-10T22:50:15.511Z",
-      "lowestPrice": 89000,
+      "query": "호카 본디 9 러닝화",
+      "fetchedAt": "2026-06-11T12:44:05.550Z",
+      "lowestPrice": 51040,
       "lowestOffer": {
-        "title": "브룩스 고스트맥스3 런닝화 마라톤화 화이트 1104641D178",
-        "link": "http://tpmall.kr/goods/view?no=10719&market=naver",
-        "image": "https://shopping-phinf.pstatic.net/main_6027617/60276170104.jpg",
-        "price": 89000,
-        "mallName": "TPMALL",
-        "productId": "60276170104",
+        "title": "호카오네오네 본디 9 Bondi 9 러닝화 운동화 1162011-BWHT",
+        "link": "https://seoulselect.co.kr/product/detail.html?product_no=16158&cate_no=238&display_group=1&utm_source=naver&utm_medium=shopping&utm_campaign=knowledge_shopping&mkt_in=Y&ghost_mall_id=naver&ref=naver_open",
+        "image": "https://shopping-phinf.pstatic.net/main_5933603/59336031692.jpg",
+        "price": 51040,
+        "mallName": "브르게드",
+        "productId": "59336031692",
         "productType": 2,
         "brand": "",
         "maker": "",
@@ -2148,12 +2061,12 @@
       },
       "offers": [
         {
-          "title": "브룩스 고스트맥스3 런닝화 마라톤화 화이트 1104641D178",
-          "link": "http://tpmall.kr/goods/view?no=10719&market=naver",
-          "image": "https://shopping-phinf.pstatic.net/main_6027617/60276170104.jpg",
-          "price": 89000,
-          "mallName": "TPMALL",
-          "productId": "60276170104",
+          "title": "호카오네오네 본디 9 Bondi 9 러닝화 운동화 1162011-BWHT",
+          "link": "https://seoulselect.co.kr/product/detail.html?product_no=16158&cate_no=238&display_group=1&utm_source=naver&utm_medium=shopping&utm_campaign=knowledge_shopping&mkt_in=Y&ghost_mall_id=naver&ref=naver_open",
+          "image": "https://shopping-phinf.pstatic.net/main_5933603/59336031692.jpg",
+          "price": 51040,
+          "mallName": "브르게드",
+          "productId": "59336031692",
           "productType": 2,
           "brand": "",
           "maker": "",
@@ -2166,8 +2079,108 @@
           "confidence": "high"
         },
         {
+          "title": "호카오네오네 본디 9 Bondi 9 러닝화 운동화 1162011-BWHT",
+          "link": "https://olvui.co.kr/product/detail.html?product_no=21628&cate_no=198&display_group=1&utm_source=naver&utm_medium=shopping&utm_campaign=knowledge_shopping&mkt_in=Y&ghost_mall_id=naver&ref=naver_open",
+          "image": "https://shopping-phinf.pstatic.net/main_5898417/58984170628.jpg",
+          "price": 51040,
+          "mallName": "아리크레",
+          "productId": "58984170628",
+          "productType": 2,
+          "brand": "",
+          "maker": "",
+          "category": [
+            "패션잡화",
+            "남성신발",
+            "운동화",
+            "러닝화"
+          ],
+          "confidence": "high"
+        },
+        {
+          "title": "호카오네오네 본디 9 Bondi 9 러닝화 운동화 1162011-BWHT",
+          "link": "https://nadomall.co.kr/product/detail.html?product_no=769&cate_no=58&display_group=1&utm_source=naver&utm_medium=shopping&utm_campaign=knowledge_shopping&mkt_in=Y&ghost_mall_id=naver&ref=naver_open",
+          "image": "https://shopping-phinf.pstatic.net/main_5940253/59402537861.jpg",
+          "price": 51230,
+          "mallName": "프르티억",
+          "productId": "59402537861",
+          "productType": 2,
+          "brand": "",
+          "maker": "",
+          "category": [
+            "패션잡화",
+            "남성신발",
+            "운동화",
+            "러닝화"
+          ],
+          "confidence": "high"
+        },
+        {
+          "title": "호카오네오네 본디 9 Bondi 9 러닝화 운동화 1162011-BBLC",
+          "link": "https://seoulselect.co.kr/product/detail.html?product_no=16203&cate_no=238&display_group=1&utm_source=naver&utm_medium=shopping&utm_campaign=knowledge_shopping&mkt_in=Y&ghost_mall_id=naver&ref=naver_open",
+          "image": "https://shopping-phinf.pstatic.net/main_5933600/59336007780.jpg",
+          "price": 52850,
+          "mallName": "브르게드",
+          "productId": "59336007780",
+          "productType": 3,
+          "brand": "",
+          "maker": "",
+          "category": [
+            "패션잡화",
+            "남성신발",
+            "운동화",
+            "러닝화"
+          ],
+          "confidence": "high"
+        },
+        {
+          "title": "호카오네오네 본디 9 Bondi 9 러닝화 운동화 1162011-BBLC",
+          "link": "https://olvui.co.kr/product/detail.html?product_no=21673&cate_no=198&display_group=1&utm_source=naver&utm_medium=shopping&utm_campaign=knowledge_shopping&mkt_in=Y&ghost_mall_id=naver&ref=naver_open",
+          "image": "https://shopping-phinf.pstatic.net/main_5898419/58984196081.jpg",
+          "price": 52850,
+          "mallName": "아리크레",
+          "productId": "58984196081",
+          "productType": 3,
+          "brand": "",
+          "maker": "",
+          "category": [
+            "패션잡화",
+            "남성신발",
+            "운동화",
+            "러닝화"
+          ],
+          "confidence": "high"
+        }
+      ],
+      "confidence": "high",
+      "message": ""
+    },
+    "brooks-고스트-맥스-3": {
+      "status": "found",
+      "query": "브룩스 고스트 맥스 3 러닝화",
+      "fetchedAt": "2026-06-11T12:44:05.952Z",
+      "lowestPrice": 89000,
+      "lowestOffer": {
+        "title": "(남) 브룩스 고스트 맥스 3 1104641D173",
+        "link": "https://tpmall.kr/goods/view?no=10722&market=naver",
+        "image": "https://shopping-phinf.pstatic.net/main_6027617/60276170854.jpg",
+        "price": 89000,
+        "mallName": "TPMALL",
+        "productId": "60276170854",
+        "productType": 2,
+        "brand": "",
+        "maker": "",
+        "category": [
+          "패션잡화",
+          "남성신발",
+          "운동화",
+          "러닝화"
+        ],
+        "confidence": "high"
+      },
+      "offers": [
+        {
           "title": "(남) 브룩스 고스트 맥스 3 1104641D173",
-          "link": "http://tpmall.kr/goods/view?no=10722&market=naver",
+          "link": "https://tpmall.kr/goods/view?no=10722&market=naver",
           "image": "https://shopping-phinf.pstatic.net/main_6027617/60276170854.jpg",
           "price": 89000,
           "mallName": "TPMALL",
@@ -2184,8 +2197,26 @@
           "confidence": "high"
         },
         {
+          "title": "브룩스 고스트맥스3 런닝화 마라톤화 화이트 1104641D178",
+          "link": "https://tpmall.kr/goods/view?no=10719&market=naver",
+          "image": "https://shopping-phinf.pstatic.net/main_6027617/60276170104.jpg",
+          "price": 89000,
+          "mallName": "TPMALL",
+          "productId": "60276170104",
+          "productType": 2,
+          "brand": "",
+          "maker": "",
+          "category": [
+            "패션잡화",
+            "남성신발",
+            "운동화",
+            "러닝화"
+          ],
+          "confidence": "high"
+        },
+        {
           "title": "(남) 브룩스 고스트 맥스 3 1104641D078",
-          "link": "http://tpmall.kr/goods/view?no=10735&market=naver",
+          "link": "https://tpmall.kr/goods/view?no=10735&market=naver",
           "image": "https://shopping-phinf.pstatic.net/main_6027617/60276173285.jpg",
           "price": 89000,
           "mallName": "TPMALL",
@@ -2244,7 +2275,7 @@
     "brooks-글리세린-23": {
       "status": "no_match",
       "query": "브룩스 글리세린 23 러닝화",
-      "fetchedAt": "2026-06-10T22:50:15.932Z",
+      "fetchedAt": "2026-06-11T12:44:06.351Z",
       "lowestPrice": null,
       "lowestOffer": null,
       "offers": [],
@@ -2254,15 +2285,15 @@
     "brooks-글리세린-맥스-2": {
       "status": "found",
       "query": "브룩스 글리세린 맥스 2 러닝화",
-      "fetchedAt": "2026-06-10T22:50:16.340Z",
+      "fetchedAt": "2026-06-11T12:44:06.743Z",
       "lowestPrice": 89000,
       "lowestOffer": {
-        "title": "브룩스 여성 글리세린 맥스 2 코코넛 (MEDIUM) 러닝화 1204681B110",
-        "link": "http://tpmall.kr/goods/view?no=10742&market=naver",
-        "image": "https://shopping-phinf.pstatic.net/main_6027617/60276170680.jpg",
+        "title": "(여) 브룩스 글리세린맥스 2 1204681B197",
+        "link": "https://tpmall.kr/goods/view?no=10724&market=naver",
+        "image": "https://shopping-phinf.pstatic.net/main_6027617/60276172669.jpg",
         "price": 89000,
         "mallName": "TPMALL",
-        "productId": "60276170680",
+        "productId": "60276172669",
         "productType": 2,
         "brand": "",
         "maker": "",
@@ -2276,26 +2307,8 @@
       },
       "offers": [
         {
-          "title": "브룩스 여성 글리세린 맥스 2 코코넛 (MEDIUM) 러닝화 1204681B110",
-          "link": "http://tpmall.kr/goods/view?no=10742&market=naver",
-          "image": "https://shopping-phinf.pstatic.net/main_6027617/60276170680.jpg",
-          "price": 89000,
-          "mallName": "TPMALL",
-          "productId": "60276170680",
-          "productType": 2,
-          "brand": "",
-          "maker": "",
-          "category": [
-            "패션잡화",
-            "여성신발",
-            "운동화",
-            "러닝화"
-          ],
-          "confidence": "high"
-        },
-        {
           "title": "(여) 브룩스 글리세린맥스 2 1204681B197",
-          "link": "http://tpmall.kr/goods/view?no=10724&market=naver",
+          "link": "https://tpmall.kr/goods/view?no=10724&market=naver",
           "image": "https://shopping-phinf.pstatic.net/main_6027617/60276172669.jpg",
           "price": 89000,
           "mallName": "TPMALL",
@@ -2312,8 +2325,44 @@
           "confidence": "high"
         },
         {
+          "title": "브룩스러닝 글리세린 맥스 2 1104791D",
+          "link": "https://tpmall.kr/goods/view?no=10716&market=naver",
+          "image": "https://shopping-phinf.pstatic.net/main_6027617/60276172041.jpg",
+          "price": 89000,
+          "mallName": "TPMALL",
+          "productId": "60276172041",
+          "productType": 2,
+          "brand": "",
+          "maker": "",
+          "category": [
+            "패션잡화",
+            "남성신발",
+            "운동화",
+            "러닝화"
+          ],
+          "confidence": "high"
+        },
+        {
+          "title": "브룩스 여성 글리세린 맥스 2 코코넛 (MEDIUM) 러닝화 1204681B110",
+          "link": "https://tpmall.kr/goods/view?no=10742&market=naver",
+          "image": "https://shopping-phinf.pstatic.net/main_6027617/60276170680.jpg",
+          "price": 89000,
+          "mallName": "TPMALL",
+          "productId": "60276170680",
+          "productType": 2,
+          "brand": "",
+          "maker": "",
+          "category": [
+            "패션잡화",
+            "여성신발",
+            "운동화",
+            "러닝화"
+          ],
+          "confidence": "high"
+        },
+        {
           "title": "(여) 브룩스 글리세린 맥스 2 1204681B131",
-          "link": "http://tpmall.kr/goods/view?no=10743&market=naver",
+          "link": "https://tpmall.kr/goods/view?no=10743&market=naver",
           "image": "https://shopping-phinf.pstatic.net/main_6027617/60276171622.jpg",
           "price": 89000,
           "mallName": "TPMALL",
@@ -2331,29 +2380,11 @@
         },
         {
           "title": "브룩스 남성 글리세린 맥스 2 화이트 (MEDIUM) 러닝화 1104791D131",
-          "link": "http://tpmall.kr/goods/view?no=10683&market=naver",
+          "link": "https://tpmall.kr/goods/view?no=10683&market=naver",
           "image": "https://shopping-phinf.pstatic.net/main_6027617/60276170432.jpg",
           "price": 89000,
           "mallName": "TPMALL",
           "productId": "60276170432",
-          "productType": 2,
-          "brand": "",
-          "maker": "",
-          "category": [
-            "패션잡화",
-            "남성신발",
-            "운동화",
-            "러닝화"
-          ],
-          "confidence": "high"
-        },
-        {
-          "title": "브룩스러닝 글리세린 맥스 2 1104791D",
-          "link": "http://tpmall.kr/goods/view?no=10716&market=naver",
-          "image": "https://shopping-phinf.pstatic.net/main_6027617/60276172041.jpg",
-          "price": 89000,
-          "mallName": "TPMALL",
-          "productId": "60276172041",
           "productType": 2,
           "brand": "",
           "maker": "",
@@ -2370,29 +2401,65 @@
       "message": ""
     },
     "mizuno-웨이브-스카이-9": {
-      "status": "no_match",
+      "status": "found",
       "query": "미즈노 웨이브 스카이 9 러닝화",
-      "fetchedAt": "2026-06-10T22:50:16.772Z",
-      "lowestPrice": null,
-      "lowestOffer": null,
-      "offers": [],
-      "confidence": "low",
-      "message": "조건에 맞는 가격 결과를 찾지 못했습니다."
+      "fetchedAt": "2026-06-11T12:44:07.156Z",
+      "lowestPrice": 59080,
+      "lowestOffer": {
+        "title": "미즈노 남여 러닝화 웨이브 스카이 9종 택 1",
+        "link": "https://www.hmall.com/md/pda/itemPtc?ReferCode=429&slitmCd=2130748491&utm_source=naver&utm_medium=cps_pcs&utm_campaign=sale",
+        "image": "https://shopping-phinf.pstatic.net/main_2829192/28291927449.1.jpg",
+        "price": 59080,
+        "mallName": "현대Hmall",
+        "productId": "28291927449",
+        "productType": 2,
+        "brand": "미즈노",
+        "maker": "미즈노",
+        "category": [
+          "패션잡화",
+          "남성신발",
+          "운동화",
+          "러닝화"
+        ],
+        "confidence": "high"
+      },
+      "offers": [
+        {
+          "title": "미즈노 남여 러닝화 웨이브 스카이 9종 택 1",
+          "link": "https://www.hmall.com/md/pda/itemPtc?ReferCode=429&slitmCd=2130748491&utm_source=naver&utm_medium=cps_pcs&utm_campaign=sale",
+          "image": "https://shopping-phinf.pstatic.net/main_2829192/28291927449.1.jpg",
+          "price": 59080,
+          "mallName": "현대Hmall",
+          "productId": "28291927449",
+          "productType": 2,
+          "brand": "미즈노",
+          "maker": "미즈노",
+          "category": [
+            "패션잡화",
+            "남성신발",
+            "운동화",
+            "러닝화"
+          ],
+          "confidence": "high"
+        }
+      ],
+      "confidence": "high",
+      "message": ""
     },
     "on-클라우드-서퍼-맥스": {
       "status": "found",
       "query": "온러닝 클라우드 서퍼 맥스 러닝화",
-      "fetchedAt": "2026-06-10T22:50:17.196Z",
-      "lowestPrice": 83500,
+      "fetchedAt": "2026-06-11T12:44:07.553Z",
+      "lowestPrice": 72600,
       "lowestOffer": {
-        "title": "온 러닝화 클라우드 서퍼 맥스 라이트 그레이 3MF30433095",
-        "link": "http://weping.co.kr/goods/view?no=1409514&market=naver",
-        "image": "https://shopping-phinf.pstatic.net/main_5836561/58365618097.jpg",
-        "price": 83500,
-        "mallName": "위핑",
-        "productId": "58365618097",
+        "title": "온러닝 클라우드서퍼 맥스 쿠션 러닝화3MF30433397",
+        "link": "https://aerowood.shop/product/detail.html?product_no=7153&cate_no=133&display_group=1&utm_source=naver&utm_medium=shopping&utm_campaign=knowledge_shopping&mkt_in=Y&ghost_mall_id=naver&ref=naver_open",
+        "image": "https://shopping-phinf.pstatic.net/main_6005436/60054366467.jpg",
+        "price": 72600,
+        "mallName": "에어로우드",
+        "productId": "60054366467",
         "productType": 2,
-        "brand": "",
+        "brand": "조쿠",
         "maker": "",
         "category": [
           "패션잡화",
@@ -2404,12 +2471,48 @@
       },
       "offers": [
         {
-          "title": "온 러닝화 클라우드 서퍼 맥스 라이트 그레이 3MF30433095",
-          "link": "http://weping.co.kr/goods/view?no=1409514&market=naver",
-          "image": "https://shopping-phinf.pstatic.net/main_5836561/58365618097.jpg",
-          "price": 83500,
-          "mallName": "위핑",
-          "productId": "58365618097",
+          "title": "온러닝 클라우드서퍼 맥스 쿠션 러닝화3MF30433397",
+          "link": "https://aerowood.shop/product/detail.html?product_no=7153&cate_no=133&display_group=1&utm_source=naver&utm_medium=shopping&utm_campaign=knowledge_shopping&mkt_in=Y&ghost_mall_id=naver&ref=naver_open",
+          "image": "https://shopping-phinf.pstatic.net/main_6005436/60054366467.jpg",
+          "price": 72600,
+          "mallName": "에어로우드",
+          "productId": "60054366467",
+          "productType": 2,
+          "brand": "조쿠",
+          "maker": "",
+          "category": [
+            "패션잡화",
+            "남성신발",
+            "운동화",
+            "러닝화"
+          ],
+          "confidence": "high"
+        },
+        {
+          "title": "온러닝 클라우드서퍼 맥스 Cloudsurfer Max 신더 펠리칸 3MF30434052",
+          "link": "https://aerowood.shop/product/detail.html?product_no=7154&cate_no=133&display_group=1&utm_source=naver&utm_medium=shopping&utm_campaign=knowledge_shopping&mkt_in=Y&ghost_mall_id=naver&ref=naver_open",
+          "image": "https://shopping-phinf.pstatic.net/main_6005436/60054363122.jpg",
+          "price": 72600,
+          "mallName": "에어로우드",
+          "productId": "60054363122",
+          "productType": 2,
+          "brand": "조쿠",
+          "maker": "",
+          "category": [
+            "패션잡화",
+            "남성신발",
+            "운동화",
+            "러닝화"
+          ],
+          "confidence": "high"
+        },
+        {
+          "title": "온러닝 클라우드서퍼 맥스 쿠션 러닝화3MF30433397",
+          "link": "https://shoehouse.store/product/detail.html?product_no=8233&cate_no=123&display_group=1&utm_source=naver&utm_medium=shopping&utm_campaign=knowledge_shopping&mkt_in=Y&ghost_mall_id=naver&ref=naver_open",
+          "image": "https://shopping-phinf.pstatic.net/main_6004250/60042501104.jpg",
+          "price": 72600,
+          "mallName": "슈즈하우스",
+          "productId": "60042501104",
           "productType": 2,
           "brand": "",
           "maker": "",
@@ -2422,12 +2525,12 @@
           "confidence": "high"
         },
         {
-          "title": "온 러닝화 클라우드 서퍼 맥스 블루 3WF30224289",
-          "link": "http://weping.co.kr/goods/view?no=1409524&market=naver",
-          "image": "https://shopping-phinf.pstatic.net/main_5836569/58365699813.jpg",
-          "price": 83500,
-          "mallName": "위핑",
-          "productId": "58365699813",
+          "title": "온러닝 클라우드서퍼 맥스 Cloudsurfer Max 신더 펠리칸 3MF30434052",
+          "link": "https://shoehouse.store/product/detail.html?product_no=8234&cate_no=123&display_group=1&utm_source=naver&utm_medium=shopping&utm_campaign=knowledge_shopping&mkt_in=Y&ghost_mall_id=naver&ref=naver_open",
+          "image": "https://shopping-phinf.pstatic.net/main_6004251/60042513573.jpg",
+          "price": 72600,
+          "mallName": "슈즈하우스",
+          "productId": "60042513573",
           "productType": 2,
           "brand": "",
           "maker": "",
@@ -2440,12 +2543,12 @@
           "confidence": "high"
         },
         {
-          "title": "온 러닝화 클라우드 서퍼 맥스 블랙 화이트 3MF30433063",
-          "link": "http://weping.co.kr/goods/view?no=1409523&market=naver",
-          "image": "https://shopping-phinf.pstatic.net/main_5836560/58365603480.jpg",
-          "price": 83500,
-          "mallName": "위핑",
-          "productId": "58365603480",
+          "title": "온러닝 클라우드서퍼 맥스 스니커즈 3MF30431200",
+          "link": "https://shoehouse.store/product/detail.html?product_no=8232&cate_no=123&display_group=1&utm_source=naver&utm_medium=shopping&utm_campaign=knowledge_shopping&mkt_in=Y&ghost_mall_id=naver&ref=naver_open",
+          "image": "https://shopping-phinf.pstatic.net/main_6004249/60042499050.jpg",
+          "price": 72600,
+          "mallName": "슈즈하우스",
+          "productId": "60042499050",
           "productType": 2,
           "brand": "",
           "maker": "",
@@ -2456,42 +2559,6 @@
             "러닝화"
           ],
           "confidence": "high"
-        },
-        {
-          "title": "온러닝 SS26 클라우드서퍼 맥스 스니커즈 3MF30431200",
-          "link": "http://weping.co.kr/goods/view?no=1471572&market=naver",
-          "image": "https://shopping-phinf.pstatic.net/main_5964410/59644100304.jpg",
-          "price": 83580,
-          "mallName": "위핑",
-          "productId": "59644100304",
-          "productType": 3,
-          "brand": "온",
-          "maker": "",
-          "category": [
-            "패션잡화",
-            "남성신발",
-            "운동화",
-            "러닝화"
-          ],
-          "confidence": "high"
-        },
-        {
-          "title": "온 클라우드서퍼 맥스 3MF3043",
-          "link": "https://search.shopping.naver.com/catalog/60013443282",
-          "image": "https://shopping-phinf.pstatic.net/main_6001344/60013443282.20260512153422.jpg",
-          "price": 83580,
-          "mallName": "네이버",
-          "productId": "60013443282",
-          "productType": 1,
-          "brand": "온",
-          "maker": "",
-          "category": [
-            "패션잡화",
-            "남성신발",
-            "운동화",
-            "러닝화"
-          ],
-          "confidence": "medium"
         }
       ],
       "confidence": "high",
@@ -2500,18 +2567,18 @@
     "nike-스트럭처-26": {
       "status": "found",
       "query": "나이키 스트럭처 26 러닝화",
-      "fetchedAt": "2026-06-10T22:50:17.616Z",
-      "lowestPrice": 47800,
+      "fetchedAt": "2026-06-11T12:44:07.933Z",
+      "lowestPrice": 46880,
       "lowestOffer": {
-        "title": "[미세하자할인2603_08] 나이키 운동화 스트럭처 26 여성 런닝화 화이트 그린 HJ1101-100 245mm(US7.5)",
-        "link": "https://smartstore.naver.com/main/products/13380502383",
-        "image": "https://shopping-phinf.pstatic.net/main_9092501/90925012719.jpg",
-        "price": 47800,
-        "mallName": "플루비아 랩스",
-        "productId": "90925012719",
+        "title": "나이키 스트럭처 26 화이트 배얼리 그린 HJ1101-100",
+        "link": "https://nadomall.co.kr/product/detail.html?product_no=8428&cate_no=54&display_group=1&utm_source=naver&utm_medium=shopping&utm_campaign=knowledge_shopping&mkt_in=Y&ghost_mall_id=naver&ref=naver_open",
+        "image": "https://shopping-phinf.pstatic.net/main_5940258/59402581769.jpg",
+        "price": 46880,
+        "mallName": "프르티억",
+        "productId": "59402581769",
         "productType": 2,
-        "brand": "나이키",
-        "maker": "나이키",
+        "brand": "",
+        "maker": "",
         "category": [
           "패션잡화",
           "여성신발",
@@ -2522,12 +2589,66 @@
       },
       "offers": [
         {
+          "title": "나이키 스트럭처 26 화이트 배얼리 그린 HJ1101-100",
+          "link": "https://nadomall.co.kr/product/detail.html?product_no=8428&cate_no=54&display_group=1&utm_source=naver&utm_medium=shopping&utm_campaign=knowledge_shopping&mkt_in=Y&ghost_mall_id=naver&ref=naver_open",
+          "image": "https://shopping-phinf.pstatic.net/main_5940258/59402581769.jpg",
+          "price": 46880,
+          "mallName": "프르티억",
+          "productId": "59402581769",
+          "productType": 2,
+          "brand": "",
+          "maker": "",
+          "category": [
+            "패션잡화",
+            "여성신발",
+            "운동화",
+            "러닝화"
+          ],
+          "confidence": "high"
+        },
+        {
           "title": "[미세하자할인2603_08] 나이키 운동화 스트럭처 26 여성 런닝화 화이트 그린 HJ1101-100 245mm(US7.5)",
           "link": "https://smartstore.naver.com/main/products/13380502383",
           "image": "https://shopping-phinf.pstatic.net/main_9092501/90925012719.jpg",
           "price": 47800,
           "mallName": "플루비아 랩스",
           "productId": "90925012719",
+          "productType": 2,
+          "brand": "나이키",
+          "maker": "나이키",
+          "category": [
+            "패션잡화",
+            "여성신발",
+            "운동화",
+            "러닝화"
+          ],
+          "confidence": "high"
+        },
+        {
+          "title": "나이키 스트럭처 26 블랙 쿨 그레이 HJ1101-003",
+          "link": "https://nadomall.co.kr/product/detail.html?product_no=8997&cate_no=54&display_group=1&utm_source=naver&utm_medium=shopping&utm_campaign=knowledge_shopping&mkt_in=Y&ghost_mall_id=naver&ref=naver_open",
+          "image": "https://shopping-phinf.pstatic.net/main_5940255/59402557773.jpg",
+          "price": 48010,
+          "mallName": "프르티억",
+          "productId": "59402557773",
+          "productType": 2,
+          "brand": "",
+          "maker": "",
+          "category": [
+            "패션잡화",
+            "남성신발",
+            "운동화",
+            "러닝화"
+          ],
+          "confidence": "high"
+        },
+        {
+          "title": "[미세하자할인2603_07] 나이키 운동화 스트럭처 26 여성 런닝화 화이트 HJ1101-101 235mm(US6.5)",
+          "link": "https://smartstore.naver.com/main/products/13380501706",
+          "image": "https://shopping-phinf.pstatic.net/main_9092501/90925012042.jpg",
+          "price": 59800,
+          "mallName": "플루비아 랩스",
+          "productId": "90925012042",
           "productType": 2,
           "brand": "나이키",
           "maker": "나이키",
@@ -2556,60 +2677,6 @@
             "러닝화"
           ],
           "confidence": "high"
-        },
-        {
-          "title": "[미세하자할인2603_07] 나이키 운동화 스트럭처 26 여성 런닝화 화이트 HJ1101-101 235mm(US6.5)",
-          "link": "https://smartstore.naver.com/main/products/13380501706",
-          "image": "https://shopping-phinf.pstatic.net/main_9092501/90925012042.jpg",
-          "price": 59800,
-          "mallName": "플루비아 랩스",
-          "productId": "90925012042",
-          "productType": 2,
-          "brand": "나이키",
-          "maker": "나이키",
-          "category": [
-            "패션잡화",
-            "여성신발",
-            "운동화",
-            "러닝화"
-          ],
-          "confidence": "high"
-        },
-        {
-          "title": "나이키 여성 스트럭처 26 서밋 화이트 배얼리 볼트 HJ1101-103",
-          "link": "https://www.itsomemall.com/goods/view?no=197374&market=naver",
-          "image": "https://shopping-phinf.pstatic.net/main_5688794/56887949064.jpg",
-          "price": 76000,
-          "mallName": "잇썸몰",
-          "productId": "56887949064",
-          "productType": 2,
-          "brand": "나이키",
-          "maker": "나이키",
-          "category": [
-            "패션잡화",
-            "여성신발",
-            "운동화",
-            "러닝화"
-          ],
-          "confidence": "high"
-        },
-        {
-          "title": "나이키 스트럭처 26 런닝화 HJ1102-102",
-          "link": "https://www.itsomemall.com/goods/view?no=197373&market=naver",
-          "image": "https://shopping-phinf.pstatic.net/main_5688795/56887952859.jpg",
-          "price": 76000,
-          "mallName": "잇썸몰",
-          "productId": "56887952859",
-          "productType": 2,
-          "brand": "나이키",
-          "maker": "나이키",
-          "category": [
-            "패션잡화",
-            "남성신발",
-            "운동화",
-            "러닝화"
-          ],
-          "confidence": "high"
         }
       ],
       "confidence": "high",
@@ -2618,7 +2685,7 @@
     "nike-스트럭처-플러스": {
       "status": "found",
       "query": "나이키 스트럭처 플러스 러닝화",
-      "fetchedAt": "2026-06-10T22:50:18.038Z",
+      "fetchedAt": "2026-06-11T12:44:08.325Z",
       "lowestPrice": 89550,
       "lowestOffer": {
         "title": "나이키 우먼스 스트럭처 플러스 로드 러닝화 (HQ3049-500)",
@@ -2658,12 +2725,12 @@
           "confidence": "high"
         },
         {
-          "title": "나이키 스트럭처 플러스 로드 러닝화 HQ3048-501 225",
-          "link": "https://link.coupang.com/re/PCSNAVERPCSDP?pageKey=9572546758&ctag=9572546758&lptag=V95516575790&itemId=28572239500&vendorItemId=95516575790&spec=10305199",
-          "image": "https://shopping-phinf.pstatic.net/main_6038039/60380393969.jpg",
+          "title": "나이키 스트럭처 플러스 로드 러닝화 HQ3048-001 285",
+          "link": "https://link.coupang.com/re/PCSNAVERPCSDP?pageKey=9572543864&ctag=9572543864&lptag=V95516563469&itemId=28572226646&vendorItemId=95516563469&spec=10305199",
+          "image": "https://shopping-phinf.pstatic.net/main_6039551/60395512158.jpg",
           "price": 96800,
           "mallName": "쿠팡",
-          "productId": "60380393969",
+          "productId": "60395512158",
           "productType": 2,
           "brand": "나이키",
           "maker": "",
@@ -2694,30 +2761,30 @@
           "confidence": "high"
         },
         {
-          "title": "나이키 스트럭처 플러스 로드 러닝화 HQ3048-001 265",
-          "link": "https://link.coupang.com/re/PCSNAVERPCSDP?pageKey=9572543864&ctag=9572543864&lptag=V95516563472&itemId=28572226649&vendorItemId=95516563472&spec=10305199",
-          "image": "https://shopping-phinf.pstatic.net/main_6038077/60380779998.jpg",
-          "price": 96800,
-          "mallName": "쿠팡",
-          "productId": "60380779998",
-          "productType": 2,
-          "brand": "나이키",
-          "maker": "",
-          "category": [
-            "패션잡화",
-            "남성신발",
-            "운동화",
-            "러닝화"
-          ],
-          "confidence": "high"
-        },
-        {
           "title": "나이키 나이키 국내매장판 여성 런닝화 스트럭처 플러스 HQ3049-500",
           "link": "https://www.lotteimall.com/coop/affilGate.lotte?chl_no=141370&chl_dtl_no=2540914&returnUrl=/goods/viewGoodsDetail.lotte?goods_no=3337174926&utm_source=naver&utm_medium=affiliate&utm_campaign=price_compare",
           "image": "https://shopping-phinf.pstatic.net/main_6030626/60306265802.jpg",
           "price": 112900,
           "mallName": "롯데홈쇼핑",
           "productId": "60306265802",
+          "productType": 2,
+          "brand": "나이키",
+          "maker": "나이키",
+          "category": [
+            "패션잡화",
+            "여성신발",
+            "운동화",
+            "러닝화"
+          ],
+          "confidence": "high"
+        },
+        {
+          "title": "나이키 국내매장판 여성 런닝화 스트럭처 플러스 HQ3049-500",
+          "link": "https://smartstore.naver.com/main/products/13527546430",
+          "image": "https://shopping-phinf.pstatic.net/main_9107205/91072056783.jpg",
+          "price": 114570,
+          "mallName": "ReiB",
+          "productId": "91072056783",
           "productType": 2,
           "brand": "나이키",
           "maker": "나이키",
@@ -2736,7 +2803,7 @@
     "adidas-슈퍼노바-솔루션-3": {
       "status": "no_match",
       "query": "아디다스 슈퍼노바 솔루션 3 러닝화",
-      "fetchedAt": "2026-06-10T22:50:18.428Z",
+      "fetchedAt": "2026-06-11T12:44:08.689Z",
       "lowestPrice": null,
       "lowestOffer": null,
       "offers": [],
@@ -2746,7 +2813,7 @@
     "asics-gt2000-14": {
       "status": "no_match",
       "query": "아식스 GT2000 14 러닝화",
-      "fetchedAt": "2026-06-10T22:50:18.857Z",
+      "fetchedAt": "2026-06-11T12:44:09.093Z",
       "lowestPrice": null,
       "lowestOffer": null,
       "offers": [],
@@ -2756,7 +2823,7 @@
     "asics-젤카야노-33": {
       "status": "no_match",
       "query": "아식스 젤카야노 33 러닝화",
-      "fetchedAt": "2026-06-10T22:50:19.290Z",
+      "fetchedAt": "2026-06-11T12:44:09.493Z",
       "lowestPrice": null,
       "lowestOffer": null,
       "offers": [],
@@ -2766,7 +2833,7 @@
     "new-balance-봉고-v6": {
       "status": "no_match",
       "query": "뉴발란스 봉고 V6 러닝화",
-      "fetchedAt": "2026-06-10T22:50:19.725Z",
+      "fetchedAt": "2026-06-11T12:44:09.900Z",
       "lowestPrice": null,
       "lowestOffer": null,
       "offers": [],
@@ -2776,7 +2843,7 @@
     "new-balance-860-v15": {
       "status": "no_match",
       "query": "뉴발란스 860 V15 러닝화",
-      "fetchedAt": "2026-06-10T22:50:20.154Z",
+      "fetchedAt": "2026-06-11T12:44:10.362Z",
       "lowestPrice": null,
       "lowestOffer": null,
       "offers": [],
@@ -2786,7 +2853,7 @@
     "saucony-가이드-19": {
       "status": "no_match",
       "query": "써코니 가이드 19 러닝화",
-      "fetchedAt": "2026-06-10T22:50:20.570Z",
+      "fetchedAt": "2026-06-11T12:44:10.761Z",
       "lowestPrice": null,
       "lowestOffer": null,
       "offers": [],
@@ -2796,7 +2863,7 @@
     "saucony-템퍼스-3": {
       "status": "no_match",
       "query": "써코니 템퍼스 3 러닝화",
-      "fetchedAt": "2026-06-10T22:50:20.959Z",
+      "fetchedAt": "2026-06-11T12:44:11.122Z",
       "lowestPrice": null,
       "lowestOffer": null,
       "offers": [],
@@ -2806,7 +2873,7 @@
     "saucony-허리케인-25": {
       "status": "found",
       "query": "써코니 허리케인 25 러닝화",
-      "fetchedAt": "2026-06-10T22:50:21.386Z",
+      "fetchedAt": "2026-06-11T12:44:11.530Z",
       "lowestPrice": 130150,
       "lowestOffer": {
         "title": "써코니 써코니 허리케인 25 M S21026205_FNY/0116111",
@@ -2846,30 +2913,12 @@
           "confidence": "high"
         },
         {
-          "title": "써코니 써코니 HURRICANE 25 S21026-205_스타필드하남ABC마트",
-          "link": "https://link.gmarket.co.kr/gate/pcs?item-no=4664022371&sub-id=1003&service-code=10000003&lcd=100000043",
-          "image": "https://shopping-phinf.pstatic.net/main_5874080/58740802362.jpg",
-          "price": 131120,
-          "mallName": "G마켓",
-          "productId": "58740802362",
-          "productType": 3,
-          "brand": "써코니",
-          "maker": "써코니",
-          "category": [
-            "패션잡화",
-            "남성신발",
-            "운동화",
-            "러닝화"
-          ],
-          "confidence": "high"
-        },
-        {
           "title": "써코니 허리케인 25 S21026",
-          "link": "https://search.shopping.naver.com/catalog/57904549837",
-          "image": "https://shopping-phinf.pstatic.net/main_5790454/57904549837.20251125143348.jpg",
+          "link": "https://search.shopping.naver.com/catalog/57904549836",
+          "image": "https://shopping-phinf.pstatic.net/main_5790454/57904549836.20251125143212.jpg",
           "price": 131120,
           "mallName": "네이버",
-          "productId": "57904549837",
+          "productId": "57904549836",
           "productType": 1,
           "brand": "써코니",
           "maker": "써코니",
@@ -2888,6 +2937,24 @@
           "price": 131120,
           "mallName": "G마켓",
           "productId": "58740817811",
+          "productType": 3,
+          "brand": "써코니",
+          "maker": "써코니",
+          "category": [
+            "패션잡화",
+            "남성신발",
+            "운동화",
+            "러닝화"
+          ],
+          "confidence": "high"
+        },
+        {
+          "title": "써코니 써코니 HURRICANE 25 S21026-205_스타필드하남ABC마트",
+          "link": "https://link.gmarket.co.kr/gate/pcs?item-no=4664022371&sub-id=1003&service-code=10000003&lcd=100000043",
+          "image": "https://shopping-phinf.pstatic.net/main_5874080/58740802362.jpg",
+          "price": 131120,
+          "mallName": "G마켓",
+          "productId": "58740802362",
           "productType": 3,
           "brand": "써코니",
           "maker": "써코니",
@@ -2924,15 +2991,15 @@
     "puma-포에버런-나이트로-2": {
       "status": "found",
       "query": "푸마 포에버런 나이트로 2 러닝화",
-      "fetchedAt": "2026-06-10T22:50:21.811Z",
+      "fetchedAt": "2026-06-11T12:44:11.934Z",
       "lowestPrice": 88000,
       "lowestOffer": {
-        "title": "푸마 포에버런 나이트로 2 러닝화 마라톤화 안정화 310471-02",
-        "link": "http://tpmall.kr/goods/view?no=7154&market=naver",
-        "image": "https://shopping-phinf.pstatic.net/main_5999995/59999955152.jpg",
+        "title": "푸마 포에버 런 나이트로 2 런닝화 운동화 310109-05",
+        "link": "https://tpmall.kr/goods/view?no=7150&market=naver",
+        "image": "https://shopping-phinf.pstatic.net/main_6000007/60000070080.jpg",
         "price": 88000,
         "mallName": "TPMALL",
-        "productId": "59999955152",
+        "productId": "60000070080",
         "productType": 2,
         "brand": "",
         "maker": "",
@@ -2946,30 +3013,12 @@
       },
       "offers": [
         {
-          "title": "푸마 포에버런 나이트로 2 러닝화 마라톤화 안정화 310471-02",
-          "link": "http://tpmall.kr/goods/view?no=7154&market=naver",
-          "image": "https://shopping-phinf.pstatic.net/main_5999995/59999955152.jpg",
+          "title": "푸마 포에버 런 나이트로 2 런닝화 운동화 310109-05",
+          "link": "https://tpmall.kr/goods/view?no=7150&market=naver",
+          "image": "https://shopping-phinf.pstatic.net/main_6000007/60000070080.jpg",
           "price": 88000,
           "mallName": "TPMALL",
-          "productId": "59999955152",
-          "productType": 2,
-          "brand": "",
-          "maker": "",
-          "category": [
-            "패션잡화",
-            "남성신발",
-            "운동화",
-            "러닝화"
-          ],
-          "confidence": "high"
-        },
-        {
-          "title": "푸마 포에버런 나이트로 2 러닝화 310109-01",
-          "link": "http://tpmall.kr/goods/view?no=7187&market=naver",
-          "image": "https://shopping-phinf.pstatic.net/main_6000007/60000077192.jpg",
-          "price": 88000,
-          "mallName": "TPMALL",
-          "productId": "60000077192",
+          "productId": "60000070080",
           "productType": 2,
           "brand": "",
           "maker": "",
@@ -2983,7 +3032,7 @@
         },
         {
           "title": "푸마 포에버런 나이트로 2 러닝화 마라톤화 안정화 310471-06",
-          "link": "http://tpmall.kr/goods/view?no=7188&market=naver",
+          "link": "https://tpmall.kr/goods/view?no=7188&market=naver",
           "image": "https://shopping-phinf.pstatic.net/main_6000007/60000074818.jpg",
           "price": 88000,
           "mallName": "TPMALL",
@@ -3001,7 +3050,7 @@
         },
         {
           "title": "푸마 포에버런 나이트로 2 런닝화 블랙 310109-12",
-          "link": "http://tpmall.kr/goods/view?no=7149&market=naver",
+          "link": "https://tpmall.kr/goods/view?no=7149&market=naver",
           "image": "https://shopping-phinf.pstatic.net/main_6000006/60000061658.jpg",
           "price": 88000,
           "mallName": "TPMALL",
@@ -3018,12 +3067,30 @@
           "confidence": "high"
         },
         {
-          "title": "푸마 포에버 런 나이트로 2 런닝화 운동화 310109-05",
-          "link": "http://tpmall.kr/goods/view?no=7150&market=naver",
-          "image": "https://shopping-phinf.pstatic.net/main_6000007/60000070080.jpg",
+          "title": "푸마 포에버런 나이트로 2 러닝화 마라톤화 안정화 310471-02",
+          "link": "https://tpmall.kr/goods/view?no=7154&market=naver",
+          "image": "https://shopping-phinf.pstatic.net/main_5999995/59999955152.jpg",
           "price": 88000,
           "mallName": "TPMALL",
-          "productId": "60000070080",
+          "productId": "59999955152",
+          "productType": 2,
+          "brand": "",
+          "maker": "",
+          "category": [
+            "패션잡화",
+            "남성신발",
+            "운동화",
+            "러닝화"
+          ],
+          "confidence": "high"
+        },
+        {
+          "title": "푸마 포에버런 나이트로 2 러닝화 310109-01",
+          "link": "https://tpmall.kr/goods/view?no=7187&market=naver",
+          "image": "https://shopping-phinf.pstatic.net/main_6000007/60000077192.jpg",
+          "price": 88000,
+          "mallName": "TPMALL",
+          "productId": "60000077192",
           "productType": 2,
           "brand": "",
           "maker": "",
@@ -3042,7 +3109,7 @@
     "hoka-아라히-8": {
       "status": "no_match",
       "query": "호카 아라히 8 러닝화",
-      "fetchedAt": "2026-06-10T22:50:22.225Z",
+      "fetchedAt": "2026-06-11T12:44:12.339Z",
       "lowestPrice": null,
       "lowestOffer": null,
       "offers": [],
@@ -3052,7 +3119,7 @@
     "hoka-가비오타-6": {
       "status": "no_match",
       "query": "호카 가비오타 6 러닝화",
-      "fetchedAt": "2026-06-10T22:50:22.650Z",
+      "fetchedAt": "2026-06-11T12:44:12.736Z",
       "lowestPrice": null,
       "lowestOffer": null,
       "offers": [],
@@ -3062,7 +3129,7 @@
     "brooks-아드레날린-gts-25": {
       "status": "no_match",
       "query": "브룩스 아드레날린 GTS 25 러닝화",
-      "fetchedAt": "2026-06-10T22:50:23.076Z",
+      "fetchedAt": "2026-06-11T12:44:13.144Z",
       "lowestPrice": null,
       "lowestOffer": null,
       "offers": [],
@@ -3072,7 +3139,7 @@
     "brooks-글리세린-gts-23": {
       "status": "no_match",
       "query": "브룩스 글리세린 GTS 23 러닝화",
-      "fetchedAt": "2026-06-10T22:50:23.497Z",
+      "fetchedAt": "2026-06-11T12:44:13.551Z",
       "lowestPrice": null,
       "lowestOffer": null,
       "offers": [],
@@ -3082,11 +3149,11 @@
     "brooks-하이페리온-gts-2": {
       "status": "found",
       "query": "브룩스 하이페리온 GTS 2 러닝화",
-      "fetchedAt": "2026-06-10T22:50:23.910Z",
+      "fetchedAt": "2026-06-11T12:44:13.940Z",
       "lowestPrice": 89000,
       "lowestOffer": {
         "title": "브룩스 하이페리온 GTS 2 미끄럼방지마모 마라톤화 블루레드블랙 110432-1D-443",
-        "link": "http://tpmall.kr/goods/view?no=10703&market=naver",
+        "link": "https://tpmall.kr/goods/view?no=10703&market=naver",
         "image": "https://shopping-phinf.pstatic.net/main_6027617/60276171662.jpg",
         "price": 89000,
         "mallName": "TPMALL",
@@ -3105,7 +3172,7 @@
       "offers": [
         {
           "title": "브룩스 하이페리온 GTS 2 미끄럼방지마모 마라톤화 블루레드블랙 110432-1D-443",
-          "link": "http://tpmall.kr/goods/view?no=10703&market=naver",
+          "link": "https://tpmall.kr/goods/view?no=10703&market=naver",
           "image": "https://shopping-phinf.pstatic.net/main_6027617/60276171662.jpg",
           "price": 89000,
           "mallName": "TPMALL",
@@ -3157,32 +3224,32 @@
           "confidence": "high"
         },
         {
-          "title": "브룩스 하이페리온 GTS 2 미끄럼방지마모 마라톤화 블루레드블랙 110432-1D-443",
-          "link": "https://link.auction.co.kr/gate/pcs?item-no=F561618658&sub-id=1&service-code=10000003",
-          "image": "https://shopping-phinf.pstatic.net/main_6004085/60040857228.jpg",
-          "price": 167660,
-          "mallName": "옥션",
-          "productId": "60040857228",
+          "title": "브룩스 여성 하이페리온 GTS 2 1204221B443",
+          "link": "http://37degrees.co.kr/shop_view/?idx=15371",
+          "image": "https://shopping-phinf.pstatic.net/main_5441502/54415028924.jpg",
+          "price": 189000,
+          "mallName": "37디그리스",
+          "productId": "54415028924",
           "productType": 2,
-          "brand": "",
+          "brand": "브룩스",
           "maker": "",
           "category": [
             "패션잡화",
-            "남성신발",
+            "여성신발",
             "운동화",
             "러닝화"
           ],
           "confidence": "high"
         },
         {
-          "title": "브룩스 하이페리온 GTS 2 미끄럼방지마모 마라톤화 블루레드블랙 110432-1D-443",
-          "link": "https://link.gmarket.co.kr/gate/pcs?item-no=4753890559&sub-id=1003&service-code=10000003&lcd=100000043",
-          "image": "https://shopping-phinf.pstatic.net/main_6004116/60041163599.jpg",
-          "price": 167670,
-          "mallName": "G마켓",
-          "productId": "60041163599",
+          "title": "하이페리온 GTS 2(1104331D443)",
+          "link": "https://onyourmark-running.com/product/detail.html?product_no=2406&cate_no=781&display_group=1&utm_source=naver&utm_medium=shopping&utm_campaign=knowledge_shopping&mkt_in=Y&ghost_mall_id=naver&ref=naver_open",
+          "image": "https://shopping-phinf.pstatic.net/main_5339696/53396969243.jpg",
+          "price": 189000,
+          "mallName": "온유어마크",
+          "productId": "53396969243",
           "productType": 2,
-          "brand": "",
+          "brand": "브룩스",
           "maker": "",
           "category": [
             "패션잡화",
@@ -3199,7 +3266,7 @@
     "mizuno-웨이브-호라이즌-8": {
       "status": "found",
       "query": "미즈노 웨이브 호라이즌 8 러닝화",
-      "fetchedAt": "2026-06-10T22:50:24.358Z",
+      "fetchedAt": "2026-06-11T12:44:14.333Z",
       "lowestPrice": 179000,
       "lowestOffer": {
         "title": "미즈노 웨이브 호라이즌 8 WAVE HORIZON 8 SW J1GC253154 (2E)",
@@ -3257,24 +3324,6 @@
           "confidence": "high"
         },
         {
-          "title": "[공식판매처] 미즈노 웨이브 호라이즌 8 슈퍼와이드 J1GC253102 쏘우러닝",
-          "link": "https://smartstore.naver.com/main/products/11436413233",
-          "image": "https://shopping-phinf.pstatic.net/main_8898092/88980923598.jpg",
-          "price": 179000,
-          "mallName": "SOWRUNNING",
-          "productId": "88980923598",
-          "productType": 2,
-          "brand": "미즈노",
-          "maker": "미즈노",
-          "category": [
-            "패션잡화",
-            "남성신발",
-            "운동화",
-            "러닝화"
-          ],
-          "confidence": "high"
-        },
-        {
           "title": "[공식판매처] 미즈노 웨이브 호라이즌 8 슈퍼와이드 J1GC253154 쏘우러닝",
           "link": "https://smartstore.naver.com/main/products/12105212534",
           "image": "https://shopping-phinf.pstatic.net/main_8964972/89649723239.jpg",
@@ -3293,12 +3342,30 @@
           "confidence": "high"
         },
         {
-          "title": "[시다스] 미즈노 웨이브 호라이즌 8 (신발 J1GC253154)",
-          "link": "https://shopping.naver.com/outlink/itemdetail/12995331964",
-          "image": "https://shopping-phinf.pstatic.net/main_9053984/90539843056.jpg",
+          "title": "[공식판매처] 미즈노 웨이브 호라이즌 8 슈퍼와이드 J1GC253102 쏘우러닝",
+          "link": "https://smartstore.naver.com/main/products/11436413233",
+          "image": "https://shopping-phinf.pstatic.net/main_8898092/88980923598.jpg",
           "price": 179000,
-          "mallName": "시다스",
-          "productId": "90539843056",
+          "mallName": "SOWRUNNING",
+          "productId": "88980923598",
+          "productType": 2,
+          "brand": "미즈노",
+          "maker": "미즈노",
+          "category": [
+            "패션잡화",
+            "남성신발",
+            "운동화",
+            "러닝화"
+          ],
+          "confidence": "high"
+        },
+        {
+          "title": "[시다스] 미즈노 웨이브 호라이즌 8 (신발 J1GC253154)",
+          "link": "https://smartstore.naver.com/main/products/12995331963",
+          "image": "https://shopping-phinf.pstatic.net/main_9053984/90539843055.jpg",
+          "price": 179000,
+          "mallName": "현대스페이스원 시다스",
+          "productId": "90539843055",
           "productType": 2,
           "brand": "미즈노",
           "maker": "미즈노",
@@ -3317,7 +3384,7 @@
     "mizuno-웨이브-인스파이어-22": {
       "status": "found",
       "query": "미즈노 웨이브 인스파이어 22 러닝화",
-      "fetchedAt": "2026-06-10T22:50:24.789Z",
+      "fetchedAt": "2026-06-11T12:44:14.741Z",
       "lowestPrice": 119000,
       "lowestOffer": {
         "title": "미즈노 26SS WAVE INSPIRE 22(M) Lightning Yellow/Dazzling Blue/Dazzling Blue (J1GC2644) (남성 웨이브 인스파이어 22",
@@ -3433,11 +3500,11 @@
     "on-클라우드-러너-3": {
       "status": "found",
       "query": "온러닝 클라우드 러너 3 러닝화",
-      "fetchedAt": "2026-06-10T22:50:25.200Z",
+      "fetchedAt": "2026-06-11T12:44:15.132Z",
       "lowestPrice": 91000,
       "lowestOffer": {
         "title": "온 러닝화 클라우드 러너 3 레몬 옐로우 3MG10074751",
-        "link": "http://weping.co.kr/goods/view?no=1489371&market=naver",
+        "link": "https://weping.co.kr/goods/view?no=1489371&market=naver",
         "image": "https://shopping-phinf.pstatic.net/main_6026331/60263318807.jpg",
         "price": 91000,
         "mallName": "위핑",
@@ -3456,7 +3523,7 @@
       "offers": [
         {
           "title": "온 러닝화 클라우드 러너 3 레몬 옐로우 3MG10074751",
-          "link": "http://weping.co.kr/goods/view?no=1489371&market=naver",
+          "link": "https://weping.co.kr/goods/view?no=1489371&market=naver",
           "image": "https://shopping-phinf.pstatic.net/main_6026331/60263318807.jpg",
           "price": 91000,
           "mallName": "위핑",
@@ -3474,7 +3541,7 @@
         },
         {
           "title": "온 러닝화 클라우드 러너 3 오렌지 3WG10054728",
-          "link": "http://weping.co.kr/goods/view?no=1489376&market=naver",
+          "link": "https://weping.co.kr/goods/view?no=1489376&market=naver",
           "image": "https://shopping-phinf.pstatic.net/main_6026331/60263319146.jpg",
           "price": 91100,
           "mallName": "위핑",
@@ -3492,7 +3559,7 @@
         },
         {
           "title": "온 러닝화 클라우드 러너 3 아이보리 3WG10050924",
-          "link": "http://weping.co.kr/goods/view?no=1489375&market=naver",
+          "link": "https://weping.co.kr/goods/view?no=1489375&market=naver",
           "image": "https://shopping-phinf.pstatic.net/main_6026331/60263318316.jpg",
           "price": 91300,
           "mallName": "위핑",
@@ -3510,7 +3577,7 @@
         },
         {
           "title": "온 러닝화 클라우드 러너 3 블루 3MG10074750",
-          "link": "http://weping.co.kr/goods/view?no=1489373&market=naver",
+          "link": "https://weping.co.kr/goods/view?no=1489373&market=naver",
           "image": "https://shopping-phinf.pstatic.net/main_6026331/60263319011.jpg",
           "price": 91600,
           "mallName": "위핑",
@@ -3528,7 +3595,7 @@
         },
         {
           "title": "온 러닝화 클라우드 러너 3 라이트 그레이 3WG10074353",
-          "link": "http://weping.co.kr/goods/view?no=1489368&market=naver",
+          "link": "https://weping.co.kr/goods/view?no=1489368&market=naver",
           "image": "https://shopping-phinf.pstatic.net/main_6026331/60263319754.jpg",
           "price": 91700,
           "mallName": "위핑",
@@ -3551,7 +3618,7 @@
     "adidas-sl-2": {
       "status": "no_match",
       "query": "아디다스 SL 2 러닝화",
-      "fetchedAt": "2026-06-10T22:50:25.622Z",
+      "fetchedAt": "2026-06-11T12:44:15.525Z",
       "lowestPrice": null,
       "lowestOffer": null,
       "offers": [],
@@ -3561,15 +3628,15 @@
     "asics-노바블라스트-5": {
       "status": "found",
       "query": "아식스 노바블라스트 5 러닝화",
-      "fetchedAt": "2026-06-10T22:50:26.034Z",
-      "lowestPrice": 61950,
+      "fetchedAt": "2026-06-11T12:44:15.917Z",
+      "lowestPrice": 45810,
       "lowestOffer": {
-        "title": "아식스 노바블라스트 5 런닝화 마라톤화 1011B974-400",
-        "link": "http://weping.co.kr/goods/view?no=1406837&market=naver",
-        "image": "https://shopping-phinf.pstatic.net/main_6012946/60129465402.jpg",
-        "price": 61950,
-        "mallName": "위핑",
-        "productId": "60129465402",
+        "title": "아식스 노바블라스트 5 NOVABLAST 5 러닝화 운동화 마라톤화 1011B974-400",
+        "link": "https://nadomall.co.kr/product/detail.html?product_no=12702&cate_no=56&display_group=1&utm_source=naver&utm_medium=shopping&utm_campaign=knowledge_shopping&mkt_in=Y&ghost_mall_id=naver&ref=naver_open",
+        "image": "https://shopping-phinf.pstatic.net/main_5940258/59402587380.jpg",
+        "price": 45810,
+        "mallName": "프르티억",
+        "productId": "59402587380",
         "productType": 2,
         "brand": "",
         "maker": "",
@@ -3583,12 +3650,12 @@
       },
       "offers": [
         {
-          "title": "아식스 노바블라스트 5 런닝화 마라톤화 1011B974-400",
-          "link": "http://weping.co.kr/goods/view?no=1406837&market=naver",
-          "image": "https://shopping-phinf.pstatic.net/main_6012946/60129465402.jpg",
-          "price": 61950,
-          "mallName": "위핑",
-          "productId": "60129465402",
+          "title": "아식스 노바블라스트 5 NOVABLAST 5 러닝화 운동화 마라톤화 1011B974-400",
+          "link": "https://nadomall.co.kr/product/detail.html?product_no=12702&cate_no=56&display_group=1&utm_source=naver&utm_medium=shopping&utm_campaign=knowledge_shopping&mkt_in=Y&ghost_mall_id=naver&ref=naver_open",
+          "image": "https://shopping-phinf.pstatic.net/main_5940258/59402587380.jpg",
+          "price": 45810,
+          "mallName": "프르티억",
+          "productId": "59402587380",
           "productType": 2,
           "brand": "",
           "maker": "",
@@ -3601,12 +3668,12 @@
           "confidence": "high"
         },
         {
-          "title": "아식스 노바블라스트 5 런닝화 1011B974",
-          "link": "http://tpmall.kr/goods/view?no=3991&market=naver",
-          "image": "https://shopping-phinf.pstatic.net/main_5928908/59289086909.jpg",
-          "price": 73880,
-          "mallName": "TPMALL",
-          "productId": "59289086909",
+          "title": "아식스 노바블라스트 5 NOVABLAST 5 러닝화 운동화 마라톤화 1011B974-400",
+          "link": "https://seoulselect.co.kr/product/detail.html?product_no=17091&cate_no=203&display_group=1&utm_source=naver&utm_medium=shopping&utm_campaign=knowledge_shopping&mkt_in=Y&ghost_mall_id=naver&ref=naver_open",
+          "image": "https://shopping-phinf.pstatic.net/main_5933601/59336010444.jpg",
+          "price": 46020,
+          "mallName": "브르게드",
+          "productId": "59336010444",
           "productType": 2,
           "brand": "",
           "maker": "",
@@ -3619,12 +3686,12 @@
           "confidence": "high"
         },
         {
-          "title": "아식스 노바블라스트5 일루션 블루 런닝화 1011B974-403",
-          "link": "http://weping.co.kr/goods/view?no=1406855&market=naver",
-          "image": "https://shopping-phinf.pstatic.net/main_6012939/60129391735.jpg",
-          "price": 74980,
-          "mallName": "위핑",
-          "productId": "60129391735",
+          "title": "아식스 노바블라스트 5 NOVABLAST 5 러닝화 운동화 마라톤화 1011B974-400",
+          "link": "https://olvui.co.kr/product/detail.html?product_no=21427&cate_no=198&display_group=1&utm_source=naver&utm_medium=shopping&utm_campaign=knowledge_shopping&mkt_in=Y&ghost_mall_id=naver&ref=naver_open",
+          "image": "https://shopping-phinf.pstatic.net/main_5898413/58984137627.jpg",
+          "price": 46020,
+          "mallName": "아리크레",
+          "productId": "58984137627",
           "productType": 2,
           "brand": "",
           "maker": "",
@@ -3637,15 +3704,15 @@
           "confidence": "high"
         },
         {
-          "title": "아식스 노바블라스트 5 남성 러닝화 블루 일루전 1011B974-403",
-          "link": "https://www.place707.com/goods/view?no=193985&market=naver",
-          "image": "https://shopping-phinf.pstatic.net/main_5621111/56211114052.jpg",
-          "price": 75000,
-          "mallName": "플레이스707",
-          "productId": "56211114052",
+          "title": "아식스 노바블라스트 5 수딩 씨 웨이브 틸 1011B974-400",
+          "link": "https://aerowood.shop/product/detail.html?product_no=6127&cate_no=74&display_group=1&utm_source=naver&utm_medium=shopping&utm_campaign=knowledge_shopping&mkt_in=Y&ghost_mall_id=naver&ref=naver_open",
+          "image": "https://shopping-phinf.pstatic.net/main_6005436/60054364122.jpg",
+          "price": 46120,
+          "mallName": "에어로우드",
+          "productId": "60054364122",
           "productType": 2,
-          "brand": "아식스",
-          "maker": "아식스",
+          "brand": "조쿠",
+          "maker": "",
           "category": [
             "패션잡화",
             "남성신발",
@@ -3655,12 +3722,12 @@
           "confidence": "high"
         },
         {
-          "title": "아식스 노바블라스트 5 런닝화 마라톤화 블랙 화이트 1011B974-001",
-          "link": "http://weping.co.kr/goods/view?no=1406798&market=naver",
-          "image": "https://shopping-phinf.pstatic.net/main_6012937/60129373296.jpg",
-          "price": 75600,
-          "mallName": "위핑",
-          "productId": "60129373296",
+          "title": "아식스 노바블라스트 5 블랙 캐리어 그레이 1011B974-002",
+          "link": "https://nadomall.co.kr/product/detail.html?product_no=12966&cate_no=56&display_group=1&utm_source=naver&utm_medium=shopping&utm_campaign=knowledge_shopping&mkt_in=Y&ghost_mall_id=naver&ref=naver_open",
+          "image": "https://shopping-phinf.pstatic.net/main_5940255/59402552975.jpg",
+          "price": 55440,
+          "mallName": "프르티억",
+          "productId": "59402552975",
           "productType": 2,
           "brand": "",
           "maker": "",
@@ -3679,7 +3746,7 @@
     "new-balance-1080-v15": {
       "status": "no_match",
       "query": "뉴발란스 1080 V15 러닝화",
-      "fetchedAt": "2026-06-10T22:50:26.447Z",
+      "fetchedAt": "2026-06-11T12:44:16.312Z",
       "lowestPrice": null,
       "lowestOffer": null,
       "offers": [],
@@ -3689,17 +3756,17 @@
     "puma-벨로시티-나이트로-4": {
       "status": "found",
       "query": "푸마 벨로시티 나이트로 4 러닝화",
-      "fetchedAt": "2026-06-10T22:50:26.871Z",
-      "lowestPrice": 93670,
+      "fetchedAt": "2026-06-11T12:44:16.723Z",
+      "lowestPrice": 93280,
       "lowestOffer": {
-        "title": "푸마 벨로시티 나이트로 4 AP PKI31263506/0116602",
-        "link": "https://link.gmarket.co.kr/gate/pcs?item-no=4500309995&sub-id=1003&service-code=10000003&lcd=100000049",
-        "image": "https://shopping-phinf.pstatic.net/main_5781668/57816689529.1.jpg",
-        "price": 93670,
-        "mallName": "G마켓",
-        "productId": "57816689529",
+        "title": "벨로시티 나이트로 4 세이스카이 311909_311910",
+        "link": "http://www.ssg.com/item/itemView.ssg?itemId=1000786785974&siteNo=6001&salestrNo=6005&ckwhere=ssg_naver&appPopYn=n&utm_medium=PCS&utm_source=naver&utm_campaign=naver_pcs",
+        "image": "https://shopping-phinf.pstatic.net/main_5877214/58772144893.jpg",
+        "price": 93280,
+        "mallName": "SSG닷컴",
+        "productId": "58772144893",
         "productType": 2,
-        "brand": "",
+        "brand": "푸마",
         "maker": "",
         "category": [
           "패션잡화",
@@ -3711,33 +3778,15 @@
       },
       "offers": [
         {
-          "title": "푸마 벨로시티 나이트로 4 AP PKI31263506/0116602",
-          "link": "https://link.gmarket.co.kr/gate/pcs?item-no=4500309995&sub-id=1003&service-code=10000003&lcd=100000049",
-          "image": "https://shopping-phinf.pstatic.net/main_5781668/57816689529.1.jpg",
-          "price": 93670,
-          "mallName": "G마켓",
-          "productId": "57816689529",
-          "productType": 2,
-          "brand": "",
-          "maker": "",
-          "category": [
-            "패션잡화",
-            "남성신발",
-            "운동화",
-            "러닝화"
-          ],
-          "confidence": "high"
-        },
-        {
-          "title": "푸마 푸마 벨로시티 나이트로 4 AP PKI31263506/0116602",
-          "link": "https://link.gmarket.co.kr/gate/pcs?item-no=4505486490&sub-id=1003&service-code=10000003&lcd=100000049",
-          "image": "https://shopping-phinf.pstatic.net/main_5929974/59299746942.jpg",
-          "price": 93670,
-          "mallName": "G마켓",
-          "productId": "59299746942",
+          "title": "벨로시티 나이트로 4 세이스카이 311909_311910",
+          "link": "http://www.ssg.com/item/itemView.ssg?itemId=1000786785974&siteNo=6001&salestrNo=6005&ckwhere=ssg_naver&appPopYn=n&utm_medium=PCS&utm_source=naver&utm_campaign=naver_pcs",
+          "image": "https://shopping-phinf.pstatic.net/main_5877214/58772144893.jpg",
+          "price": 93280,
+          "mallName": "SSG닷컴",
+          "productId": "58772144893",
           "productType": 2,
           "brand": "푸마",
-          "maker": "푸마",
+          "maker": "",
           "category": [
             "패션잡화",
             "남성신발",
@@ -3753,6 +3802,24 @@
           "price": 93670,
           "mallName": "옥션",
           "productId": "59833047555",
+          "productType": 2,
+          "brand": "푸마",
+          "maker": "푸마",
+          "category": [
+            "패션잡화",
+            "남성신발",
+            "운동화",
+            "러닝화"
+          ],
+          "confidence": "high"
+        },
+        {
+          "title": "푸마 푸마 벨로시티 나이트로 4 AP PKI31263506/0116602",
+          "link": "https://link.gmarket.co.kr/gate/pcs?item-no=4505486490&sub-id=1003&service-code=10000003&lcd=100000049",
+          "image": "https://shopping-phinf.pstatic.net/main_5929974/59299746942.jpg",
+          "price": 93670,
+          "mallName": "G마켓",
+          "productId": "59299746942",
           "productType": 2,
           "brand": "푸마",
           "maker": "푸마",
@@ -3807,21 +3874,21 @@
     "hoka-스카이플로우": {
       "status": "found",
       "query": "호카 스카이플로우 러닝화",
-      "fetchedAt": "2026-06-10T22:50:27.299Z",
-      "lowestPrice": 52130,
+      "fetchedAt": "2026-06-11T12:44:17.118Z",
+      "lowestPrice": 51490,
       "lowestOffer": {
-        "title": "호카-Hoka 스카이플로우 여성용 1155113-FSTS",
-        "link": "https://kor123.kr/product/detail.html?product_no=8607&cate_no=48&display_group=1&utm_source=naver&utm_medium=shopping&utm_campaign=knowledge_shopping&mkt_in=Y&ghost_mall_id=naver&ref=naver_open",
-        "image": "https://shopping-phinf.pstatic.net/main_5957519/59575192153.jpg",
-        "price": 52130,
+        "title": "호카-Hoka 스카이플로우 런닝화 검흰 1155113 BWHT",
+        "link": "https://kor123.kr/product/detail.html?product_no=8608&cate_no=48&display_group=1&utm_source=naver&utm_medium=shopping&utm_campaign=knowledge_shopping&mkt_in=Y&ghost_mall_id=naver&ref=naver_open",
+        "image": "https://shopping-phinf.pstatic.net/main_5957516/59575163558.jpg",
+        "price": 51490,
         "mallName": "스이큐",
-        "productId": "59575192153",
+        "productId": "59575163558",
         "productType": 2,
         "brand": "",
         "maker": "",
         "category": [
           "패션잡화",
-          "여성신발",
+          "남성신발",
           "운동화",
           "러닝화"
         ],
@@ -3829,28 +3896,10 @@
       },
       "offers": [
         {
-          "title": "호카-Hoka 스카이플로우 여성용 1155113-FSTS",
-          "link": "https://kor123.kr/product/detail.html?product_no=8607&cate_no=48&display_group=1&utm_source=naver&utm_medium=shopping&utm_campaign=knowledge_shopping&mkt_in=Y&ghost_mall_id=naver&ref=naver_open",
-          "image": "https://shopping-phinf.pstatic.net/main_5957519/59575192153.jpg",
-          "price": 52130,
-          "mallName": "스이큐",
-          "productId": "59575192153",
-          "productType": 2,
-          "brand": "",
-          "maker": "",
-          "category": [
-            "패션잡화",
-            "여성신발",
-            "운동화",
-            "러닝화"
-          ],
-          "confidence": "medium"
-        },
-        {
           "title": "호카-Hoka 스카이플로우 런닝화 검흰 1155113 BWHT",
           "link": "https://kor123.kr/product/detail.html?product_no=8608&cate_no=48&display_group=1&utm_source=naver&utm_medium=shopping&utm_campaign=knowledge_shopping&mkt_in=Y&ghost_mall_id=naver&ref=naver_open",
           "image": "https://shopping-phinf.pstatic.net/main_5957516/59575163558.jpg",
-          "price": 52290,
+          "price": 51490,
           "mallName": "스이큐",
           "productId": "59575163558",
           "productType": 2,
@@ -3865,30 +3914,12 @@
           "confidence": "medium"
         },
         {
-          "title": "호카-Hoka 여성 런닝슈즈 스카이플로우 W 1155113 MTW",
-          "link": "https://kor123.kr/product/detail.html?product_no=8606&cate_no=48&display_group=1&utm_source=naver&utm_medium=shopping&utm_campaign=knowledge_shopping&mkt_in=Y&ghost_mall_id=naver&ref=naver_open",
-          "image": "https://shopping-phinf.pstatic.net/main_5957518/59575185028.jpg",
-          "price": 52370,
-          "mallName": "스이큐",
-          "productId": "59575185028",
-          "productType": 2,
-          "brand": "",
-          "maker": "",
-          "category": [
-            "패션잡화",
-            "여성신발",
-            "운동화",
-            "러닝화"
-          ],
-          "confidence": "medium"
-        },
-        {
-          "title": "호카-Hoka 스카이플로우 남성 러닝화 1155111-VVY",
-          "link": "https://kor123.kr/product/detail.html?product_no=8610&cate_no=48&display_group=1&utm_source=naver&utm_medium=shopping&utm_campaign=knowledge_shopping&mkt_in=Y&ghost_mall_id=naver&ref=naver_open",
-          "image": "https://shopping-phinf.pstatic.net/main_5957518/59575187299.jpg",
-          "price": 60300,
-          "mallName": "스이큐",
-          "productId": "59575187299",
+          "title": "호카오네오네 스카이플로우 Skyflow 런닝화 러닝화 1155113-FSTS",
+          "link": "https://seoulselect.co.kr/product/detail.html?product_no=16238&cate_no=238&display_group=1&utm_source=naver&utm_medium=shopping&utm_campaign=knowledge_shopping&mkt_in=Y&ghost_mall_id=naver&ref=naver_open",
+          "image": "https://shopping-phinf.pstatic.net/main_5933601/59336018494.jpg",
+          "price": 51830,
+          "mallName": "브르게드",
+          "productId": "59336018494",
           "productType": 2,
           "brand": "",
           "maker": "",
@@ -3901,12 +3932,48 @@
           "confidence": "medium"
         },
         {
-          "title": "호카-Hoka 스카이플로우 남성 러닝화 1155111 BWHT",
-          "link": "https://kor123.kr/product/detail.html?product_no=8611&cate_no=48&display_group=1&utm_source=naver&utm_medium=shopping&utm_campaign=knowledge_shopping&mkt_in=Y&ghost_mall_id=naver&ref=naver_open",
-          "image": "https://shopping-phinf.pstatic.net/main_5957516/59575163156.jpg",
-          "price": 60300,
-          "mallName": "스이큐",
-          "productId": "59575163156",
+          "title": "호카오네오네 스카이플로우 Skyflow 런닝화 러닝화 1155113-FSTS",
+          "link": "https://olvui.co.kr/product/detail.html?product_no=21708&cate_no=198&display_group=1&utm_source=naver&utm_medium=shopping&utm_campaign=knowledge_shopping&mkt_in=Y&ghost_mall_id=naver&ref=naver_open",
+          "image": "https://shopping-phinf.pstatic.net/main_5898412/58984128004.jpg",
+          "price": 51830,
+          "mallName": "아리크레",
+          "productId": "58984128004",
+          "productType": 2,
+          "brand": "",
+          "maker": "",
+          "category": [
+            "패션잡화",
+            "남성신발",
+            "운동화",
+            "러닝화"
+          ],
+          "confidence": "medium"
+        },
+        {
+          "title": "호카오네오네 스카이플로우 Skyflow 런닝화 러닝화 1155113-FSTS",
+          "link": "https://nadomall.co.kr/product/detail.html?product_no=735&cate_no=58&display_group=1&utm_source=naver&utm_medium=shopping&utm_campaign=knowledge_shopping&mkt_in=Y&ghost_mall_id=naver&ref=naver_open",
+          "image": "https://shopping-phinf.pstatic.net/main_5940257/59402574845.jpg",
+          "price": 51920,
+          "mallName": "프르티억",
+          "productId": "59402574845",
+          "productType": 2,
+          "brand": "",
+          "maker": "",
+          "category": [
+            "패션잡화",
+            "남성신발",
+            "운동화",
+            "러닝화"
+          ],
+          "confidence": "medium"
+        },
+        {
+          "title": "호카오네오네 스카이플로우 Skyflow 런닝화 러닝화 1155113-BWHT",
+          "link": "https://olvui.co.kr/product/detail.html?product_no=21709&cate_no=198&display_group=1&utm_source=naver&utm_medium=shopping&utm_campaign=knowledge_shopping&mkt_in=Y&ghost_mall_id=naver&ref=naver_open",
+          "image": "https://shopping-phinf.pstatic.net/main_5898415/58984155525.jpg",
+          "price": 51990,
+          "mallName": "아리크레",
+          "productId": "58984155525",
           "productType": 2,
           "brand": "",
           "maker": "",
@@ -3925,7 +3992,7 @@
     "brooks-글리세린-플렉스": {
       "status": "found",
       "query": "브룩스 글리세린 플렉스 러닝화",
-      "fetchedAt": "2026-06-10T22:50:27.728Z",
+      "fetchedAt": "2026-06-11T12:44:17.511Z",
       "lowestPrice": 222000,
       "lowestOffer": {
         "title": "US 7.5 브룩스 러닝 글리세린 플렉스 화이트 블랙 검 - D 미디움 1104781D187",
@@ -4015,12 +4082,12 @@
           "confidence": "high"
         },
         {
-          "title": "US 12 브룩스 러닝 글리세린 플렉스 화이트 그린 게코 팬텀 - D 미디움 1104781D114",
-          "link": "https://kream.co.kr/shopping-products/834135?utm_campaign=NAVER_SHOPPING_PARTNER_CPC&utm_content=BrooksRunning&utm_medium=cpc&utm_source=naver_shopping&utm_term=834135_10&size=US+12",
-          "image": "https://shopping-phinf.pstatic.net/main_6012535/60125354741.jpg",
+          "title": "US 10.5 브룩스 러닝 글리세린 플렉스 화이트 그린 게코 팬텀 - D 미디움 1104781D114",
+          "link": "https://kream.co.kr/shopping-products/834135?utm_campaign=NAVER_SHOPPING_PARTNER_CPC&utm_content=BrooksRunning&utm_medium=cpc&utm_source=naver_shopping&utm_term=834135_7&size=US+10.5",
+          "image": "https://shopping-phinf.pstatic.net/main_6012535/60125357864.jpg",
           "price": 356300,
           "mallName": "KREAM",
-          "productId": "60125354741",
+          "productId": "60125357864",
           "productType": 2,
           "brand": "브룩스러닝",
           "maker": "",
@@ -4038,7 +4105,7 @@
     "mizuno-네오-젠-2": {
       "status": "no_match",
       "query": "미즈노 네오 젠 2 러닝화",
-      "fetchedAt": "2026-06-10T22:50:28.144Z",
+      "fetchedAt": "2026-06-11T12:44:17.911Z",
       "lowestPrice": null,
       "lowestOffer": null,
       "offers": [],
@@ -4048,7 +4115,7 @@
     "on-클라우드-몬스터-3": {
       "status": "no_match",
       "query": "온러닝 클라우드 몬스터 3 러닝화",
-      "fetchedAt": "2026-06-10T22:50:28.563Z",
+      "fetchedAt": "2026-06-11T12:44:18.300Z",
       "lowestPrice": null,
       "lowestOffer": null,
       "offers": [],
@@ -4058,15 +4125,15 @@
     "nike-라이벌플라이-4": {
       "status": "found",
       "query": "나이키 라이벌플라이 4 러닝화",
-      "fetchedAt": "2026-06-10T22:50:28.987Z",
-      "lowestPrice": 49990,
+      "fetchedAt": "2026-06-11T12:44:18.704Z",
+      "lowestPrice": 46940,
       "lowestOffer": {
-        "title": "나이키 남성 에어 줌 라이벌 플라이 4 화이트 퍼플 FV6040-100",
-        "link": "https://kor123.kr/product/detail.html?product_no=6393&cate_no=45&display_group=1&utm_source=naver&utm_medium=shopping&utm_campaign=knowledge_shopping&mkt_in=Y&ghost_mall_id=naver&ref=naver_open",
-        "image": "https://shopping-phinf.pstatic.net/main_5957519/59575190967.jpg",
-        "price": 49990,
-        "mallName": "스이큐",
-        "productId": "59575190967",
+        "title": "나이키 에어 줌 라이벌 플라이 4 화이트 하바네로 레드 HQ3512-100",
+        "link": "https://nadomall.co.kr/product/detail.html?product_no=8083&cate_no=54&display_group=1&utm_source=naver&utm_medium=shopping&utm_campaign=knowledge_shopping&mkt_in=Y&ghost_mall_id=naver&ref=naver_open",
+        "image": "https://shopping-phinf.pstatic.net/main_5940258/59402589417.jpg",
+        "price": 46940,
+        "mallName": "프르티억",
+        "productId": "59402589417",
         "productType": 2,
         "brand": "",
         "maker": "",
@@ -4080,10 +4147,28 @@
       },
       "offers": [
         {
+          "title": "나이키 에어 줌 라이벌 플라이 4 화이트 하바네로 레드 HQ3512-100",
+          "link": "https://nadomall.co.kr/product/detail.html?product_no=8083&cate_no=54&display_group=1&utm_source=naver&utm_medium=shopping&utm_campaign=knowledge_shopping&mkt_in=Y&ghost_mall_id=naver&ref=naver_open",
+          "image": "https://shopping-phinf.pstatic.net/main_5940258/59402589417.jpg",
+          "price": 46940,
+          "mallName": "프르티억",
+          "productId": "59402589417",
+          "productType": 2,
+          "brand": "",
+          "maker": "",
+          "category": [
+            "패션잡화",
+            "남성신발",
+            "운동화",
+            "러닝화"
+          ],
+          "confidence": "high"
+        },
+        {
           "title": "나이키 남성 에어 줌 라이벌 플라이 4 화이트 퍼플 FV6040-100",
           "link": "https://kor123.kr/product/detail.html?product_no=6393&cate_no=45&display_group=1&utm_source=naver&utm_medium=shopping&utm_campaign=knowledge_shopping&mkt_in=Y&ghost_mall_id=naver&ref=naver_open",
           "image": "https://shopping-phinf.pstatic.net/main_5957519/59575190967.jpg",
-          "price": 49990,
+          "price": 49690,
           "mallName": "스이큐",
           "productId": "59575190967",
           "productType": 2,
@@ -4098,12 +4183,12 @@
           "confidence": "high"
         },
         {
-          "title": "나이키 라이벌 플라이 4 FV6040-001",
-          "link": "https://kor123.kr/product/detail.html?product_no=7026&cate_no=45&display_group=1&utm_source=naver&utm_medium=shopping&utm_campaign=knowledge_shopping&mkt_in=Y&ghost_mall_id=naver&ref=naver_open",
-          "image": "https://shopping-phinf.pstatic.net/main_5957516/59575168652.jpg",
-          "price": 51900,
-          "mallName": "스이큐",
-          "productId": "59575168652",
+          "title": "나이키 에어 줌 라이벌 플라이 4 화이트 바이오테크 FV6040-100",
+          "link": "https://nadomall.co.kr/product/detail.html?product_no=8247&cate_no=54&display_group=1&utm_source=naver&utm_medium=shopping&utm_campaign=knowledge_shopping&mkt_in=Y&ghost_mall_id=naver&ref=naver_open",
+          "image": "https://shopping-phinf.pstatic.net/main_5940255/59402554469.jpg",
+          "price": 49780,
+          "mallName": "프르티억",
+          "productId": "59402554469",
           "productType": 2,
           "brand": "",
           "maker": "",
@@ -4116,12 +4201,12 @@
           "confidence": "high"
         },
         {
-          "title": "나이키 에어줌 라이벌 플라이 4 FV6040-101",
-          "link": "https://kor123.kr/product/detail.html?product_no=7025&cate_no=45&display_group=1&utm_source=naver&utm_medium=shopping&utm_campaign=knowledge_shopping&mkt_in=Y&ghost_mall_id=naver&ref=naver_open",
-          "image": "https://shopping-phinf.pstatic.net/main_5957517/59575172029.jpg",
-          "price": 51900,
-          "mallName": "스이큐",
-          "productId": "59575172029",
+          "title": "나이키 에어 줌 라이벌 플라이 4 런닝화 화이트블랙 FV6040-100",
+          "link": "https://seoulselect.co.kr/product/detail.html?product_no=19792&cate_no=258&display_group=1&utm_source=naver&utm_medium=shopping&utm_campaign=knowledge_shopping&mkt_in=Y&ghost_mall_id=naver&ref=naver_open",
+          "image": "https://shopping-phinf.pstatic.net/main_5979137/59791373236.jpg",
+          "price": 50190,
+          "mallName": "브르게드",
+          "productId": "59791373236",
           "productType": 2,
           "brand": "",
           "maker": "",
@@ -4134,30 +4219,12 @@
           "confidence": "high"
         },
         {
-          "title": "나이키 라이벌 플라이 4 FV6040-104",
-          "link": "https://kor123.kr/product/detail.html?product_no=6392&cate_no=45&display_group=1&utm_source=naver&utm_medium=shopping&utm_campaign=knowledge_shopping&mkt_in=Y&ghost_mall_id=naver&ref=naver_open",
-          "image": "https://shopping-phinf.pstatic.net/main_5957518/59575183828.jpg",
-          "price": 53260,
-          "mallName": "스이큐",
-          "productId": "59575183828",
-          "productType": 2,
-          "brand": "",
-          "maker": "",
-          "category": [
-            "패션잡화",
-            "남성신발",
-            "운동화",
-            "러닝화"
-          ],
-          "confidence": "high"
-        },
-        {
-          "title": "나이키 러닝화 남성 줌 라이벌 플라이 4 FV6040-800",
-          "link": "https://kor123.kr/product/detail.html?product_no=6391&cate_no=45&display_group=1&utm_source=naver&utm_medium=shopping&utm_campaign=knowledge_shopping&mkt_in=Y&ghost_mall_id=naver&ref=naver_open",
-          "image": "https://shopping-phinf.pstatic.net/main_5957516/59575168650.jpg",
-          "price": 57000,
-          "mallName": "스이큐",
-          "productId": "59575168650",
+          "title": "나이키 에어 줌 라이벌 플라이 4 러닝화 FV6040-101",
+          "link": "https://seoulselect.co.kr/product/detail.html?product_no=19791&cate_no=258&display_group=1&utm_source=naver&utm_medium=shopping&utm_campaign=knowledge_shopping&mkt_in=Y&ghost_mall_id=naver&ref=naver_open",
+          "image": "https://shopping-phinf.pstatic.net/main_5979135/59791356628.jpg",
+          "price": 51380,
+          "mallName": "브르게드",
+          "productId": "59791356628",
           "productType": 2,
           "brand": "",
           "maker": "",
@@ -4176,7 +4243,7 @@
     "adidas-아디오스-9": {
       "status": "no_match",
       "query": "아디다스 아디오스 9 러닝화",
-      "fetchedAt": "2026-06-10T22:50:29.412Z",
+      "fetchedAt": "2026-06-11T12:44:19.109Z",
       "lowestPrice": null,
       "lowestOffer": null,
       "offers": [],
@@ -4186,15 +4253,15 @@
     "asics-에보라이드-스피드-3": {
       "status": "found",
       "query": "아식스 에보라이드 스피드 3 러닝화",
-      "fetchedAt": "2026-06-10T22:50:29.818Z",
+      "fetchedAt": "2026-06-11T12:44:19.505Z",
       "lowestPrice": 102410,
       "lowestOffer": {
         "title": "아식스 여성 러닝화 에보라이드 스피드 3 와이드 1012B762.001 조깅화 운동화",
-        "link": "http://www.ssg.com/item/itemView.ssg?itemId=1000723932715&siteNo=6001&salestrNo=6005&ckwhere=ssg_naver&appPopYn=n&utm_medium=PCS&utm_source=naver&utm_campaign=naver_pcs",
-        "image": "https://shopping-phinf.pstatic.net/main_5665943/56659432254.jpg",
+        "link": "http://shinsegaemall.ssg.com/item/itemView.ssg?itemId=1000723932715&siteNo=6004&salestrNo=6005&ckwhere=s_naver&appPopYn=n&utm_medium=PCS&utm_source=naver&utm_campaign=naver_pcs",
+        "image": "https://shopping-phinf.pstatic.net/main_5665936/56659364472.jpg",
         "price": 102410,
-        "mallName": "SSG닷컴",
-        "productId": "56659432254",
+        "mallName": "신세계몰",
+        "productId": "56659364472",
         "productType": 2,
         "brand": "",
         "maker": "",
@@ -4207,24 +4274,6 @@
         "confidence": "high"
       },
       "offers": [
-        {
-          "title": "아식스 여성 러닝화 에보라이드 스피드 3 와이드 1012B762.001 조깅화 운동화",
-          "link": "http://www.ssg.com/item/itemView.ssg?itemId=1000723932715&siteNo=6001&salestrNo=6005&ckwhere=ssg_naver&appPopYn=n&utm_medium=PCS&utm_source=naver&utm_campaign=naver_pcs",
-          "image": "https://shopping-phinf.pstatic.net/main_5665943/56659432254.jpg",
-          "price": 102410,
-          "mallName": "SSG닷컴",
-          "productId": "56659432254",
-          "productType": 2,
-          "brand": "",
-          "maker": "",
-          "category": [
-            "패션잡화",
-            "여성신발",
-            "운동화",
-            "러닝화"
-          ],
-          "confidence": "high"
-        },
         {
           "title": "아식스 여성 러닝화 에보라이드 스피드 3 와이드 1012B762.001 조깅화 운동화",
           "link": "http://shinsegaemall.ssg.com/item/itemView.ssg?itemId=1000723932715&siteNo=6004&salestrNo=6005&ckwhere=s_naver&appPopYn=n&utm_medium=PCS&utm_source=naver&utm_campaign=naver_pcs",
@@ -4244,18 +4293,18 @@
           "confidence": "high"
         },
         {
-          "title": "아식스 남성 에보라이드 스피드 3 EvoRide Speed 3 러닝화 1011B969",
-          "link": "https://smartstore.naver.com/main/products/13562000329",
-          "image": "https://shopping-phinf.pstatic.net/main_9110651/91106510696.2.jpg",
-          "price": 109000,
-          "mallName": "포트909",
-          "productId": "91106510696",
+          "title": "아식스 여성 러닝화 에보라이드 스피드 3 와이드 1012B762.001 조깅화 운동화",
+          "link": "http://www.ssg.com/item/itemView.ssg?itemId=1000723932715&siteNo=6001&salestrNo=6005&ckwhere=ssg_naver&appPopYn=n&utm_medium=PCS&utm_source=naver&utm_campaign=naver_pcs",
+          "image": "https://shopping-phinf.pstatic.net/main_5665943/56659432254.jpg",
+          "price": 102410,
+          "mallName": "SSG닷컴",
+          "productId": "56659432254",
           "productType": 2,
-          "brand": "아식스",
-          "maker": "아식스",
+          "brand": "",
+          "maker": "",
           "category": [
             "패션잡화",
-            "남성신발",
+            "여성신발",
             "운동화",
             "러닝화"
           ],
@@ -4296,6 +4345,24 @@
             "러닝화"
           ],
           "confidence": "high"
+        },
+        {
+          "title": "아식스 운동화 에보라이드 스피드 3 그린 남성용 러닝화 1011B968-750",
+          "link": "https://www.lotteon.com/p/product/LO2659244854?sitmNo=LO2659244854_2659244855&ch_no=100065&ch_dtl_no=1000030&entryPoint=pcs&dp_infw_cd=CHT",
+          "image": "https://shopping-phinf.pstatic.net/main_5970501/59705011500.jpg",
+          "price": 119700,
+          "mallName": "롯데ON",
+          "productId": "59705011500",
+          "productType": 2,
+          "brand": "아식스",
+          "maker": "아식스",
+          "category": [
+            "패션잡화",
+            "남성신발",
+            "운동화",
+            "러닝화"
+          ],
+          "confidence": "high"
         }
       ],
       "confidence": "high",
@@ -4304,21 +4371,21 @@
     "new-balance-레벨-v5": {
       "status": "found",
       "query": "뉴발란스 레벨 V5 러닝화",
-      "fetchedAt": "2026-06-10T22:50:30.227Z",
-      "lowestPrice": 119700,
+      "fetchedAt": "2026-06-11T12:44:19.898Z",
+      "lowestPrice": 95340,
       "lowestOffer": {
-        "title": "뉴발란스 남성런닝화 조깅화 FuelCell Rebel v5 화이트 레드 290 녹색03",
-        "link": "https://link.coupang.com/re/PCSNAVERPCSDP?pageKey=9562900742&ctag=9562900742&lptag=V95483065781&itemId=28538128792&vendorItemId=95483065781&spec=10305199",
-        "image": "https://shopping-phinf.pstatic.net/main_6038278/60382785273.jpg",
-        "price": 119700,
-        "mallName": "쿠팡",
-        "productId": "60382785273",
+        "title": "뉴발란스 (WMNS) FuelCell Rebel v5 랩 그린 실버 WFCXLZ5",
+        "link": "https://nadomall.co.kr/product/detail.html?product_no=3042&cate_no=57&display_group=1&utm_source=naver&utm_medium=shopping&utm_campaign=knowledge_shopping&mkt_in=Y&ghost_mall_id=naver&ref=naver_open",
+        "image": "https://shopping-phinf.pstatic.net/main_5952072/59520725905.jpg",
+        "price": 95340,
+        "mallName": "프르티억",
+        "productId": "59520725905",
         "productType": 2,
-        "brand": "뉴발란스",
-        "maker": "뉴발란스",
+        "brand": "",
+        "maker": "",
         "category": [
           "패션잡화",
-          "남성신발",
+          "여성신발",
           "운동화",
           "러닝화"
         ],
@@ -4326,90 +4393,36 @@
       },
       "offers": [
         {
-          "title": "뉴발란스 남성런닝화 조깅화 FuelCell Rebel v5 화이트 레드 290 녹색03",
-          "link": "https://link.coupang.com/re/PCSNAVERPCSDP?pageKey=9562900742&ctag=9562900742&lptag=V95483065781&itemId=28538128792&vendorItemId=95483065781&spec=10305199",
-          "image": "https://shopping-phinf.pstatic.net/main_6038278/60382785273.jpg",
-          "price": 119700,
-          "mallName": "쿠팡",
-          "productId": "60382785273",
+          "title": "뉴발란스 (WMNS) FuelCell Rebel v5 랩 그린 실버 WFCXLZ5",
+          "link": "https://nadomall.co.kr/product/detail.html?product_no=3042&cate_no=57&display_group=1&utm_source=naver&utm_medium=shopping&utm_campaign=knowledge_shopping&mkt_in=Y&ghost_mall_id=naver&ref=naver_open",
+          "image": "https://shopping-phinf.pstatic.net/main_5952072/59520725905.jpg",
+          "price": 95340,
+          "mallName": "프르티억",
+          "productId": "59520725905",
           "productType": 2,
-          "brand": "뉴발란스",
-          "maker": "뉴발란스",
+          "brand": "",
+          "maker": "",
           "category": [
             "패션잡화",
-            "남성신발",
+            "여성신발",
             "운동화",
             "러닝화"
           ],
           "confidence": "high"
         },
         {
-          "title": "뉴발란스 남성런닝화 조깅화 FuelCell Rebel v5 화이트 레드 260 화이트+레드01",
-          "link": "https://link.coupang.com/re/PCSNAVERPCSDP?pageKey=9562900742&ctag=9562900742&lptag=V95483065722&itemId=28538128679&vendorItemId=95483065722&spec=10305199",
-          "image": "https://shopping-phinf.pstatic.net/main_6035174/60351747493.jpg",
-          "price": 119700,
-          "mallName": "쿠팡",
-          "productId": "60351747493",
+          "title": "뉴발란스 (WMNS) FuelCell Rebel v5 블랙 화이트 실버 WFCXLK5",
+          "link": "https://nadomall.co.kr/product/detail.html?product_no=3036&cate_no=57&display_group=1&utm_source=naver&utm_medium=shopping&utm_campaign=knowledge_shopping&mkt_in=Y&ghost_mall_id=naver&ref=naver_open",
+          "image": "https://shopping-phinf.pstatic.net/main_5952075/59520755539.jpg",
+          "price": 110440,
+          "mallName": "프르티억",
+          "productId": "59520755539",
           "productType": 2,
-          "brand": "뉴발란스",
-          "maker": "뉴발란스",
+          "brand": "",
+          "maker": "",
           "category": [
             "패션잡화",
-            "남성신발",
-            "운동화",
-            "러닝화"
-          ],
-          "confidence": "high"
-        },
-        {
-          "title": "뉴발란스 남성런닝화 조깅화 FuelCell Rebel v5 화이트 레드 265 블랙02",
-          "link": "https://link.coupang.com/re/PCSNAVERPCSDP?pageKey=9562900742&ctag=9562900742&lptag=V95483065728&itemId=28538128698&vendorItemId=95483065728&spec=10305199",
-          "image": "https://shopping-phinf.pstatic.net/main_6032828/60328285528.jpg",
-          "price": 119700,
-          "mallName": "쿠팡",
-          "productId": "60328285528",
-          "productType": 2,
-          "brand": "뉴발란스",
-          "maker": "뉴발란스",
-          "category": [
-            "패션잡화",
-            "남성신발",
-            "운동화",
-            "러닝화"
-          ],
-          "confidence": "high"
-        },
-        {
-          "title": "뉴발란스 남성런닝화 조깅화 FuelCell Rebel v5 화이트 레드 265 레드+블랙04",
-          "link": "https://link.coupang.com/re/PCSNAVERPCSDP?pageKey=9562900742&ctag=9562900742&lptag=V95483065723&itemId=28538128694&vendorItemId=95483065723&spec=10305199",
-          "image": "https://shopping-phinf.pstatic.net/main_6031576/60315766543.jpg",
-          "price": 119700,
-          "mallName": "쿠팡",
-          "productId": "60315766543",
-          "productType": 2,
-          "brand": "뉴발란스",
-          "maker": "뉴발란스",
-          "category": [
-            "패션잡화",
-            "남성신발",
-            "운동화",
-            "러닝화"
-          ],
-          "confidence": "high"
-        },
-        {
-          "title": "뉴발란스 남성런닝화 조깅화 FuelCell Rebel v5 화이트 레드 280 화이트+레드01",
-          "link": "https://link.coupang.com/re/PCSNAVERPCSDP?pageKey=9562900742&ctag=9562900742&lptag=V95483065759&itemId=28538128789&vendorItemId=95483065759&spec=10305199",
-          "image": "https://shopping-phinf.pstatic.net/main_6031602/60316021848.jpg",
-          "price": 119700,
-          "mallName": "쿠팡",
-          "productId": "60316021848",
-          "productType": 2,
-          "brand": "뉴발란스",
-          "maker": "뉴발란스",
-          "category": [
-            "패션잡화",
-            "남성신발",
+            "여성신발",
             "운동화",
             "러닝화"
           ],
@@ -4422,7 +4435,7 @@
     "saucony-킨바라-16": {
       "status": "found",
       "query": "써코니 킨바라 16 러닝화",
-      "fetchedAt": "2026-06-10T22:50:30.655Z",
+      "fetchedAt": "2026-06-11T12:44:20.301Z",
       "lowestPrice": 110990,
       "lowestOffer": {
         "title": "써코니 킨바라 16 러닝화 S11020",
@@ -4456,6 +4469,24 @@
             "스포츠/레저",
             "배구",
             "배구화"
+          ],
+          "confidence": "high"
+        },
+        {
+          "title": "써코니 여성 킨바라 16 S11020-200",
+          "link": "https://smartstore.naver.com/main/products/12071274197",
+          "image": "https://shopping-phinf.pstatic.net/main_8961578/89615784896.jpg",
+          "price": 111300,
+          "mallName": "Saucony",
+          "productId": "89615784896",
+          "productType": 3,
+          "brand": "써코니",
+          "maker": "써코니",
+          "category": [
+            "패션잡화",
+            "여성신발",
+            "운동화",
+            "러닝화"
           ],
           "confidence": "high"
         },
@@ -4512,24 +4543,6 @@
             "러닝화"
           ],
           "confidence": "high"
-        },
-        {
-          "title": "써코니 남성 킨바라 16 S21020-155",
-          "link": "https://smartstore.naver.com/main/products/13159524908",
-          "image": "https://shopping-phinf.pstatic.net/main_9070403/90704036004.1.jpg",
-          "price": 111300,
-          "mallName": "Saucony",
-          "productId": "90704036004",
-          "productType": 3,
-          "brand": "써코니",
-          "maker": "써코니",
-          "category": [
-            "패션잡화",
-            "남성신발",
-            "운동화",
-            "러닝화"
-          ],
-          "confidence": "high"
         }
       ],
       "confidence": "high",
@@ -4538,7 +4551,7 @@
     "hoka-링컨-4": {
       "status": "found",
       "query": "호카 링컨 4 러닝화",
-      "fetchedAt": "2026-06-10T22:50:31.081Z",
+      "fetchedAt": "2026-06-11T12:44:20.707Z",
       "lowestPrice": 102080,
       "lowestOffer": {
         "title": "호카 운동화 /t3- 1155132-ECC / 남성 RINCON 4 WIDE 링컨 4 와이드 ECC",
@@ -4617,7 +4630,7 @@
           "title": "호카오네오네 [호카오네오네]호카 운동화 /t3- 1155132-ECC / 남성 RINCON 4 WIDE 링컨 4 와이드 ECC",
           "link": "https://www.lotteimall.com/coop/affilGate.lotte?chl_no=141370&chl_dtl_no=2540914&returnUrl=/goods/viewGoodsDetail.lotte?goods_no=3341155545&utm_source=naver&utm_medium=affiliate&utm_campaign=price_compare",
           "image": "https://shopping-phinf.pstatic.net/main_6038866/60388660353.jpg",
-          "price": 107880,
+          "price": 108000,
           "mallName": "롯데홈쇼핑",
           "productId": "60388660353",
           "productType": 2,
@@ -4633,11 +4646,11 @@
         },
         {
           "title": "호카오네오네 호카 운동화/ 1155132-ECC/ 남성 RINCON 4 WIDE 링컨",
-          "link": "https://link.gmarket.co.kr/gate/pcs?item-no=4774384752&sub-id=1003&service-code=10000003&lcd=100000043",
-          "image": "https://shopping-phinf.pstatic.net/main_6035360/60353609561.jpg",
+          "link": "https://link.auction.co.kr/gate/pcs?item-no=F581795292&sub-id=1&service-code=10000003",
+          "image": "https://shopping-phinf.pstatic.net/main_6033937/60339379660.jpg",
           "price": 108000,
-          "mallName": "G마켓",
-          "productId": "60353609561",
+          "mallName": "옥션",
+          "productId": "60339379660",
           "productType": 2,
           "brand": "",
           "maker": "",
@@ -4654,127 +4667,19 @@
       "message": ""
     },
     "nike-페가수스-플러스": {
-      "status": "found",
+      "status": "no_match",
       "query": "나이키 페가수스 플러스 러닝화",
-      "fetchedAt": "2026-06-10T22:50:31.492Z",
-      "lowestPrice": 74000,
-      "lowestOffer": {
-        "title": "나이키 페가수스 플러스 남성 로드 러닝화 FQ7262-002",
-        "link": "https://www.place707.com/goods/view?no=193975&market=naver",
-        "image": "https://shopping-phinf.pstatic.net/main_5611748/56117488626.jpg",
-        "price": 74000,
-        "mallName": "플레이스707",
-        "productId": "56117488626",
-        "productType": 2,
-        "brand": "나이키",
-        "maker": "나이키",
-        "category": [
-          "패션잡화",
-          "남성신발",
-          "운동화",
-          "러닝화"
-        ],
-        "confidence": "high"
-      },
-      "offers": [
-        {
-          "title": "나이키 페가수스 플러스 남성 로드 러닝화 FQ7262-002",
-          "link": "https://www.place707.com/goods/view?no=193975&market=naver",
-          "image": "https://shopping-phinf.pstatic.net/main_5611748/56117488626.jpg",
-          "price": 74000,
-          "mallName": "플레이스707",
-          "productId": "56117488626",
-          "productType": 2,
-          "brand": "나이키",
-          "maker": "나이키",
-          "category": [
-            "패션잡화",
-            "남성신발",
-            "운동화",
-            "러닝화"
-          ],
-          "confidence": "high"
-        },
-        {
-          "title": "나이키 페가수스 플러스 로드 러닝 FQ7261-108",
-          "link": "https://www.place707.com/goods/view?no=193870&market=naver",
-          "image": "https://shopping-phinf.pstatic.net/main_5594988/55949883502.jpg",
-          "price": 74000,
-          "mallName": "플레이스707",
-          "productId": "55949883502",
-          "productType": 2,
-          "brand": "나이키",
-          "maker": "나이키",
-          "category": [
-            "패션잡화",
-            "남성신발",
-            "운동화",
-            "러닝화"
-          ],
-          "confidence": "high"
-        },
-        {
-          "title": "나이키 페가수스 플러스 베얼리 그레이 핫 펀치 FQ7262-001",
-          "link": "https://www.place707.com/goods/view?no=193976&market=naver",
-          "image": "https://shopping-phinf.pstatic.net/main_5611752/56117529272.jpg",
-          "price": 74000,
-          "mallName": "플레이스707",
-          "productId": "56117529272",
-          "productType": 2,
-          "brand": "나이키",
-          "maker": "나이키",
-          "category": [
-            "패션잡화",
-            "여성신발",
-            "운동화",
-            "러닝화"
-          ],
-          "confidence": "high"
-        },
-        {
-          "title": "나이키 페가수스 플러스 로드 러닝화 FQ7261 108",
-          "link": "https://www.itsomemall.com/goods/view?no=196642&market=naver",
-          "image": "https://shopping-phinf.pstatic.net/main_5409191/54091919830.jpg",
-          "price": 74000,
-          "mallName": "잇썸몰",
-          "productId": "54091919830",
-          "productType": 2,
-          "brand": "나이키",
-          "maker": "나이키",
-          "category": [
-            "패션잡화",
-            "남성신발",
-            "운동화",
-            "러닝화"
-          ],
-          "confidence": "high"
-        },
-        {
-          "title": "나이키 우먼스 페가수스 플러스 로드 런닝화 운동화 마라톤화 FQ7261-102",
-          "link": "https://www.place707.com/goods/view?no=193871&market=naver",
-          "image": "https://shopping-phinf.pstatic.net/main_5594991/55949918094.jpg",
-          "price": 75000,
-          "mallName": "플레이스707",
-          "productId": "55949918094",
-          "productType": 2,
-          "brand": "나이키",
-          "maker": "나이키",
-          "category": [
-            "패션잡화",
-            "여성신발",
-            "운동화",
-            "러닝화"
-          ],
-          "confidence": "high"
-        }
-      ],
-      "confidence": "high",
-      "message": ""
+      "fetchedAt": "2026-06-11T12:44:21.092Z",
+      "lowestPrice": null,
+      "lowestOffer": null,
+      "offers": [],
+      "confidence": "low",
+      "message": "조건에 맞는 가격 결과를 찾지 못했습니다."
     },
     "adidas-에보-sl": {
       "status": "no_match",
       "query": "아디다스 에보 SL 러닝화",
-      "fetchedAt": "2026-06-10T22:50:31.906Z",
+      "fetchedAt": "2026-06-11T12:44:21.481Z",
       "lowestPrice": null,
       "lowestOffer": null,
       "offers": [],
@@ -4784,53 +4689,73 @@
     "adidas-하이퍼부스트-엣지": {
       "status": "found",
       "query": "아디다스 하이퍼부스트 엣지 러닝화",
-      "fetchedAt": "2026-06-10T22:50:32.314Z",
-      "lowestPrice": 222000,
+      "fetchedAt": "2026-06-11T12:44:21.878Z",
+      "lowestPrice": 72900,
       "lowestOffer": {
-        "title": "275 아디다스 하이퍼부스트 엣지 클라우드 화이트 이큅먼트 블루 KI1911",
-        "link": "https://kream.co.kr/shopping-products/840539?utm_campaign=NAVER_SHOPPING_PARTNER_CPC&utm_content=Adidas&utm_medium=cpc&utm_source=naver_shopping&utm_term=840539_11&size=275",
-        "image": "https://shopping-phinf.pstatic.net/main_5977196/59771965048.jpg",
-        "price": 222000,
-        "mallName": "KREAM",
-        "productId": "59771965048",
+        "title": "아디다스 하이퍼부스트 엣지 여성 러닝화 런닝화 조깅화 마라톤화 KI1915",
+        "link": "https://aerowood.shop/product/detail.html?product_no=7213&cate_no=71&display_group=1&utm_source=naver&utm_medium=shopping&utm_campaign=knowledge_shopping&mkt_in=Y&ghost_mall_id=naver&ref=naver_open",
+        "image": "https://shopping-phinf.pstatic.net/main_6005437/60054370647.jpg",
+        "price": 72900,
+        "mallName": "에어로우드",
+        "productId": "60054370647",
         "productType": 2,
-        "brand": "아디다스",
+        "brand": "조쿠",
         "maker": "",
         "category": [
           "패션잡화",
-          "남성신발",
-          "스니커즈"
+          "여성신발",
+          "운동화",
+          "러닝화"
         ],
         "confidence": "high"
       },
       "offers": [
         {
-          "title": "275 아디다스 하이퍼부스트 엣지 클라우드 화이트 이큅먼트 블루 KI1911",
-          "link": "https://kream.co.kr/shopping-products/840539?utm_campaign=NAVER_SHOPPING_PARTNER_CPC&utm_content=Adidas&utm_medium=cpc&utm_source=naver_shopping&utm_term=840539_11&size=275",
-          "image": "https://shopping-phinf.pstatic.net/main_5977196/59771965048.jpg",
-          "price": 222000,
-          "mallName": "KREAM",
-          "productId": "59771965048",
+          "title": "아디다스 하이퍼부스트 엣지 여성 러닝화 런닝화 조깅화 마라톤화 KI1915",
+          "link": "https://aerowood.shop/product/detail.html?product_no=7213&cate_no=71&display_group=1&utm_source=naver&utm_medium=shopping&utm_campaign=knowledge_shopping&mkt_in=Y&ghost_mall_id=naver&ref=naver_open",
+          "image": "https://shopping-phinf.pstatic.net/main_6005437/60054370647.jpg",
+          "price": 72900,
+          "mallName": "에어로우드",
+          "productId": "60054370647",
           "productType": 2,
-          "brand": "아디다스",
+          "brand": "조쿠",
           "maker": "",
           "category": [
             "패션잡화",
-            "남성신발",
-            "스니커즈"
+            "여성신발",
+            "운동화",
+            "러닝화"
           ],
           "confidence": "high"
         },
         {
-          "title": "아디다스 하이퍼부스트 엣지 코어 블랙 카본",
-          "link": "https://smartstore.naver.com/main/products/13501325820",
-          "image": "https://shopping-phinf.pstatic.net/main_9104583/91045836172.jpg",
-          "price": 223000,
-          "mallName": "outletmore",
-          "productId": "91045836172",
+          "title": "아디다스 하이퍼부스트 엣지 여성 러닝화 런닝화 조깅화 마라톤화 KI1915",
+          "link": "https://shoehouse.store/product/detail.html?product_no=8293&cate_no=114&display_group=1&utm_source=naver&utm_medium=shopping&utm_campaign=knowledge_shopping&mkt_in=Y&ghost_mall_id=naver&ref=naver_open",
+          "image": "https://shopping-phinf.pstatic.net/main_6005436/60054368843.jpg",
+          "price": 78500,
+          "mallName": "슈즈하우스",
+          "productId": "60054368843",
           "productType": 2,
-          "brand": "UNKNOWN",
-          "maker": "UNKNOWN",
+          "brand": "",
+          "maker": "",
+          "category": [
+            "패션잡화",
+            "여성신발",
+            "운동화",
+            "러닝화"
+          ],
+          "confidence": "high"
+        },
+        {
+          "title": "아디다스 하이퍼부스트 엣지 런닝화 마라톤화 KI1911",
+          "link": "https://shoehouse.store/product/detail.html?product_no=8294&cate_no=114&display_group=1&utm_source=naver&utm_medium=shopping&utm_campaign=knowledge_shopping&mkt_in=Y&ghost_mall_id=naver&ref=naver_open",
+          "image": "https://shopping-phinf.pstatic.net/main_6005436/60054364831.jpg",
+          "price": 78800,
+          "mallName": "슈즈하우스",
+          "productId": "60054364831",
+          "productType": 2,
+          "brand": "",
+          "maker": "",
           "category": [
             "패션잡화",
             "남성신발",
@@ -4840,14 +4765,14 @@
           "confidence": "high"
         },
         {
-          "title": "285 아디다스 하이퍼부스트 엣지 코어 블랙 카본 KK0289",
-          "link": "https://kream.co.kr/shopping-products/888818?utm_campaign=NAVER_SHOPPING_PARTNER_CPC&utm_content=Adidas&utm_medium=cpc&utm_source=naver_shopping&utm_term=888818_13&size=285",
-          "image": "https://shopping-phinf.pstatic.net/main_5977191/59771917972.jpg",
-          "price": 224100,
-          "mallName": "KREAM",
-          "productId": "59771917972",
+          "title": "아디다스 하이퍼부스트 엣지 런닝화 마라톤화 KI1911",
+          "link": "https://aerowood.shop/product/detail.html?product_no=7214&cate_no=71&display_group=1&utm_source=naver&utm_medium=shopping&utm_campaign=knowledge_shopping&mkt_in=Y&ghost_mall_id=naver&ref=naver_open",
+          "image": "https://shopping-phinf.pstatic.net/main_6005436/60054369067.jpg",
+          "price": 78800,
+          "mallName": "에어로우드",
+          "productId": "60054369067",
           "productType": 2,
-          "brand": "아디다스",
+          "brand": "조쿠",
           "maker": "",
           "category": [
             "패션잡화",
@@ -4858,36 +4783,20 @@
           "confidence": "high"
         },
         {
-          "title": "275 아디다스 하이퍼부스트 엣지 클라우드 화이트 라이트 솔리드 그레이 KK0288",
-          "link": "https://kream.co.kr/shopping-products/888816?utm_campaign=NAVER_SHOPPING_PARTNER_CPC&utm_content=Adidas&utm_medium=cpc&utm_source=naver_shopping&utm_term=888816_11&size=275",
-          "image": "https://shopping-phinf.pstatic.net/main_5977202/59772023533.jpg",
-          "price": 225100,
-          "mallName": "KREAM",
-          "productId": "59772023533",
+          "title": "아디다스 하이퍼부스트 엣지 여성 러닝화 런닝화 조깅화 마라톤화 KI1915",
+          "link": "https://serint.store/product/detail.html?product_no=3414&cate_no=32&display_group=1&utm_source=naver&utm_medium=shopping&utm_campaign=knowledge_shopping&mkt_in=Y&ghost_mall_id=naver&ref=naver_open",
+          "image": "https://shopping-phinf.pstatic.net/main_6005436/60054369170.jpg",
+          "price": 81500,
+          "mallName": "세린트",
+          "productId": "60054369170",
           "productType": 2,
-          "brand": "아디다스",
+          "brand": "나이키",
           "maker": "",
           "category": [
             "패션잡화",
-            "남성신발",
-            "스니커즈"
-          ],
-          "confidence": "high"
-        },
-        {
-          "title": "265 아디다스 하이퍼부스트 엣지 클라우드 화이트 이큅먼트 블루 KI1911",
-          "link": "https://kream.co.kr/shopping-products/840539?utm_campaign=NAVER_SHOPPING_PARTNER_CPC&utm_content=Adidas&utm_medium=cpc&utm_source=naver_shopping&utm_term=840539_9&size=265",
-          "image": "https://shopping-phinf.pstatic.net/main_5977197/59771976487.jpg",
-          "price": 225100,
-          "mallName": "KREAM",
-          "productId": "59771976487",
-          "productType": 2,
-          "brand": "아디다스",
-          "maker": "",
-          "category": [
-            "패션잡화",
-            "남성신발",
-            "스니커즈"
+            "여성신발",
+            "운동화",
+            "러닝화"
           ],
           "confidence": "high"
         }
@@ -4898,15 +4807,15 @@
     "asics-슈퍼블라스트-3": {
       "status": "found",
       "query": "아식스 슈퍼블라스트 3 러닝화",
-      "fetchedAt": "2026-06-10T22:50:32.708Z",
+      "fetchedAt": "2026-06-11T12:44:22.259Z",
       "lowestPrice": 157600,
       "lowestOffer": {
-        "title": "아식스 슈퍼블라스트 3 런닝화 썬 코랄 남여공용 봄 스포츠 미끄럼 방지 런닝화 250 mdf$ /2",
-        "link": "https://link.coupang.com/re/PCSNAVERPCSDP?pageKey=9520040525&ctag=9520040525&lptag=V95330435324&itemId=28378652428&vendorItemId=95330435324&spec=10305199",
-        "image": "https://shopping-phinf.pstatic.net/main_6039394/60393943617.jpg",
+        "title": "아식스 슈퍼블라스트 3 런닝화 썬 코랄 남여공용 봄 스포츠 미끄럼 방지 런닝화 250 mdf$ /4",
+        "link": "https://link.coupang.com/re/PCSNAVERPCSDP?pageKey=9520040525&ctag=9520040525&lptag=V95330435342&itemId=28378652518&vendorItemId=95330435342&spec=10305199",
+        "image": "https://shopping-phinf.pstatic.net/main_6039990/60399907977.jpg",
         "price": 157600,
         "mallName": "쿠팡",
-        "productId": "60393943617",
+        "productId": "60399907977",
         "productType": 2,
         "brand": "아식스",
         "maker": "아식스",
@@ -4919,6 +4828,24 @@
         "confidence": "high"
       },
       "offers": [
+        {
+          "title": "아식스 슈퍼블라스트 3 런닝화 썬 코랄 남여공용 봄 스포츠 미끄럼 방지 런닝화 250 mdf$ /4",
+          "link": "https://link.coupang.com/re/PCSNAVERPCSDP?pageKey=9520040525&ctag=9520040525&lptag=V95330435342&itemId=28378652518&vendorItemId=95330435342&spec=10305199",
+          "image": "https://shopping-phinf.pstatic.net/main_6039990/60399907977.jpg",
+          "price": 157600,
+          "mallName": "쿠팡",
+          "productId": "60399907977",
+          "productType": 2,
+          "brand": "아식스",
+          "maker": "아식스",
+          "category": [
+            "패션잡화",
+            "남성신발",
+            "운동화",
+            "러닝화"
+          ],
+          "confidence": "high"
+        },
         {
           "title": "아식스 슈퍼블라스트 3 런닝화 썬 코랄 남여공용 봄 스포츠 미끄럼 방지 런닝화 250 mdf$ /2",
           "link": "https://link.coupang.com/re/PCSNAVERPCSDP?pageKey=9520040525&ctag=9520040525&lptag=V95330435324&itemId=28378652428&vendorItemId=95330435324&spec=10305199",
@@ -4956,12 +4883,12 @@
           "confidence": "high"
         },
         {
-          "title": "아식스 슈퍼블라스트 3 런닝화 썬 코랄 남여공용 봄 스포츠 미끄럼 방지 런닝화 230 mdf$ /2",
-          "link": "https://link.coupang.com/re/PCSNAVERPCSDP?pageKey=9520040525&ctag=9520040525&lptag=V95330435347&itemId=28378652560&vendorItemId=95330435347&spec=10305199",
-          "image": "https://shopping-phinf.pstatic.net/main_6039428/60394288110.jpg",
+          "title": "아식스 슈퍼블라스트 3 런닝화 썬 코랄 남여공용 봄 스포츠 미끄럼 방지 런닝화 285 mdf$ /3",
+          "link": "https://link.coupang.com/re/PCSNAVERPCSDP?pageKey=9520040525&ctag=9520040525&lptag=V95330435344&itemId=28378652543&vendorItemId=95330435344&spec=10305199",
+          "image": "https://shopping-phinf.pstatic.net/main_6039922/60399228472.jpg",
           "price": 157600,
           "mallName": "쿠팡",
-          "productId": "60394288110",
+          "productId": "60399228472",
           "productType": 2,
           "brand": "아식스",
           "maker": "아식스",
@@ -4974,30 +4901,12 @@
           "confidence": "high"
         },
         {
-          "title": "아식스슈퍼블라스트3 화이트 1013A177-100",
-          "link": "https://smartstore.naver.com/main/products/13528075623",
-          "image": "https://shopping-phinf.pstatic.net/main_9107258/91072585976.jpg",
-          "price": 158420,
-          "mallName": "VICTEE",
-          "productId": "91072585976",
-          "productType": 2,
-          "brand": "아식스",
-          "maker": "아식스",
-          "category": [
-            "패션잡화",
-            "남성신발",
-            "운동화",
-            "러닝화"
-          ],
-          "confidence": "high"
-        },
-        {
-          "title": "해외아식스 슈퍼블라스트3 화이트 유니섹스 런닝화 마라톤화 조깅화 여름 통기 트렌드 런닝화 245 D21+A*/2",
-          "link": "https://link.coupang.com/re/PCSNAVERPCSDP?pageKey=9520323577&ctag=9520323577&lptag=V95331558734&itemId=28379855550&vendorItemId=95331558734&spec=10305199",
-          "image": "https://shopping-phinf.pstatic.net/main_6038201/60382014359.jpg",
-          "price": 175000,
+          "title": "아식스 슈퍼블라스트 3 런닝화 썬 코랄 남여공용 봄 스포츠 미끄럼 방지 런닝화 260 mdf$ /3",
+          "link": "https://link.coupang.com/re/PCSNAVERPCSDP?pageKey=9520040525&ctag=9520040525&lptag=V95330435312&itemId=28378652339&vendorItemId=95330435312&spec=10305199",
+          "image": "https://shopping-phinf.pstatic.net/main_6039385/60393852143.jpg",
+          "price": 157600,
           "mallName": "쿠팡",
-          "productId": "60382014359",
+          "productId": "60393852143",
           "productType": 2,
           "brand": "아식스",
           "maker": "아식스",
@@ -5016,18 +4925,18 @@
     "asics-메가블라스트": {
       "status": "found",
       "query": "아식스 메가블라스트 러닝화",
-      "fetchedAt": "2026-06-10T22:50:33.135Z",
-      "lowestPrice": 154500,
+      "fetchedAt": "2026-06-11T12:44:22.648Z",
+      "lowestPrice": 99540,
       "lowestOffer": {
-        "title": "아식스 메가블라스트 화이트 피드몬트 그레이 1013A170-100 런닝화 스니커즈 운동화",
-        "link": "https://smartstore.naver.com/main/products/13364612825",
-        "image": "https://shopping-phinf.pstatic.net/main_9090912/90909123157.jpg",
-        "price": 154500,
-        "mallName": "3 MAN MALL",
-        "productId": "90909123157",
+        "title": "아식스 메가블라스트 에도 퍼플 블랙 1013A170-500",
+        "link": "https://nadomall.co.kr/product/detail.html?product_no=13153&cate_no=56&display_group=1&utm_source=naver&utm_medium=shopping&utm_campaign=knowledge_shopping&mkt_in=Y&ghost_mall_id=naver&ref=naver_open",
+        "image": "https://shopping-phinf.pstatic.net/main_5940257/59402576609.jpg",
+        "price": 99540,
+        "mallName": "프르티억",
+        "productId": "59402576609",
         "productType": 2,
-        "brand": "아식스",
-        "maker": "아식스",
+        "brand": "",
+        "maker": "",
         "category": [
           "패션잡화",
           "남성신발",
@@ -5037,6 +4946,24 @@
         "confidence": "medium"
       },
       "offers": [
+        {
+          "title": "아식스 메가블라스트 에도 퍼플 블랙 1013A170-500",
+          "link": "https://nadomall.co.kr/product/detail.html?product_no=13153&cate_no=56&display_group=1&utm_source=naver&utm_medium=shopping&utm_campaign=knowledge_shopping&mkt_in=Y&ghost_mall_id=naver&ref=naver_open",
+          "image": "https://shopping-phinf.pstatic.net/main_5940257/59402576609.jpg",
+          "price": 99540,
+          "mallName": "프르티억",
+          "productId": "59402576609",
+          "productType": 2,
+          "brand": "",
+          "maker": "",
+          "category": [
+            "패션잡화",
+            "남성신발",
+            "운동화",
+            "러닝화"
+          ],
+          "confidence": "medium"
+        },
         {
           "title": "아식스 메가블라스트 화이트 피드몬트 그레이 1013A170-100 런닝화 스니커즈 운동화",
           "link": "https://smartstore.naver.com/main/products/13364612825",
@@ -5095,7 +5022,7 @@
           "title": "235 아식스 메가블라스트 블랙 화이트 1013A170-001",
           "link": "https://kream.co.kr/shopping-products/759062?utm_campaign=NAVER_SHOPPING_PARTNER_CPC&utm_content=Asics&utm_medium=cpc&utm_source=naver_shopping&utm_term=759062_3&size=235",
           "image": "https://shopping-phinf.pstatic.net/main_5887464/58874643751.jpg",
-          "price": 283000,
+          "price": 282000,
           "mallName": "KREAM",
           "productId": "58874643751",
           "productType": 2,
@@ -5107,24 +5034,6 @@
             "스니커즈"
           ],
           "confidence": "medium"
-        },
-        {
-          "title": "245 아식스 메가블라스트 블랙 화이트 1013A170-001",
-          "link": "https://kream.co.kr/shopping-products/759062?utm_campaign=NAVER_SHOPPING_PARTNER_CPC&utm_content=Asics&utm_medium=cpc&utm_source=naver_shopping&utm_term=759062_5&size=245",
-          "image": "https://shopping-phinf.pstatic.net/main_5858091/58580918265.1.jpg",
-          "price": 291300,
-          "mallName": "KREAM",
-          "productId": "58580918265",
-          "productType": 2,
-          "brand": "아식스",
-          "maker": "",
-          "category": [
-            "패션잡화",
-            "남성신발",
-            "운동화",
-            "러닝화"
-          ],
-          "confidence": "medium"
         }
       ],
       "confidence": "medium",
@@ -5133,7 +5042,7 @@
     "new-balance-발로스": {
       "status": "no_match",
       "query": "뉴발란스 발로스 러닝화",
-      "fetchedAt": "2026-06-10T22:50:33.574Z",
+      "fetchedAt": "2026-06-11T12:44:23.060Z",
       "lowestPrice": null,
       "lowestOffer": null,
       "offers": [],
@@ -5143,16 +5052,16 @@
     "saucony-엔돌핀-아주라": {
       "status": "found",
       "query": "써코니 엔돌핀 아주라 러닝화",
-      "fetchedAt": "2026-06-10T22:50:34.006Z",
+      "fetchedAt": "2026-06-11T12:44:23.471Z",
       "lowestPrice": 153000,
       "lowestOffer": {
-        "title": "[써코니] (남성) 엔돌핀 아주라 - 블랙:화이트 / S21070-100 S21070-100",
-        "link": "https://link.musinsa.com/app/goods/5965455?utm_source=naver_jisicshopping&utm_medium=sh&source=NVSH&utm_term={keyword}&utm_content={ad_group}&ad_coupon_no=299897",
-        "image": "https://shopping-phinf.pstatic.net/main_5887413/58874139688.jpg",
+        "title": "써코니 엔돌핀 아주라 S21070",
+        "link": "https://search.shopping.naver.com/catalog/60013914876",
+        "image": "https://shopping-phinf.pstatic.net/main_6001391/60013914876.20260512160841.jpg",
         "price": 153000,
-        "mallName": "무신사",
-        "productId": "58874139688",
-        "productType": 3,
+        "mallName": "네이버",
+        "productId": "60013914876",
+        "productType": 1,
         "brand": "써코니",
         "maker": "써코니",
         "category": [
@@ -5165,13 +5074,13 @@
       },
       "offers": [
         {
-          "title": "[써코니] (남성) 엔돌핀 아주라 - 블랙:화이트 / S21070-100 S21070-100",
-          "link": "https://link.musinsa.com/app/goods/5965455?utm_source=naver_jisicshopping&utm_medium=sh&source=NVSH&utm_term={keyword}&utm_content={ad_group}&ad_coupon_no=299897",
-          "image": "https://shopping-phinf.pstatic.net/main_5887413/58874139688.jpg",
+          "title": "써코니 엔돌핀 아주라 S21070",
+          "link": "https://search.shopping.naver.com/catalog/60013914876",
+          "image": "https://shopping-phinf.pstatic.net/main_6001391/60013914876.20260512160841.jpg",
           "price": 153000,
-          "mallName": "무신사",
-          "productId": "58874139688",
-          "productType": 3,
+          "mallName": "네이버",
+          "productId": "60013914876",
+          "productType": 1,
           "brand": "써코니",
           "maker": "써코니",
           "category": [
@@ -5183,13 +5092,13 @@
           "confidence": "medium"
         },
         {
-          "title": "써코니 엔돌핀 아주라 S21070",
-          "link": "https://search.shopping.naver.com/catalog/60013914872",
-          "image": "https://shopping-phinf.pstatic.net/main_6001391/60013914872.20260512160738.jpg",
+          "title": "[써코니] (남성) 엔돌핀 아주라 - 블랙:화이트 / S21070-100 S21070-100",
+          "link": "https://link.musinsa.com/app/goods/5965455?utm_source=naver_jisicshopping&utm_medium=sh&source=NVSH&utm_term={keyword}&utm_content={ad_group}&ad_coupon_no=299897",
+          "image": "https://shopping-phinf.pstatic.net/main_5887413/58874139688.jpg",
           "price": 153000,
-          "mallName": "네이버",
-          "productId": "60013914872",
-          "productType": 1,
+          "mallName": "무신사",
+          "productId": "58874139688",
+          "productType": 3,
           "brand": "써코니",
           "maker": "써코니",
           "category": [
@@ -5259,7 +5168,7 @@
     "puma-디비에이트-퓨어-나이트로": {
       "status": "found",
       "query": "푸마 디비에이트 퓨어 나이트로 러닝화",
-      "fetchedAt": "2026-06-10T22:50:34.437Z",
+      "fetchedAt": "2026-06-11T12:44:23.860Z",
       "lowestPrice": 149700,
       "lowestOffer": {
         "title": "W240 (W) 푸마 디비에이트 퓨어 나이트로 푸마 화이트 울트라 레드 313905-05",
@@ -5351,6 +5260,23 @@
             "스니커즈"
           ],
           "confidence": "high"
+        },
+        {
+          "title": "265 푸마 디비에이트 퓨어 나이트로 푸마 화이트 울트라 레드 313904-06",
+          "link": "https://kream.co.kr/shopping-products/930860?utm_campaign=NAVER_SHOPPING_PARTNER_CPC&utm_content=Puma&utm_medium=cpc&utm_source=naver_shopping&utm_term=930860_9&size=265",
+          "image": "https://shopping-phinf.pstatic.net/main_6028038/60280383382.jpg",
+          "price": 154900,
+          "mallName": "KREAM",
+          "productId": "60280383382",
+          "productType": 2,
+          "brand": "푸마",
+          "maker": "",
+          "category": [
+            "패션잡화",
+            "남성신발",
+            "스니커즈"
+          ],
+          "confidence": "high"
         }
       ],
       "confidence": "high",
@@ -5359,7 +5285,7 @@
     "hoka-마하-7": {
       "status": "no_match",
       "query": "호카 마하 7 러닝화",
-      "fetchedAt": "2026-06-10T22:50:34.854Z",
+      "fetchedAt": "2026-06-11T12:44:24.264Z",
       "lowestPrice": null,
       "lowestOffer": null,
       "offers": [],
@@ -5369,15 +5295,15 @@
     "brooks-하이페리온-3": {
       "status": "found",
       "query": "브룩스 하이페리온 3 러닝화",
-      "fetchedAt": "2026-06-10T22:50:35.269Z",
+      "fetchedAt": "2026-06-11T12:44:24.660Z",
       "lowestPrice": 189000,
       "lowestOffer": {
-        "title": "브룩스 BROOKS 하이페리온 3 1104651D054",
-        "link": "https://grandstage.a-rt.com/affiliate/approach/?prdtNo=1020117793&affltsCode=10000&navershopping=&utm_source=naver&utm_medium=cpc&utm_campaign=shopping",
-        "image": "https://shopping-phinf.pstatic.net/main_5671068/56710686108.jpg",
+        "title": "브룩스 BROOKS 하이페리온 3 1104651D139",
+        "link": "https://grandstage.a-rt.com/affiliate/approach/?prdtNo=1020117794&affltsCode=10000&navershopping=&utm_source=naver&utm_medium=cpc&utm_campaign=shopping",
+        "image": "https://shopping-phinf.pstatic.net/main_5671070/56710701556.jpg",
         "price": 189000,
         "mallName": "ABC마트그랜드스테이지",
-        "productId": "56710686108",
+        "productId": "56710701556",
         "productType": 2,
         "brand": "브룩스",
         "maker": "",
@@ -5391,12 +5317,12 @@
       },
       "offers": [
         {
-          "title": "브룩스 BROOKS 하이페리온 3 1104651D054",
-          "link": "https://grandstage.a-rt.com/affiliate/approach/?prdtNo=1020117793&affltsCode=10000&navershopping=&utm_source=naver&utm_medium=cpc&utm_campaign=shopping",
-          "image": "https://shopping-phinf.pstatic.net/main_5671068/56710686108.jpg",
+          "title": "브룩스 BROOKS 하이페리온 3 1104651D139",
+          "link": "https://grandstage.a-rt.com/affiliate/approach/?prdtNo=1020117794&affltsCode=10000&navershopping=&utm_source=naver&utm_medium=cpc&utm_campaign=shopping",
+          "image": "https://shopping-phinf.pstatic.net/main_5671070/56710701556.jpg",
           "price": 189000,
           "mallName": "ABC마트그랜드스테이지",
-          "productId": "56710686108",
+          "productId": "56710701556",
           "productType": 2,
           "brand": "브룩스",
           "maker": "",
@@ -5409,12 +5335,12 @@
           "confidence": "high"
         },
         {
-          "title": "브룩스 BROOKS 하이페리온 3 1104651D139",
-          "link": "https://grandstage.a-rt.com/affiliate/approach/?prdtNo=1020117794&affltsCode=10000&navershopping=&utm_source=naver&utm_medium=cpc&utm_campaign=shopping",
-          "image": "https://shopping-phinf.pstatic.net/main_5671070/56710701556.jpg",
+          "title": "브룩스 BROOKS 하이페리온 3 1104651D054",
+          "link": "https://grandstage.a-rt.com/affiliate/approach/?prdtNo=1020117793&affltsCode=10000&navershopping=&utm_source=naver&utm_medium=cpc&utm_campaign=shopping",
+          "image": "https://shopping-phinf.pstatic.net/main_5671068/56710686108.jpg",
           "price": 189000,
           "mallName": "ABC마트그랜드스테이지",
-          "productId": "56710701556",
+          "productId": "56710686108",
           "productType": 2,
           "brand": "브룩스",
           "maker": "",
@@ -5487,16 +5413,16 @@
     "on-클라우드-몬스터-3-하이퍼": {
       "status": "found",
       "query": "온러닝 클라우드 몬스터 3 하이퍼 러닝화",
-      "fetchedAt": "2026-06-10T22:50:35.676Z",
+      "fetchedAt": "2026-06-11T12:44:25.049Z",
       "lowestPrice": 259000,
       "lowestOffer": {
-        "title": "(남) 온러닝 클라우드몬스터 3 하이퍼 3MG10061430",
-        "link": "https://smartstore.naver.com/main/products/13264033984",
-        "image": "https://shopping-phinf.pstatic.net/main_9080854/90808544316.jpg",
+        "title": "온 러닝 클라우드몬스터 3 하이퍼 (3MG10064906)",
+        "link": "https://www.runnersclub.com/goods/goods_view.php?goodsNo=1000015680&inflow=naver",
+        "image": "https://shopping-phinf.pstatic.net/main_5931832/59318323502.jpg",
         "price": 259000,
-        "mallName": "플릿러너",
-        "productId": "90808544316",
-        "productType": 2,
+        "mallName": "런너스클럽",
+        "productId": "59318323502",
+        "productType": 3,
         "brand": "온",
         "maker": "",
         "category": [
@@ -5509,13 +5435,13 @@
       },
       "offers": [
         {
-          "title": "(남) 온러닝 클라우드몬스터 3 하이퍼 3MG10061430",
-          "link": "https://smartstore.naver.com/main/products/13264033984",
-          "image": "https://shopping-phinf.pstatic.net/main_9080854/90808544316.jpg",
+          "title": "온 러닝 클라우드몬스터 3 하이퍼 (3MG10064906)",
+          "link": "https://www.runnersclub.com/goods/goods_view.php?goodsNo=1000015680&inflow=naver",
+          "image": "https://shopping-phinf.pstatic.net/main_5931832/59318323502.jpg",
           "price": 259000,
-          "mallName": "플릿러너",
-          "productId": "90808544316",
-          "productType": 2,
+          "mallName": "런너스클럽",
+          "productId": "59318323502",
+          "productType": 3,
           "brand": "온",
           "maker": "",
           "category": [
@@ -5527,30 +5453,12 @@
           "confidence": "high"
         },
         {
-          "title": "(여) 온러닝 클라우드몬스터 3 하이퍼 3WG10044906",
-          "link": "https://smartstore.naver.com/main/products/13263948194",
-          "image": "https://shopping-phinf.pstatic.net/main_9080845/90808458526.jpg",
-          "price": 259000,
-          "mallName": "플릿러너",
-          "productId": "90808458526",
-          "productType": 2,
-          "brand": "온",
-          "maker": "",
-          "category": [
-            "패션잡화",
-            "여성신발",
-            "운동화",
-            "러닝화"
-          ],
-          "confidence": "high"
-        },
-        {
-          "title": "온 러닝 클라우드몬스터 3 하이퍼 3MG10064852",
-          "link": "https://smartstore.naver.com/main/products/13503007719",
-          "image": "https://shopping-phinf.pstatic.net/main_9104751/91047518071.jpg",
+          "title": "온 러닝 여성 클라우드몬스터 3 하이퍼 (3WG10040117)",
+          "link": "https://www.runnersclub.com/goods/goods_view.php?goodsNo=1000015681&inflow=naver",
+          "image": "https://shopping-phinf.pstatic.net/main_5931830/59318306732.jpg",
           "price": 259000,
           "mallName": "런너스클럽",
-          "productId": "91047518071",
+          "productId": "59318306732",
           "productType": 2,
           "brand": "온",
           "maker": "",
@@ -5564,11 +5472,11 @@
         },
         {
           "title": "온 러닝 여성 클라우드몬스터 3 하이퍼 3WG10044732",
-          "link": "https://www.runnersclub.com/goods/goods_view.php?goodsNo=1000015728&inflow=naver",
-          "image": "https://shopping-phinf.pstatic.net/main_5996721/59967218761.jpg",
+          "link": "https://smartstore.naver.com/main/products/13503004575",
+          "image": "https://shopping-phinf.pstatic.net/main_9104751/91047514927.jpg",
           "price": 259000,
           "mallName": "런너스클럽",
-          "productId": "59967218761",
+          "productId": "91047514927",
           "productType": 2,
           "brand": "온",
           "maker": "",
@@ -5581,18 +5489,36 @@
           "confidence": "high"
         },
         {
-          "title": "온 러닝 클라우드몬스터 3 하이퍼 3MG10061430",
-          "link": "https://smartstore.naver.com/main/products/13273463116",
-          "image": "https://shopping-phinf.pstatic.net/main_9081797/90817973448.jpg",
+          "title": "온 러닝 클라우드몬스터 3 하이퍼 (3MG10061430)",
+          "link": "https://www.runnersclub.com/goods/goods_view.php?goodsNo=1000015679&inflow=naver",
+          "image": "https://shopping-phinf.pstatic.net/main_5931830/59318300412.jpg",
           "price": 259000,
           "mallName": "런너스클럽",
-          "productId": "90817973448",
+          "productId": "59318300412",
           "productType": 2,
           "brand": "온",
           "maker": "",
           "category": [
             "패션잡화",
             "남성신발",
+            "운동화",
+            "러닝화"
+          ],
+          "confidence": "high"
+        },
+        {
+          "title": "온 러닝 여성 클라우드몬스터 3 하이퍼 3WG10040117",
+          "link": "https://smartstore.naver.com/main/products/13273469905",
+          "image": "https://shopping-phinf.pstatic.net/main_9081798/90817980237.jpg",
+          "price": 259000,
+          "mallName": "런너스클럽",
+          "productId": "90817980237",
+          "productType": 2,
+          "brand": "온",
+          "maker": "",
+          "category": [
+            "패션잡화",
+            "여성신발",
             "운동화",
             "러닝화"
           ],
@@ -5605,7 +5531,7 @@
     "on-클라우드-몬스터-3-하이퍼-ls": {
       "status": "no_match",
       "query": "온러닝 클라우드 몬스터 3 하이퍼 LS 러닝화",
-      "fetchedAt": "2026-06-10T22:50:36.090Z",
+      "fetchedAt": "2026-06-11T12:44:25.434Z",
       "lowestPrice": null,
       "lowestOffer": null,
       "offers": [],
@@ -5615,7 +5541,7 @@
     "adidas-보스턴-13": {
       "status": "no_match",
       "query": "아디다스 보스턴 13 러닝화",
-      "fetchedAt": "2026-06-10T22:50:36.526Z",
+      "fetchedAt": "2026-06-11T12:44:25.828Z",
       "lowestPrice": null,
       "lowestOffer": null,
       "offers": [],
@@ -5625,11 +5551,11 @@
     "asics-소닉블라스트": {
       "status": "found",
       "query": "아식스 소닉블라스트 러닝화",
-      "fetchedAt": "2026-06-10T22:50:36.956Z",
+      "fetchedAt": "2026-06-11T12:44:26.218Z",
       "lowestPrice": 81600,
       "lowestOffer": {
         "title": "아식스 소닉 블라스트 화이트 1011C083-100",
-        "link": "http://weping.co.kr/goods/view?no=1408627&market=naver",
+        "link": "https://weping.co.kr/goods/view?no=1408627&market=naver",
         "image": "https://shopping-phinf.pstatic.net/main_6012941/60129410940.jpg",
         "price": 81600,
         "mallName": "위핑",
@@ -5648,7 +5574,7 @@
       "offers": [
         {
           "title": "아식스 소닉 블라스트 화이트 1011C083-100",
-          "link": "http://weping.co.kr/goods/view?no=1408627&market=naver",
+          "link": "https://weping.co.kr/goods/view?no=1408627&market=naver",
           "image": "https://shopping-phinf.pstatic.net/main_6012941/60129410940.jpg",
           "price": 81600,
           "mallName": "위핑",
@@ -5666,7 +5592,7 @@
         },
         {
           "title": "아식스 소닉 블라스트 옐로우 1011C083-750",
-          "link": "http://weping.co.kr/goods/view?no=1408624&market=naver",
+          "link": "https://weping.co.kr/goods/view?no=1408624&market=naver",
           "image": "https://shopping-phinf.pstatic.net/main_6012944/60129444092.jpg",
           "price": 81700,
           "mallName": "위핑",
@@ -5684,7 +5610,7 @@
         },
         {
           "title": "아식스 소닉 블라스트 블랙 1012B862-001",
-          "link": "http://weping.co.kr/goods/view?no=1408621&market=naver",
+          "link": "https://weping.co.kr/goods/view?no=1408621&market=naver",
           "image": "https://shopping-phinf.pstatic.net/main_6012937/60129371123.jpg",
           "price": 81800,
           "mallName": "위핑",
@@ -5702,7 +5628,7 @@
         },
         {
           "title": "아식스 소닉 블라스트 레드 1012B862-700",
-          "link": "http://weping.co.kr/goods/view?no=1408617&market=naver",
+          "link": "https://weping.co.kr/goods/view?no=1408617&market=naver",
           "image": "https://shopping-phinf.pstatic.net/main_6012943/60129439511.jpg",
           "price": 81900,
           "mallName": "위핑",
@@ -5719,15 +5645,15 @@
           "confidence": "medium"
         },
         {
-          "title": "아식스 소닉블라스트 남성 러닝화 1011C083",
-          "link": "https://smartstore.naver.com/main/products/13548744060",
-          "image": "https://shopping-phinf.pstatic.net/main_9109325/91093254413.3.jpg",
-          "price": 117900,
-          "mallName": "포트909",
-          "productId": "91093254413",
+          "title": "아식스 소닉블라스트 윈터 씨 스틸워터 1011C083-400",
+          "link": "https://nadomall.co.kr/product/detail.html?product_no=13018&cate_no=56&display_group=1&utm_source=naver&utm_medium=shopping&utm_campaign=knowledge_shopping&mkt_in=Y&ghost_mall_id=naver&ref=naver_open",
+          "image": "https://shopping-phinf.pstatic.net/main_5940256/59402567080.jpg",
+          "price": 99540,
+          "mallName": "프르티억",
+          "productId": "59402567080",
           "productType": 2,
-          "brand": "아식스",
-          "maker": "아식스",
+          "brand": "",
+          "maker": "",
           "category": [
             "패션잡화",
             "남성신발",
@@ -5743,15 +5669,15 @@
     "saucony-엔돌핀-스피드-5": {
       "status": "found",
       "query": "써코니 엔돌핀 스피드 5 러닝화",
-      "fetchedAt": "2026-06-10T22:50:37.386Z",
-      "lowestPrice": 131570,
+      "fetchedAt": "2026-06-11T12:44:26.614Z",
+      "lowestPrice": 127808,
       "lowestOffer": {
-        "title": "써코니 운동화 엔돌핀 스피드5 남성 런닝화 화이트 뮤턴트 S21007-97",
-        "link": "https://www.11st.co.kr/connect/Gateway.tmall?method=Xsite&prdNo=8769431520&tid=1000000061",
-        "image": "https://shopping-phinf.pstatic.net/main_5730183/57301833379.11.jpg",
-        "price": 131570,
-        "mallName": "11번가",
-        "productId": "57301833379",
+        "title": "써코니 엔돌핀 스피드 5 M [S2100701_BWT/0116097]",
+        "link": "http://www.ssg.com/item/itemView.ssg?itemId=1000713907202&siteNo=6004&salestrNo=6005&ckwhere=ssg_naver&appPopYn=n&utm_medium=PCS&utm_source=naver&utm_campaign=naver_pcs",
+        "image": "https://shopping-phinf.pstatic.net/main_5862802/58628026172.jpg",
+        "price": 127808,
+        "mallName": "SSG닷컴",
+        "productId": "58628026172",
         "productType": 2,
         "brand": "써코니",
         "maker": "써코니",
@@ -5765,13 +5691,31 @@
       },
       "offers": [
         {
+          "title": "써코니 엔돌핀 스피드 5 M [S2100701_BWT/0116097]",
+          "link": "http://www.ssg.com/item/itemView.ssg?itemId=1000713907202&siteNo=6004&salestrNo=6005&ckwhere=ssg_naver&appPopYn=n&utm_medium=PCS&utm_source=naver&utm_campaign=naver_pcs",
+          "image": "https://shopping-phinf.pstatic.net/main_5862802/58628026172.jpg",
+          "price": 127808,
+          "mallName": "SSG닷컴",
+          "productId": "58628026172",
+          "productType": 2,
+          "brand": "써코니",
+          "maker": "써코니",
+          "category": [
+            "패션잡화",
+            "남성신발",
+            "운동화",
+            "러닝화"
+          ],
+          "confidence": "high"
+        },
+        {
           "title": "써코니 운동화 엔돌핀 스피드5 남성 런닝화 화이트 뮤턴트 S21007-97",
           "link": "https://www.11st.co.kr/connect/Gateway.tmall?method=Xsite&prdNo=8769431520&tid=1000000061",
           "image": "https://shopping-phinf.pstatic.net/main_5730183/57301833379.11.jpg",
           "price": 131570,
           "mallName": "11번가",
           "productId": "57301833379",
-          "productType": 2,
+          "productType": 3,
           "brand": "써코니",
           "maker": "써코니",
           "category": [
@@ -5835,24 +5779,6 @@
             "러닝화"
           ],
           "confidence": "high"
-        },
-        {
-          "title": "써코니써코니 운동화 엔돌핀 스피드5 남성 런닝화 화이트 시트론 S21007-243",
-          "link": "https://link.auction.co.kr/gate/pcs?item-no=F374497648&sub-id=1&service-code=10000003",
-          "image": "https://shopping-phinf.pstatic.net/main_5730198/57301985852.3.jpg",
-          "price": 133590,
-          "mallName": "옥션",
-          "productId": "57301985852",
-          "productType": 3,
-          "brand": "써코니",
-          "maker": "써코니",
-          "category": [
-            "패션잡화",
-            "남성신발",
-            "운동화",
-            "러닝화"
-          ],
-          "confidence": "high"
         }
       ],
       "confidence": "high",
@@ -5861,15 +5787,15 @@
     "hoka-마하-x3": {
       "status": "found",
       "query": "호카 마하 X3 러닝화",
-      "fetchedAt": "2026-06-10T22:50:37.804Z",
+      "fetchedAt": "2026-06-11T12:44:27.007Z",
       "lowestPrice": 285572,
       "lowestOffer": {
         "title": "호카 러닝화 마하 X3 레귤러 네온 시트러스 라임 러닝화 1168720 MACH X3",
-        "link": "http://shinsegaemall.ssg.com/item/itemView.ssg?itemId=1000724740510&siteNo=6004&salestrNo=6005&ckwhere=s_naver&appPopYn=n&utm_medium=PCS&utm_source=naver&utm_campaign=naver_pcs",
-        "image": "https://shopping-phinf.pstatic.net/main_5670136/56701360325.jpg",
+        "link": "http://www.ssg.com/item/itemView.ssg?itemId=1000724740510&siteNo=6001&salestrNo=6005&ckwhere=ssg_naver&appPopYn=n&utm_medium=PCS&utm_source=naver&utm_campaign=naver_pcs",
+        "image": "https://shopping-phinf.pstatic.net/main_5670137/56701376338.jpg",
         "price": 285572,
-        "mallName": "신세계몰",
-        "productId": "56701360325",
+        "mallName": "SSG닷컴",
+        "productId": "56701376338",
         "productType": 2,
         "brand": "호카",
         "maker": "",
@@ -5882,24 +5808,6 @@
         "confidence": "high"
       },
       "offers": [
-        {
-          "title": "호카 러닝화 마하 X3 레귤러 네온 시트러스 라임 러닝화 1168720 MACH X3",
-          "link": "http://shinsegaemall.ssg.com/item/itemView.ssg?itemId=1000724740510&siteNo=6004&salestrNo=6005&ckwhere=s_naver&appPopYn=n&utm_medium=PCS&utm_source=naver&utm_campaign=naver_pcs",
-          "image": "https://shopping-phinf.pstatic.net/main_5670136/56701360325.jpg",
-          "price": 285572,
-          "mallName": "신세계몰",
-          "productId": "56701360325",
-          "productType": 2,
-          "brand": "호카",
-          "maker": "",
-          "category": [
-            "패션잡화",
-            "남성신발",
-            "운동화",
-            "러닝화"
-          ],
-          "confidence": "high"
-        },
         {
           "title": "호카 러닝화 마하 X3 레귤러 네온 시트러스 라임 러닝화 1168720 MACH X3",
           "link": "http://www.ssg.com/item/itemView.ssg?itemId=1000724740510&siteNo=6001&salestrNo=6005&ckwhere=ssg_naver&appPopYn=n&utm_medium=PCS&utm_source=naver&utm_campaign=naver_pcs",
@@ -5919,12 +5827,12 @@
           "confidence": "high"
         },
         {
-          "title": "호카 Conti 호카오네오네 MACH X3 러닝 슈즈 100282442419000",
-          "link": "https://www.lotteon.com/p/product/LO2689281484?sitmNo=LO2689281484_2689281485&ch_no=100065&ch_dtl_no=1000030&entryPoint=pcs&dp_infw_cd=CHT",
-          "image": "https://shopping-phinf.pstatic.net/main_6022657/60226574506.jpg",
-          "price": 430310,
-          "mallName": "롯데ON",
-          "productId": "60226574506",
+          "title": "호카 러닝화 마하 X3 레귤러 네온 시트러스 라임 러닝화 1168720 MACH X3",
+          "link": "http://shinsegaemall.ssg.com/item/itemView.ssg?itemId=1000724740510&siteNo=6004&salestrNo=6005&ckwhere=s_naver&appPopYn=n&utm_medium=PCS&utm_source=naver&utm_campaign=naver_pcs",
+          "image": "https://shopping-phinf.pstatic.net/main_5670136/56701360325.jpg",
+          "price": 285572,
+          "mallName": "신세계몰",
+          "productId": "56701360325",
           "productType": 2,
           "brand": "호카",
           "maker": "",
@@ -5943,15 +5851,15 @@
     "brooks-하이페리온-맥스-3": {
       "status": "found",
       "query": "브룩스 하이페리온 맥스 3 러닝화",
-      "fetchedAt": "2026-06-10T22:50:38.206Z",
+      "fetchedAt": "2026-06-11T12:44:27.391Z",
       "lowestPrice": 89000,
       "lowestOffer": {
-        "title": "(남) 브룩스 하이페리온 맥스 3 1104671D182",
-        "link": "http://tpmall.kr/goods/view?no=10730&market=naver",
-        "image": "https://shopping-phinf.pstatic.net/main_6027617/60276170098.jpg",
+        "title": "브룩스 남성 러닝화 하이페리온 맥스 3 코랄 미디움 1104671D670",
+        "link": "https://tpmall.kr/goods/view?no=10727&market=naver",
+        "image": "https://shopping-phinf.pstatic.net/main_6027617/60276172342.jpg",
         "price": 89000,
         "mallName": "TPMALL",
-        "productId": "60276170098",
+        "productId": "60276172342",
         "productType": 2,
         "brand": "",
         "maker": "",
@@ -5965,26 +5873,8 @@
       },
       "offers": [
         {
-          "title": "(남) 브룩스 하이페리온 맥스 3 1104671D182",
-          "link": "http://tpmall.kr/goods/view?no=10730&market=naver",
-          "image": "https://shopping-phinf.pstatic.net/main_6027617/60276170098.jpg",
-          "price": 89000,
-          "mallName": "TPMALL",
-          "productId": "60276170098",
-          "productType": 2,
-          "brand": "",
-          "maker": "",
-          "category": [
-            "패션잡화",
-            "남성신발",
-            "운동화",
-            "러닝화"
-          ],
-          "confidence": "high"
-        },
-        {
           "title": "브룩스 남성 러닝화 하이페리온 맥스 3 코랄 미디움 1104671D670",
-          "link": "http://tpmall.kr/goods/view?no=10727&market=naver",
+          "link": "https://tpmall.kr/goods/view?no=10727&market=naver",
           "image": "https://shopping-phinf.pstatic.net/main_6027617/60276172342.jpg",
           "price": 89000,
           "mallName": "TPMALL",
@@ -6001,19 +5891,20 @@
           "confidence": "high"
         },
         {
-          "title": "US 8 브룩스 러닝 하이페리온 맥스 3 코랄 - D 미디움 1104671D670",
-          "link": "https://kream.co.kr/shopping-products/563385?utm_campaign=NAVER_SHOPPING_PARTNER_CPC&utm_content=BrooksRunning&utm_medium=cpc&utm_source=naver_shopping&utm_term=563385_2&size=US+8",
-          "image": "https://shopping-phinf.pstatic.net/main_5598736/55987366801.jpg",
-          "price": 158000,
-          "mallName": "KREAM",
-          "productId": "55987366801",
+          "title": "(남) 브룩스 하이페리온 맥스 3 1104671D182",
+          "link": "https://tpmall.kr/goods/view?no=10730&market=naver",
+          "image": "https://shopping-phinf.pstatic.net/main_6027617/60276170098.jpg",
+          "price": 89000,
+          "mallName": "TPMALL",
+          "productId": "60276170098",
           "productType": 2,
-          "brand": "브룩스러닝",
+          "brand": "",
           "maker": "",
           "category": [
             "패션잡화",
             "남성신발",
-            "스니커즈"
+            "운동화",
+            "러닝화"
           ],
           "confidence": "high"
         },
@@ -6035,20 +5926,36 @@
           "confidence": "high"
         },
         {
-          "title": "브룩스 남성 러닝화 하이페리온 맥스 3 코랄 미디움 1104671D670",
-          "link": "https://link.gmarket.co.kr/gate/pcs?item-no=4753951670&sub-id=1003&service-code=10000003&lcd=100000043",
-          "image": "https://shopping-phinf.pstatic.net/main_6004269/60042695420.jpg",
-          "price": 163050,
-          "mallName": "G마켓",
-          "productId": "60042695420",
+          "title": "US 8 브룩스 러닝 하이페리온 맥스 3 코랄 - D 미디움 1104671D670",
+          "link": "https://kream.co.kr/shopping-products/563385?utm_campaign=NAVER_SHOPPING_PARTNER_CPC&utm_content=BrooksRunning&utm_medium=cpc&utm_source=naver_shopping&utm_term=563385_2&size=US+8",
+          "image": "https://shopping-phinf.pstatic.net/main_5598736/55987366801.jpg",
+          "price": 158000,
+          "mallName": "KREAM",
+          "productId": "55987366801",
           "productType": 2,
-          "brand": "",
+          "brand": "브룩스러닝",
           "maker": "",
           "category": [
             "패션잡화",
             "남성신발",
-            "운동화",
-            "러닝화"
+            "스니커즈"
+          ],
+          "confidence": "high"
+        },
+        {
+          "title": "US 8 브룩스 러닝 하이페리온 맥스 3 코코넛 - D 미디움 1104671D182",
+          "link": "https://kream.co.kr/shopping-products/572389?utm_campaign=NAVER_SHOPPING_PARTNER_CPC&utm_content=BrooksRunning&utm_medium=cpc&utm_source=naver_shopping&utm_term=572389_2&size=US+8",
+          "image": "https://shopping-phinf.pstatic.net/main_5614640/56146404403.jpg",
+          "price": 201400,
+          "mallName": "KREAM",
+          "productId": "56146404403",
+          "productType": 2,
+          "brand": "브룩스러닝",
+          "maker": "",
+          "category": [
+            "패션잡화",
+            "남성신발",
+            "스니커즈"
           ],
           "confidence": "high"
         }
@@ -6059,11 +5966,11 @@
     "mizuno-네오-비스타-2": {
       "status": "found",
       "query": "미즈노 네오 비스타 2 러닝화",
-      "fetchedAt": "2026-06-10T22:50:38.621Z",
+      "fetchedAt": "2026-06-11T12:44:27.774Z",
       "lowestPrice": 95900,
       "lowestOffer": {
         "title": "미즈노 네오 비스타 2 네이비 J1GC253905",
-        "link": "http://weping.co.kr/goods/view?no=1427883&market=naver",
+        "link": "https://weping.co.kr/goods/view?no=1427883&market=naver",
         "image": "https://shopping-phinf.pstatic.net/main_5836567/58365674531.jpg",
         "price": 95900,
         "mallName": "위핑",
@@ -6082,7 +5989,7 @@
       "offers": [
         {
           "title": "미즈노 네오 비스타 2 네이비 J1GC253905",
-          "link": "http://weping.co.kr/goods/view?no=1427883&market=naver",
+          "link": "https://weping.co.kr/goods/view?no=1427883&market=naver",
           "image": "https://shopping-phinf.pstatic.net/main_5836567/58365674531.jpg",
           "price": 95900,
           "mallName": "위핑",
@@ -6135,28 +6042,10 @@
           "confidence": "high"
         },
         {
-          "title": "미즈노 미즈노미즈노 네오 비스타2 맥스쿠션화 남성 런닝화 조깅화 화이트 J1GC2534-01",
-          "link": "https://link.auction.co.kr/gate/pcs?item-no=F281626180&sub-id=1&service-code=10000003",
-          "image": "https://shopping-phinf.pstatic.net/main_5582968/55829688636.1.jpg",
-          "price": 138070,
-          "mallName": "옥션",
-          "productId": "55829688636",
-          "productType": 2,
-          "brand": "미즈노",
-          "maker": "미즈노",
-          "category": [
-            "패션잡화",
-            "남성신발",
-            "운동화",
-            "러닝화"
-          ],
-          "confidence": "high"
-        },
-        {
           "title": "미즈노 미즈노미즈노 네오 비스타2 슈퍼트레이너 남성 여성 공용 런닝화 조깅화 마라톤화 네이비",
           "link": "https://link.auction.co.kr/gate/pcs?item-no=F281627143&sub-id=1&service-code=10000003",
           "image": "https://shopping-phinf.pstatic.net/main_5582964/55829648899.3.jpg",
-          "price": 138070,
+          "price": 129270,
           "mallName": "옥션",
           "productId": "55829648899",
           "productType": 3,
@@ -6169,6 +6058,23 @@
             "러닝화"
           ],
           "confidence": "high"
+        },
+        {
+          "title": "미즈노 네오 비스타2 슈퍼트레이너 남성 여성 공용 런닝화 조깅화 마라톤화 J1G",
+          "link": "https://search.shopping.naver.com/catalog/57994393213",
+          "image": "https://shopping-phinf.pstatic.net/main_5799439/57994393213.20251202232331.jpg",
+          "price": 129270,
+          "mallName": "네이버",
+          "productId": "57994393213",
+          "productType": 1,
+          "brand": "미즈노",
+          "maker": "",
+          "category": [
+            "스포츠/레저",
+            "배구",
+            "배구화"
+          ],
+          "confidence": "high"
         }
       ],
       "confidence": "high",
@@ -6177,7 +6083,7 @@
     "mizuno-하이퍼퀵-프로": {
       "status": "no_match",
       "query": "미즈노 하이퍼퀵 프로 러닝화",
-      "fetchedAt": "2026-06-10T22:50:39.028Z",
+      "fetchedAt": "2026-06-11T12:44:28.176Z",
       "lowestPrice": null,
       "lowestOffer": null,
       "offers": [],
@@ -6187,7 +6093,7 @@
     "on-클라우드-플로우-5": {
       "status": "found",
       "query": "온러닝 클라우드 플로우 5 러닝화",
-      "fetchedAt": "2026-06-10T22:50:39.444Z",
+      "fetchedAt": "2026-06-11T12:44:28.573Z",
       "lowestPrice": 72000,
       "lowestOffer": {
         "title": "온러닝 On Running 클라우드플로우 5 화이트 라임 3MF10112929",
@@ -6245,24 +6151,6 @@
           "confidence": "high"
         },
         {
-          "title": "온러닝 On Running 클라우드플로우 5 여성 3WF10092580",
-          "link": "https://kor123.kr/product/detail.html?product_no=10675&cate_no=84&display_group=1&utm_source=naver&utm_medium=shopping&utm_campaign=knowledge_shopping&mkt_in=Y&ghost_mall_id=naver&ref=naver_open",
-          "image": "https://shopping-phinf.pstatic.net/main_5960411/59604111817.jpg",
-          "price": 72000,
-          "mallName": "스이큐",
-          "productId": "59604111817",
-          "productType": 2,
-          "brand": "",
-          "maker": "",
-          "category": [
-            "패션잡화",
-            "여성신발",
-            "운동화",
-            "러닝화"
-          ],
-          "confidence": "high"
-        },
-        {
           "title": "온러닝 On Running 클라우드플로우 5 아틱 스톤 3WF10093306",
           "link": "https://kor123.kr/product/detail.html?product_no=10676&cate_no=84&display_group=1&utm_source=naver&utm_medium=shopping&utm_campaign=knowledge_shopping&mkt_in=Y&ghost_mall_id=naver&ref=naver_open",
           "image": "https://shopping-phinf.pstatic.net/main_5960415/59604151082.jpg",
@@ -6281,18 +6169,36 @@
           "confidence": "high"
         },
         {
-          "title": "온 러닝화 클라우드 플로우 5 블랙 3WF10383879",
-          "link": "http://weping.co.kr/goods/view?no=1409600&market=naver",
-          "image": "https://shopping-phinf.pstatic.net/main_5836562/58365629990.jpg",
-          "price": 86500,
-          "mallName": "위핑",
-          "productId": "58365629990",
+          "title": "온러닝 On Running 클라우드플로우 5 여성 3WF10092580",
+          "link": "https://kor123.kr/product/detail.html?product_no=10675&cate_no=84&display_group=1&utm_source=naver&utm_medium=shopping&utm_campaign=knowledge_shopping&mkt_in=Y&ghost_mall_id=naver&ref=naver_open",
+          "image": "https://shopping-phinf.pstatic.net/main_5960411/59604111817.jpg",
+          "price": 72000,
+          "mallName": "스이큐",
+          "productId": "59604111817",
           "productType": 2,
           "brand": "",
           "maker": "",
           "category": [
             "패션잡화",
             "여성신발",
+            "운동화",
+            "러닝화"
+          ],
+          "confidence": "high"
+        },
+        {
+          "title": "온러닝 클라우드플로우 5 화이트 라임 3MF10112929",
+          "link": "https://creeyi.co.kr/product/detail.html?product_no=19125&cate_no=76&display_group=1&utm_source=naver&utm_medium=shopping&utm_campaign=knowledge_shopping&mkt_in=Y&ghost_mall_id=naver&ref=naver_open",
+          "image": "https://shopping-phinf.pstatic.net/main_6038887/60388874931.jpg",
+          "price": 81000,
+          "mallName": "태우마켓",
+          "productId": "60388874931",
+          "productType": 2,
+          "brand": "",
+          "maker": "",
+          "category": [
+            "패션잡화",
+            "남성신발",
             "운동화",
             "러닝화"
           ],
@@ -6303,20 +6209,30 @@
       "message": ""
     },
     "nike-줌-플라이-6": {
-      "status": "found",
+      "status": "no_match",
       "query": "나이키 줌 플라이 6 러닝화",
-      "fetchedAt": "2026-06-10T22:50:39.849Z",
-      "lowestPrice": 78600,
+      "fetchedAt": "2026-06-11T12:44:28.964Z",
+      "lowestPrice": null,
+      "lowestOffer": null,
+      "offers": [],
+      "confidence": "low",
+      "message": "조건에 맞는 가격 결과를 찾지 못했습니다."
+    },
+    "adidas-프라임-x3-스트렁": {
+      "status": "found",
+      "query": "아디다스 프라임 X3 스트렁 러닝화",
+      "fetchedAt": "2026-06-11T12:44:29.362Z",
+      "lowestPrice": 71000,
       "lowestOffer": {
-        "title": "나이키 남성 줌 플라이 6 블랙화이트 FN8454-001",
-        "link": "https://www.place707.com/goods/view?no=193705&market=naver",
-        "image": "https://shopping-phinf.pstatic.net/main_5409216/54092161306.jpg",
-        "price": 78600,
-        "mallName": "플레이스707",
-        "productId": "54092161306",
+        "title": "아디다스 아디제로 프라임 X3 스트렁 러닝화 JR2598",
+        "link": "https://shoehouse.store/product/detail.html?product_no=8279&cate_no=114&display_group=1&utm_source=naver&utm_medium=shopping&utm_campaign=knowledge_shopping&mkt_in=Y&ghost_mall_id=naver&ref=naver_open",
+        "image": "https://shopping-phinf.pstatic.net/main_6005436/60054361530.jpg",
+        "price": 71000,
+        "mallName": "슈즈하우스",
+        "productId": "60054361530",
         "productType": 2,
-        "brand": "나이키",
-        "maker": "나이키",
+        "brand": "",
+        "maker": "",
         "category": [
           "패션잡화",
           "남성신발",
@@ -6327,48 +6243,12 @@
       },
       "offers": [
         {
-          "title": "나이키 남성 줌 플라이 6 블랙화이트 FN8454-001",
-          "link": "https://www.place707.com/goods/view?no=193705&market=naver",
-          "image": "https://shopping-phinf.pstatic.net/main_5409216/54092161306.jpg",
-          "price": 78600,
-          "mallName": "플레이스707",
-          "productId": "54092161306",
-          "productType": 2,
-          "brand": "나이키",
-          "maker": "나이키",
-          "category": [
-            "패션잡화",
-            "남성신발",
-            "운동화",
-            "러닝화"
-          ],
-          "confidence": "high"
-        },
-        {
-          "title": "나이키 줌 플라이 6 로드 런닝화 FN8454-001",
-          "link": "https://www.itsomemall.com/goods/view?no=196637&market=naver",
-          "image": "https://shopping-phinf.pstatic.net/main_5409203/54092033796.jpg",
-          "price": 78600,
-          "mallName": "잇썸몰",
-          "productId": "54092033796",
-          "productType": 2,
-          "brand": "나이키",
-          "maker": "나이키",
-          "category": [
-            "패션잡화",
-            "남성신발",
-            "운동화",
-            "러닝화"
-          ],
-          "confidence": "high"
-        },
-        {
-          "title": "나이키 줌 플라이 6 블랙 FN8454-001",
-          "link": "http://weping.co.kr/goods/view?no=1470569&market=naver",
-          "image": "https://shopping-phinf.pstatic.net/main_6012941/60129411125.jpg",
-          "price": 78800,
-          "mallName": "위핑",
-          "productId": "60129411125",
+          "title": "아디다스 아디제로 프라임 X3 스트렁 러닝화 JR2598",
+          "link": "https://shoehouse.store/product/detail.html?product_no=8279&cate_no=114&display_group=1&utm_source=naver&utm_medium=shopping&utm_campaign=knowledge_shopping&mkt_in=Y&ghost_mall_id=naver&ref=naver_open",
+          "image": "https://shopping-phinf.pstatic.net/main_6005436/60054361530.jpg",
+          "price": 71000,
+          "mallName": "슈즈하우스",
+          "productId": "60054361530",
           "productType": 2,
           "brand": "",
           "maker": "",
@@ -6381,12 +6261,12 @@
           "confidence": "high"
         },
         {
-          "title": "나이키 줌 플라이 6 엘리우드 킵초게 런닝화 HJ7038-100",
-          "link": "http://tpmall.kr/goods/view?no=3434&market=naver",
-          "image": "https://shopping-phinf.pstatic.net/main_5928913/59289132928.jpg",
-          "price": 80500,
-          "mallName": "TPMALL",
-          "productId": "59289132928",
+          "title": "아디다스 아디제로 프라임 X3 스트렁 러닝화 JP9193",
+          "link": "https://shoehouse.store/product/detail.html?product_no=8284&cate_no=114&display_group=1&utm_source=naver&utm_medium=shopping&utm_campaign=knowledge_shopping&mkt_in=Y&ghost_mall_id=naver&ref=naver_open",
+          "image": "https://shopping-phinf.pstatic.net/main_6005436/60054369484.jpg",
+          "price": 72000,
+          "mallName": "슈즈하우스",
+          "productId": "60054369484",
           "productType": 2,
           "brand": "",
           "maker": "",
@@ -6399,12 +6279,30 @@
           "confidence": "high"
         },
         {
-          "title": "나이키 줌 플라이 6 엘리우드 킵초게 HJ7038-100",
-          "link": "http://weping.co.kr/goods/view?no=1386427&market=naver",
-          "image": "https://shopping-phinf.pstatic.net/main_6012944/60129445452.jpg",
-          "price": 80900,
-          "mallName": "위핑",
-          "productId": "60129445452",
+          "title": "아디다스 아디제로 프라임 X3 스트렁 러닝화 JP9193",
+          "link": "https://aerowood.shop/product/detail.html?product_no=7204&cate_no=71&display_group=1&utm_source=naver&utm_medium=shopping&utm_campaign=knowledge_shopping&mkt_in=Y&ghost_mall_id=naver&ref=naver_open",
+          "image": "https://shopping-phinf.pstatic.net/main_6005436/60054363043.jpg",
+          "price": 72000,
+          "mallName": "에어로우드",
+          "productId": "60054363043",
+          "productType": 2,
+          "brand": "조쿠",
+          "maker": "",
+          "category": [
+            "패션잡화",
+            "남성신발",
+            "운동화",
+            "러닝화"
+          ],
+          "confidence": "high"
+        },
+        {
+          "title": "아디다스 아디제로 프라임 X3 스트렁 JQ0614",
+          "link": "https://shoehouse.store/product/detail.html?product_no=8285&cate_no=114&display_group=1&utm_source=naver&utm_medium=shopping&utm_campaign=knowledge_shopping&mkt_in=Y&ghost_mall_id=naver&ref=naver_open",
+          "image": "https://shopping-phinf.pstatic.net/main_6005436/60054367124.jpg",
+          "price": 75000,
+          "mallName": "슈즈하우스",
+          "productId": "60054367124",
           "productType": 2,
           "brand": "",
           "maker": "",
@@ -6415,118 +6313,22 @@
             "러닝화"
           ],
           "confidence": "high"
-        }
-      ],
-      "confidence": "high",
-      "message": ""
-    },
-    "adidas-프라임-x3-스트렁": {
-      "status": "found",
-      "query": "아디다스 프라임 X3 스트렁 러닝화",
-      "fetchedAt": "2026-06-10T22:50:40.279Z",
-      "lowestPrice": 189500,
-      "lowestOffer": {
-        "title": "아디다스 여성 마라톤화 아디제로 프라임 X3 스트렁 러닝화 JQ2801",
-        "link": "https://smartstore.naver.com/main/products/13328274317",
-        "image": "https://shopping-phinf.pstatic.net/main_9087278/90872784649.jpg",
-        "price": 189500,
-        "mallName": "가치가아울렛",
-        "productId": "90872784649",
-        "productType": 2,
-        "brand": "아디다스",
-        "maker": "아디다스",
-        "category": [
-          "패션잡화",
-          "여성신발",
-          "운동화",
-          "러닝화"
-        ],
-        "confidence": "high"
-      },
-      "offers": [
+        },
         {
-          "title": "아디다스 여성 마라톤화 아디제로 프라임 X3 스트렁 러닝화 JQ2801",
-          "link": "https://smartstore.naver.com/main/products/13328274317",
-          "image": "https://shopping-phinf.pstatic.net/main_9087278/90872784649.jpg",
-          "price": 189500,
-          "mallName": "가치가아울렛",
-          "productId": "90872784649",
+          "title": "아디다스 아디제로 프라임 X3 스트렁 JQ0614",
+          "link": "https://aerowood.shop/product/detail.html?product_no=7205&cate_no=71&display_group=1&utm_source=naver&utm_medium=shopping&utm_campaign=knowledge_shopping&mkt_in=Y&ghost_mall_id=naver&ref=naver_open",
+          "image": "https://shopping-phinf.pstatic.net/main_6005436/60054368713.jpg",
+          "price": 75000,
+          "mallName": "에어로우드",
+          "productId": "60054368713",
           "productType": 2,
-          "brand": "아디다스",
-          "maker": "아디다스",
+          "brand": "조쿠",
+          "maker": "",
           "category": [
             "패션잡화",
-            "여성신발",
+            "남성신발",
             "운동화",
             "러닝화"
-          ],
-          "confidence": "high"
-        },
-        {
-          "title": "260 아디다스 아디제로 프라임 X3 스트렁 솔라 옐로우 JP9193",
-          "link": "https://kream.co.kr/shopping-products/766812?utm_campaign=NAVER_SHOPPING_PARTNER_CPC&utm_content=Adidas&utm_medium=cpc&utm_source=naver_shopping&utm_term=766812_8&size=260",
-          "image": "https://shopping-phinf.pstatic.net/main_5861310/58613103892.jpg",
-          "price": 194200,
-          "mallName": "KREAM",
-          "productId": "58613103892",
-          "productType": 2,
-          "brand": "아디다스",
-          "maker": "",
-          "category": [
-            "패션잡화",
-            "남성신발",
-            "스니커즈"
-          ],
-          "confidence": "high"
-        },
-        {
-          "title": "225 아디다스 아디제로 프라임 X3 스트렁 솔라 옐로우 JP9193",
-          "link": "https://kream.co.kr/shopping-products/766812?utm_campaign=NAVER_SHOPPING_PARTNER_CPC&utm_content=Adidas&utm_medium=cpc&utm_source=naver_shopping&utm_term=766812_1&size=225",
-          "image": "https://shopping-phinf.pstatic.net/main_5861210/58612106582.jpg",
-          "price": 196200,
-          "mallName": "KREAM",
-          "productId": "58612106582",
-          "productType": 2,
-          "brand": "아디다스",
-          "maker": "",
-          "category": [
-            "패션잡화",
-            "남성신발",
-            "스니커즈"
-          ],
-          "confidence": "high"
-        },
-        {
-          "title": "250 아디다스 아디제로 프라임 X3 스트렁 솔라 옐로우 JP9193",
-          "link": "https://kream.co.kr/shopping-products/766812?utm_campaign=NAVER_SHOPPING_PARTNER_CPC&utm_content=Adidas&utm_medium=cpc&utm_source=naver_shopping&utm_term=766812_6&size=250",
-          "image": "https://shopping-phinf.pstatic.net/main_5861209/58612092847.jpg",
-          "price": 200400,
-          "mallName": "KREAM",
-          "productId": "58612092847",
-          "productType": 2,
-          "brand": "아디다스",
-          "maker": "",
-          "category": [
-            "패션잡화",
-            "남성신발",
-            "스니커즈"
-          ],
-          "confidence": "high"
-        },
-        {
-          "title": "265 아디다스 아디제로 프라임 X3 스트렁 솔라 옐로우 JP9193",
-          "link": "https://kream.co.kr/shopping-products/766812?utm_campaign=NAVER_SHOPPING_PARTNER_CPC&utm_content=Adidas&utm_medium=cpc&utm_source=naver_shopping&utm_term=766812_9&size=265",
-          "image": "https://shopping-phinf.pstatic.net/main_5861210/58612105796.jpg",
-          "price": 206600,
-          "mallName": "KREAM",
-          "productId": "58612105796",
-          "productType": 2,
-          "brand": "아디다스",
-          "maker": "",
-          "category": [
-            "패션잡화",
-            "남성신발",
-            "스니커즈"
           ],
           "confidence": "high"
         }
@@ -6537,7 +6339,7 @@
     "asics-매직스피드-5": {
       "status": "found",
       "query": "아식스 매직스피드 5 러닝화",
-      "fetchedAt": "2026-06-10T22:50:40.698Z",
+      "fetchedAt": "2026-06-11T12:44:29.767Z",
       "lowestPrice": 139400,
       "lowestOffer": {
         "title": "아식스 매직스피드 5 그린x블랙 카본 런닝화 마라톤화 경량 운동화 1013A183.30",
@@ -6614,11 +6416,11 @@
         },
         {
           "title": "아식스 매직스피드5 화이트 블랙 카본 러닝화 템포런 마라톤 운동화 MAGIC SPEED5",
-          "link": "http://shinsegaemall.ssg.com/item/itemView.ssg?itemId=1000806362998&siteNo=6004&salestrNo=6005&ckwhere=s_naver&appPopYn=n&utm_medium=PCS&utm_source=naver&utm_campaign=naver_pcs",
-          "image": "https://shopping-phinf.pstatic.net/main_5931074/59310748680.jpg",
+          "link": "http://www.ssg.com/item/itemView.ssg?itemId=1000806362998&siteNo=6001&salestrNo=6005&ckwhere=ssg_naver&appPopYn=n&utm_medium=PCS&utm_source=naver&utm_campaign=naver_pcs",
+          "image": "https://shopping-phinf.pstatic.net/main_5931080/59310806487.jpg",
           "price": 174538,
-          "mallName": "신세계몰",
-          "productId": "59310748680",
+          "mallName": "SSG닷컴",
+          "productId": "59310806487",
           "productType": 2,
           "brand": "",
           "maker": "",
@@ -6655,13 +6457,13 @@
     "new-balance-sc트레이너-v3": {
       "status": "found",
       "query": "뉴발란스 SC트레이너 V3 러닝화",
-      "fetchedAt": "2026-06-10T22:50:41.119Z",
-      "lowestPrice": 69630,
+      "fetchedAt": "2026-06-11T12:44:30.166Z",
+      "lowestPrice": 69330,
       "lowestOffer": {
         "title": "뉴발란스 퓨어셀 sc트레이너 v3 런닝화 마라톤화 MRCXCA3",
         "link": "https://kor123.kr/product/detail.html?product_no=4214&cate_no=65&display_group=1&utm_source=naver&utm_medium=shopping&utm_campaign=knowledge_shopping&mkt_in=Y&ghost_mall_id=naver&ref=naver_open",
         "image": "https://shopping-phinf.pstatic.net/main_5957517/59575179381.jpg",
-        "price": 69630,
+        "price": 69330,
         "mallName": "스이큐",
         "productId": "59575179381",
         "productType": 2,
@@ -6680,9 +6482,27 @@
           "title": "뉴발란스 퓨어셀 sc트레이너 v3 런닝화 마라톤화 MRCXCA3",
           "link": "https://kor123.kr/product/detail.html?product_no=4214&cate_no=65&display_group=1&utm_source=naver&utm_medium=shopping&utm_campaign=knowledge_shopping&mkt_in=Y&ghost_mall_id=naver&ref=naver_open",
           "image": "https://shopping-phinf.pstatic.net/main_5957517/59575179381.jpg",
-          "price": 69630,
+          "price": 69330,
           "mallName": "스이큐",
           "productId": "59575179381",
+          "productType": 2,
+          "brand": "",
+          "maker": "",
+          "category": [
+            "패션잡화",
+            "남성신발",
+            "운동화",
+            "러닝화"
+          ],
+          "confidence": "high"
+        },
+        {
+          "title": "뉴발란스 퓨어셀 sc트레이너 v3 런닝화 마라톤화 MRCXCA3",
+          "link": "https://nadomall.co.kr/product/detail.html?product_no=2209&cate_no=57&display_group=1&utm_source=naver&utm_medium=shopping&utm_campaign=knowledge_shopping&mkt_in=Y&ghost_mall_id=naver&ref=naver_open",
+          "image": "https://shopping-phinf.pstatic.net/main_5952071/59520714362.jpg",
+          "price": 69420,
+          "mallName": "프르티억",
+          "productId": "59520714362",
           "productType": 2,
           "brand": "",
           "maker": "",
@@ -6701,7 +6521,7 @@
     "saucony-엔돌핀-트레이너": {
       "status": "found",
       "query": "써코니 엔돌핀 트레이너 러닝화",
-      "fetchedAt": "2026-06-10T22:50:41.543Z",
+      "fetchedAt": "2026-06-11T12:44:30.559Z",
       "lowestPrice": 97020,
       "lowestOffer": {
         "title": "갤러리아_[SAUCONY] 엔돌핀 트레이너 M ENDORPHIN TRAINER S20996-135",
@@ -6818,7 +6638,7 @@
     "puma-디비에이트-나이트로-4": {
       "status": "no_match",
       "query": "푸마 디비에이트 나이트로 4 러닝화",
-      "fetchedAt": "2026-06-10T22:50:41.965Z",
+      "fetchedAt": "2026-06-11T12:44:30.964Z",
       "lowestPrice": null,
       "lowestOffer": null,
       "offers": [],
@@ -6828,15 +6648,15 @@
     "hoka-스카이워드-x": {
       "status": "found",
       "query": "호카 스카이워드 X 러닝화",
-      "fetchedAt": "2026-06-10T22:50:42.391Z",
-      "lowestPrice": 156560,
+      "fetchedAt": "2026-06-11T12:44:31.356Z",
+      "lowestPrice": 63480,
       "lowestOffer": {
-        "title": "(265mm) 호카 스카이워드X 맥스쿠션 런닝화 마라톤화 레터스 1147911-LCC",
-        "link": "https://link.gmarket.co.kr/gate/pcs?item-no=4250878709&sub-id=1003&service-code=10000003&lcd=100000043",
-        "image": "https://shopping-phinf.pstatic.net/main_5475889/54758890409.11.jpg",
-        "price": 156560,
-        "mallName": "G마켓",
-        "productId": "54758890409",
+        "title": "호카 스카이워드 X 남성 러닝화 1147911-CRYS",
+        "link": "https://creeyi.co.kr/product/detail.html?product_no=17244&cate_no=64&display_group=1&utm_source=naver&utm_medium=shopping&utm_campaign=knowledge_shopping&mkt_in=Y&ghost_mall_id=naver&ref=naver_open",
+        "image": "https://shopping-phinf.pstatic.net/main_6038887/60388878998.jpg",
+        "price": 63480,
+        "mallName": "태우마켓",
+        "productId": "60388878998",
         "productType": 2,
         "brand": "",
         "maker": "",
@@ -6850,12 +6670,12 @@
       },
       "offers": [
         {
-          "title": "(265mm) 호카 스카이워드X 맥스쿠션 런닝화 마라톤화 레터스 1147911-LCC",
-          "link": "https://link.gmarket.co.kr/gate/pcs?item-no=4250878709&sub-id=1003&service-code=10000003&lcd=100000043",
-          "image": "https://shopping-phinf.pstatic.net/main_5475889/54758890409.11.jpg",
-          "price": 156560,
-          "mallName": "G마켓",
-          "productId": "54758890409",
+          "title": "호카 스카이워드 X 남성 러닝화 1147911-CRYS",
+          "link": "https://creeyi.co.kr/product/detail.html?product_no=17244&cate_no=64&display_group=1&utm_source=naver&utm_medium=shopping&utm_campaign=knowledge_shopping&mkt_in=Y&ghost_mall_id=naver&ref=naver_open",
+          "image": "https://shopping-phinf.pstatic.net/main_6038887/60388878998.jpg",
+          "price": 63480,
+          "mallName": "태우마켓",
+          "productId": "60388878998",
           "productType": 2,
           "brand": "",
           "maker": "",
@@ -6868,66 +6688,66 @@
           "confidence": "high"
         },
         {
-          "title": "[호카오네오네] 265mm 호카 스카이워드X 맥스쿠션 런닝화 조깅화 마라톤화 그린 1147911-LCC",
-          "link": "http://gate.halfclub.com/naver?site_cd=1&type=detail_pcode&p1=P405143545&partnerid=naverdb",
-          "image": "https://shopping-phinf.pstatic.net/main_5656204/56562045947.jpg",
-          "price": 156910,
-          "mallName": "하프클럽",
-          "productId": "56562045947",
+          "title": "호카 스카이워드 X 러닝화 1147911-CRYS",
+          "link": "https://terbo.kr/product/detail.html?product_no=4239&cate_no=54&display_group=1&utm_source=naver&utm_medium=shopping&utm_campaign=knowledge_shopping&mkt_in=Y&ghost_mall_id=naver&ref=naver_open",
+          "image": "https://shopping-phinf.pstatic.net/main_5908307/59083076812.1.jpg",
+          "price": 66420,
+          "mallName": "LALABOBO",
+          "productId": "59083076812",
           "productType": 2,
-          "brand": "호카",
-          "maker": "호카",
+          "brand": "",
+          "maker": "",
           "category": [
             "패션잡화",
-            "남성신발",
+            "여성신발",
             "운동화",
             "러닝화"
           ],
           "confidence": "high"
         },
         {
-          "title": "호카오네오네 (265mm) 호카 스카이워드X 맥스쿠션 런닝화 마라톤화 레터스 1147911-LCC",
-          "link": "https://www.lotteimall.com/coop/affilGate.lotte?chl_no=141370&chl_dtl_no=2540914&returnUrl=/goods/viewGoodsDetail.lotte?goods_no=2858021721&utm_source=naver&utm_medium=affiliate&utm_campaign=price_compare",
-          "image": "https://shopping-phinf.pstatic.net/main_5192708/51927088569.jpg",
-          "price": 157040,
-          "mallName": "롯데홈쇼핑",
-          "productId": "51927088569",
+          "title": "호카 스카이워드 X 러닝화 1147912-CYRS",
+          "link": "https://terbo.kr/product/detail.html?product_no=4236&cate_no=54&display_group=1&utm_source=naver&utm_medium=shopping&utm_campaign=knowledge_shopping&mkt_in=Y&ghost_mall_id=naver&ref=naver_open",
+          "image": "https://shopping-phinf.pstatic.net/main_5908309/59083099436.1.jpg",
+          "price": 66420,
+          "mallName": "LALABOBO",
+          "productId": "59083099436",
           "productType": 2,
-          "brand": "호카",
-          "maker": "호카",
+          "brand": "",
+          "maker": "",
           "category": [
             "패션잡화",
-            "남성신발",
+            "여성신발",
+            "단화",
+            "스니커즈"
+          ],
+          "confidence": "high"
+        },
+        {
+          "title": "호카 스카이 워드 X 블랙 퍼플 1147911-BCQ",
+          "link": "https://terbo.kr/product/detail.html?product_no=4238&cate_no=54&display_group=1&utm_source=naver&utm_medium=shopping&utm_campaign=knowledge_shopping&mkt_in=Y&ghost_mall_id=naver&ref=naver_open",
+          "image": "https://shopping-phinf.pstatic.net/main_5908308/59083084566.1.jpg",
+          "price": 66420,
+          "mallName": "LALABOBO",
+          "productId": "59083084566",
+          "productType": 2,
+          "brand": "",
+          "maker": "",
+          "category": [
+            "패션잡화",
+            "여성신발",
             "운동화",
             "러닝화"
           ],
           "confidence": "high"
         },
         {
-          "title": "(265mm) 호카 스카이워드X 맥스쿠션 런닝화 마라톤화 레터스 1147911-LCC",
-          "link": "http://with.gsshop.com/alia/aliaGate.gs?media=OB&ecpid=1071409176&vodFlag=N&prdseqnum=1071409176&utm_source=price&utm_medium=affiliate&utm_campaign=naver",
-          "image": "https://shopping-phinf.pstatic.net/main_5190801/51908016851.jpg",
-          "price": 158510,
-          "mallName": "GSSHOP",
-          "productId": "51908016851",
-          "productType": 2,
-          "brand": "호카",
-          "maker": "호카",
-          "category": [
-            "패션잡화",
-            "남성신발",
-            "운동화",
-            "러닝화"
-          ],
-          "confidence": "high"
-        },
-        {
-          "title": "(265mm)호카 스카이워드X 맥스쿠셔닝 카본화 남성 마라톤화 런닝화 운동화 옐로 1147911-LCC",
-          "link": "https://link.gmarket.co.kr/gate/pcs?item-no=4251871606&sub-id=1003&service-code=10000003&lcd=100000043",
-          "image": "https://shopping-phinf.pstatic.net/main_5757449/57574495318.1.jpg",
-          "price": 158610,
-          "mallName": "G마켓",
-          "productId": "57574495318",
+          "title": "호카오네오네 스카이워드 X SKYWARD X 로우탑 캐주얼 러닝화 남녀 공용 1147911-BVR",
+          "link": "https://olvui.co.kr/product/detail.html?product_no=21667&cate_no=198&display_group=1&utm_source=naver&utm_medium=shopping&utm_campaign=knowledge_shopping&mkt_in=Y&ghost_mall_id=naver&ref=naver_open",
+          "image": "https://shopping-phinf.pstatic.net/main_5898416/58984169701.jpg",
+          "price": 68410,
+          "mallName": "아리크레",
+          "productId": "58984169701",
           "productType": 2,
           "brand": "",
           "maker": "",
@@ -6946,7 +6766,7 @@
     "nike-스트릭플라이-2": {
       "status": "found",
       "query": "나이키 스트릭플라이 2 러닝화",
-      "fetchedAt": "2026-06-10T22:50:42.803Z",
+      "fetchedAt": "2026-06-11T12:44:31.743Z",
       "lowestPrice": 98900,
       "lowestOffer": {
         "title": "나이키 스트릭플라이 2 남자 남성 러닝화 런닝화 바이올렛 HF6416",
@@ -6986,14 +6806,14 @@
           "confidence": "high"
         },
         {
-          "title": "나이키 스트릭플라이 2 러닝화 마라톤 트레이닝 로드 레이싱화 HF6416-400 285",
-          "link": "https://link.coupang.com/re/PCSNAVERPCSDP?pageKey=9572510879&ctag=9572510879&lptag=V95516422588&itemId=28572082619&vendorItemId=95516422588&spec=10305199",
-          "image": "https://shopping-phinf.pstatic.net/main_6039352/60393522197.jpg",
-          "price": 106800,
-          "mallName": "쿠팡",
-          "productId": "60393522197",
+          "title": "나이키 스트릭플라이 2 글레이셔 블루 민트 폼 HF6416-400",
+          "link": "https://nadomall.co.kr/product/detail.html?product_no=8425&cate_no=54&display_group=1&utm_source=naver&utm_medium=shopping&utm_campaign=knowledge_shopping&mkt_in=Y&ghost_mall_id=naver&ref=naver_open",
+          "image": "https://shopping-phinf.pstatic.net/main_5940256/59402560919.jpg",
+          "price": 106240,
+          "mallName": "프르티억",
+          "productId": "59402560919",
           "productType": 2,
-          "brand": "나이키",
+          "brand": "",
           "maker": "",
           "category": [
             "패션잡화",
@@ -7004,12 +6824,12 @@
           "confidence": "high"
         },
         {
-          "title": "나이키 스트릭플라이 2 프로토 토탈 오렌지 HF6417-100 285",
-          "link": "https://link.coupang.com/re/PCSNAVERPCSDP?pageKey=9572514886&ctag=9572514886&lptag=V95516437703&itemId=28572097935&vendorItemId=95516437703&spec=10305199",
-          "image": "https://shopping-phinf.pstatic.net/main_6038092/60380922942.jpg",
+          "title": "나이키 스트릭플라이 2 러닝화 마라톤 트레이닝 로드 레이싱화 HF6416-400 285",
+          "link": "https://link.coupang.com/re/PCSNAVERPCSDP?pageKey=9572510879&ctag=9572510879&lptag=V95516422588&itemId=28572082619&vendorItemId=95516422588&spec=10305199",
+          "image": "https://shopping-phinf.pstatic.net/main_6039352/60393522197.jpg",
           "price": 106800,
           "mallName": "쿠팡",
-          "productId": "60380922942",
+          "productId": "60393522197",
           "productType": 2,
           "brand": "나이키",
           "maker": "",
@@ -7039,12 +6859,12 @@
           "confidence": "high"
         },
         {
-          "title": "265 나이키 스트릭플라이 2 다크 옵시디언 일렉트릭 그린 IO9567-400",
-          "link": "https://kream.co.kr/shopping-products/764177?utm_campaign=NAVER_SHOPPING_PARTNER_CPC&utm_content=Nike&utm_medium=cpc&utm_source=naver_shopping&utm_term=764177_10&size=265",
-          "image": "https://shopping-phinf.pstatic.net/main_5861454/58614546325.jpg",
-          "price": 122900,
+          "title": "260 나이키 스트릭플라이 2 다크 옵시디언 일렉트릭 그린 IO9567-400",
+          "link": "https://kream.co.kr/shopping-products/764177?utm_campaign=NAVER_SHOPPING_PARTNER_CPC&utm_content=Nike&utm_medium=cpc&utm_source=naver_shopping&utm_term=764177_9&size=260",
+          "image": "https://shopping-phinf.pstatic.net/main_5861454/58614546296.jpg",
+          "price": 123900,
           "mallName": "KREAM",
-          "productId": "58614546325",
+          "productId": "58614546296",
           "productType": 2,
           "brand": "나이키",
           "maker": "",
@@ -7062,7 +6882,7 @@
     "adidas-타쿠미-센-11": {
       "status": "no_match",
       "query": "아디다스 타쿠미 센 11 러닝화",
-      "fetchedAt": "2026-06-10T22:50:43.233Z",
+      "fetchedAt": "2026-06-11T12:44:32.129Z",
       "lowestPrice": null,
       "lowestOffer": null,
       "offers": [],
@@ -7072,7 +6892,7 @@
     "new-balance-sc페이서-v2": {
       "status": "no_match",
       "query": "뉴발란스 SC페이서 V2 러닝화",
-      "fetchedAt": "2026-06-10T22:50:43.662Z",
+      "fetchedAt": "2026-06-11T12:44:32.533Z",
       "lowestPrice": null,
       "lowestOffer": null,
       "offers": [],
@@ -7082,7 +6902,7 @@
     "puma-프로피오-나이트로": {
       "status": "no_match",
       "query": "푸마 프로피오 나이트로 러닝화",
-      "fetchedAt": "2026-06-10T22:50:44.090Z",
+      "fetchedAt": "2026-06-11T12:44:32.947Z",
       "lowestPrice": null,
       "lowestOffer": null,
       "offers": [],
@@ -7092,7 +6912,7 @@
     "mizuno-하이퍼퀵-퓨어": {
       "status": "no_match",
       "query": "미즈노 하이퍼퀵 퓨어 러닝화",
-      "fetchedAt": "2026-06-10T22:50:44.500Z",
+      "fetchedAt": "2026-06-11T12:44:33.358Z",
       "lowestPrice": null,
       "lowestOffer": null,
       "offers": [],
@@ -7102,11 +6922,11 @@
     "on-클라우드-붐-볼트": {
       "status": "found",
       "query": "온러닝 클라우드 붐 볼트 러닝화",
-      "fetchedAt": "2026-06-10T22:50:44.924Z",
+      "fetchedAt": "2026-06-11T12:44:33.765Z",
       "lowestPrice": 85300,
       "lowestOffer": {
         "title": "온 러닝화 클라우드 붐 볼트 블랙 3MF30980462",
-        "link": "http://weping.co.kr/goods/view?no=1487174&market=naver",
+        "link": "https://weping.co.kr/goods/view?no=1487174&market=naver",
         "image": "https://shopping-phinf.pstatic.net/main_6020513/60205135841.jpg",
         "price": 85300,
         "mallName": "위핑",
@@ -7125,7 +6945,7 @@
       "offers": [
         {
           "title": "온 러닝화 클라우드 붐 볼트 블랙 3MF30980462",
-          "link": "http://weping.co.kr/goods/view?no=1487174&market=naver",
+          "link": "https://weping.co.kr/goods/view?no=1487174&market=naver",
           "image": "https://shopping-phinf.pstatic.net/main_6020513/60205135841.jpg",
           "price": 85300,
           "mallName": "위핑",
@@ -7143,7 +6963,7 @@
         },
         {
           "title": "온 러닝화 클라우드 붐 볼트 블랙 퍼플 3MF30984766",
-          "link": "http://weping.co.kr/goods/view?no=1487175&market=naver",
+          "link": "https://weping.co.kr/goods/view?no=1487175&market=naver",
           "image": "https://shopping-phinf.pstatic.net/main_6020513/60205136385.jpg",
           "price": 85600,
           "mallName": "위핑",
@@ -7161,7 +6981,7 @@
         },
         {
           "title": "온 러닝화 클라우드 붐 볼트 핑크 3WF30744671",
-          "link": "http://weping.co.kr/goods/view?no=1487179&market=naver",
+          "link": "https://weping.co.kr/goods/view?no=1487179&market=naver",
           "image": "https://shopping-phinf.pstatic.net/main_6020513/60205136052.jpg",
           "price": 85700,
           "mallName": "위핑",
@@ -7179,7 +6999,7 @@
         },
         {
           "title": "온 러닝화 클라우드 붐 볼트 민트 3MG11124915",
-          "link": "http://weping.co.kr/goods/view?no=1487173&market=naver",
+          "link": "https://weping.co.kr/goods/view?no=1487173&market=naver",
           "image": "https://shopping-phinf.pstatic.net/main_6020513/60205134043.jpg",
           "price": 85900,
           "mallName": "위핑",
@@ -7197,7 +7017,7 @@
         },
         {
           "title": "온 러닝화 클라우드 붐 볼트 청색 3WG10974916",
-          "link": "http://weping.co.kr/goods/view?no=1487176&market=naver",
+          "link": "https://weping.co.kr/goods/view?no=1487176&market=naver",
           "image": "https://shopping-phinf.pstatic.net/main_6020512/60205129225.jpg",
           "price": 86000,
           "mallName": "위핑",
@@ -7218,135 +7038,67 @@
       "message": ""
     },
     "nike-베이퍼플라이-4": {
-      "status": "found",
+      "status": "no_match",
       "query": "나이키 베이퍼플라이 4 러닝화",
-      "fetchedAt": "2026-06-10T22:50:45.374Z",
-      "lowestPrice": 80000,
-      "lowestOffer": {
-        "title": "나이키 베이퍼 플라이 4 케이브 퍼플 라임 운동화 러닝화 HF6414-600",
-        "link": "https://www.place707.com/goods/view?no=193849&market=naver",
-        "image": "https://shopping-phinf.pstatic.net/main_5593457/55934570792.jpg",
-        "price": 80000,
-        "mallName": "플레이스707",
-        "productId": "55934570792",
-        "productType": 2,
-        "brand": "나이키",
-        "maker": "나이키",
-        "category": [
-          "패션잡화",
-          "남성신발",
-          "운동화",
-          "러닝화"
-        ],
-        "confidence": "high"
-      },
-      "offers": [
-        {
-          "title": "나이키 베이퍼 플라이 4 케이브 퍼플 라임 운동화 러닝화 HF6414-600",
-          "link": "https://www.place707.com/goods/view?no=193849&market=naver",
-          "image": "https://shopping-phinf.pstatic.net/main_5593457/55934570792.jpg",
-          "price": 80000,
-          "mallName": "플레이스707",
-          "productId": "55934570792",
-          "productType": 2,
-          "brand": "나이키",
-          "maker": "나이키",
-          "category": [
-            "패션잡화",
-            "남성신발",
-            "운동화",
-            "러닝화"
-          ],
-          "confidence": "high"
-        },
-        {
-          "title": "나이키 베이퍼플라이 4 남성 로드 레이싱화 HF6413-100",
-          "link": "https://www.place707.com/goods/view?no=193848&market=naver",
-          "image": "https://shopping-phinf.pstatic.net/main_5593462/55934622313.jpg",
-          "price": 80000,
-          "mallName": "플레이스707",
-          "productId": "55934622313",
-          "productType": 2,
-          "brand": "나이키",
-          "maker": "나이키",
-          "category": [
-            "패션잡화",
-            "남성신발",
-            "운동화",
-            "러닝화"
-          ],
-          "confidence": "high"
-        },
-        {
-          "title": "나이키 베이퍼플라이 4 로드 레이싱화 마라톤화 HF6414-100",
-          "link": "https://www.place707.com/goods/view?no=193851&market=naver",
-          "image": "https://shopping-phinf.pstatic.net/main_5594982/55949820568.jpg",
-          "price": 80000,
-          "mallName": "플레이스707",
-          "productId": "55949820568",
-          "productType": 2,
-          "brand": "나이키",
-          "maker": "나이키",
-          "category": [
-            "패션잡화",
-            "남성신발",
-            "운동화",
-            "러닝화"
-          ],
-          "confidence": "high"
-        },
-        {
-          "title": "나이키 베이퍼 플라이 4 여성 로드 러닝화 마라톤화 화이트 HF6412-100",
-          "link": "https://www.itsomemall.com/goods/view?no=198083&market=naver",
-          "image": "https://shopping-phinf.pstatic.net/main_5950575/59505754459.jpg",
-          "price": 89000,
-          "mallName": "잇썸몰",
-          "productId": "59505754459",
-          "productType": 2,
-          "brand": "나이키",
-          "maker": "나이키",
-          "category": [
-            "패션잡화",
-            "남성신발",
-            "운동화",
-            "러닝화"
-          ],
-          "confidence": "high"
-        },
-        {
-          "title": "나이키 운동화 베이퍼플라이 4 남녀공용 로드 레이싱화 퓨어 플래티넘 HF6414-100 230",
-          "link": "https://link.coupang.com/re/PCSNAVERPCSDP?pageKey=9573157273&ctag=9573157273&lptag=V95518683408&itemId=28574394468&vendorItemId=95518683408&spec=10305199",
-          "image": "https://shopping-phinf.pstatic.net/main_6039315/60393158654.jpg",
-          "price": 98800,
-          "mallName": "쿠팡",
-          "productId": "60393158654",
-          "productType": 2,
-          "brand": "나이키",
-          "maker": "",
-          "category": [
-            "패션잡화",
-            "남성신발",
-            "운동화",
-            "러닝화"
-          ],
-          "confidence": "high"
-        }
-      ],
-      "confidence": "high",
-      "message": ""
+      "fetchedAt": "2026-06-11T12:44:34.157Z",
+      "lowestPrice": null,
+      "lowestOffer": null,
+      "offers": [],
+      "confidence": "low",
+      "message": "조건에 맞는 가격 결과를 찾지 못했습니다."
     },
     "nike-알파플라이-3": {
-      "status": "found",
+      "status": "no_match",
       "query": "나이키 알파플라이 3 러닝화",
-      "fetchedAt": "2026-06-10T22:50:45.793Z",
-      "lowestPrice": 82000,
+      "fetchedAt": "2026-06-11T12:44:34.543Z",
+      "lowestPrice": null,
+      "lowestOffer": null,
+      "offers": [],
+      "confidence": "low",
+      "message": "조건에 맞는 가격 결과를 찾지 못했습니다."
+    },
+    "adidas-아디오스-프로-4": {
+      "status": "no_match",
+      "query": "아디다스 아디오스 프로 4 러닝화",
+      "fetchedAt": "2026-06-11T12:44:34.932Z",
+      "lowestPrice": null,
+      "lowestOffer": null,
+      "offers": [],
+      "confidence": "low",
+      "message": "조건에 맞는 가격 결과를 찾지 못했습니다."
+    },
+    "adidas-프로-에보-3": {
+      "status": "no_match",
+      "query": "아디다스 프로 에보 3 러닝화",
+      "fetchedAt": "2026-06-11T12:44:35.314Z",
+      "lowestPrice": null,
+      "lowestOffer": null,
+      "offers": [],
+      "confidence": "low",
+      "message": "조건에 맞는 가격 결과를 찾지 못했습니다."
+    },
+    "adidas-프라임-x-에보": {
+      "status": "no_match",
+      "query": "아디다스 프라임 X 에보 러닝화",
+      "fetchedAt": "2026-06-11T12:44:35.679Z",
+      "lowestPrice": null,
+      "lowestOffer": null,
+      "offers": [],
+      "confidence": "low",
+      "message": "조건에 맞는 가격 결과를 찾지 못했습니다."
+    },
+    "asics-s4-요기리": {
+      "status": "found",
+      "query": "아식스 S4+ 요기리 러닝화",
+      "fetchedAt": "2026-06-11T12:44:36.082Z",
+      "lowestPrice": 96340,
       "lowestOffer": {
-        "title": "나이키 알파플라이 3 HF7356-900",
-        "link": "http://tpmall.kr/goods/view?no=4886&market=naver",
-        "image": "https://shopping-phinf.pstatic.net/main_5928916/59289169895.jpg",
-        "price": 82000,
-        "mallName": "TPMALL",
-        "productId": "59289169895",
+        "title": "아식스 S4+ 요기리 쿨 마차 스틸 그레이 1013A158-300",
+        "link": "https://nadomall.co.kr/product/detail.html?product_no=13145&cate_no=56&display_group=1&utm_source=naver&utm_medium=shopping&utm_campaign=knowledge_shopping&mkt_in=Y&ghost_mall_id=naver&ref=naver_open",
+        "image": "https://shopping-phinf.pstatic.net/main_5940256/59402568345.jpg",
+        "price": 96340,
+        "mallName": "프르티억",
+        "productId": "59402568345",
         "productType": 2,
         "brand": "",
         "maker": "",
@@ -7360,12 +7112,12 @@
       },
       "offers": [
         {
-          "title": "나이키 알파플라이 3 HF7356-900",
-          "link": "http://tpmall.kr/goods/view?no=4886&market=naver",
-          "image": "https://shopping-phinf.pstatic.net/main_5928916/59289169895.jpg",
-          "price": 82000,
-          "mallName": "TPMALL",
-          "productId": "59289169895",
+          "title": "아식스 S4+ 요기리 쿨 마차 스틸 그레이 1013A158-300",
+          "link": "https://nadomall.co.kr/product/detail.html?product_no=13145&cate_no=56&display_group=1&utm_source=naver&utm_medium=shopping&utm_campaign=knowledge_shopping&mkt_in=Y&ghost_mall_id=naver&ref=naver_open",
+          "image": "https://shopping-phinf.pstatic.net/main_5940256/59402568345.jpg",
+          "price": 96340,
+          "mallName": "프르티억",
+          "productId": "59402568345",
           "productType": 2,
           "brand": "",
           "maker": "",
@@ -7378,12 +7130,12 @@
           "confidence": "high"
         },
         {
-          "title": "나이키 알파플라이 3 FD8311-103",
-          "link": "http://tpmall.kr/goods/view?no=5140&market=naver",
-          "image": "https://shopping-phinf.pstatic.net/main_5932151/59321519886.jpg",
-          "price": 82500,
-          "mallName": "TPMALL",
-          "productId": "59321519886",
+          "title": "아식스 S4+ 요기리 플래쉬 레드 캐리어 그레이 1013A158-600",
+          "link": "https://nadomall.co.kr/product/detail.html?product_no=13146&cate_no=56&display_group=1&utm_source=naver&utm_medium=shopping&utm_campaign=knowledge_shopping&mkt_in=Y&ghost_mall_id=naver&ref=naver_open",
+          "image": "https://shopping-phinf.pstatic.net/main_5952075/59520750994.jpg",
+          "price": 118270,
+          "mallName": "프르티억",
+          "productId": "59520750994",
           "productType": 2,
           "brand": "",
           "maker": "",
@@ -7396,127 +7148,15 @@
           "confidence": "high"
         },
         {
-          "title": "나이키 알파플라이 3 HQ3501-100",
-          "link": "http://tpmall.kr/goods/view?no=5007&market=naver",
-          "image": "https://shopping-phinf.pstatic.net/main_5932166/59321661841.jpg",
-          "price": 82500,
-          "mallName": "TPMALL",
-          "productId": "59321661841",
+          "title": "아식스 S4+ 요기리 화이트 블랙 1013A158-100",
+          "link": "https://nadomall.co.kr/product/detail.html?product_no=13144&cate_no=56&display_group=1&utm_source=naver&utm_medium=shopping&utm_campaign=knowledge_shopping&mkt_in=Y&ghost_mall_id=naver&ref=naver_open",
+          "image": "https://shopping-phinf.pstatic.net/main_5940253/59402539236.jpg",
+          "price": 138440,
+          "mallName": "프르티억",
+          "productId": "59402539236",
           "productType": 2,
           "brand": "",
           "maker": "",
-          "category": [
-            "패션잡화",
-            "남성신발",
-            "운동화",
-            "러닝화"
-          ],
-          "confidence": "high"
-        },
-        {
-          "title": "나이키 알파플라이 3 FD8311-001",
-          "link": "http://tpmall.kr/goods/view?no=5082&market=naver",
-          "image": "https://shopping-phinf.pstatic.net/main_5932167/59321677892.jpg",
-          "price": 82600,
-          "mallName": "TPMALL",
-          "productId": "59321677892",
-          "productType": 2,
-          "brand": "",
-          "maker": "",
-          "category": [
-            "패션잡화",
-            "남성신발",
-            "운동화",
-            "러닝화"
-          ],
-          "confidence": "high"
-        },
-        {
-          "title": "나이키 알파 플라이 3 프로토 화이트 토탈 오렌지 FD8356-100",
-          "link": "http://weping.co.kr/goods/view?no=1385128&market=naver",
-          "image": "https://shopping-phinf.pstatic.net/main_6012942/60129427664.jpg",
-          "price": 89800,
-          "mallName": "위핑",
-          "productId": "60129427664",
-          "productType": 2,
-          "brand": "",
-          "maker": "",
-          "category": [
-            "패션잡화",
-            "남성신발",
-            "운동화",
-            "러닝화"
-          ],
-          "confidence": "high"
-        }
-      ],
-      "confidence": "high",
-      "message": ""
-    },
-    "adidas-아디오스-프로-4": {
-      "status": "no_match",
-      "query": "아디다스 아디오스 프로 4 러닝화",
-      "fetchedAt": "2026-06-10T22:50:46.206Z",
-      "lowestPrice": null,
-      "lowestOffer": null,
-      "offers": [],
-      "confidence": "low",
-      "message": "조건에 맞는 가격 결과를 찾지 못했습니다."
-    },
-    "adidas-프로-에보-3": {
-      "status": "no_match",
-      "query": "아디다스 프로 에보 3 러닝화",
-      "fetchedAt": "2026-06-10T22:50:46.597Z",
-      "lowestPrice": null,
-      "lowestOffer": null,
-      "offers": [],
-      "confidence": "low",
-      "message": "조건에 맞는 가격 결과를 찾지 못했습니다."
-    },
-    "adidas-프라임-x-에보": {
-      "status": "no_match",
-      "query": "아디다스 프라임 X 에보 러닝화",
-      "fetchedAt": "2026-06-10T22:50:46.991Z",
-      "lowestPrice": null,
-      "lowestOffer": null,
-      "offers": [],
-      "confidence": "low",
-      "message": "조건에 맞는 가격 결과를 찾지 못했습니다."
-    },
-    "asics-s4-요기리": {
-      "status": "found",
-      "query": "아식스 S4+ 요기리 러닝화",
-      "fetchedAt": "2026-06-10T22:50:47.430Z",
-      "lowestPrice": 149000,
-      "lowestOffer": {
-        "title": "아식스 공용 S4+ 요기리 S4+ YOGIRI 러닝화 1013A158",
-        "link": "https://smartstore.naver.com/main/products/13558189866",
-        "image": "https://shopping-phinf.pstatic.net/main_9110270/91102700233.1.jpg",
-        "price": 149000,
-        "mallName": "포트909",
-        "productId": "91102700233",
-        "productType": 2,
-        "brand": "아식스",
-        "maker": "아식스",
-        "category": [
-          "패션잡화",
-          "남성신발",
-          "운동화",
-          "러닝화"
-        ],
-        "confidence": "high"
-      },
-      "offers": [
-        {
-          "title": "아식스 공용 S4+ 요기리 S4+ YOGIRI 러닝화 1013A158",
-          "link": "https://smartstore.naver.com/main/products/13558189866",
-          "image": "https://shopping-phinf.pstatic.net/main_9110270/91102700233.1.jpg",
-          "price": 149000,
-          "mallName": "포트909",
-          "productId": "91102700233",
-          "productType": 2,
-          "brand": "아식스",
-          "maker": "아식스",
           "category": [
             "패션잡화",
             "남성신발",
@@ -7560,42 +7200,6 @@
             "러닝화"
           ],
           "confidence": "high"
-        },
-        {
-          "title": "아식스 S4 요기리 여성 런닝화 마라톤화 1013A158-600",
-          "link": "https://link.gmarket.co.kr/gate/pcs?item-no=4715754837&sub-id=1003&service-code=10000003&lcd=100000049",
-          "image": "https://shopping-phinf.pstatic.net/main_6016013/60160131568.jpg",
-          "price": 178400,
-          "mallName": "G마켓",
-          "productId": "60160131568",
-          "productType": 2,
-          "brand": "",
-          "maker": "",
-          "category": [
-            "패션잡화",
-            "여성신발",
-            "운동화",
-            "러닝화"
-          ],
-          "confidence": "high"
-        },
-        {
-          "title": "아식스 S4 요기리 여성 런닝화 마라톤화 1013A158-600",
-          "link": "https://link.auction.co.kr/gate/pcs?item-no=F522440450&sub-id=1&service-code=10000003",
-          "image": "https://shopping-phinf.pstatic.net/main_6011861/60118614914.jpg",
-          "price": 178400,
-          "mallName": "옥션",
-          "productId": "60118614914",
-          "productType": 2,
-          "brand": "",
-          "maker": "",
-          "category": [
-            "패션잡화",
-            "여성신발",
-            "운동화",
-            "러닝화"
-          ],
-          "confidence": "high"
         }
       ],
       "confidence": "high",
@@ -7604,7 +7208,7 @@
     "asics-메타스피드-도쿄-스카이-엣지": {
       "status": "no_match",
       "query": "아식스 메타스피드 도쿄 스카이·엣지 러닝화",
-      "fetchedAt": "2026-06-10T22:50:47.839Z",
+      "fetchedAt": "2026-06-11T12:44:36.469Z",
       "lowestPrice": null,
       "lowestOffer": null,
       "offers": [],
@@ -7614,7 +7218,7 @@
     "asics-메타스피드-레이": {
       "status": "found",
       "query": "아식스 메타스피드 레이 러닝화",
-      "fetchedAt": "2026-06-10T22:50:48.262Z",
+      "fetchedAt": "2026-06-11T12:44:36.865Z",
       "lowestPrice": 165000,
       "lowestOffer": {
         "title": "아식스 메타스피드 레이 남녀 운동화 런닝화 화이트 코발트 버스트 285 흰색001",
@@ -7654,6 +7258,60 @@
           "confidence": "high"
         },
         {
+          "title": "아식스 메타스피드 레이 남녀 운동화 런닝화 화이트 코발트 버스트 275 흰색+033",
+          "link": "https://link.coupang.com/re/PCSNAVERPCSDP?pageKey=9588647252&ctag=9588647252&lptag=V95566389712&itemId=28623195197&vendorItemId=95566389712&spec=10305199",
+          "image": "https://shopping-phinf.pstatic.net/main_6039505/60395052877.jpg",
+          "price": 165000,
+          "mallName": "쿠팡",
+          "productId": "60395052877",
+          "productType": 2,
+          "brand": "아식스",
+          "maker": "아식스",
+          "category": [
+            "패션잡화",
+            "남성신발",
+            "운동화",
+            "러닝화"
+          ],
+          "confidence": "high"
+        },
+        {
+          "title": "아식스 메타스피드 레이 남녀 운동화 런닝화 화이트 코발트 버스트 265 흰색001",
+          "link": "https://link.coupang.com/re/PCSNAVERPCSDP?pageKey=9588647252&ctag=9588647252&lptag=V95566389689&itemId=28623195149&vendorItemId=95566389689&spec=10305199",
+          "image": "https://shopping-phinf.pstatic.net/main_6040006/60400068790.jpg",
+          "price": 165000,
+          "mallName": "쿠팡",
+          "productId": "60400068790",
+          "productType": 2,
+          "brand": "아식스",
+          "maker": "아식스",
+          "category": [
+            "패션잡화",
+            "남성신발",
+            "운동화",
+            "러닝화"
+          ],
+          "confidence": "high"
+        },
+        {
+          "title": "아식스 메타스피드 레이 도쿄 화이트 플래쉬 레드 1013A176-100",
+          "link": "https://nadomall.co.kr/product/detail.html?product_no=13155&cate_no=56&display_group=1&utm_source=naver&utm_medium=shopping&utm_campaign=knowledge_shopping&mkt_in=Y&ghost_mall_id=naver&ref=naver_open",
+          "image": "https://shopping-phinf.pstatic.net/main_5940254/59402540811.jpg",
+          "price": 177640,
+          "mallName": "프르티억",
+          "productId": "59402540811",
+          "productType": 2,
+          "brand": "",
+          "maker": "",
+          "category": [
+            "패션잡화",
+            "남성신발",
+            "운동화",
+            "러닝화"
+          ],
+          "confidence": "high"
+        },
+        {
           "title": "240 아식스 메타스피드 레이 그린 게코 블랙 1013A176-300",
           "link": "https://kream.co.kr/shopping-products/704810?utm_campaign=NAVER_SHOPPING_PARTNER_CPC&utm_content=Asics&utm_medium=cpc&utm_source=naver_shopping&utm_term=704810_4&size=240",
           "image": "https://shopping-phinf.pstatic.net/main_5821149/58211496503.jpg",
@@ -7669,58 +7327,6 @@
             "스니커즈"
           ],
           "confidence": "high"
-        },
-        {
-          "title": "285 아식스 메타스피드 레이 그린 게코 블랙 1013A176-300",
-          "link": "https://kream.co.kr/shopping-products/704810?utm_campaign=NAVER_SHOPPING_PARTNER_CPC&utm_content=Asics&utm_medium=cpc&utm_source=naver_shopping&utm_term=704810_15&size=285",
-          "image": "https://shopping-phinf.pstatic.net/main_5811275/58112755112.jpg",
-          "price": 391500,
-          "mallName": "KREAM",
-          "productId": "58112755112",
-          "productType": 2,
-          "brand": "아식스",
-          "maker": "",
-          "category": [
-            "패션잡화",
-            "남성신발",
-            "스니커즈"
-          ],
-          "confidence": "high"
-        },
-        {
-          "title": "275 아식스 메타스피드 레이 그린 게코 블랙 1013A176-300",
-          "link": "https://kream.co.kr/shopping-products/704810?utm_campaign=NAVER_SHOPPING_PARTNER_CPC&utm_content=Asics&utm_medium=cpc&utm_source=naver_shopping&utm_term=704810_12&size=275",
-          "image": "https://shopping-phinf.pstatic.net/main_5804326/58043265753.jpg",
-          "price": 401800,
-          "mallName": "KREAM",
-          "productId": "58043265753",
-          "productType": 2,
-          "brand": "아식스",
-          "maker": "",
-          "category": [
-            "패션잡화",
-            "남성신발",
-            "스니커즈"
-          ],
-          "confidence": "high"
-        },
-        {
-          "title": "아식스 메타스피드 레이 그린 게코 블랙 1013A176-300_42067430",
-          "link": "https://euroavenue.co.kr/product/detail.html?product_no=978278&cate_no=47&display_group=1&utm_source=naver&utm_medium=shopping&utm_campaign=knowledge_shopping&mkt_in=Y&ghost_mall_id=naver&ref=naver_open",
-          "image": "https://shopping-phinf.pstatic.net/main_6038555/60385558689.jpg",
-          "price": 413000,
-          "mallName": "유로에비뉴",
-          "productId": "60385558689",
-          "productType": 2,
-          "brand": "",
-          "maker": "",
-          "category": [
-            "패션잡화",
-            "남성신발",
-            "운동화",
-            "러닝화"
-          ],
-          "confidence": "high"
         }
       ],
       "confidence": "high",
@@ -7729,7 +7335,7 @@
     "new-balance-sc엘리트-v5": {
       "status": "no_match",
       "query": "뉴발란스 SC엘리트 V5 러닝화",
-      "fetchedAt": "2026-06-10T22:50:48.681Z",
+      "fetchedAt": "2026-06-11T12:44:37.253Z",
       "lowestPrice": null,
       "lowestOffer": null,
       "offers": [],
@@ -7739,7 +7345,7 @@
     "saucony-엔돌핀-프로-5": {
       "status": "no_match",
       "query": "써코니 엔돌핀 프로 5 러닝화",
-      "fetchedAt": "2026-06-10T22:50:49.101Z",
+      "fetchedAt": "2026-06-11T12:44:37.653Z",
       "lowestPrice": null,
       "lowestOffer": null,
       "offers": [],
@@ -7749,7 +7355,7 @@
     "saucony-엔돌핀-엘리트-2": {
       "status": "found",
       "query": "써코니 엔돌핀 엘리트 2 러닝화",
-      "fetchedAt": "2026-06-10T22:50:49.523Z",
+      "fetchedAt": "2026-06-11T12:44:38.035Z",
       "lowestPrice": 227200,
       "lowestOffer": {
         "title": "250 써코니 엔돌핀 엘리트 2 화이트 필 S30994-130",
@@ -7822,12 +7428,12 @@
           "confidence": "high"
         },
         {
-          "title": "265 써코니 엔돌핀 엘리트 2 화이트 뮤턴트 S30994-97",
-          "link": "https://kream.co.kr/shopping-products/588360?utm_campaign=NAVER_SHOPPING_PARTNER_CPC&utm_content=Saucony&utm_medium=cpc&utm_source=naver_shopping&utm_term=588360_8&size=265",
-          "image": "https://shopping-phinf.pstatic.net/main_5834027/58340273953.jpg",
+          "title": "230 써코니 엔돌핀 엘리트 2 화이트 필 S30994-130",
+          "link": "https://kream.co.kr/shopping-products/464696?utm_campaign=NAVER_SHOPPING_PARTNER_CPC&utm_content=Saucony&utm_medium=cpc&utm_source=naver_shopping&utm_term=464696_1&size=230",
+          "image": "https://shopping-phinf.pstatic.net/main_5360027/53600270087.1.jpg",
           "price": 236500,
           "mallName": "KREAM",
-          "productId": "58340273953",
+          "productId": "53600270087",
           "productType": 2,
           "brand": "써코니",
           "maker": "",
@@ -7862,7 +7468,7 @@
     "puma-디비에이트-나이트로-엘리트-4": {
       "status": "no_match",
       "query": "푸마 디비에이트 나이트로 엘리트 4 러닝화",
-      "fetchedAt": "2026-06-10T22:50:49.956Z",
+      "fetchedAt": "2026-06-11T12:44:38.451Z",
       "lowestPrice": null,
       "lowestOffer": null,
       "offers": [],
@@ -7872,7 +7478,7 @@
     "puma-패스트r-나이트로-엘리트-3": {
       "status": "no_match",
       "query": "푸마 패스트R 나이트로 엘리트 3 러닝화",
-      "fetchedAt": "2026-06-10T22:50:50.368Z",
+      "fetchedAt": "2026-06-11T12:44:38.840Z",
       "lowestPrice": null,
       "lowestOffer": null,
       "offers": [],
@@ -7882,7 +7488,7 @@
     "hoka-로켓-x3": {
       "status": "no_match",
       "query": "호카 로켓 X3 러닝화",
-      "fetchedAt": "2026-06-10T22:50:50.797Z",
+      "fetchedAt": "2026-06-11T12:44:39.247Z",
       "lowestPrice": null,
       "lowestOffer": null,
       "offers": [],
@@ -7892,7 +7498,7 @@
     "hoka-씨엘로-x1-3-0": {
       "status": "no_match",
       "query": "호카 씨엘로 X1 3.0 러닝화",
-      "fetchedAt": "2026-06-10T22:50:51.219Z",
+      "fetchedAt": "2026-06-11T12:44:39.650Z",
       "lowestPrice": null,
       "lowestOffer": null,
       "offers": [],
@@ -7902,15 +7508,15 @@
     "brooks-하이페리온-엘리트-5": {
       "status": "found",
       "query": "브룩스 하이페리온 엘리트 5 러닝화",
-      "fetchedAt": "2026-06-10T22:50:51.630Z",
+      "fetchedAt": "2026-06-11T12:44:40.053Z",
       "lowestPrice": 88200,
       "lowestOffer": {
-        "title": "[브룩스 하이페리온 엘리트5 컴포트 카본테크놀로지 로우컷 캐주얼 러닝화 남여공용 오렌지 100049-1D-681 235 BR-681",
-        "link": "https://link.coupang.com/re/PCSNAVERPCSDP?pageKey=9536022097&ctag=9536022097&lptag=V95562921517&itemId=28441739258&vendorItemId=95562921517&spec=10305199",
-        "image": "https://shopping-phinf.pstatic.net/main_6035053/60350532892.1.jpg",
+        "title": "[브룩스 하이페리온 엘리트5 컴포트 카본테크놀로지 로우컷 캐주얼 러닝화 남여공용 오렌지 100049-1D-681 285 BR-681",
+        "link": "https://link.coupang.com/re/PCSNAVERPCSDP?pageKey=9536022097&ctag=9536022097&lptag=V95562921516&itemId=28441739254&vendorItemId=95562921516&spec=10305199",
+        "image": "https://shopping-phinf.pstatic.net/main_6035233/60352331687.jpg",
         "price": 88200,
         "mallName": "쿠팡",
-        "productId": "60350532892",
+        "productId": "60352331687",
         "productType": 2,
         "brand": "브룩스",
         "maker": "",
@@ -7923,24 +7529,6 @@
         "confidence": "high"
       },
       "offers": [
-        {
-          "title": "[브룩스 하이페리온 엘리트5 컴포트 카본테크놀로지 로우컷 캐주얼 러닝화 남여공용 오렌지 100049-1D-681 235 BR-681",
-          "link": "https://link.coupang.com/re/PCSNAVERPCSDP?pageKey=9536022097&ctag=9536022097&lptag=V95562921517&itemId=28441739258&vendorItemId=95562921517&spec=10305199",
-          "image": "https://shopping-phinf.pstatic.net/main_6035053/60350532892.1.jpg",
-          "price": 88200,
-          "mallName": "쿠팡",
-          "productId": "60350532892",
-          "productType": 2,
-          "brand": "브룩스",
-          "maker": "",
-          "category": [
-            "패션잡화",
-            "남성신발",
-            "운동화",
-            "러닝화"
-          ],
-          "confidence": "high"
-        },
         {
           "title": "[브룩스 하이페리온 엘리트5 컴포트 카본테크놀로지 로우컷 캐주얼 러닝화 남여공용 오렌지 100049-1D-681 285 BR-681",
           "link": "https://link.coupang.com/re/PCSNAVERPCSDP?pageKey=9536022097&ctag=9536022097&lptag=V95562921516&itemId=28441739254&vendorItemId=95562921516&spec=10305199",
@@ -7996,12 +7584,30 @@
           "confidence": "high"
         },
         {
-          "title": "[브룩스 하이페리온 엘리트5 컴포트 카본테크놀로지 로우컷 캐주얼 러닝화 남여공용 오렌지 100049-1D-681 280 BR-681",
-          "link": "https://link.coupang.com/re/PCSNAVERPCSDP?pageKey=9536022097&ctag=9536022097&lptag=V95562921526&itemId=28441739259&vendorItemId=95562921526&spec=10305199",
-          "image": "https://shopping-phinf.pstatic.net/main_6034867/60348677295.jpg",
+          "title": "[브룩스 하이페리온 엘리트5 컴포트 카본테크놀로지 로우컷 캐주얼 러닝화 남여공용 오렌지 100049-1D-681 250 BR-681",
+          "link": "https://link.coupang.com/re/PCSNAVERPCSDP?pageKey=9536022097&ctag=9536022097&lptag=V95562921521&itemId=28441739236&vendorItemId=95562921521&spec=10305199",
+          "image": "https://shopping-phinf.pstatic.net/main_6034759/60347597679.jpg",
           "price": 88200,
           "mallName": "쿠팡",
-          "productId": "60348677295",
+          "productId": "60347597679",
+          "productType": 2,
+          "brand": "브룩스",
+          "maker": "",
+          "category": [
+            "패션잡화",
+            "남성신발",
+            "운동화",
+            "러닝화"
+          ],
+          "confidence": "high"
+        },
+        {
+          "title": "[브룩스 하이페리온 엘리트5 컴포트 카본테크놀로지 로우컷 캐주얼 러닝화 남여공용 오렌지 100049-1D-681 270 BR-681",
+          "link": "https://link.coupang.com/re/PCSNAVERPCSDP?pageKey=9536022097&ctag=9536022097&lptag=V95562921529&itemId=28441739246&vendorItemId=95562921529&spec=10305199",
+          "image": "https://shopping-phinf.pstatic.net/main_6034993/60349939355.1.jpg",
+          "price": 88200,
+          "mallName": "쿠팡",
+          "productId": "60349939355",
           "productType": 2,
           "brand": "브룩스",
           "maker": "",
@@ -8020,7 +7626,7 @@
     "mizuno-하이퍼퀵-엘리트": {
       "status": "no_match",
       "query": "미즈노 하이퍼퀵 엘리트 러닝화",
-      "fetchedAt": "2026-06-10T22:50:52.036Z",
+      "fetchedAt": "2026-06-11T12:44:40.445Z",
       "lowestPrice": null,
       "lowestOffer": null,
       "offers": [],
@@ -8028,135 +7634,27 @@
       "message": "조건에 맞는 가격 결과를 찾지 못했습니다."
     },
     "on-클라우드붐-맥스": {
-      "status": "found",
+      "status": "no_match",
       "query": "온러닝 클라우드붐 맥스 러닝화",
-      "fetchedAt": "2026-06-10T22:50:52.455Z",
-      "lowestPrice": 96500,
-      "lowestOffer": {
-        "title": "온 러닝화 클라우드 붐 맥스 옐로우 퍼플 3WF30187462",
-        "link": "http://weping.co.kr/goods/view?no=1449242&market=naver",
-        "image": "https://shopping-phinf.pstatic.net/main_5867003/58670035926.jpg",
-        "price": 96500,
-        "mallName": "위핑",
-        "productId": "58670035926",
-        "productType": 2,
-        "brand": "",
-        "maker": "",
-        "category": [
-          "패션잡화",
-          "여성신발",
-          "운동화",
-          "러닝화"
-        ],
-        "confidence": "high"
-      },
-      "offers": [
-        {
-          "title": "온 러닝화 클라우드 붐 맥스 옐로우 퍼플 3WF30187462",
-          "link": "http://weping.co.kr/goods/view?no=1449242&market=naver",
-          "image": "https://shopping-phinf.pstatic.net/main_5867003/58670035926.jpg",
-          "price": 96500,
-          "mallName": "위핑",
-          "productId": "58670035926",
-          "productType": 2,
-          "brand": "",
-          "maker": "",
-          "category": [
-            "패션잡화",
-            "여성신발",
-            "운동화",
-            "러닝화"
-          ],
-          "confidence": "high"
-        },
-        {
-          "title": "온 러닝화 클라우드 붐 맥스 민트 3WF30315624",
-          "link": "http://weping.co.kr/goods/view?no=1449222&market=naver",
-          "image": "https://shopping-phinf.pstatic.net/main_5867004/58670040606.jpg",
-          "price": 96500,
-          "mallName": "위핑",
-          "productId": "58670040606",
-          "productType": 2,
-          "brand": "",
-          "maker": "",
-          "category": [
-            "패션잡화",
-            "여성신발",
-            "운동화",
-            "러닝화"
-          ],
-          "confidence": "high"
-        },
-        {
-          "title": "온 러닝화 클라우드 붐 맥스 블루 3MF30314235",
-          "link": "http://weping.co.kr/goods/view?no=1449238&market=naver",
-          "image": "https://shopping-phinf.pstatic.net/main_5867003/58670037400.jpg",
-          "price": 96600,
-          "mallName": "위핑",
-          "productId": "58670037400",
-          "productType": 2,
-          "brand": "",
-          "maker": "",
-          "category": [
-            "패션잡화",
-            "남성신발",
-            "운동화",
-            "러닝화"
-          ],
-          "confidence": "high"
-        },
-        {
-          "title": "온 러닝화 클라우드 붐 맥스 라이트 퍼플 3MF30314563",
-          "link": "http://weping.co.kr/goods/view?no=1449216&market=naver",
-          "image": "https://shopping-phinf.pstatic.net/main_5867002/58670020864.jpg",
-          "price": 96600,
-          "mallName": "위핑",
-          "productId": "58670020864",
-          "productType": 2,
-          "brand": "",
-          "maker": "",
-          "category": [
-            "패션잡화",
-            "남성신발",
-            "운동화",
-            "러닝화"
-          ],
-          "confidence": "high"
-        },
-        {
-          "title": "온 러닝화 클라우드 붐 맥스 화이트 3WF30186462",
-          "link": "http://weping.co.kr/goods/view?no=1449260&market=naver",
-          "image": "https://shopping-phinf.pstatic.net/main_5867002/58670024796.jpg",
-          "price": 96600,
-          "mallName": "위핑",
-          "productId": "58670024796",
-          "productType": 2,
-          "brand": "",
-          "maker": "",
-          "category": [
-            "패션잡화",
-            "여성신발",
-            "운동화",
-            "러닝화"
-          ],
-          "confidence": "high"
-        }
-      ],
-      "confidence": "high",
-      "message": ""
+      "fetchedAt": "2026-06-11T12:44:40.840Z",
+      "lowestPrice": null,
+      "lowestOffer": null,
+      "offers": [],
+      "confidence": "low",
+      "message": "조건에 맞는 가격 결과를 찾지 못했습니다."
     },
     "on-클라우드붐-스트라이크": {
       "status": "found",
       "query": "온러닝 클라우드붐 스트라이크 러닝화",
-      "fetchedAt": "2026-06-10T22:50:52.862Z",
+      "fetchedAt": "2026-06-11T12:44:41.225Z",
       "lowestPrice": 82500,
       "lowestOffer": {
-        "title": "온 러닝화 클라우드 붐 스트라이크 화이트 블랙 3ME30484420",
-        "link": "http://weping.co.kr/goods/view?no=1415177&market=naver",
-        "image": "https://shopping-phinf.pstatic.net/main_5836569/58365696360.jpg",
+        "title": "온 러닝화 클라우드 붐 스트라이크 옐로우 3ME30483331",
+        "link": "https://weping.co.kr/goods/view?no=1415145&market=naver",
+        "image": "https://shopping-phinf.pstatic.net/main_5836558/58365586643.jpg",
         "price": 82500,
         "mallName": "위핑",
-        "productId": "58365696360",
+        "productId": "58365586643",
         "productType": 2,
         "brand": "",
         "maker": "",
@@ -8170,26 +7668,8 @@
       },
       "offers": [
         {
-          "title": "온 러닝화 클라우드 붐 스트라이크 화이트 블랙 3ME30484420",
-          "link": "http://weping.co.kr/goods/view?no=1415177&market=naver",
-          "image": "https://shopping-phinf.pstatic.net/main_5836569/58365696360.jpg",
-          "price": 82500,
-          "mallName": "위핑",
-          "productId": "58365696360",
-          "productType": 2,
-          "brand": "",
-          "maker": "",
-          "category": [
-            "패션잡화",
-            "남성신발",
-            "운동화",
-            "러닝화"
-          ],
-          "confidence": "high"
-        },
-        {
           "title": "온 러닝화 클라우드 붐 스트라이크 옐로우 3ME30483331",
-          "link": "http://weping.co.kr/goods/view?no=1415145&market=naver",
+          "link": "https://weping.co.kr/goods/view?no=1415145&market=naver",
           "image": "https://shopping-phinf.pstatic.net/main_5836558/58365586643.jpg",
           "price": 82500,
           "mallName": "위핑",
@@ -8206,12 +7686,12 @@
           "confidence": "high"
         },
         {
-          "title": "온 러닝화 클라우드 붐 스트라이크 화이트 그레이 3ME30480255",
-          "link": "http://weping.co.kr/goods/view?no=1415176&market=naver",
-          "image": "https://shopping-phinf.pstatic.net/main_5836557/58365576467.jpg",
-          "price": 82600,
+          "title": "온 러닝화 클라우드 붐 스트라이크 화이트 블랙 3ME30484420",
+          "link": "https://weping.co.kr/goods/view?no=1415177&market=naver",
+          "image": "https://shopping-phinf.pstatic.net/main_5836569/58365696360.jpg",
+          "price": 82500,
           "mallName": "위핑",
-          "productId": "58365576467",
+          "productId": "58365696360",
           "productType": 2,
           "brand": "",
           "maker": "",
@@ -8225,7 +7705,7 @@
         },
         {
           "title": "온 러닝화 클라우드 붐 스트라이크 블루 3ME30480588",
-          "link": "http://weping.co.kr/goods/view?no=1415144&market=naver",
+          "link": "https://weping.co.kr/goods/view?no=1415144&market=naver",
           "image": "https://shopping-phinf.pstatic.net/main_5836560/58365600238.jpg",
           "price": 82600,
           "mallName": "위핑",
@@ -8242,12 +7722,30 @@
           "confidence": "high"
         },
         {
-          "title": "온 러닝화 클라우드 붐 스트라이크 화이트 3WE30720826",
-          "link": "http://weping.co.kr/goods/view?no=1415175&market=naver",
-          "image": "https://shopping-phinf.pstatic.net/main_5836560/58365605267.jpg",
+          "title": "온 러닝화 클라우드 붐 스트라이크 화이트 그레이 3ME30480255",
+          "link": "https://weping.co.kr/goods/view?no=1415176&market=naver",
+          "image": "https://shopping-phinf.pstatic.net/main_5836557/58365576467.jpg",
+          "price": 82600,
+          "mallName": "위핑",
+          "productId": "58365576467",
+          "productType": 2,
+          "brand": "",
+          "maker": "",
+          "category": [
+            "패션잡화",
+            "남성신발",
+            "운동화",
+            "러닝화"
+          ],
+          "confidence": "high"
+        },
+        {
+          "title": "온 러닝화 클라우드 붐 스트라이크 블랙 3ME30480299",
+          "link": "https://weping.co.kr/goods/view?no=1415142&market=naver",
+          "image": "https://shopping-phinf.pstatic.net/main_5836562/58365627801.jpg",
           "price": 82700,
           "mallName": "위핑",
-          "productId": "58365605267",
+          "productId": "58365627801",
           "productType": 2,
           "brand": "",
           "maker": "",
@@ -8266,11 +7764,11 @@
     "on-클라우드붐-스트라이크-ls": {
       "status": "found",
       "query": "온러닝 클라우드붐 스트라이크 LS 러닝화",
-      "fetchedAt": "2026-06-10T22:50:53.275Z",
+      "fetchedAt": "2026-06-11T12:44:41.625Z",
       "lowestPrice": 125500,
       "lowestOffer": {
         "title": "온 러닝화 클라우드 붐 스트라이크 LS 화이트 블루 3UE30010254",
-        "link": "http://weping.co.kr/goods/view?no=1449127&market=naver",
+        "link": "https://weping.co.kr/goods/view?no=1449127&market=naver",
         "image": "https://shopping-phinf.pstatic.net/main_5867002/58670021267.jpg",
         "price": 125500,
         "mallName": "위핑",
@@ -8289,7 +7787,7 @@
       "offers": [
         {
           "title": "온 러닝화 클라우드 붐 스트라이크 LS 화이트 블루 3UE30010254",
-          "link": "http://weping.co.kr/goods/view?no=1449127&market=naver",
+          "link": "https://weping.co.kr/goods/view?no=1449127&market=naver",
           "image": "https://shopping-phinf.pstatic.net/main_5867002/58670021267.jpg",
           "price": 125500,
           "mallName": "위핑",
@@ -8306,30 +7804,30 @@
           "confidence": "high"
         },
         {
-          "title": "온 러닝 클라우드붐 스트라이크 LS 화이트 라임 3UE30012929",
-          "link": "http://weping.co.kr/goods/view?no=1471537&market=naver",
-          "image": "https://shopping-phinf.pstatic.net/main_5964409/59644099324.jpg",
+          "title": "온 러닝 클라우드붐 스트라이크 LS 화이트 핑크 그린 3UE30010263",
+          "link": "https://weping.co.kr/goods/view?no=1471566&market=naver",
+          "image": "https://shopping-phinf.pstatic.net/main_5964409/59644098541.jpg",
           "price": 126000,
           "mallName": "위핑",
-          "productId": "59644099324",
+          "productId": "59644098541",
           "productType": 2,
           "brand": "",
           "maker": "",
           "category": [
             "패션잡화",
-            "남성신발",
+            "여성신발",
             "운동화",
             "러닝화"
           ],
           "confidence": "high"
         },
         {
-          "title": "온 러닝 클라우드붐 스트라이크 LS 화이트 민트 3UE30010253",
-          "link": "http://weping.co.kr/goods/view?no=1471567&market=naver",
-          "image": "https://shopping-phinf.pstatic.net/main_5964410/59644103390.jpg",
+          "title": "온 러닝 클라우드붐 스트라이크 LS 블랙 3UE30010250",
+          "link": "https://weping.co.kr/goods/view?no=1471568&market=naver",
+          "image": "https://shopping-phinf.pstatic.net/main_5964409/59644096311.jpg",
           "price": 126000,
           "mallName": "위핑",
-          "productId": "59644103390",
+          "productId": "59644096311",
           "productType": 2,
           "brand": "",
           "maker": "",
@@ -8343,7 +7841,7 @@
         },
         {
           "title": "온 러닝 클라우드붐 스트라이크 LS 화이트 3UE30010261",
-          "link": "http://weping.co.kr/goods/view?no=1471561&market=naver",
+          "link": "https://weping.co.kr/goods/view?no=1471561&market=naver",
           "image": "https://shopping-phinf.pstatic.net/main_5964409/59644099845.jpg",
           "price": 126000,
           "mallName": "위핑",
@@ -8360,18 +7858,18 @@
           "confidence": "high"
         },
         {
-          "title": "온 러닝 클라우드붐 스트라이크 LS 화이트 핑크 그린 3UE30010263",
-          "link": "http://weping.co.kr/goods/view?no=1471566&market=naver",
-          "image": "https://shopping-phinf.pstatic.net/main_5964409/59644098541.jpg",
+          "title": "온 러닝 클라우드붐 스트라이크 LS 화이트 민트 3UE30010253",
+          "link": "https://weping.co.kr/goods/view?no=1471567&market=naver",
+          "image": "https://shopping-phinf.pstatic.net/main_5964410/59644103390.jpg",
           "price": 126000,
           "mallName": "위핑",
-          "productId": "59644098541",
+          "productId": "59644103390",
           "productType": 2,
           "brand": "",
           "maker": "",
           "category": [
             "패션잡화",
-            "여성신발",
+            "남성신발",
             "운동화",
             "러닝화"
           ],
