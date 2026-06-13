@@ -5,7 +5,10 @@
   const priceSnapshot = window.RUNNING_PRICE_SNAPSHOT || { generatedAt: "", source: "pending", currency: "KRW", items: {} };
   const priceQueryConfig = window.RUNNING_PRICE_QUERY_CONFIG || {};
 
+  const ALL_PERIOD_ID = "__all_periods__";
+  const ALL_BRAND_VALUE = "전체";
   const brandOrder = ["Nike", "Adidas", "ASICS", "New Balance", "Saucony", "Puma", "HOKA", "Brooks", "Mizuno", "On"];
+  const pickerBrandOptions = [ALL_BRAND_VALUE, ...brandOrder];
   const groupOrder = ["데일리", "슈퍼 트레이너", "레이싱"];
   const categoryOrder = [
     "입문화",
@@ -149,6 +152,8 @@
   }, new Map());
   const activeHistoryPeriod = historyPeriods.find((period) => period.active) || historyPeriods[historyPeriods.length - 1] || null;
   const historyTotalModelCount = [...historyStatsByPeriod.values()].reduce((sum, stats) => sum + stats.models, 0);
+  const modelNameCollator = new Intl.Collator("ko-KR", { numeric: true, sensitivity: "base" });
+  let allPeriodLineupCache = null;
   state.periodId = activeHistoryPeriod?.id || historyPeriods[historyPeriods.length - 1]?.id || "";
 
   function normalize(value) {
@@ -335,6 +340,21 @@
     return historyPeriods.find((period) => period.id === state.periodId) || activeHistoryPeriod || historyPeriods[historyPeriods.length - 1] || null;
   }
 
+  function isAllPeriodsSelected() {
+    return state.periodId === ALL_PERIOD_ID;
+  }
+
+  function historyPeriodRangeLabel() {
+    if (!historyPeriods.length) return "";
+    const first = historyPeriods[0]?.label || historyPeriods[0]?.id || "";
+    const latest = historyPeriods[historyPeriods.length - 1]?.label || historyPeriods[historyPeriods.length - 1]?.id || "";
+    return first && latest ? `${first}~${latest}` : first || latest;
+  }
+
+  function selectedPickerPeriodLabel() {
+    return isAllPeriodsSelected() ? "전체 기간" : selectedHistoryPeriod()?.label || "";
+  }
+
   function historyPeriodIndex(periodId) {
     return historyPeriods.findIndex((period) => period.id === periodId);
   }
@@ -418,6 +438,80 @@
           })
         )
       );
+  }
+
+  function allPeriodLineupItems() {
+    if (allPeriodLineupCache) return allPeriodLineupCache;
+
+    const groups = new Map();
+    let sourceOrder = 0;
+
+    historyEntries.forEach((entry) => {
+      const periodIndex = historyPeriodIndex(entry.periodId);
+      const period = historyPeriods[periodIndex];
+      if (!period) return;
+
+      entry.models.filter(isLineupModelValue).forEach((model) => {
+        const modelKey = lineKey(model) || normalizeHistoryText(model);
+        const key = `${entry.brand}|||${entry.category}|||${modelKey}`;
+        const group =
+          groups.get(key) ||
+          {
+            brand: entry.brand,
+            category: entry.category,
+            modelKey,
+            firstPeriod: period,
+            firstPeriodIndex: periodIndex,
+            latestPeriod: period,
+            latestPeriodIndex: periodIndex,
+            latestModel: model,
+            latestSourceOrder: sourceOrder,
+            periodIds: new Set(),
+          };
+
+        group.periodIds.add(period.id);
+
+        if (periodIndex < group.firstPeriodIndex) {
+          group.firstPeriod = period;
+          group.firstPeriodIndex = periodIndex;
+        }
+
+        if (periodIndex > group.latestPeriodIndex || (periodIndex === group.latestPeriodIndex && sourceOrder > group.latestSourceOrder)) {
+          group.latestPeriod = period;
+          group.latestPeriodIndex = periodIndex;
+          group.latestModel = model;
+          group.latestSourceOrder = sourceOrder;
+        }
+
+        groups.set(key, group);
+        sourceOrder += 1;
+      });
+    });
+
+    allPeriodLineupCache = [...groups.values()].map((group, index) => {
+      const item = createLineupItem({
+        periodId: group.latestPeriod.id,
+        brand: group.brand,
+        category: group.category,
+        model: group.latestModel,
+        tableOrder: index,
+      });
+
+      return {
+        ...item,
+        id: `archive-${[group.brand, group.category, group.modelKey || index].map((value) => normalizeHistoryText(value) || "item").join("-")}`,
+        periodLabel: `최근 ${group.latestPeriod.label || group.latestPeriod.id}`,
+        archivePeriodRange: `${group.firstPeriod.label || group.firstPeriod.id}~${group.latestPeriod.label || group.latestPeriod.id}`,
+        archiveAppearanceCount: group.periodIds.size,
+        archiveFirstPeriodId: group.firstPeriod.id,
+        archiveFirstPeriodLabel: group.firstPeriod.label || group.firstPeriod.id,
+        archiveLatestPeriodId: group.latestPeriod.id,
+        archiveLatestPeriodLabel: group.latestPeriod.label || group.latestPeriod.id,
+        isAllPeriodItem: true,
+      };
+    });
+
+    return allPeriodLineupCache;
   }
 
   function linePresenceFor(brand, category, model) {
@@ -529,10 +623,23 @@
   }
 
   function baseLineupItemsForSelectedPeriod() {
+    if (isAllPeriodsSelected()) {
+      return allPeriodLineupItems();
+    }
     const period = selectedHistoryPeriod();
     if (!period) return [];
     if (state.change === "dropped") return droppedLineupItems(period.id);
     return periodLineupItems(period.id).filter(matchesChangeFilter);
+  }
+
+  function sortAllPeriodItems(items, brandFilter) {
+    return [...items].sort((a, b) => {
+      const brandDiff = brandFilter === ALL_BRAND_VALUE ? brandOrder.indexOf(a.brand) - brandOrder.indexOf(b.brand) : 0;
+      const categoryDiff = categoryOrder.indexOf(a.category) - categoryOrder.indexOf(b.category);
+      const latestDiff = historyPeriodIndex(b.archiveLatestPeriodId || b.periodId) - historyPeriodIndex(a.archiveLatestPeriodId || a.periodId);
+      const nameDiff = modelNameCollator.compare(a.displayName || a.model, b.displayName || b.model);
+      return brandDiff || categoryDiff || latestDiff || nameDiff;
+    });
   }
 
   function periodChangeSummary(periodId) {
@@ -1361,7 +1468,7 @@
 
     el.pickerPeriodTrigger.innerHTML = `
       <span>시기</span>
-      <strong>${escapeHtml(activePeriod?.label || "선택")}</strong>
+      <strong>${escapeHtml(selectedPickerPeriodLabel() || activePeriod?.label || "선택")}</strong>
     `;
     el.pickerPeriodTrigger.classList.toggle("is-open", periodPanelOpen);
     el.pickerPeriodTrigger.setAttribute("aria-expanded", periodPanelOpen ? "true" : "false");
@@ -1378,14 +1485,22 @@
     el.pickerCategoryPanel.hidden = !categoryPanelOpen;
 
     if (periodPanelOpen) {
+      const allPeriodSubLabel = `${historyPeriodRangeLabel()} · ${historyPeriods.length}개 분기`;
       el.pickerPeriodPanel.innerHTML = `
         <div class="picker-filter-panel__grid picker-filter-panel__grid--period">
+          ${pickerFilterButtonMarkup({
+            active: isAllPeriodsSelected(),
+            label: "전체 기간",
+            subLabel: allPeriodSubLabel,
+            value: ALL_PERIOD_ID,
+            attr: "data-picker-period-id",
+          })}
           ${[...historyPeriods]
             .reverse()
             .map((period) => {
               const stats = historyStatsByPeriod.get(period.id);
               return pickerFilterButtonMarkup({
-                active: period.id === activePeriod?.id,
+                active: !isAllPeriodsSelected() && period.id === activePeriod?.id,
                 label: period.label,
                 subLabel: `${stats?.models || 0}개`,
                 value: period.id,
@@ -1508,8 +1623,32 @@
     return `<span class="brand-logo brand-logo--${normalize(brand)}" aria-hidden="true">${logo}<span class="brand-logo__fallback">${fallback}</span></span>`;
   }
 
+  function pickerBrandLabel(brand) {
+    return brand === ALL_BRAND_VALUE ? "전체 브랜드" : brand;
+  }
+
+  function pickerBrandVisualMarkup(brand) {
+    if (brand === ALL_BRAND_VALUE) {
+      return `
+        <span class="picker-brand-token picker-brand-token--all">
+          <span class="picker-brand-token__mark">
+            <span class="brand-logo brand-logo--all" aria-hidden="true"><span class="brand-logo__fallback">ALL</span></span>
+          </span>
+          <span class="picker-brand-token__label">전체</span>
+        </span>
+      `;
+    }
+
+    return `
+      <span class="picker-brand-token">
+        <span class="picker-brand-token__mark">${brandLogoMarkup(brand)}</span>
+        <span class="picker-brand-token__label">${escapeHtml(brand)}</span>
+      </span>
+    `;
+  }
+
   function selectedPickerBrand() {
-    return brandOrder[state.pickerBrandIndex] || brandOrder[0];
+    return pickerBrandOptions[state.pickerBrandIndex] || ALL_BRAND_VALUE;
   }
 
   function selectedPickerCategory() {
@@ -1519,25 +1658,21 @@
   function pickerProducts() {
     const brand = selectedPickerBrand();
     const category = selectedPickerCategory();
-    return baseLineupItemsForSelectedPeriod().filter((shoe) => {
-      const matchesBrand = shoe.brand === brand;
+    const products = baseLineupItemsForSelectedPeriod().filter((shoe) => {
+      const matchesBrand = brand === ALL_BRAND_VALUE || shoe.brand === brand;
       const matchesCategory = category === "전체" || shoe.category === category;
       return matchesBrand && matchesCategory;
     });
+
+    return isAllPeriodsSelected() ? sortAllPeriodItems(products, brand) : products;
   }
 
   function pickerAxisItems(values, axis) {
     return values
       .map((value, logicalIndex) => {
         const label = axis === "category" ? pickerAxisCategoryLabel(value) : value;
-        const ariaLabel = axis === "category" ? pickerCategoryLabel(value) : value;
-        const visual =
-          axis === "brand"
-            ? `<span class="picker-brand-token">
-                <span class="picker-brand-token__mark">${brandLogoMarkup(value)}</span>
-                <span class="picker-brand-token__label">${escapeHtml(value)}</span>
-              </span>`
-            : escapeHtml(label);
+        const ariaLabel = axis === "category" ? pickerCategoryLabel(value) : pickerBrandLabel(value);
+        const visual = axis === "brand" ? pickerBrandVisualMarkup(value) : escapeHtml(label);
         const groupStartClass =
           axis === "category" && value !== "전체" && isGroupStartCategory(value) ? " picker-axis-item--group-start" : "";
         return `
@@ -1560,7 +1695,7 @@
 
   function renderPickerAxes() {
     if (state.pickerAxesReady) return;
-    el.pickerBrandAxis.innerHTML = pickerAxisItems(brandOrder, "brand");
+    el.pickerBrandAxis.innerHTML = pickerAxisItems(pickerBrandOptions, "brand");
     el.pickerCategoryAxis.innerHTML = pickerAxisItems(pickerCategoryOptions, "category");
     state.pickerAxesReady = true;
     syncScrollRails();
@@ -1583,7 +1718,7 @@
   }
 
   function pickerAxisLength(axis) {
-    return axis === "brand" ? brandOrder.length : pickerCategoryOptions.length;
+    return axis === "brand" ? pickerBrandOptions.length : pickerCategoryOptions.length;
   }
 
   function revealPickerAxisItem(axis, index, behavior = "smooth") {
@@ -1610,22 +1745,24 @@
     const brand = selectedPickerBrand();
     const category = selectedPickerCategory();
     const products = pickerProducts();
-    const categoryGroup = category === "전체" ? "브랜드 전체" : categoryGroupMap[category] || "";
-    const coordinate = `${brand} × ${pickerCategoryLabel(category)}`;
-    const periodLabel = selectedHistoryPeriod()?.label || "";
+    const brandLabel = pickerBrandLabel(brand);
+    const categoryLabel = pickerCategoryLabel(category);
+    const coordinate = `${brandLabel} × ${categoryLabel}`;
+    const periodLabel = selectedPickerPeriodLabel();
     const countText = products.length ? `${products.length}개 제품` : "라인업 없음";
     el.pickerCoordinate.textContent = coordinate;
     if (el.pickerSummary) {
-      el.pickerSummary.textContent = [periodLabel, countText].filter(Boolean).join(" · ");
+      el.pickerSummary.textContent = [periodLabel, brandLabel, categoryLabel, countText].filter(Boolean).join(" · ");
     }
     el.pickerDetail.className = `picker-detail-card picker-detail-card--${products.length ? "filled" : "empty"}`;
 
     el.pickerDetail.innerHTML = `
       <div class="picker-stage" aria-label="${escapeHtml(coordinate)}">
-        <strong class="picker-stage__title">${escapeHtml(brand)} · ${escapeHtml(pickerCategoryLabel(category))}</strong>
+        <strong class="picker-stage__title">${escapeHtml(brandLabel)} · ${escapeHtml(categoryLabel)}</strong>
         <div class="picker-stage__stats" aria-label="${escapeHtml(`${periodLabel} ${countText}`)}">
           <span>${escapeHtml(periodLabel)}</span>
-          <span>${escapeHtml(categoryGroup || "라인업")}</span>
+          <span>${escapeHtml(brandLabel)}</span>
+          <span>${escapeHtml(categoryLabel)}</span>
           <span>${escapeHtml(countText)}</span>
           ${state.change !== "전체" ? `<span>${escapeHtml(changeOptionLabel(state.change))}</span>` : ""}
         </div>
@@ -1647,6 +1784,17 @@
     const detailLink = href
       ? `<a class="picker-detail-link" href="${escapeHtml(href)}" aria-label="${escapeHtml(`${shoe.brand} ${shoe.model} 상세 보기`)}">자세히</a>`
       : "";
+    const metaMarkup = shoe.isAllPeriodItem
+      ? `
+          <span>${escapeHtml(shoe.periodLabel || "")}</span>
+          ${shoe.archivePeriodRange ? `<span>${escapeHtml(shoe.archivePeriodRange)}</span>` : ""}
+          ${shoe.archiveAppearanceCount ? `<span class="history-pill">${escapeHtml(`${shoe.archiveAppearanceCount}분기 등장`)}</span>` : ""}
+        `
+      : `
+          <span>${escapeHtml(shoe.periodLabel || selectedHistoryPeriod()?.label || "")}</span>
+          ${changeBadgeMarkup(shoe, true)}
+        `;
+    const subParts = [selectedPickerBrand() === ALL_BRAND_VALUE ? shoe.brand : "", shoe.categoryGroup, shoe.category].filter(Boolean);
 
     return `
       <article class="picker-product-card ${href ? "" : "picker-product-card--static"}">
@@ -1655,11 +1803,10 @@
         </div>
         <div class="picker-product-card__body">
           <span class="picker-product-card__meta">
-            <span>${escapeHtml(shoe.periodLabel || selectedHistoryPeriod()?.label || "")}</span>
-            ${changeBadgeMarkup(shoe, true)}
+            ${metaMarkup}
           </span>
           <strong class="picker-product-card__name">${escapeHtml(shoe.displayName || shoe.model)}</strong>
-          <span class="picker-product-card__sub">${escapeHtml(shoe.categoryGroup)} · ${escapeHtml(shoe.category)}</span>
+          <span class="picker-product-card__sub">${escapeHtml(subParts.join(" · "))}</span>
           <div class="picker-product-card__actions">
             ${pickerPriceActionMarkup(shoe)}
             ${detailLink}
@@ -1884,7 +2031,7 @@
     state.group = categoryGroupMap[category] || "전체";
     state.query = "";
     state.tags.clear();
-    const brandIndex = brandOrder.indexOf(brand);
+    const brandIndex = pickerBrandOptions.indexOf(brand);
     const categoryIndex = pickerCategoryOptions.indexOf(category);
     state.pickerBrandIndex = brandIndex >= 0 ? brandIndex : 0;
     state.pickerCategoryIndex = categoryIndex >= 0 ? categoryIndex : 0;

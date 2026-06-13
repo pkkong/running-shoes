@@ -8128,6 +8128,19 @@ body[data-route="picker"] .picker-brand-token__mark .brand-logo--on {
   --picker-logo-scale: 0.92;
 }
 
+body[data-route="picker"] .picker-brand-token__mark .brand-logo--all {
+  --picker-logo-frame-width: 40px;
+  --picker-logo-frame-height: 28px;
+  color: #191f28;
+}
+
+body[data-route="picker"] .picker-brand-token__mark .brand-logo--all .brand-logo__fallback {
+  display: block !important;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+}
+
 body[data-route="picker"] .picker-axis--brand .picker-axis-item.is-selected .picker-brand-token__mark {
   background: #191f28 !important;
   box-shadow: none !important;
@@ -8135,6 +8148,10 @@ body[data-route="picker"] .picker-axis--brand .picker-axis-item.is-selected .pic
 
 body[data-route="picker"] .picker-axis--brand .picker-axis-item.is-selected .brand-logo__image {
   filter: grayscale(1) brightness(0) invert(1) !important;
+}
+
+body[data-route="picker"] .picker-axis--brand .picker-axis-item.is-selected .brand-logo--all {
+  color: #ffffff;
 }
 
 body[data-route="picker"] .picker-brand-token__label {
