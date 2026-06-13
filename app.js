@@ -112,6 +112,7 @@
     zoomInButton: document.querySelector("#zoomInButton"),
     mapSheetBackdrop: document.querySelector("#mapSheetBackdrop"),
     mapSheet: document.querySelector("#mapSheet"),
+    topbarContext: document.querySelector("#topbarContext"),
     pickerCoordinate: document.querySelector("#pickerCoordinate"),
     pickerSummary: document.querySelector("#pickerSummary"),
     pickerPeriodTrigger: document.querySelector("#pickerPeriodTrigger"),
@@ -1752,8 +1753,12 @@
     const periodLabel = selectedPickerPeriodLabel();
     const countText = products.length ? `${products.length}개 제품` : "라인업 없음";
     el.pickerCoordinate.textContent = coordinate;
+    const summaryText = [periodLabel, brandLabel, categoryLabel, countText].filter(Boolean).join(" · ");
     if (el.pickerSummary) {
-      el.pickerSummary.textContent = [periodLabel, brandLabel, categoryLabel, countText].filter(Boolean).join(" · ");
+      el.pickerSummary.textContent = summaryText;
+    }
+    if (el.topbarContext) {
+      el.topbarContext.textContent = summaryText;
     }
     el.pickerDetail.className = `picker-detail-card picker-detail-card--${products.length ? "filled" : "empty"}`;
 
