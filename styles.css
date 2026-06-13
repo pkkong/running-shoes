@@ -7937,6 +7937,10 @@ body[data-route="picker"] .picker-choice-rail {
   grid-template-columns: repeat(4, minmax(0, 1fr));
 }
 
+.picker-filter-panel__grid--period [data-picker-period-id="__all_periods__"] {
+  grid-column: 1 / -1;
+}
+
 .picker-filter-panel__grid--category {
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
@@ -8016,6 +8020,10 @@ body[data-route="picker"] .picker-axis--brand {
 
   .picker-filter-panel__grid--category {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  body[data-route="picker"] .picker-product-card__meta-range {
+    display: none;
   }
 }
 

@@ -1472,6 +1472,7 @@
     `;
     el.pickerPeriodTrigger.classList.toggle("is-open", periodPanelOpen);
     el.pickerPeriodTrigger.setAttribute("aria-expanded", periodPanelOpen ? "true" : "false");
+    el.pickerPeriodTrigger.setAttribute("aria-label", `시기 ${selectedPickerPeriodLabel() || activePeriod?.label || "선택"} ${count}개 제품`);
 
     el.pickerCategoryTrigger.innerHTML = `
       <span>종류</span>
@@ -1786,8 +1787,8 @@
       : "";
     const metaMarkup = shoe.isAllPeriodItem
       ? `
-          <span>${escapeHtml(shoe.periodLabel || "")}</span>
-          ${shoe.archivePeriodRange ? `<span>${escapeHtml(shoe.archivePeriodRange)}</span>` : ""}
+          <span class="picker-product-card__meta-period">${escapeHtml(shoe.periodLabel || "")}</span>
+          ${shoe.archivePeriodRange ? `<span class="picker-product-card__meta-range">${escapeHtml(shoe.archivePeriodRange)}</span>` : ""}
           ${shoe.archiveAppearanceCount ? `<span class="history-pill">${escapeHtml(`${shoe.archiveAppearanceCount}분기 등장`)}</span>` : ""}
         `
       : `
@@ -1821,7 +1822,7 @@
     const length = pickerAxisLength(axis);
     const nextIndex = (index + length) % length;
     setPickerAxisIndex(axis, nextIndex);
-    if (axis === "category") {
+    if (axis === "category" || axis === "brand") {
       state.pickerFilterPanel = "";
     }
     updatePickerAxisState(axis);
@@ -2285,6 +2286,14 @@
       const target = el.pickerBrandAxis.querySelector(`[data-axis="brand"][data-logical-index="${state.pickerBrandIndex}"]`);
       target?.focus();
     }
+  });
+
+  document.addEventListener("click", (event) => {
+    if (state.route !== "picker" || !state.pickerFilterPanel) return;
+    const path = typeof event.composedPath === "function" ? event.composedPath() : [];
+    const insidePickerFilter = path.some((node) => node?.classList?.contains("picker-filter-dock") || node?.classList?.contains("picker-filter-panel"));
+    if (insidePickerFilter || event.target.closest(".picker-filter-dock") || event.target.closest(".picker-filter-panel")) return;
+    closePickerFilterPanels();
   });
 
   el.shoeMapCanvas.addEventListener("click", (event) => {
