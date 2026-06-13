@@ -999,12 +999,18 @@
 
     if (info?.status === "found") {
       const link = priceOfferLinkFor(shoe) || searchUrl;
-      const mallName = info.lowestOffer?.mallName || "쇼핑몰";
+      const confidenceLabel = priceConfidenceLabel(info.confidence);
       return `
-        <a class="picker-shop-link picker-shop-link--price" href="${escapeHtml(link)}" target="_blank" rel="noreferrer">
+        <a
+          class="picker-shop-link picker-shop-link--price"
+          href="${escapeHtml(link)}"
+          target="_blank"
+          rel="noreferrer"
+          aria-label="${escapeHtml(`${shoe.brand} ${shoe.model} 최저가 후보 ${formatWon(info.lowestPrice)} 열기`)}"
+        >
           <span>최저가 후보</span>
           <strong>${formatWon(info.lowestPrice)}</strong>
-          <small>${escapeHtml(mallName)}</small>
+          <small>${escapeHtml(confidenceLabel)}</small>
         </a>
       `;
     }
