@@ -279,57 +279,157 @@
     `;
   }
 
-  function historyPanelMarkup(shoe) {
+  function historySummaryFor(shoe) {
     const history = historyTimelineFor(shoe);
-    if (!history.timeline.length) return "";
-
-    const firstLabel = history.firstPeriod?.label || "이전 분기 미확인";
+    const firstPeriod = history.firstPeriod;
+    const latestPeriod = history.matchedPeriods[history.matchedPeriods.length - 1]?.period || null;
+    const firstLabel = firstPeriod?.label || "첫 등장 미확인";
+    const latestLabel = latestPeriod?.label || "최근 추천표 미포함";
+    const streakLabel = history.streak >= 2 ? `${history.streak}분기 연속` : history.isNew && history.count ? "신규 등장" : history.count ? "간헐 등장" : "등장 없음";
+    const badgeLabel = history.count
+      ? history.isNew
+        ? "추천표 신규 등장"
+        : history.streak >= 2
+          ? `추천표 ${history.streak}분기 연속 등장`
+          : `추천표 ${history.count}회 등장`
+      : "추천표 이력 확인 필요";
     const headline = history.count
       ? history.isNew
-        ? `${activeHistoryPeriod?.label || "현재"} 첫 등장 라인`
-        : `${firstLabel}부터 ${history.count}개 분기 등장`
-      : "분기 이력 미확인";
-    const streakLabel = history.streak >= 2 ? `${history.streak}분기 연속` : history.count ? "간헐 등장" : "등장 없음";
+        ? `${latestLabel} 추천표에 새로 등장한 라인입니다.`
+        : `${firstLabel}부터 ${history.count}개 분기 동안 추천표에 등장했습니다.`
+      : "추천표 이력이 아직 충분히 정리되지 않았습니다.";
+
+    return {
+      ...history,
+      firstLabel,
+      latestLabel,
+      streakLabel,
+      badgeLabel,
+      headline,
+    };
+  }
+
+  function categoryInsightText(shoe) {
+    const copyByCategory = {
+      입문화: "처음 달리기를 시작하거나 매일 편하게 신기 좋은 데일리 러닝화입니다.",
+      "맥스 쿠션화": "긴 거리와 회복주에서 푹신함을 우선하는 쿠션 중심 러닝화입니다.",
+      안정화: "발의 흔들림을 줄이고 안정적인 착지를 돕는 안정성 중심 러닝화입니다.",
+      올라운더: "조깅부터 가벼운 템포까지 폭넓게 쓰기 좋은 올라운더입니다.",
+      "경량 트레이너": "가볍게 페이스를 올리는 훈련에 어울리는 경량 데일리화입니다.",
+      "논 플레이트": "플레이트 없이 쿠션과 반발을 챙긴 슈퍼 트레이너입니다.",
+      "라이트 플레이트": "부담이 낮은 플레이트로 템포주와 장거리 훈련을 보조합니다.",
+      "카본 플레이트": "강한 반발과 추진력을 노린 고성능 훈련화입니다.",
+      중거리: "5K~10K처럼 빠른 페이스에 맞춘 레이싱화입니다.",
+      장거리: "하프부터 마라톤까지 긴 레이스를 염두에 둔 레이싱화입니다.",
+    };
+
+    return copyByCategory[shoe.category] || `${shoe.categoryGroup} 용도에 맞춰 추천표에 정리된 러닝화입니다.`;
+  }
+
+  function dropDisplayText(shoe) {
+    return Number.isFinite(shoe.dropMm) ? `${shoe.dropMm}mm` : "미정";
+  }
+
+  function dropInsightText(shoe) {
+    if (!Number.isFinite(shoe.dropMm)) return "공식 드롭 수치가 아직 정리되지 않았습니다.";
+    if (shoe.dropMm >= 10) return "일반적인 데일리화보다 높은 편이라 뒤꿈치 착지에 익숙한 러너가 적응하기 쉽습니다.";
+    if (shoe.dropMm >= 7) return "대부분의 러너가 적응하기 쉬운 중간 드롭입니다.";
+    if (shoe.dropMm >= 4) return "지면 감각이 조금 더 살아나는 낮은 편의 드롭입니다.";
+    return "낮은 드롭이라 종아리와 발목 부담을 고려해 천천히 적응하는 편이 좋습니다.";
+  }
+
+  function detailSummaryMarkup(shoe) {
+    const history = historySummaryFor(shoe);
+    const items = [
+      ["분류", `${shoe.categoryGroup} · ${shoe.category}`, "추천표의 용도 기준"],
+      ["드롭", dropDisplayText(shoe), dropInsightText(shoe)],
+      ["추천표", history.count ? `${history.count}개 분기 등장` : "이력 확인 필요", history.streakLabel],
+      ["최근", history.latestLabel, history.count ? "추천표 포함" : "추천표 미확인"],
+    ];
 
     return `
-      <section class="history-panel" aria-label="분기별 라인 이력">
+      <section class="detail-summary" aria-label="핵심 정보">
+        ${items
+          .map(
+            ([label, value, note]) => `
+              <span class="detail-summary__item">
+                <small>${escapeHtml(label)}</small>
+                <strong>${escapeHtml(value)}</strong>
+                <em>${escapeHtml(note)}</em>
+              </span>
+            `
+          )
+          .join("")}
+      </section>
+    `;
+  }
+
+  function detailActionsMarkup(shoe) {
+    const info = priceInfoFor(shoe);
+    const searchUrl = shoppingSearchUrl(shoe);
+    const priceUrl = info?.status === "found" ? priceOfferLinkFor(shoe) || searchUrl : searchUrl;
+    const officialUrl = shoe.officialProductUrl || shoe.imageSourceUrl;
+    const priceTitle = info?.status === "found" ? formatWon(info.lowestPrice) : "직접 확인";
+    const priceMeta = info?.status === "found" ? `${priceConfidenceLabel(info.confidence)} · 최종 확인 필요` : "자동 매칭 결과 없음";
+
+    return `
+      <div class="detail-actions">
+        <a class="detail-action detail-action--primary" href="${escapeHtml(priceUrl)}" target="_blank" rel="noreferrer">
+          <span>가격 후보 보기</span>
+          <strong>${escapeHtml(priceTitle)}</strong>
+          <small>${escapeHtml(priceMeta)}</small>
+        </a>
+        <a class="detail-action detail-action--secondary" href="${escapeHtml(officialUrl)}" target="_blank" rel="noreferrer">
+          <span>공식 제품 페이지</span>
+          <strong>브랜드 출처</strong>
+        </a>
+      </div>
+    `;
+  }
+
+  function historyPanelMarkup(shoe) {
+    const history = historySummaryFor(shoe);
+    if (!history.timeline.length) return "";
+
+    return `
+      <section class="history-panel history-panel--v2" aria-label="추천표 이력">
         <div class="history-panel__head">
           <div>
-            <p class="eyebrow">LINEUP HISTORY</p>
-            <h3>분기별 라인 이력</h3>
+            <h3>추천표 이력</h3>
+            <p>${escapeHtml(history.headline)}</p>
           </div>
-          ${historyBadgeMarkup(shoe)}
+          <span class="history-pill">${escapeHtml(history.badgeLabel)}</span>
         </div>
-        <p class="history-panel__lead">
-          같은 브랜드·종류 셀 기준의 반복 등장 흐름입니다.
-        </p>
         <div class="history-stats" aria-label="라인 이력 요약">
           <span>
             <strong>${escapeHtml(String(history.count))}</strong>
             <small>등장 분기</small>
           </span>
           <span>
-            <strong>${escapeHtml(streakLabel)}</strong>
+            <strong>${escapeHtml(history.streakLabel)}</strong>
             <small>최근 흐름</small>
           </span>
           <span>
-            <strong>${escapeHtml(headline)}</strong>
-            <small>요약</small>
+            <strong>${escapeHtml(history.latestLabel)}</strong>
+            <small>최근 등장</small>
           </span>
         </div>
-        <ol class="history-timeline">
-          ${history.timeline
-            .map(
-              ({ period, models, matched }) => `
-                <li class="history-period ${matched ? "is-matched" : ""}">
-                  <span class="history-period__date">${escapeHtml(period.label || period.id)}</span>
-                  <span class="history-period__status">${matched ? "라인 등장" : models.length ? "같은 셀 기록" : "기록 없음"}</span>
-                  <span class="history-period__models">${historyModelsMarkup(models)}</span>
-                </li>
-              `
-            )
-            .join("")}
-        </ol>
+        <details class="history-timeline-disclosure">
+          <summary>전체 분기 기록 보기</summary>
+          <ol class="history-timeline">
+            ${history.timeline
+              .map(
+                ({ period, models, matched }) => `
+                  <li class="history-period ${matched ? "is-matched" : ""}">
+                    <span class="history-period__date">${escapeHtml(period.label || period.id)}</span>
+                    <span class="history-period__status">${matched ? "추천표 포함" : models.length ? "같은 구역 기록" : "기록 없음"}</span>
+                    <span class="history-period__models">${historyModelsMarkup(models, 3)}</span>
+                  </li>
+                `
+              )
+              .join("")}
+          </ol>
+        </details>
         <p class="history-panel__note">
           디시인사이드 러닝 갤러리 원문표를 기준으로 2024.08~2026.02는 OCR 구조화, 2026.05는 앱 구조화 데이터입니다.
         </p>
@@ -1862,49 +1962,54 @@
 
     if (info?.status === "found") {
       const offers = info.offers || [];
+      const visibleOffers = offers.slice(0, 3);
+      const restCount = Math.max(0, offers.length - visibleOffers.length);
       return `
-        <section class="price-panel" aria-label="가격 후보">
+        <section class="price-panel price-panel--v2" aria-label="가격 후보">
           <div class="price-panel__head">
             <div>
-              <p class="eyebrow">PRICE</p>
               <h3>가격 후보</h3>
+              <p>네이버 쇼핑에서 자동으로 찾은 후보입니다.</p>
             </div>
             <span class="price-pill price-pill--ready">${priceConfidenceLabel(info.confidence)}</span>
           </div>
           <a class="price-panel__lowest" href="${escapeHtml(info.lowestOffer?.link || searchUrl)}" target="_blank" rel="noreferrer">
             <span>
-              <span class="price-panel__label">최저가 후보</span>
+              <span class="price-panel__label">네이버 가격 후보</span>
               <strong>${formatWon(info.lowestPrice)}</strong>
+              <small>${escapeHtml(priceConfidenceLabel(info.confidence))} · 쇼핑몰에서 최종 확인</small>
             </span>
-            <span class="price-panel__mall">${escapeHtml(info.lowestOffer?.mallName || "네이버 쇼핑")}</span>
           </a>
+          <p class="price-panel__caution">
+            색상, 성별, 사이즈, 배송비, 재고가 다를 수 있어 구매 전 쇼핑몰에서 확인하세요.
+          </p>
           <div class="price-panel__meta">
             <span>${generatedLabel ? `${escapeHtml(generatedLabel)} 기준` : "최근 스냅샷 기준"}</span>
-            <span>사이즈, 배송비, 재고는 쇼핑몰에서 확인 필요</span>
             <a href="${escapeHtml(searchUrl)}" target="_blank" rel="noreferrer">네이버 쇼핑 검색</a>
           </div>
           <div class="price-offer-list" aria-label="가격 후보">
-            ${offers.map(priceOfferMarkup).join("")}
+            ${visibleOffers.map(priceOfferMarkup).join("")}
           </div>
+          ${restCount ? `<a class="price-panel__more-link" href="${escapeHtml(searchUrl)}" target="_blank" rel="noreferrer">나머지 ${restCount}개 후보는 네이버 쇼핑에서 보기</a>` : ""}
         </section>
       `;
     }
 
     const message = !hasPriceSnapshot()
-      ? "아직 가격 스냅샷이 없습니다. API 키가 연결되면 GitHub Actions가 자동으로 가격 후보를 채웁니다."
+      ? "아직 가격 후보 스냅샷이 준비되지 않았습니다."
       : info?.message || "조건에 맞는 자동 매칭 결과가 없습니다. 검색 결과를 직접 확인해 주세요.";
 
     return `
-      <section class="price-panel price-panel--pending" aria-label="가격 후보">
+      <section class="price-panel price-panel--pending price-panel--v2" aria-label="가격 후보">
         <div class="price-panel__head">
           <div>
-            <p class="eyebrow">PRICE</p>
             <h3>가격 후보</h3>
+            <p>자동 매칭 결과가 없을 때는 검색 결과를 직접 확인합니다.</p>
           </div>
-          ${priceBadgeMarkup(shoe)}
+          <span class="price-pill price-pill--pending">직접 확인 필요</span>
         </div>
         <p>${escapeHtml(message)}</p>
-        <a class="primary-link" href="${escapeHtml(searchUrl)}" target="_blank" rel="noreferrer">네이버 쇼핑에서 직접 보기</a>
+        <a class="price-panel__more-link" href="${escapeHtml(searchUrl)}" target="_blank" rel="noreferrer">네이버 쇼핑에서 직접 확인</a>
       </section>
     `;
   }
@@ -1914,8 +2019,8 @@
       <a class="price-offer" href="${escapeHtml(offer.link)}" target="_blank" rel="noreferrer">
         <span class="price-offer__title">${escapeHtml(offer.title)}</span>
         <span class="price-offer__meta">
-          <span>${escapeHtml(offer.mallName || "판매처")}</span>
           <strong>${formatWon(offer.price)}</strong>
+          <small>${escapeHtml(offer.mallName || "판매처")}</small>
         </span>
       </a>
     `;
@@ -1923,18 +2028,19 @@
 
   function renderDetail(shoe) {
     const backHref = "#/";
-    const backLabel = "집중 보기";
+    const backLabel = "라인업으로";
+    const history = historySummaryFor(shoe);
 
     el.detailView.innerHTML = `
       <a class="back-link" href="${escapeHtml(backHref)}">← ${backLabel}</a>
-      <article class="detail-card">
+      <article class="detail-card detail-card--v2">
         <div class="detail-card__media">
           ${imageMarkup(shoe, "detail")}
         </div>
         <div class="detail-card__content">
           <div class="detail-brand-line">
             ${brandLogoMarkup(shoe.brand)}
-            <span>2026.05 구조화</span>
+            <span>${escapeHtml(shoe.categoryGroup)} · ${escapeHtml(shoe.category)}</span>
           </div>
           <h2>${escapeHtml(shoe.displayName || shoe.model)}</h2>
           ${
@@ -1942,22 +2048,15 @@
               ? `<p class="detail-card__subtitle">${escapeHtml(shoe.model)}</p>`
               : ""
           }
-          <div class="detail-meta">
-            <span>${escapeHtml(shoe.categoryGroup)}</span>
-            <span>${escapeHtml(shoe.category)}</span>
-            ${dropMarkup(shoe)}
-          </div>
-          <div class="tag-list">${tagMarkup(shoe.tags)}</div>
-          <div class="detail-actions">
-            <a class="primary-link" href="${escapeHtml(shoe.officialProductUrl || shoe.imageSourceUrl)}" target="_blank" rel="noreferrer">
-              공식 출처 보기
-            </a>
-            ${priceBadgeMarkup(shoe, true, "anchor")}
-          </div>
+          <p class="detail-insight">${escapeHtml(categoryInsightText(shoe))}</p>
+          <p class="detail-recommendation">${escapeHtml(history.badgeLabel)}</p>
+          <div class="tag-list detail-tags">${tagMarkup(shoe.tags)}</div>
+          ${detailActionsMarkup(shoe)}
         </div>
       </article>
-      ${historyPanelMarkup(shoe)}
+      ${detailSummaryMarkup(shoe)}
       ${pricePanelMarkup(shoe)}
+      ${historyPanelMarkup(shoe)}
     `;
     wireImages();
   }
