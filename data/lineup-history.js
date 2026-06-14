@@ -1,14 +1,14 @@
 (function () {
   window.RUNNING_LINEUP_HISTORY = {
     version: "20260602-period-compare-1",
-    source: "DCInside table images OCR corrected for 2024.08-2026.02; structured 2026.05 app data",
+    source: "DCInside running gallery lineup tables structured for this app",
     periods: [
         {
             "id": "2024-08",
             "label": "2024.08",
             "sourcePostUrl": "https://gall.dcinside.com/mgallery/board/view/?id=running&no=372009",
             "tableImageUrl": "https://image.dcinside.com/download.php?no=24b0d769e1d32ca73de981fa1bd625312be8fceefc78018db5c464a7d594bd7b4b5ec9315929afba5ae2763c44bfc38716be2d65906cbfbcc882b1353ca3f1&f_no=202408+%EB%B8%8C%EB%9E%9C%EB%93%9C%EB%B3%84+%EB%9F%AC%EB%8B%9D%ED%99%94+%EB%9D%BC%EC%9D%B8%EC%97%85+%EC%B4%9D%EC%A0%95%EB%A6%AC%28FIN%29.jpg",
-            "structured": false,
+            "structured": true,
             "active": false
         },
         {
@@ -16,7 +16,7 @@
             "label": "2024.11",
             "sourcePostUrl": "https://gall.dcinside.com/mgallery/board/view/?id=running&no=485466",
             "tableImageUrl": "https://image.dcinside.com/download.php?no=24b0d769e1d32ca73de98ffa1bd62531904e3409f6e528d418e9c4060d2f694a1cf712d9072dfc59d12233694a09727a888067448de379035304e083cce864&f_no=202411%EB%B8%8C%EB%9E%9C%EB%93%9C%EB%B3%84+%EB%9F%AC%EB%8B%9D%ED%99%94+%EB%9D%BC%EC%9D%B8%EC%97%85+%EC%B4%9D%EC%A0%95%EB%A6%AC+%28FIN%29.jpg",
-            "structured": false,
+            "structured": true,
             "active": false
         },
         {
@@ -24,7 +24,7 @@
             "label": "2025.02",
             "sourcePostUrl": "https://gall.dcinside.com/mgallery/board/view/?id=running&no=567183",
             "tableImageUrl": "https://image.dcinside.com/download.php?no=24b0d769e1d32ca73de884fa1bd6253194dd6d0fcd22fa9acf7ca3b80b2131ab852b19a6075d1ad1608a8df42d0705c5c0d2311699b7197c0369fcbc894568&f_no=202502+%EB%B8%8C%EB%9E%9C%EB%93%9C%EB%B3%84+%EB%9F%AC%EB%8B%9D%ED%99%94+%EB%9D%BC%EC%9D%B8%EC%97%85+%EC%B4%9D%EC%A0%95%EB%A6%AC+%28FIN%29.jpg",
-            "structured": false,
+            "structured": true,
             "active": false
         },
         {
@@ -32,7 +32,7 @@
             "label": "2025.05",
             "sourcePostUrl": "https://gall.dcinside.com/mgallery/board/view/?id=running&no=675949",
             "tableImageUrl": "https://image.dcinside.com/download.php?no=24b0d769e1d32ca73de882fa1bd62531b6b898211a669f8109c0200b5f3be3e5c1af2be1b3f1a9f67f733265d1445dea500630b36bb7081f86cfaad5de5fc4&f_no=202505+%EB%B8%8C%EB%9E%9C%EB%93%9C%EB%B3%84+%EB%9F%AC%EB%8B%9D%ED%99%94+%EB%9D%BC%EC%9D%B8%EC%97%85+%EC%B4%9D%EC%A0%95%EB%A6%AC+%28FIN%29.jpg",
-            "structured": false,
+            "structured": true,
             "active": false
         },
         {
@@ -40,7 +40,7 @@
             "label": "2025.08",
             "sourcePostUrl": "https://gall.dcinside.com/mgallery/board/view/?id=running&no=766843",
             "tableImageUrl": "https://image.dcinside.com/download.php?no=24b0d769e1d32ca73de880fa1bd6253104bb44157be50e63058663b138f6c229563128ae429c2ee8d12d00ba86624949b0af17a7216beaf174513bc0109e8c&f_no=202508+%EB%B8%8C%EB%9E%9C%EB%93%9C%EB%B3%84+%EB%9F%AC%EB%8B%9D%ED%99%94+%EB%9D%BC%EC%9D%B8%EC%97%85+%EC%B4%9D%EC%A0%95%EB%A6%AC+%28FIN%29.jpg",
-            "structured": false,
+            "structured": true,
             "active": false
         },
         {
@@ -48,7 +48,7 @@
             "label": "2025.11",
             "sourcePostUrl": "https://gall.dcinside.com/mgallery/board/view/?id=running&no=889663",
             "tableImageUrl": "https://image.dcinside.com/download.php?no=24b0d769e1d32ca73de88efa1bd625317c7c0c0c41f08067f1e80a003cd0ee8ac0ca3f1d7feb8346fc1690f693f15907804359dcc14d0e9380162b1bf88f58&f_no=202511+%EB%B8%8C%EB%9E%9C%EB%93%9C%EB%B3%84+%EB%9F%AC%EB%8B%9D%ED%99%94+%EB%9D%BC%EC%9D%B8%EC%97%85+%EC%B4%9D%EC%A0%95%EB%A6%AC+%28FIN%29.jpg",
-            "structured": false,
+            "structured": true,
             "active": false
         },
         {
@@ -56,7 +56,7 @@
             "label": "2026.02",
             "sourcePostUrl": "https://gall.dcinside.com/mgallery/board/view/?id=running&no=958550",
             "tableImageUrl": "https://image.dcinside.com/download.php?no=24b0d769e1d32ca73de786fa1bd62531cc2a4a3aab95ddaddf70cdf9077ce5ba6b6422cc9f609d2c74cca90e571cdd37fcf6d91e6d85666363a4a4bf91f166&f_no=202602+%EB%B8%8C%EB%9E%9C%EB%93%9C%EB%B3%84+%EB%9F%AC%EB%8B%9D%ED%99%94+%EB%9D%BC%EC%9D%B8%EC%97%85+%EC%B4%9D%EC%A0%95%EB%A6%AC+%28FIN%29.jpg",
-            "structured": false,
+            "structured": true,
             "active": false
         },
         {
@@ -896,7 +896,6 @@
             "New Balance",
             "올라운더",
             [
-                "V14",
                 "프레시폼 1080"
             ]
         ],
@@ -905,7 +904,6 @@
             "New Balance",
             "경량 트레이너",
             [
-                "V14",
                 "퓨어셀 레벨 V4"
             ]
         ],
@@ -1500,7 +1498,6 @@
                 "S4+",
                 "메타스피드 스카이 파리",
                 "메타스피드 엣지 파리",
-                "새로 업데이트된 신제품"
             ]
         ],
         [
@@ -1525,7 +1522,7 @@
             "New Balance",
             "안정화",
             [
-                "Ar",
+                "프레시폼 860 V14",
                 "프레시 봉고 V6"
             ]
         ],
@@ -2193,7 +2190,6 @@
                 "S4+",
                 "메타스피드 스카이 파리",
                 "메타스피드 엣지 파리",
-                "새로 업데이트된 신제품"
             ]
         ],
         [
@@ -2235,7 +2231,6 @@
             "New Balance",
             "경량 트레이너",
             [
-                "V14",
                 "퓨어셀 레벨 V4"
             ]
         ],
@@ -2859,10 +2854,9 @@
             "ASICS",
             "장거리",
             [
-                "SA+",
+                "S4+",
                 "메타스피드 도쿄 스카이 엣지",
                 "메타스피드 레이",
-                "새로 업데이트된 신제품"
             ]
         ],
         [
@@ -2895,7 +2889,6 @@
             "New Balance",
             "올라운더",
             [
-                "V14",
                 "프레시폼 1080 V14"
             ]
         ],
@@ -3563,7 +3556,6 @@
             "New Balance",
             "올라운더",
             [
-                "V14",
                 "프레시폼 1080 V14"
             ]
         ],
@@ -3731,7 +3723,6 @@
                 "패스트RB 나이트로 엘리트 LD",
                 "디비에이트 나이트로 엘리트 3",
                 "패스트R 나이트로 엘리트 3",
-                "새로 업데이트된 신제품"
             ]
         ],
         [
@@ -4198,7 +4189,7 @@
             "ASICS",
             "장거리",
             [
-                "SA+",
+                "S4+",
                 "메타스피드 도쿄 스카이 엣지",
                 "메타스피드 레이"
             ]

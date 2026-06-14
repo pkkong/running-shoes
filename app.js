@@ -207,6 +207,53 @@
     return a.length >= 3 && b.length >= 3 && (a.includes(b) || b.includes(a));
   }
 
+  function usefulModelKey(value) {
+    const key = normalizeHistoryText(value);
+    if (!key) return "";
+    if (/^(v\d+|ls|ld|gts|pl|x|sl)$/i.test(key)) return "";
+    if (/새로업데이트된신제품|업데이트|신제품만/.test(key)) return "";
+    return key;
+  }
+
+  function modelMatchKeys(value) {
+    const keys = new Set();
+    [value, lineageText(value), lineKey(value)]
+      .map(usefulModelKey)
+      .filter(Boolean)
+      .forEach((key) => keys.add(key));
+
+    String(value || "")
+      .split(/[\s·+/_-]+/)
+      .map(usefulModelKey)
+      .filter((key) => key.length >= 2 && !/^\d$/.test(key))
+      .forEach((key) => keys.add(key));
+
+    return [...keys];
+  }
+
+  function looseModelKeyMatches(left, right) {
+    const a = usefulModelKey(left);
+    const b = usefulModelKey(right);
+    if (a.length < 2 || b.length < 2) return false;
+    if (a === b) return true;
+    if (a.length >= 3 && b.length >= 3 && (a.includes(b) || b.includes(a))) return true;
+
+    const shorter = a.length <= b.length ? a : b;
+    const longer = a.length <= b.length ? b : a;
+    return /[가-힣]/.test(shorter) && shorter.length >= 2 && longer.includes(shorter);
+  }
+
+  function modelLooksLikeSameLine(shoe, model) {
+    const modelKeys = modelMatchKeys(model);
+    const shoeKeys = [
+      ...modelMatchKeys(shoe.model),
+      ...modelMatchKeys(shoe.displayName),
+      ...historyAliases(shoe),
+    ].filter(Boolean);
+
+    return shoeKeys.some((shoeKey) => modelKeys.some((modelKey) => looseModelKeyMatches(shoeKey, modelKey)));
+  }
+
   function historyAliases(shoe) {
     const aliases = new Set();
     [shoe.model, shoe.displayName, lineageText(shoe.model), lineageText(shoe.displayName)]
@@ -431,7 +478,7 @@
           </ol>
         </details>
         <p class="history-panel__note">
-          디시인사이드 러닝 갤러리 원문표를 기준으로 2024.08~2026.02는 OCR 구조화, 2026.05는 앱 구조화 데이터입니다.
+          디시인사이드 러닝 갤러리 추천표를 브랜드와 용도 기준으로 정리했습니다.
         </p>
       </section>
     `;
@@ -477,9 +524,14 @@
   function findCurrentShoeForHistory(brand, category, model) {
     const exactModel = normalizeHistoryText(model);
     const sameCell = shoes.filter((shoe) => shoe.brand === brand && shoe.category === category);
+    const sameBrand = shoes.filter((shoe) => shoe.brand === brand);
     return (
       sameCell.find((shoe) => normalizeHistoryText(shoe.model) === exactModel || normalizeHistoryText(shoe.displayName) === exactModel) ||
       sameCell.find((shoe) => [lineKey(shoe.model), lineKey(shoe.displayName)].some((key) => lineKeyMatches(key, lineKey(model)))) ||
+      sameCell.find((shoe) => modelLooksLikeSameLine(shoe, model)) ||
+      sameBrand.find((shoe) => normalizeHistoryText(shoe.model) === exactModel || normalizeHistoryText(shoe.displayName) === exactModel) ||
+      sameBrand.find((shoe) => [lineKey(shoe.model), lineKey(shoe.displayName)].some((key) => lineKeyMatches(key, lineKey(model)))) ||
+      sameBrand.find((shoe) => modelLooksLikeSameLine(shoe, model)) ||
       null
     );
   }
@@ -1489,7 +1541,7 @@
       .reverse()
       .map((period) => {
         const stats = historyStatsByPeriod.get(period.id);
-        const status = period.active ? `${stats?.models || shoes.length}개 현재` : `${stats?.models || 0}개 OCR`;
+        const status = `${stats?.models || (period.active ? shoes.length : 0)}개 모델`;
         return `
           <button
             class="period-link ${period.id === active.id ? "is-active" : ""}"
@@ -1521,7 +1573,7 @@
       <div class="period-archive__meta" aria-label="분기 구조화 요약">
         <span>${historyPeriods.length}개 분기</span>
         <span>총 ${historyTotalModelCount}개 모델 후보</span>
-        <span>${active.structured ? "앱 구조화" : "OCR 구조화"}</span>
+        <span>추천표 정리 데이터</span>
       </div>
       <div class="period-archive__rail" aria-label="분기 선택">
         ${sourceLinks}
@@ -2178,6 +2230,12 @@
         if (box) {
           box.classList.remove("is-failed");
           box.classList.add("is-loaded");
+        }
+      } else if (image.complete) {
+        const box = image.closest(".shoe-image");
+        if (box) {
+          box.classList.remove("is-loaded");
+          box.classList.add("is-failed");
         }
       }
     });

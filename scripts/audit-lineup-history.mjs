@@ -29,7 +29,7 @@ const brands = new Set(shoes.map((shoe) => shoe.brand));
 const categories = new Set(shoes.map((shoe) => shoe.category));
 const activePeriod = periods.find((period) => period.active);
 const metadataPattern = /(런갤|런리핏|Great|이상|선호|디시인사이드)/i;
-const ocrNoisePatterns = [
+const textNoisePatterns = [
   /^[0-9]+(?:\.[0-9]+)?$/,
   /[?？]/,
   /원/,
@@ -54,8 +54,8 @@ entries.forEach((entry, index) => {
   models.forEach((model, modelIndex) => {
     if (!String(model || "").trim()) fail(`Entry ${index} model ${modelIndex} is empty`);
     if (metadataPattern.test(model)) fail(`Entry ${index} model ${modelIndex} looks like metadata: ${model}`);
-    if (ocrNoisePatterns.some((pattern) => pattern.test(model))) {
-      fail(`Entry ${index} model ${modelIndex} has suspicious OCR residue: ${model}`);
+    if (textNoisePatterns.some((pattern) => pattern.test(model))) {
+      fail(`Entry ${index} model ${modelIndex} has suspicious text residue: ${model}`);
     }
   });
 });
