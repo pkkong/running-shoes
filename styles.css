@@ -8882,3 +8882,159 @@ body[data-route="detail"] .history-period__models {
     gap: 8px;
   }
 }
+
+/* 2026-06 commerce trust model: platform search only, no selected seller or lowest-price claim. */
+.platform-search-link {
+  display: grid;
+  align-content: center;
+  min-width: 0;
+  border: 1px solid #edf0f3;
+  background: #f7f8fa;
+  color: #191f28;
+  font-family: inherit;
+  text-align: left;
+  text-decoration: none;
+}
+
+.platform-search-link span,
+.platform-search-link small {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.platform-search-link span {
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.15;
+}
+
+.platform-search-link small {
+  margin-top: 3px;
+  color: #8b95a1;
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 1.1;
+}
+
+.platform-search-link:not(.platform-search-link--disabled):hover,
+.platform-search-link:not(.platform-search-link--disabled):focus-visible {
+  background: #ffffff;
+  border-color: #d9dee5;
+  outline: none;
+}
+
+.platform-search-link--disabled {
+  appearance: none;
+  cursor: not-allowed;
+  opacity: 0.48;
+}
+
+body[data-route="picker"] .picker-product-card__actions {
+  grid-template-columns: 1fr !important;
+  gap: 8px !important;
+  align-items: stretch;
+}
+
+body[data-route="picker"] .picker-platform-links {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 6px;
+  min-width: 0;
+}
+
+body[data-route="picker"] .platform-search-link--picker {
+  min-height: 44px;
+  padding: 8px 10px;
+  border-radius: 13px;
+}
+
+body[data-route="picker"] .platform-search-link--picker.platform-search-link--toss {
+  display: none;
+}
+
+body[data-route="picker"] .platform-search-link--picker span {
+  font-size: 12px;
+}
+
+body[data-route="picker"] .platform-search-link--picker small {
+  display: none;
+}
+
+body[data-route="picker"] .picker-detail-link {
+  width: 100% !important;
+  min-height: 44px !important;
+  min-width: 72px !important;
+  background: #ffffff !important;
+  color: #191f28 !important;
+  border: 1px solid #edf0f3 !important;
+}
+
+body[data-route="detail"] .detail-actions {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+body[data-route="detail"] .detail-action--primary,
+body[data-route="detail"] .detail-action--secondary {
+  background: #f7f8fa !important;
+  color: #191f28 !important;
+  border: 1px solid #edf0f3;
+}
+
+body[data-route="detail"] .detail-action--primary small,
+body[data-route="detail"] .detail-action--secondary small {
+  color: #8b95a1 !important;
+}
+
+body[data-route="detail"] .platform-search-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+}
+
+body[data-route="detail"] .platform-search-link--panel {
+  min-height: 64px;
+  padding: 13px 14px;
+  border-radius: 16px;
+}
+
+body[data-route="detail"] .price-panel--search .price-pill--pending {
+  background: #f2f4f6;
+  color: #6b7684;
+  border-color: transparent;
+}
+
+@media (max-width: 720px) {
+  body[data-route="detail"] .detail-actions {
+    grid-template-columns: 1fr;
+  }
+
+  body[data-route="detail"] .detail-action {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 54px;
+    padding: 0 16px;
+  }
+
+  body[data-route="detail"] .detail-action span {
+    display: none;
+  }
+
+  body[data-route="detail"] .detail-action strong {
+    font-size: 15px;
+  }
+
+  body[data-route="detail"] .detail-action small {
+    text-align: right;
+  }
+
+  body[data-route="detail"] .platform-search-grid {
+    grid-template-columns: 1fr;
+  }
+
+  body[data-route="detail"] .platform-search-link--panel {
+    min-height: 54px;
+  }
+}

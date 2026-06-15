@@ -2,7 +2,6 @@
   const shoes = window.RUNNING_SHOES || [];
   const periods = window.RUNNING_LINEUP_PERIODS || [];
   const lineupHistory = window.RUNNING_LINEUP_HISTORY || { periods: [], entries: [] };
-  const priceSnapshot = window.RUNNING_PRICE_SNAPSHOT || { generatedAt: "", source: "pending", currency: "KRW", items: {} };
   const priceQueryConfig = window.RUNNING_PRICE_QUERY_CONFIG || {};
 
   const ALL_PERIOD_ID = "__all_periods__";
@@ -412,23 +411,19 @@
   }
 
   function detailActionsMarkup(shoe) {
-    const info = priceInfoFor(shoe);
-    const searchUrl = shoppingSearchUrl(shoe);
-    const priceUrl = info?.status === "found" ? priceOfferLinkFor(shoe) || searchUrl : searchUrl;
     const officialUrl = shoe.officialProductUrl || shoe.imageSourceUrl;
-    const priceTitle = info?.status === "found" ? formatWon(info.lowestPrice) : "직접 확인";
-    const priceMeta = info?.status === "found" ? `${priceConfidenceLabel(info.confidence)} · 최종 확인 필요` : "자동 매칭 결과 없음";
 
     return `
       <div class="detail-actions">
-        <a class="detail-action detail-action--primary" href="${escapeHtml(priceUrl)}" target="_blank" rel="noreferrer">
-          <span>가격 후보 보기</span>
-          <strong>${escapeHtml(priceTitle)}</strong>
-          <small>${escapeHtml(priceMeta)}</small>
+        <a class="detail-action detail-action--primary" href="#price-check">
+          <span>가격 확인</span>
+          <strong>플랫폼 검색</strong>
+          <small>네이버 · 쿠팡</small>
         </a>
         <a class="detail-action detail-action--secondary" href="${escapeHtml(officialUrl)}" target="_blank" rel="noreferrer">
           <span>공식 제품 페이지</span>
           <strong>브랜드 출처</strong>
+          <small>공식 링크</small>
         </a>
       </div>
     `;
@@ -1091,43 +1086,6 @@
     return `<span class="drop-value"><span>${label ? "드롭 " : ""}</span><b>${value}</b><span>mm</span></span>`;
   }
 
-  function priceInfoFor(shoe) {
-    return priceSnapshot.items?.[shoe.id] || (shoe.detailId ? priceSnapshot.items?.[shoe.detailId] : null) || null;
-  }
-
-  function hasPriceSnapshot() {
-    return Boolean(priceSnapshot.generatedAt && priceSnapshot.source !== "pending");
-  }
-
-  function formatWon(value) {
-    const amount = Number(value);
-    if (!Number.isFinite(amount) || amount <= 0) return "-";
-    return `₩${amount.toLocaleString("ko-KR")}`;
-  }
-
-  function formatSnapshotDate(value) {
-    if (!value) return "";
-    const date = new Date(value);
-    if (Number.isNaN(date.getTime())) return "";
-    return new Intl.DateTimeFormat("ko-KR", {
-      month: "2-digit",
-      day: "2-digit",
-      hour: "2-digit",
-      minute: "2-digit",
-      hour12: false,
-    }).format(date);
-  }
-
-  function priceConfidenceLabel(confidence) {
-    return (
-      {
-        high: "자동 매칭",
-        medium: "확인 권장",
-        low: "수동 확인",
-      }[confidence] || "수동 확인"
-    );
-  }
-
   function shoppingSearchQuery(shoe) {
     const override = priceQueryConfig.overrides?.[shoe.id] || {};
     if (override.query) return override.query;
@@ -1136,70 +1094,97 @@
     return [brand, override.model || shoe.model, suffix].filter(Boolean).join(" ");
   }
 
-  function shoppingSearchUrl(shoe) {
-    return `https://search.shopping.naver.com/search/all?query=${encodeURIComponent(shoppingSearchQuery(shoe))}`;
+  function naverShoppingSearchUrl(shoe) {
+    const query = shoppingSearchQuery(shoe);
+    const params = new URLSearchParams({
+      query,
+      origQuery: query,
+      adQuery: query,
+      pagingIndex: "1",
+      pagingSize: "40",
+      productSet: "total",
+      sort: "price_asc",
+      viewType: "list",
+    });
+    return `https://search.shopping.naver.com/search/all?${params.toString()}`;
   }
 
-  function priceOfferLinkFor(shoe) {
-    const info = priceInfoFor(shoe);
-    return info?.status === "found" ? info.lowestOffer?.link || shoppingSearchUrl(shoe) : "";
+  function coupangSearchUrl(shoe) {
+    const params = new URLSearchParams({
+      q: shoppingSearchQuery(shoe),
+      channel: "user",
+    });
+    return `https://www.coupang.com/np/search?${params.toString()}`;
+  }
+
+  function platformSearchLinksFor(shoe) {
+    return [
+      {
+        id: "naver",
+        label: "네이버",
+        note: "가격순 검색",
+        url: naverShoppingSearchUrl(shoe),
+        primary: true,
+      },
+      {
+        id: "coupang",
+        label: "쿠팡",
+        note: "검색 결과",
+        url: coupangSearchUrl(shoe),
+        primary: true,
+      },
+      {
+        id: "toss",
+        label: "토스쇼핑",
+        note: "앱 검색 준비중",
+        url: "",
+        disabled: true,
+      },
+    ];
+  }
+
+  function platformSearchLinksMarkup(shoe, variant = "panel") {
+    const platforms = platformSearchLinksFor(shoe).filter((platform) => variant !== "picker" || !platform.disabled);
+    return platforms
+      .map((platform) => {
+        const className = `platform-search-link platform-search-link--${platform.id} platform-search-link--${variant}${
+          platform.disabled ? " platform-search-link--disabled" : ""
+        }`;
+        const body = `
+          <span>${escapeHtml(platform.label)}</span>
+          <small>${escapeHtml(platform.note)}</small>
+        `;
+        if (platform.disabled) {
+          return `<button class="${className}" type="button" disabled aria-label="${escapeHtml(`${platform.label} 검색 링크 준비중`)}">${body}</button>`;
+        }
+        return `
+          <a
+            class="${className}"
+            href="${escapeHtml(platform.url)}"
+            target="_blank"
+            rel="noreferrer"
+            aria-label="${escapeHtml(`${shoe.brand} ${shoe.model} ${platform.label}에서 직접 확인`)}"
+          >
+            ${body}
+          </a>
+        `;
+      })
+      .join("");
   }
 
   function pickerPriceActionMarkup(shoe) {
-    const info = priceInfoFor(shoe);
-    const searchUrl = shoppingSearchUrl(shoe);
-
-    if (info?.status === "found") {
-      const link = priceOfferLinkFor(shoe) || searchUrl;
-      const confidenceLabel = priceConfidenceLabel(info.confidence);
-      return `
-        <a
-          class="picker-shop-link picker-shop-link--price"
-          href="${escapeHtml(link)}"
-          target="_blank"
-          rel="noreferrer"
-          aria-label="${escapeHtml(`${shoe.brand} ${shoe.model} 최저가 후보 ${formatWon(info.lowestPrice)} 열기`)}"
-        >
-          <span>최저가 후보</span>
-          <strong>${formatWon(info.lowestPrice)}</strong>
-          <small>${escapeHtml(confidenceLabel)}</small>
-        </a>
-      `;
-    }
-
     return `
-      <a class="picker-shop-link" href="${escapeHtml(searchUrl)}" target="_blank" rel="noreferrer">
-        <span>가격 검색</span>
-        <strong>네이버 쇼핑</strong>
-        <small>${hasPriceSnapshot() ? "직접 확인" : "스냅샷 준비 중"}</small>
-      </a>
+      <div class="picker-platform-links" aria-label="${escapeHtml(`${shoe.brand} ${shoe.model} 가격 직접 확인`)}">
+        ${platformSearchLinksMarkup(shoe, "picker")}
+      </div>
     `;
   }
 
   function priceBadgeMarkup(shoe, showPending = true, mode = "span") {
-    const info = priceInfoFor(shoe);
-    if (info?.status === "found") {
-      const label = `최저가 후보 ${formatWon(info.lowestPrice)}`;
-      const link = priceOfferLinkFor(shoe);
-      const ariaLabel = `${shoe.brand} ${shoe.model} ${label} 쇼핑몰 열기`;
-      if (mode === "anchor") {
-        return `<a class="price-pill price-pill--ready price-pill--link" href="${escapeHtml(link)}" target="_blank" rel="noreferrer" aria-label="${escapeHtml(ariaLabel)}">${label}</a>`;
-      }
-      if (mode === "inlineLink") {
-        return `<span class="price-pill price-pill--ready price-pill--link" role="link" tabindex="0" data-price-link="${escapeHtml(link)}" aria-label="${escapeHtml(ariaLabel)}">${label}</span>`;
-      }
-      return `<span class="price-pill price-pill--ready">${label}</span>`;
-    }
     if (!showPending) {
       return "";
     }
-    if (!hasPriceSnapshot()) {
-      return `<span class="price-pill price-pill--pending">가격 준비 중</span>`;
-    }
-    if (info?.status === "error") {
-      return `<span class="price-pill price-pill--pending">조회 실패</span>`;
-    }
-    return `<span class="price-pill price-pill--pending">가격 확인 필요</span>`;
+    return `<span class="price-pill price-pill--pending">가격 직접 확인</span>`;
   }
 
   function imageMarkup(shoe, variant) {
@@ -2008,73 +1993,23 @@
   }
 
   function pricePanelMarkup(shoe) {
-    const info = priceInfoFor(shoe);
-    const generatedLabel = formatSnapshotDate(info?.fetchedAt || priceSnapshot.generatedAt);
-    const searchUrl = shoppingSearchUrl(shoe);
-
-    if (info?.status === "found") {
-      const offers = info.offers || [];
-      const visibleOffers = offers.slice(0, 3);
-      const restCount = Math.max(0, offers.length - visibleOffers.length);
-      return `
-        <section class="price-panel price-panel--v2" aria-label="가격 후보">
-          <div class="price-panel__head">
-            <div>
-              <h3>가격 후보</h3>
-              <p>네이버 쇼핑에서 자동으로 찾은 후보입니다.</p>
-            </div>
-            <span class="price-pill price-pill--ready">${priceConfidenceLabel(info.confidence)}</span>
-          </div>
-          <a class="price-panel__lowest" href="${escapeHtml(info.lowestOffer?.link || searchUrl)}" target="_blank" rel="noreferrer">
-            <span>
-              <span class="price-panel__label">네이버 가격 후보</span>
-              <strong>${formatWon(info.lowestPrice)}</strong>
-              <small>${escapeHtml(priceConfidenceLabel(info.confidence))} · 쇼핑몰에서 최종 확인</small>
-            </span>
-          </a>
-          <p class="price-panel__caution">
-            색상, 성별, 사이즈, 배송비, 재고가 다를 수 있어 구매 전 쇼핑몰에서 확인하세요.
-          </p>
-          <div class="price-panel__meta">
-            <span>${generatedLabel ? `${escapeHtml(generatedLabel)} 기준` : "최근 스냅샷 기준"}</span>
-            <a href="${escapeHtml(searchUrl)}" target="_blank" rel="noreferrer">네이버 쇼핑 검색</a>
-          </div>
-          <div class="price-offer-list" aria-label="가격 후보">
-            ${visibleOffers.map(priceOfferMarkup).join("")}
-          </div>
-          ${restCount ? `<a class="price-panel__more-link" href="${escapeHtml(searchUrl)}" target="_blank" rel="noreferrer">나머지 ${restCount}개 후보는 네이버 쇼핑에서 보기</a>` : ""}
-        </section>
-      `;
-    }
-
-    const message = !hasPriceSnapshot()
-      ? "아직 가격 후보 스냅샷이 준비되지 않았습니다."
-      : info?.message || "조건에 맞는 자동 매칭 결과가 없습니다. 검색 결과를 직접 확인해 주세요.";
-
     return `
-      <section class="price-panel price-panel--pending price-panel--v2" aria-label="가격 후보">
+      <section id="price-check" class="price-panel price-panel--search price-panel--v2" aria-label="가격 직접 확인">
         <div class="price-panel__head">
           <div>
-            <h3>가격 후보</h3>
-            <p>자동 매칭 결과가 없을 때는 검색 결과를 직접 확인합니다.</p>
+            <h3>가격 직접 확인</h3>
+            <p>최저가를 대신 고르지 않습니다. 각 플랫폼에서 판매처, 사이즈, 배송비를 직접 확인하세요.</p>
           </div>
-          <span class="price-pill price-pill--pending">직접 확인 필요</span>
+          <span class="price-pill price-pill--pending">검색 링크</span>
         </div>
-        <p>${escapeHtml(message)}</p>
-        <a class="price-panel__more-link" href="${escapeHtml(searchUrl)}" target="_blank" rel="noreferrer">네이버 쇼핑에서 직접 확인</a>
+        <div class="platform-search-grid">
+          ${platformSearchLinksMarkup(shoe, "panel")}
+        </div>
+        <p class="price-panel__caution">
+          가격은 실시간으로 바뀔 수 있고 색상, 성별, 사이즈, 배송비, 판매처가 다를 수 있습니다.
+          결제 전 각 플랫폼에서 최종 정보를 확인하세요.
+        </p>
       </section>
-    `;
-  }
-
-  function priceOfferMarkup(offer) {
-    return `
-      <a class="price-offer" href="${escapeHtml(offer.link)}" target="_blank" rel="noreferrer">
-        <span class="price-offer__title">${escapeHtml(offer.title)}</span>
-        <span class="price-offer__meta">
-          <strong>${formatWon(offer.price)}</strong>
-          <small>${escapeHtml(offer.mallName || "판매처")}</small>
-        </span>
-      </a>
     `;
   }
 
@@ -2371,28 +2306,6 @@
     const button = event.target.closest("[data-picker-category-index]");
     if (!button) return;
     selectPickerAxis("category", Number(button.dataset.pickerCategoryIndex));
-  });
-
-  function openExternalPriceLink(link) {
-    if (!link) return;
-    window.open(link, "_blank", "noopener,noreferrer");
-  }
-
-  el.shoeGrid.addEventListener("click", (event) => {
-    const priceLink = event.target.closest("[data-price-link]");
-    if (!priceLink) return;
-    event.preventDefault();
-    event.stopPropagation();
-    openExternalPriceLink(priceLink.dataset.priceLink);
-  });
-
-  el.shoeGrid.addEventListener("keydown", (event) => {
-    if (event.key !== "Enter" && event.key !== " ") return;
-    const priceLink = event.target.closest("[data-price-link]");
-    if (!priceLink) return;
-    event.preventDefault();
-    event.stopPropagation();
-    openExternalPriceLink(priceLink.dataset.priceLink);
   });
 
   el.mapSearchInput.addEventListener("input", (event) => {
