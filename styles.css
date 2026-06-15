@@ -8882,3 +8882,60 @@ body[data-route="detail"] .history-period__models {
     gap: 8px;
   }
 }
+
+/* 2026-06 trust-first pricing: show the future slot without commerce links. */
+.price-pill--pending {
+  background: #f2f4f6 !important;
+  color: #8b95a1 !important;
+  border-color: transparent !important;
+}
+
+body[data-route="picker"] .picker-shop-link--disabled,
+body[data-route="detail"] .detail-action--disabled,
+body[data-route="detail"] .price-panel__planned-button {
+  appearance: none;
+  border: 0;
+  cursor: not-allowed;
+  user-select: none;
+}
+
+body[data-route="picker"] .picker-shop-link--disabled {
+  background: #f2f4f6 !important;
+  color: #8b95a1 !important;
+  box-shadow: none !important;
+}
+
+body[data-route="picker"] .picker-shop-link--disabled strong,
+body[data-route="picker"] .picker-shop-link--disabled span,
+body[data-route="picker"] .picker-shop-link--disabled small {
+  color: inherit !important;
+}
+
+body[data-route="detail"] .detail-action--disabled {
+  background: #f2f4f6 !important;
+  color: #8b95a1 !important;
+  border: 1px solid #edf0f3 !important;
+  box-shadow: none !important;
+}
+
+body[data-route="detail"] .detail-action--disabled strong,
+body[data-route="detail"] .detail-action--disabled span,
+body[data-route="detail"] .detail-action--disabled small {
+  color: inherit !important;
+}
+
+body[data-route="detail"] .price-panel--planned {
+  background: #fff;
+}
+
+body[data-route="detail"] .price-panel__planned-button {
+  width: 100%;
+  min-height: 54px;
+  margin-top: 16px;
+  border-radius: 16px;
+  background: #f2f4f6;
+  color: #8b95a1;
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 700;
+}
