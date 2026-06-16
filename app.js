@@ -1200,6 +1200,8 @@
     const tags = new Set(shoe.tags || []);
     const items = [];
 
+    if (tags.has("runGalleryPick")) items.push("디시 선호");
+
     if (shoe.isAllPeriodItem && appearanceCount) {
       items.push(`${appearanceCount}분기 등장`);
     } else if (history.streak >= 2) {
@@ -1212,28 +1214,22 @@
       items.push("추천표 기준");
     }
 
-    if (tags.has("runGalleryPick")) items.push("런갤러 선호");
     if (tags.has("runRepeatGreat")) items.push("86+ 기준");
     if (tags.has("newProduct")) items.push("신제품");
     if (!items.length) items.push("라인업 포함");
 
-    return items.slice(0, 3);
+    return items.slice(0, 4);
   }
 
   function pickerEvidenceMarkup(shoe) {
     const score = runningFitScoreFor(shoe);
-    const evidenceItems = pickerEvidenceItems(shoe);
+    const evidenceItems = [`런리핏 ${score}`, ...pickerEvidenceItems(shoe)];
 
     return `
       <div class="picker-product-card__evidence" aria-label="${escapeHtml(`${shoe.brand} ${shoe.model} 특징`)}">
-        <span class="runfit-score">
-          <small>런리핏</small>
-          <strong>${escapeHtml(String(score))}</strong>
-        </span>
-        <span class="runfit-evidence">
-          <b>특징</b>
-          <em>${escapeHtml(evidenceItems.join(" · "))}</em>
-        </span>
+        ${evidenceItems
+          .map((label, index) => `<span class="lineup-feature-badge ${index === 0 ? "lineup-feature-badge--score" : ""}">${escapeHtml(label)}</span>`)
+          .join("")}
       </div>
     `;
   }

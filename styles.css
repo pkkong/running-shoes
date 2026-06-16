@@ -9014,75 +9014,36 @@ body[data-route="detail"] .price-panel--search .price-pill--pending {
   }
 }
 
-/* Picker cards should explain why a shoe is in the lineup before asking for any shopping action. */
+/* Picker cards expose lightweight feature badges instead of shopping actions. */
 body[data-route="picker"] .picker-product-card__evidence {
-  display: grid;
-  grid-template-columns: 48px minmax(0, 1fr);
-  gap: 9px;
-  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
   min-width: 0;
   margin-top: 2px;
 }
 
-body[data-route="picker"] .runfit-score,
-body[data-route="picker"] .runfit-evidence {
+body[data-route="picker"] .lineup-feature-badge {
+  display: inline-flex;
+  align-items: center;
+  max-width: 100%;
+  min-height: 24px;
   min-width: 0;
-}
-
-body[data-route="picker"] .runfit-score {
-  display: grid;
-  align-content: center;
-  min-height: 42px;
-  border-radius: 13px;
-  background: #191f28;
-  color: #ffffff;
-  text-align: center;
-}
-
-body[data-route="picker"] .runfit-score small {
   overflow: hidden;
-  font-size: 9px;
+  padding: 0 8px;
+  border-radius: 999px;
+  background: #f2f4f6;
+  color: #4e5968;
+  font-size: 11px;
   font-weight: 700;
   line-height: 1;
-  opacity: 0.72;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
 
-body[data-route="picker"] .runfit-score strong {
-  font-size: 18px;
-  font-weight: 800;
-  line-height: 1.05;
-  letter-spacing: 0;
-}
-
-body[data-route="picker"] .runfit-evidence {
-  display: grid;
-  gap: 3px;
-}
-
-body[data-route="picker"] .runfit-evidence b,
-body[data-route="picker"] .runfit-evidence em {
-  min-width: 0;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
-body[data-route="picker"] .runfit-evidence b {
-  color: #191f28;
-  font-size: 12px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: 1.15;
-}
-
-body[data-route="picker"] .runfit-evidence em {
-  color: #6b7684;
-  font-size: 11px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: 1.2;
+body[data-route="picker"] .lineup-feature-badge--score {
+  background: #191f28;
+  color: #ffffff;
 }
 
 body[data-route="picker"] .picker-detail-link {
