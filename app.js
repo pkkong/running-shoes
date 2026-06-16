@@ -1215,7 +1215,7 @@
     if (tags.has("runGalleryPick")) items.push("런갤러 선호");
     if (tags.has("runRepeatGreat")) items.push("86+ 기준");
     if (tags.has("newProduct")) items.push("신제품");
-    if (!items.includes(shoe.category)) items.push(shoe.category);
+    if (!items.length) items.push("라인업 포함");
 
     return items.slice(0, 3);
   }
@@ -1225,13 +1225,13 @@
     const evidenceItems = pickerEvidenceItems(shoe);
 
     return `
-      <div class="picker-product-card__evidence" aria-label="${escapeHtml(`${shoe.brand} ${shoe.model} 추천표 근거`)}">
+      <div class="picker-product-card__evidence" aria-label="${escapeHtml(`${shoe.brand} ${shoe.model} 특징`)}">
         <span class="runfit-score">
           <small>런리핏</small>
           <strong>${escapeHtml(String(score))}</strong>
         </span>
         <span class="runfit-evidence">
-          <b>추천표 근거</b>
+          <b>특징</b>
           <em>${escapeHtml(evidenceItems.join(" · "))}</em>
         </span>
       </div>
@@ -1982,18 +1982,8 @@
   function pickerProductMarkup(shoe) {
     const href = detailHrefForItem(shoe);
     const detailLink = href
-      ? `<a class="picker-detail-link" href="${escapeHtml(href)}" aria-label="${escapeHtml(`${shoe.brand} ${shoe.model} 추천표 근거 보기`)}">근거 보기</a>`
+      ? `<a class="picker-detail-link" href="${escapeHtml(href)}" aria-label="${escapeHtml(`${shoe.brand} ${shoe.model} 상세 보기`)}">상세보기</a>`
       : "";
-    const metaMarkup = shoe.isAllPeriodItem
-      ? `
-          <span class="picker-product-card__meta-period">${escapeHtml(shoe.periodLabel || "")}</span>
-          ${shoe.archivePeriodRange ? `<span class="picker-product-card__meta-range">${escapeHtml(shoe.archivePeriodRange)}</span>` : ""}
-          ${shoe.archiveAppearanceCount ? `<span class="history-pill">${escapeHtml(`${shoe.archiveAppearanceCount}분기 등장`)}</span>` : ""}
-        `
-      : `
-          <span>${escapeHtml(shoe.periodLabel || selectedHistoryPeriod()?.label || "")}</span>
-          ${changeBadgeMarkup(shoe, true)}
-        `;
     const subParts = [selectedPickerBrand() === ALL_BRAND_VALUE ? shoe.brand : "", shoe.categoryGroup, shoe.category].filter(Boolean);
 
     return `
@@ -2002,9 +1992,6 @@
           ${imageMarkup(shoe, "picker")}
         </div>
         <div class="picker-product-card__body">
-          <span class="picker-product-card__meta">
-            ${metaMarkup}
-          </span>
           <strong class="picker-product-card__name">${escapeHtml(shoe.displayName || shoe.model)}</strong>
           <span class="picker-product-card__sub">${escapeHtml(subParts.join(" · "))}</span>
           ${pickerEvidenceMarkup(shoe)}
