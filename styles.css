@@ -9057,3 +9057,57 @@ body[data-route="picker"] .picker-detail-link:focus-visible {
   background: #eef1f4 !important;
   outline: none;
 }
+
+/* Keep card actions stable: image, title, category, badges, then a quiet fixed action. */
+body[data-route="picker"] .picker-product-card {
+  align-items: stretch !important;
+  color: inherit;
+  text-decoration: none;
+}
+
+body[data-route="picker"] .picker-product-card__body {
+  display: flex !important;
+  flex-direction: column;
+  align-content: stretch;
+  height: 100%;
+}
+
+body[data-route="picker"] .picker-product-card__evidence {
+  min-height: 54px;
+  align-content: flex-start;
+}
+
+body[data-route="picker"] .picker-product-card__actions {
+  margin-top: auto !important;
+  padding-top: 8px;
+  display: flex !important;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+body[data-route="picker"] .picker-detail-link {
+  width: auto !important;
+  min-width: 0 !important;
+  min-height: 32px !important;
+  padding: 0 12px !important;
+  border: 1px solid #e5e8eb !important;
+  border-radius: 999px !important;
+  background: #ffffff !important;
+  box-shadow: none !important;
+  color: #4e5968 !important;
+  font-size: 12px !important;
+  font-weight: 700 !important;
+}
+
+@media (min-width: 760px) {
+  body[data-route="picker"] .picker-product-card {
+    align-items: stretch !important;
+  }
+
+  body[data-route="picker"] .picker-detail-link {
+    width: auto !important;
+    min-width: 0 !important;
+    padding: 0 12px !important;
+    justify-self: start;
+  }
+}

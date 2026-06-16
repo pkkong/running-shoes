@@ -1218,7 +1218,7 @@
     if (tags.has("newProduct")) items.push("신제품");
     if (!items.length) items.push("라인업 포함");
 
-    return items.slice(0, 4);
+    return items.slice(0, 3);
   }
 
   function pickerEvidenceMarkup(shoe) {
@@ -1978,12 +1978,16 @@
   function pickerProductMarkup(shoe) {
     const href = detailHrefForItem(shoe);
     const detailLink = href
-      ? `<a class="picker-detail-link" href="${escapeHtml(href)}" aria-label="${escapeHtml(`${shoe.brand} ${shoe.model} 상세 보기`)}">상세보기</a>`
+      ? `<span class="picker-detail-link" aria-hidden="true">상세보기</span>`
       : "";
     const subParts = [selectedPickerBrand() === ALL_BRAND_VALUE ? shoe.brand : "", shoe.categoryGroup, shoe.category].filter(Boolean);
+    const tagName = href ? "a" : "article";
+    const cardAttrs = href
+      ? `href="${escapeHtml(href)}" aria-label="${escapeHtml(`${shoe.brand} ${shoe.model} 상세 보기`)}"`
+      : "";
 
     return `
-      <article class="picker-product-card ${href ? "" : "picker-product-card--static"}">
+      <${tagName} class="picker-product-card ${href ? "" : "picker-product-card--static"}" ${cardAttrs}>
         <div class="picker-product-card__media">
           ${imageMarkup(shoe, "picker")}
         </div>
@@ -1995,7 +1999,7 @@
             ${detailLink}
           </div>
         </div>
-      </article>
+      </${tagName}>
     `;
   }
 
