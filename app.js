@@ -1978,7 +1978,7 @@
   function pickerProductMarkup(shoe) {
     const href = detailHrefForItem(shoe);
     const detailLink = href
-      ? `<span class="picker-detail-link" aria-hidden="true">상세보기</span>`
+      ? `<span class="picker-detail-link" aria-hidden="true">자세히</span>`
       : "";
     const subParts = [selectedPickerBrand() === ALL_BRAND_VALUE ? shoe.brand : "", shoe.categoryGroup, shoe.category].filter(Boolean);
     const tagName = href ? "a" : "article";

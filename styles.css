@@ -9062,7 +9062,10 @@ body[data-route="picker"] .picker-detail-link:focus-visible {
 body[data-route="picker"] .picker-product-card {
   align-items: stretch !important;
   color: inherit;
+  cursor: pointer;
   text-decoration: none;
+  -webkit-tap-highlight-color: rgba(25, 31, 40, 0.06);
+  transition: background-color 160ms ease, transform 160ms ease;
 }
 
 body[data-route="picker"] .picker-product-card__body {
@@ -9079,24 +9082,46 @@ body[data-route="picker"] .picker-product-card__evidence {
 
 body[data-route="picker"] .picker-product-card__actions {
   margin-top: auto !important;
-  padding-top: 8px;
+  padding-top: 6px;
   display: flex !important;
   justify-content: flex-start;
   align-items: center;
 }
 
 body[data-route="picker"] .picker-detail-link {
+  display: inline-flex !important;
+  align-items: center;
+  gap: 4px;
   width: auto !important;
   min-width: 0 !important;
-  min-height: 32px !important;
-  padding: 0 12px !important;
-  border: 1px solid #e5e8eb !important;
+  min-height: 28px !important;
+  padding: 0 !important;
+  border: 0 !important;
   border-radius: 999px !important;
-  background: #ffffff !important;
+  background: transparent !important;
   box-shadow: none !important;
-  color: #4e5968 !important;
+  color: #6b7684 !important;
   font-size: 12px !important;
-  font-weight: 700 !important;
+  font-weight: 600 !important;
+  line-height: 1;
+}
+
+body[data-route="picker"] .picker-detail-link::after {
+  content: ">";
+  color: #8b95a1;
+  font-size: 11px;
+  font-weight: 700;
+  transform: translateY(-0.5px);
+}
+
+body[data-route="picker"] .picker-product-card:hover .picker-detail-link,
+body[data-route="picker"] .picker-product-card:focus-visible .picker-detail-link {
+  color: #191f28 !important;
+}
+
+body[data-route="picker"] .picker-product-card:hover .picker-detail-link::after,
+body[data-route="picker"] .picker-product-card:focus-visible .picker-detail-link::after {
+  color: #191f28;
 }
 
 @media (min-width: 760px) {
