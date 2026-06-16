@@ -1172,19 +1172,70 @@
       .join("");
   }
 
-  function pickerPriceActionMarkup(shoe) {
-    return `
-      <div class="picker-platform-links" aria-label="${escapeHtml(`${shoe.brand} ${shoe.model} 가격 직접 확인`)}">
-        ${platformSearchLinksMarkup(shoe, "picker")}
-      </div>
-    `;
-  }
-
   function priceBadgeMarkup(shoe, showPending = true, mode = "span") {
     if (!showPending) {
       return "";
     }
     return `<span class="price-pill price-pill--pending">가격 직접 확인</span>`;
+  }
+
+  function runningFitScoreFor(shoe) {
+    const history = historyTimelineFor(shoe);
+    const appearanceCount = shoe.archiveAppearanceCount || history.count || 0;
+    const streak = history.streak || Math.min(appearanceCount, historyPeriods.length);
+    const tags = new Set(shoe.tags || []);
+    let score = 64 + Math.min(appearanceCount, 8) * 2 + Math.min(streak, 8) * 1.5;
+
+    if (tags.has("runRepeatGreat")) score = Math.max(score, 86);
+    if (tags.has("runGalleryPick")) score += 2;
+    if (tags.has("newProduct")) score += 1;
+    if (!appearanceCount) score = 60;
+
+    return Math.max(60, Math.min(95, Math.round(score)));
+  }
+
+  function pickerEvidenceItems(shoe) {
+    const history = historyTimelineFor(shoe);
+    const appearanceCount = shoe.archiveAppearanceCount || history.count || 0;
+    const tags = new Set(shoe.tags || []);
+    const items = [];
+
+    if (shoe.isAllPeriodItem && appearanceCount) {
+      items.push(`${appearanceCount}분기 등장`);
+    } else if (history.streak >= 2) {
+      items.push(`${history.streak}분기 연속`);
+    } else if (history.isNew && history.count) {
+      items.push("신규 등장");
+    } else if (history.count) {
+      items.push(`${history.count}회 등장`);
+    } else {
+      items.push("추천표 기준");
+    }
+
+    if (tags.has("runGalleryPick")) items.push("런갤러 선호");
+    if (tags.has("runRepeatGreat")) items.push("86+ 기준");
+    if (tags.has("newProduct")) items.push("신제품");
+    if (!items.includes(shoe.category)) items.push(shoe.category);
+
+    return items.slice(0, 3);
+  }
+
+  function pickerEvidenceMarkup(shoe) {
+    const score = runningFitScoreFor(shoe);
+    const evidenceItems = pickerEvidenceItems(shoe);
+
+    return `
+      <div class="picker-product-card__evidence" aria-label="${escapeHtml(`${shoe.brand} ${shoe.model} 추천표 근거`)}">
+        <span class="runfit-score">
+          <small>런리핏</small>
+          <strong>${escapeHtml(String(score))}</strong>
+        </span>
+        <span class="runfit-evidence">
+          <b>추천표 근거</b>
+          <em>${escapeHtml(evidenceItems.join(" · "))}</em>
+        </span>
+      </div>
+    `;
   }
 
   function imageMarkup(shoe, variant) {
@@ -1931,7 +1982,7 @@
   function pickerProductMarkup(shoe) {
     const href = detailHrefForItem(shoe);
     const detailLink = href
-      ? `<a class="picker-detail-link" href="${escapeHtml(href)}" aria-label="${escapeHtml(`${shoe.brand} ${shoe.model} 상세 보기`)}">자세히</a>`
+      ? `<a class="picker-detail-link" href="${escapeHtml(href)}" aria-label="${escapeHtml(`${shoe.brand} ${shoe.model} 추천표 근거 보기`)}">근거 보기</a>`
       : "";
     const metaMarkup = shoe.isAllPeriodItem
       ? `
@@ -1956,8 +2007,8 @@
           </span>
           <strong class="picker-product-card__name">${escapeHtml(shoe.displayName || shoe.model)}</strong>
           <span class="picker-product-card__sub">${escapeHtml(subParts.join(" · "))}</span>
+          ${pickerEvidenceMarkup(shoe)}
           <div class="picker-product-card__actions">
-            ${pickerPriceActionMarkup(shoe)}
             ${detailLink}
           </div>
         </div>

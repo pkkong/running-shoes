@@ -8937,31 +8937,6 @@ body[data-route="picker"] .picker-product-card__actions {
   align-items: stretch;
 }
 
-body[data-route="picker"] .picker-platform-links {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 6px;
-  min-width: 0;
-}
-
-body[data-route="picker"] .platform-search-link--picker {
-  min-height: 44px;
-  padding: 8px 10px;
-  border-radius: 13px;
-}
-
-body[data-route="picker"] .platform-search-link--picker.platform-search-link--toss {
-  display: none;
-}
-
-body[data-route="picker"] .platform-search-link--picker span {
-  font-size: 12px;
-}
-
-body[data-route="picker"] .platform-search-link--picker small {
-  display: none;
-}
-
 body[data-route="picker"] .picker-detail-link {
   width: 100% !important;
   min-height: 44px !important;
@@ -9037,4 +9012,87 @@ body[data-route="detail"] .price-panel--search .price-pill--pending {
   body[data-route="detail"] .platform-search-link--panel {
     min-height: 54px;
   }
+}
+
+/* Picker cards should explain why a shoe is in the lineup before asking for any shopping action. */
+body[data-route="picker"] .picker-product-card__evidence {
+  display: grid;
+  grid-template-columns: 48px minmax(0, 1fr);
+  gap: 9px;
+  align-items: center;
+  min-width: 0;
+  margin-top: 2px;
+}
+
+body[data-route="picker"] .runfit-score,
+body[data-route="picker"] .runfit-evidence {
+  min-width: 0;
+}
+
+body[data-route="picker"] .runfit-score {
+  display: grid;
+  align-content: center;
+  min-height: 42px;
+  border-radius: 13px;
+  background: #191f28;
+  color: #ffffff;
+  text-align: center;
+}
+
+body[data-route="picker"] .runfit-score small {
+  overflow: hidden;
+  font-size: 9px;
+  font-weight: 700;
+  line-height: 1;
+  opacity: 0.72;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+body[data-route="picker"] .runfit-score strong {
+  font-size: 18px;
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: 0;
+}
+
+body[data-route="picker"] .runfit-evidence {
+  display: grid;
+  gap: 3px;
+}
+
+body[data-route="picker"] .runfit-evidence b,
+body[data-route="picker"] .runfit-evidence em {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+body[data-route="picker"] .runfit-evidence b {
+  color: #191f28;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 1.15;
+}
+
+body[data-route="picker"] .runfit-evidence em {
+  color: #6b7684;
+  font-size: 11px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+body[data-route="picker"] .picker-detail-link {
+  background: #f7f8fa !important;
+  border-color: transparent !important;
+  color: #191f28 !important;
+}
+
+body[data-route="picker"] .picker-detail-link:hover,
+body[data-route="picker"] .picker-detail-link:focus-visible {
+  background: #eef1f4 !important;
+  outline: none;
 }
