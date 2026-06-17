@@ -9042,8 +9042,8 @@ body[data-route="picker"] .lineup-feature-badge {
 }
 
 body[data-route="picker"] .lineup-feature-badge--score {
-  background: #191f28;
-  color: #ffffff;
+  background: #f2f4f6;
+  color: #4e5968;
 }
 
 body[data-route="picker"] .picker-detail-link {
@@ -9159,8 +9159,8 @@ body[data-route="detail"] .detail-feature-badges .lineup-feature-badge {
 }
 
 body[data-route="detail"] .detail-feature-badges .lineup-feature-badge--score {
-  background: #191f28;
-  color: #ffffff;
+  background: #f2f4f6;
+  color: #4e5968;
 }
 
 body[data-route="detail"] .detail-actions {
