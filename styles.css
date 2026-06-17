@@ -9260,9 +9260,35 @@ body[data-route="detail"] .history-period-chips span {
   padding: 0 10px;
   border-radius: 999px;
   background: #f2f4f6;
-  color: #4e5968;
+  color: #8b95a1;
   font-size: 12px;
   font-weight: 700;
+}
+
+body[data-route="detail"] .history-period-chips span.is-active {
+  background: #191f28;
+  color: #ffffff;
+}
+
+/* User-facing polish: keep the two-column picker cards optically aligned. */
+body[data-route="picker"] .picker-product-card__media {
+  display: grid;
+  align-items: center;
+  min-height: 0;
+}
+
+body[data-route="picker"] .picker-product-card__media > .shoe-image--picker {
+  align-self: center;
+}
+
+body[data-route="picker"] .picker-product-card {
+  align-content: start !important;
+}
+
+@media (min-width: 760px) {
+  body[data-route="picker"] .picker-product-card__body {
+    align-content: center !important;
+  }
 }
 
 body[data-route="detail"] .history-timeline-disclosure {

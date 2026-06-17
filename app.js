@@ -370,7 +370,6 @@
   function historyPanelMarkup(shoe) {
     const history = historySummaryFor(shoe);
     if (!history.timeline.length) return "";
-    const matchedPeriods = history.timeline.filter((entry) => entry.matched).reverse();
 
     return `
       <section class="history-panel history-panel--v2" aria-label="추천표 이력">
@@ -380,11 +379,12 @@
           </div>
         </div>
         <div class="history-period-chips" aria-label="추천표 등장 분기">
-          ${
-            matchedPeriods.length
-              ? matchedPeriods.map(({ period }) => `<span>${escapeHtml(period.label || period.id)}</span>`).join("")
-              : `<span>이력 확인 필요</span>`
-          }
+          ${history.timeline
+            .map(({ period, matched }) => {
+              const label = period.label || period.id;
+              return `<span class="${matched ? "is-active" : ""}" aria-label="${escapeHtml(`${label} ${matched ? "등장" : "미등장"}`)}">${escapeHtml(label)}</span>`;
+            })
+            .join("")}
         </div>
         <details class="history-timeline-disclosure">
           <summary>전체 기록</summary>
