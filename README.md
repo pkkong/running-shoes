@@ -69,6 +69,15 @@ supabase/migrations/0001_initial.sql
 
 # 현재 정적 데이터를 seed SQL로 생성
 node scripts/export-supabase-seed.mjs > supabase/seed.sql
+
+# Supabase REST로 seed 직접 주입
+SUPABASE_URL=... SUPABASE_SERVICE_ROLE_KEY=... node scripts/seed-supabase-rest.mjs
+```
+
+Vercel 검증:
+
+```sh
+PRODUCTION_URL=https://runfit-lineup.vercel.app node scripts/verify-production.mjs
 ```
 
 ## 가격 스냅샷 설정
@@ -101,7 +110,9 @@ node --check scripts/collect-prices.mjs
 node --check scripts/audit-lineup-history.mjs
 node --check scripts/audit-prices.mjs
 node --check scripts/export-supabase-seed.mjs
+node --check scripts/seed-supabase-rest.mjs
 node --check scripts/serve-vercel-like.mjs
+node --check scripts/verify-production.mjs
 node scripts/audit-lineup-history.mjs
 node scripts/audit-images.mjs
 node scripts/audit-prices.mjs

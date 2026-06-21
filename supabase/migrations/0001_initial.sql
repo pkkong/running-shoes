@@ -78,3 +78,33 @@ create index if not exists lineup_periods_sort_order_idx on public.lineup_period
 create index if not exists shoes_sort_order_idx on public.shoes(sort_order);
 create index if not exists shoes_brand_category_idx on public.shoes(brand, category);
 create index if not exists lineup_items_period_sort_order_idx on public.lineup_items(period_id, sort_order);
+
+create or replace function public.set_updated_at()
+returns trigger
+language plpgsql
+as $$
+begin
+  new.updated_at = now();
+  return new;
+end;
+$$;
+
+drop trigger if exists set_lineup_periods_updated_at on public.lineup_periods;
+create trigger set_lineup_periods_updated_at
+  before update on public.lineup_periods
+  for each row execute function public.set_updated_at();
+
+drop trigger if exists set_shoes_updated_at on public.shoes;
+create trigger set_shoes_updated_at
+  before update on public.shoes
+  for each row execute function public.set_updated_at();
+
+drop trigger if exists set_lineup_items_updated_at on public.lineup_items;
+create trigger set_lineup_items_updated_at
+  before update on public.lineup_items
+  for each row execute function public.set_updated_at();
+
+drop trigger if exists set_price_query_config_updated_at on public.price_query_config;
+create trigger set_price_query_config_updated_at
+  before update on public.price_query_config
+  for each row execute function public.set_updated_at();
