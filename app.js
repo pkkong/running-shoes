@@ -1140,7 +1140,6 @@
       items.push("추천표 기준");
     }
 
-    if (tags.has("runRepeatGreat")) items.push("86+ 기준");
     if (tags.has("newProduct")) items.push("신제품");
     if (!items.length) items.push("라인업 포함");
 
