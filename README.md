@@ -6,7 +6,7 @@
 
 운영 배포는 Vercel이 담당합니다. GitHub Pages는 이전 정적 배포용으로만 남기고, Vercel 검증 후 비활성화합니다.
 
-- Production: Vercel 프로젝트 `running-shoes`
+- Production target: Vercel 프로젝트 `runfit-lineup`
 - Source: GitHub `pkkong/running-shoes`
 - Database/API data source: Supabase
 
