@@ -1,0 +1,16 @@
+{
+  "name": "running-shoes-lineup",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Running shoe lineup viewer powered by Vercel and Supabase.",
+  "scripts": {
+    "serve": "python3 -m http.server 4173",
+    "serve:vercel": "node scripts/serve-vercel-like.mjs",
+    "check": "node --check app.js && node --check runtime-data.js && node --check api/bootstrap.js && node --check api/health.js && node --check lib/bootstrap-data.js && node --check data/shoes.js && node --check data/lineup-history.js && node --check data/price-queries.js && node --check scripts/export-supabase-seed.mjs && node --check scripts/serve-vercel-like.mjs",
+    "audit": "node scripts/audit-lineup-history.mjs && node scripts/audit-images.mjs && node scripts/audit-prices.mjs",
+    "seed:sql": "node scripts/export-supabase-seed.mjs > supabase/seed.sql"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

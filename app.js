@@ -1,4 +1,5 @@
 (function () {
+  function startRunningApp() {
   const shoes = window.RUNNING_SHOES || [];
   const periods = window.RUNNING_LINEUP_PERIODS || [];
   const lineupHistory = window.RUNNING_LINEUP_HISTORY || { periods: [], entries: [] };
@@ -2393,4 +2394,12 @@
 
   window.addEventListener("hashchange", syncRoute);
   syncRoute();
+  }
+
+  const bootstrapReady = window.RUNNING_BOOTSTRAP_READY;
+  if (bootstrapReady && typeof bootstrapReady.finally === "function") {
+    bootstrapReady.finally(startRunningApp);
+  } else {
+    startRunningApp();
+  }
 })();

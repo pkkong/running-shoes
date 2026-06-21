@@ -4,24 +4,31 @@
 
 ## 배포
 
-https://pkkong.github.io/running-shoes/
+운영 배포는 Vercel이 담당합니다. GitHub Pages는 이전 정적 배포용으로만 남기고, Vercel 검증 후 비활성화합니다.
+
+- Production: Vercel 프로젝트 `running-shoes`
+- Source: GitHub `pkkong/running-shoes`
+- Database/API data source: Supabase
 
 ## 실행
 
-브라우저에서 `index.html`을 직접 열면 됩니다. 로컬 서버로 보고 싶다면 다음 명령을 사용할 수 있습니다.
+브라우저에서 `index.html`을 직접 열면 정적 fallback으로 동작합니다. Vercel 서버리스 API까지 함께 확인하려면 로컬 Vercel-like 서버를 사용합니다.
 
 ```sh
 python3 -m http.server 4173
+
+# Vercel API 포함 확인
+node scripts/serve-vercel-like.mjs
 ```
 
 ## 데이터
 
-- 구조화 데이터: `data/shoes.js`
-- 분기별 라인업 이력: `data/lineup-history.js`
+- 운영 데이터: Supabase `lineup_periods`, `shoes`, `lineup_items`, `price_query_config`
+- 정적 fallback 데이터: `data/shoes.js`, `data/lineup-history.js`, `data/price-queries.js`
 - 분기 아카이브: 2024.08, 2024.11, 2025.02, 2025.05, 2025.08, 2025.11, 2026.02, 2026.05
 - 앱 구조화 데이터: 2024.08~2026.05 분기별 라인업, 2026.05 기준 118개 상세 모델
-- 보기 방식: 집중 보기(기본), 리스트, 맵, 상세 페이지
-- 분기 선택: 2024.08부터 2026.05까지 선택한 분기의 리스트/맵/집중 보기를 표시합니다.
+- 보기 방식: 집중 보기(기본), 상세 페이지
+- 분기 선택: 2024.08부터 2026.05까지 선택한 분기의 포커스형 라인업을 표시합니다.
 - 변화 필터: 신규, 유지, 복귀, 제외, 연속 라인을 분리해서 볼 수 있습니다.
 - 상세 페이지: `#/shoe/{id}`
 - 상세 페이지에는 같은 브랜드·종류 셀 기준의 분기별 라인 등장 이력을 표시합니다.
@@ -31,6 +38,38 @@ python3 -m http.server 4173
 - 특정 판매처, 정품 여부, 최저가를 보증하지 않습니다. 구매 전 각 플랫폼에서 색상, 사이즈, 배송비, 판매처를 직접 확인해야 합니다.
 - 가격 스냅샷/API 수집 코드는 다음 단계 검토용으로 보존하지만 현재 사용자 화면에서는 로드하지 않습니다.
 - 토스쇼핑은 안정적인 공개 웹 검색 URL이 확인되면 연결합니다.
+
+## Vercel + Supabase
+
+GitHub, Vercel, Supabase의 역할은 겹치지 않게 분리합니다.
+
+- GitHub: 소스 저장소, PR, 이력 관리
+- Vercel: 정적 앱 배포, `/api/bootstrap` 서버리스 API, 향후 cron
+- Supabase: 구조화 라인업 DB, 향후 사용자/알림 데이터
+
+필요 환경변수:
+
+```sh
+SUPABASE_URL=...
+SUPABASE_SERVICE_ROLE_KEY=...
+```
+
+배포 상태 확인:
+
+```sh
+curl https://<vercel-domain>/api/health
+curl https://<vercel-domain>/api/health?strict=1
+```
+
+Supabase 초기화:
+
+```sh
+# Supabase SQL editor 또는 CLI에서 실행
+supabase/migrations/0001_initial.sql
+
+# 현재 정적 데이터를 seed SQL로 생성
+node scripts/export-supabase-seed.mjs > supabase/seed.sql
+```
 
 ## 가격 스냅샷 설정
 
@@ -50,6 +89,10 @@ NAVER_CLIENT_ID=... NAVER_CLIENT_SECRET=... node scripts/collect-prices.mjs
 
 ```sh
 node --check app.js
+node --check runtime-data.js
+node --check api/bootstrap.js
+node --check api/health.js
+node --check lib/bootstrap-data.js
 node --check data/shoes.js
 node --check data/lineup-history.js
 node --check data/price-queries.js
@@ -57,6 +100,8 @@ node --check data/prices/latest.js
 node --check scripts/collect-prices.mjs
 node --check scripts/audit-lineup-history.mjs
 node --check scripts/audit-prices.mjs
+node --check scripts/export-supabase-seed.mjs
+node --check scripts/serve-vercel-like.mjs
 node scripts/audit-lineup-history.mjs
 node scripts/audit-images.mjs
 node scripts/audit-prices.mjs
