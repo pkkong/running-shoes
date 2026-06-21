@@ -1,4 +1,4 @@
-create table if not exists public.lineup_periods (
+create table if not exists public.runfit_lineup_periods (
   id text primary key,
   label text not null,
   sort_order integer not null,
@@ -10,7 +10,7 @@ create table if not exists public.lineup_periods (
   updated_at timestamptz not null default now()
 );
 
-create table if not exists public.shoes (
+create table if not exists public.runfit_shoes (
   id text primary key,
   brand text not null,
   model text not null,
@@ -28,9 +28,9 @@ create table if not exists public.shoes (
   updated_at timestamptz not null default now()
 );
 
-create table if not exists public.lineup_items (
+create table if not exists public.runfit_lineup_items (
   id bigserial primary key,
-  period_id text not null references public.lineup_periods(id) on delete cascade,
+  period_id text not null references public.runfit_lineup_periods(id) on delete cascade,
   brand text not null,
   category text not null,
   sort_order integer not null,
@@ -41,45 +41,45 @@ create table if not exists public.lineup_items (
   unique(period_id, brand, category)
 );
 
-create table if not exists public.price_query_config (
+create table if not exists public.runfit_price_query_config (
   id text primary key default 'default',
   data jsonb not null,
   created_at timestamptz not null default now(),
   updated_at timestamptz not null default now()
 );
 
-alter table public.lineup_periods enable row level security;
-alter table public.shoes enable row level security;
-alter table public.lineup_items enable row level security;
-alter table public.price_query_config enable row level security;
+alter table public.runfit_lineup_periods enable row level security;
+alter table public.runfit_shoes enable row level security;
+alter table public.runfit_lineup_items enable row level security;
+alter table public.runfit_price_query_config enable row level security;
 
-drop policy if exists "lineup_periods are readable" on public.lineup_periods;
-drop policy if exists "shoes are readable" on public.shoes;
-drop policy if exists "lineup_items are readable" on public.lineup_items;
-drop policy if exists "price_query_config is readable" on public.price_query_config;
+drop policy if exists "runfit_lineup_periods are readable" on public.runfit_lineup_periods;
+drop policy if exists "runfit_shoes are readable" on public.runfit_shoes;
+drop policy if exists "runfit_lineup_items are readable" on public.runfit_lineup_items;
+drop policy if exists "runfit_price_query_config is readable" on public.runfit_price_query_config;
 
-create policy "lineup_periods are readable"
-  on public.lineup_periods for select
+create policy "runfit_lineup_periods are readable"
+  on public.runfit_lineup_periods for select
   using (true);
 
-create policy "shoes are readable"
-  on public.shoes for select
+create policy "runfit_shoes are readable"
+  on public.runfit_shoes for select
   using (true);
 
-create policy "lineup_items are readable"
-  on public.lineup_items for select
+create policy "runfit_lineup_items are readable"
+  on public.runfit_lineup_items for select
   using (true);
 
-create policy "price_query_config is readable"
-  on public.price_query_config for select
+create policy "runfit_price_query_config is readable"
+  on public.runfit_price_query_config for select
   using (true);
 
-create index if not exists lineup_periods_sort_order_idx on public.lineup_periods(sort_order);
-create index if not exists shoes_sort_order_idx on public.shoes(sort_order);
-create index if not exists shoes_brand_category_idx on public.shoes(brand, category);
-create index if not exists lineup_items_period_sort_order_idx on public.lineup_items(period_id, sort_order);
+create index if not exists runfit_lineup_periods_sort_order_idx on public.runfit_lineup_periods(sort_order);
+create index if not exists runfit_shoes_sort_order_idx on public.runfit_shoes(sort_order);
+create index if not exists runfit_shoes_brand_category_idx on public.runfit_shoes(brand, category);
+create index if not exists runfit_lineup_items_period_sort_order_idx on public.runfit_lineup_items(period_id, sort_order);
 
-create or replace function public.set_updated_at()
+create or replace function public.runfit_set_updated_at()
 returns trigger
 language plpgsql
 as $$
@@ -89,22 +89,22 @@ begin
 end;
 $$;
 
-drop trigger if exists set_lineup_periods_updated_at on public.lineup_periods;
-create trigger set_lineup_periods_updated_at
-  before update on public.lineup_periods
-  for each row execute function public.set_updated_at();
+drop trigger if exists set_runfit_lineup_periods_updated_at on public.runfit_lineup_periods;
+create trigger set_runfit_lineup_periods_updated_at
+  before update on public.runfit_lineup_periods
+  for each row execute function public.runfit_set_updated_at();
 
-drop trigger if exists set_shoes_updated_at on public.shoes;
-create trigger set_shoes_updated_at
-  before update on public.shoes
-  for each row execute function public.set_updated_at();
+drop trigger if exists set_runfit_shoes_updated_at on public.runfit_shoes;
+create trigger set_runfit_shoes_updated_at
+  before update on public.runfit_shoes
+  for each row execute function public.runfit_set_updated_at();
 
-drop trigger if exists set_lineup_items_updated_at on public.lineup_items;
-create trigger set_lineup_items_updated_at
-  before update on public.lineup_items
-  for each row execute function public.set_updated_at();
+drop trigger if exists set_runfit_lineup_items_updated_at on public.runfit_lineup_items;
+create trigger set_runfit_lineup_items_updated_at
+  before update on public.runfit_lineup_items
+  for each row execute function public.runfit_set_updated_at();
 
-drop trigger if exists set_price_query_config_updated_at on public.price_query_config;
-create trigger set_price_query_config_updated_at
-  before update on public.price_query_config
-  for each row execute function public.set_updated_at();
+drop trigger if exists set_runfit_price_query_config_updated_at on public.runfit_price_query_config;
+create trigger set_runfit_price_query_config_updated_at
+  before update on public.runfit_price_query_config
+  for each row execute function public.runfit_set_updated_at();

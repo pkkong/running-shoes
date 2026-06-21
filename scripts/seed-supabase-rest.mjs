@@ -9,6 +9,7 @@ const skipDelete = process.argv.includes("--skip-delete");
 
 const supabaseUrl = process.env.SUPABASE_URL;
 const serviceRoleKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
+const tablePrefix = normalizeTablePrefix(process.env.SUPABASE_TABLE_PREFIX);
 
 if (!supabaseUrl || !serviceRoleKey) {
   fail("SUPABASE_URL and SUPABASE_SERVICE_ROLE_KEY are required.");
@@ -36,16 +37,16 @@ if (dryRun) {
 }
 
 if (!skipDelete) {
-  await deleteRows("lineup_items", "id=not.is.null");
-  await deleteRows("shoes", "id=not.is.null");
-  await deleteRows("lineup_periods", "id=not.is.null");
-  await deleteRows("price_query_config", "id=eq.default");
+  await deleteRows(tableName("lineup_items"), "id=not.is.null");
+  await deleteRows(tableName("shoes"), "id=not.is.null");
+  await deleteRows(tableName("lineup_periods"), "id=not.is.null");
+  await deleteRows(tableName("price_query_config"), "id=eq.default");
 }
 
-await upsertRows("lineup_periods", "id", rows.periods);
-await upsertRows("shoes", "id", rows.shoes);
-await upsertRows("lineup_items", "period_id,brand,category", rows.lineupItems);
-await upsertRows("price_query_config", "id", rows.priceQueryConfig);
+await upsertRows(tableName("lineup_periods"), "id", rows.periods);
+await upsertRows(tableName("shoes"), "id", rows.shoes);
+await upsertRows(tableName("lineup_items"), "period_id,brand,category", rows.lineupItems);
+await upsertRows(tableName("price_query_config"), "id", rows.priceQueryConfig);
 
 console.log(
   JSON.stringify(
@@ -179,6 +180,18 @@ function redactedUrl(value) {
   } catch {
     return "configured";
   }
+}
+
+function normalizeTablePrefix(value) {
+  const prefix = value === undefined ? "runfit_" : String(value);
+  if (!/^[a-zA-Z_][a-zA-Z0-9_]*$/.test(`${prefix}table`)) {
+    fail("Invalid SUPABASE_TABLE_PREFIX.");
+  }
+  return prefix;
+}
+
+function tableName(name) {
+  return `${tablePrefix}${name}`;
 }
 
 function fail(message) {

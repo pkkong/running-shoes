@@ -23,7 +23,7 @@ node scripts/serve-vercel-like.mjs
 
 ## 데이터
 
-- 운영 데이터: Supabase `lineup_periods`, `shoes`, `lineup_items`, `price_query_config`
+- 운영 데이터: Supabase `runfit_lineup_periods`, `runfit_shoes`, `runfit_lineup_items`, `runfit_price_query_config`
 - 정적 fallback 데이터: `data/shoes.js`, `data/lineup-history.js`, `data/price-queries.js`
 - 분기 아카이브: 2024.08, 2024.11, 2025.02, 2025.05, 2025.08, 2025.11, 2026.02, 2026.05
 - 앱 구조화 데이터: 2024.08~2026.05 분기별 라인업, 2026.05 기준 118개 상세 모델
@@ -51,6 +51,9 @@ GitHub, Vercel, Supabase의 역할은 겹치지 않게 분리합니다.
 
 ```sh
 SUPABASE_URL=...
+SUPABASE_ANON_KEY=...
+SUPABASE_TABLE_PREFIX=runfit_
+# REST seed 실행 시에만 필요
 SUPABASE_SERVICE_ROLE_KEY=...
 ```
 
@@ -71,7 +74,7 @@ supabase/migrations/0001_initial.sql
 node scripts/export-supabase-seed.mjs > supabase/seed.sql
 
 # Supabase REST로 seed 직접 주입
-SUPABASE_URL=... SUPABASE_SERVICE_ROLE_KEY=... node scripts/seed-supabase-rest.mjs
+SUPABASE_URL=... SUPABASE_SERVICE_ROLE_KEY=... SUPABASE_TABLE_PREFIX=runfit_ node scripts/seed-supabase-rest.mjs
 ```
 
 Vercel 검증:
