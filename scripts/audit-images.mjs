@@ -81,17 +81,17 @@ for (const shoe of shoes) {
   }
 }
 
-const assetDir = path.join(root, "assets", "shoes-cutout");
-const referenced = new Set(
-  shoes
-    .map((shoe) => localPathFromUrl(shoe.imageUrl))
-    .filter(Boolean)
-    .map((filePath) => path.basename(filePath).normalize("NFC"))
+const referencedPaths = shoes.map((shoe) => localPathFromUrl(shoe.imageUrl)).filter(Boolean);
+const referenced = new Set(referencedPaths.map((filePath) => path.resolve(filePath)));
+const assetDirs = [...new Set(referencedPaths.map((filePath) => path.dirname(filePath)))];
+const unused = assetDirs.flatMap((assetDir) =>
+  fs
+    .readdirSync(assetDir)
+    .filter((file) => /\.(jpe?g|png|webp)$/i.test(file))
+    .map((file) => path.join(assetDir, file))
+    .filter((filePath) => !referenced.has(path.resolve(filePath)))
+    .map((filePath) => path.relative(root, filePath))
 );
-const unused = fs
-  .readdirSync(assetDir)
-  .filter((file) => /\.(jpe?g|png|webp)$/i.test(file))
-  .filter((file) => !referenced.has(file.normalize("NFC")));
 
 if (unused.length) warnings.push(`${unused.length} local shoe assets are not referenced by data/shoes.js`);
 
