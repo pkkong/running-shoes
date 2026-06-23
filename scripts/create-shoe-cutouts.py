@@ -1,13 +1,16 @@
 from collections import deque
 from pathlib import Path
+import re
 from statistics import median
+import unicodedata
 
 from PIL import Image, ImageChops, ImageFilter
 
 
 ROOT = Path(__file__).resolve().parents[1]
 SOURCE_DIR = ROOT / "assets" / "shoes"
-OUTPUT_DIR = ROOT / "assets" / "shoes-cutout"
+OUTPUT_DIR = ROOT / "assets" / "shoes-cutout-safe"
+DATA_PATH = ROOT / "data" / "shoes.js"
 
 
 def edge_samples(image, margin):
@@ -120,15 +123,43 @@ def remove_connected_background(image):
     return rgba
 
 
-def main():
-    OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
-    count = 0
+def slugify(value):
+    value = value.lower()
+    value = re.sub(r"[^a-z0-9가-힣]+", "-", value)
+    return value.strip("-")
 
-    for source_path in sorted(SOURCE_DIR.iterdir()):
+
+def ordered_shoe_ids():
+    code = DATA_PATH.read_text(encoding="utf-8")
+    raw_shoes = code.split("const rawShoes = [", 1)[1].split("\n  ];", 1)[0]
+    rows = re.findall(r'^\s*\["([^"]+)",\s*"([^"]+)",', raw_shoes, flags=re.MULTILINE)
+    if not rows:
+        raise RuntimeError("Could not parse rawShoes from data/shoes.js")
+    return [f"{slugify(brand)}-{slugify(model)}" for brand, model in rows]
+
+
+def source_images_by_id():
+    images = {}
+    for source_path in SOURCE_DIR.iterdir():
         if source_path.suffix.lower() not in {".jpg", ".jpeg", ".png", ".webp"}:
             continue
+        images[unicodedata.normalize("NFC", source_path.stem)] = source_path
+    return images
 
-        target_path = OUTPUT_DIR / f"{source_path.stem}.webp"
+
+def main():
+    OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
+    for stale_path in OUTPUT_DIR.glob("*.webp"):
+        stale_path.unlink()
+
+    source_images = source_images_by_id()
+    count = 0
+
+    for index, shoe_id in enumerate(ordered_shoe_ids()):
+        source_path = source_images.get(shoe_id)
+        if source_path is None:
+            raise FileNotFoundError(f"Missing source image for {shoe_id}")
+        target_path = OUTPUT_DIR / f"{index:03d}.webp"
         with Image.open(source_path) as image:
             cutout = remove_connected_background(image)
             cutout.save(target_path, "WEBP", quality=92, method=4)

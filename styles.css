@@ -7417,7 +7417,11 @@ body[data-route="picker"] .picker-axis--brand .picker-axis-item.is-selected .pic
 
 body[data-route="picker"] .picker-main {
   display: block !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  min-width: 0 !important;
   margin-top: 2px !important;
+  overflow-x: clip;
 }
 
 body[data-route="picker"] .picker-detail-card {
@@ -7428,6 +7432,26 @@ body[data-route="picker"] .picker-stage {
   margin: 0;
   padding: 2px 0 8px;
   border-bottom: 0;
+}
+
+body[data-route="picker"] .picker-detail-zone,
+body[data-route="picker"] .picker-product-list,
+body[data-route="picker"] .picker-product-card {
+  width: 100% !important;
+  max-width: 100% !important;
+  min-width: 0 !important;
+}
+
+body[data-route="picker"] .picker-product-list {
+  overflow-x: clip;
+}
+
+@media (max-width: 759px) {
+  html,
+  body[data-route="picker"] {
+    max-width: 100%;
+    overflow-x: hidden;
+  }
 }
 
 body[data-route="picker"] .picker-stage__title {

@@ -35,7 +35,7 @@
     const timeout = window.setTimeout(() => controller.abort(), API_TIMEOUT_MS);
 
     try {
-      const response = await fetch(`/api/bootstrap?v=${encodeURIComponent(window.RUNNING_LINEUP_VERSION || "static")}`, {
+      const response = await fetch(`/api/bootstrap?v=${encodeURIComponent(window.RUNNING_BOOTSTRAP_VERSION || window.RUNNING_LINEUP_VERSION || "static")}`, {
         headers: { Accept: "application/json" },
         signal: controller.signal,
       });
