@@ -9084,6 +9084,7 @@ body[data-route="picker"] .picker-detail-link:focus-visible {
 
 /* Picker cards are fully clickable; keep the affordance quiet and let content set the rhythm. */
 body[data-route="picker"] .picker-product-card {
+  position: relative;
   align-items: stretch !important;
   grid-template-rows: auto auto !important;
   color: inherit;
@@ -9117,14 +9118,16 @@ body[data-route="picker"] .picker-product-card__sub {
 }
 
 body[data-route="picker"] .picker-card-affordance {
+  position: absolute;
+  right: 12px;
+  bottom: 12px;
+  z-index: 2;
   display: inline-flex !important;
   align-items: center;
   justify-content: center;
-  grid-column: 2;
-  justify-self: end;
   width: 28px;
   height: 28px;
-  margin-top: 2px;
+  margin: 0;
   border-radius: 999px !important;
   background: #f2f4f6 !important;
   box-shadow: none !important;
@@ -9150,10 +9153,6 @@ body[data-route="picker"] .picker-product-card:focus-visible .picker-card-afford
 @media (min-width: 760px) {
   body[data-route="picker"] .picker-product-card {
     align-items: stretch !important;
-  }
-
-  body[data-route="picker"] .picker-card-affordance {
-    margin-top: 4px;
   }
 }
 
@@ -9307,6 +9306,10 @@ body[data-route="picker"] .picker-product-card__media > .shoe-image--picker {
 
 body[data-route="picker"] .picker-product-card {
   align-content: start !important;
+}
+
+body[data-route="picker"] .picker-product-card__body {
+  padding-bottom: 34px !important;
 }
 
 @media (min-width: 760px) {
