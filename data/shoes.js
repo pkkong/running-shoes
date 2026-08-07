@@ -7,7 +7,7 @@
 
   const SOURCE_POST =
     "https://gall.dcinside.com/mgallery/board/view/?id=running&no=1042108&page=1";
-  const IMAGE_VERSION = "20260623-ascii-assets-1";
+  const IMAGE_VERSION = "20260807-official-originals-1";
   const LINEUP_VERSION = "20260530-lineup-archive-1";
 
   window.RUNNING_LINEUP_VERSION = LINEUP_VERSION;
@@ -350,7 +350,7 @@
       category,
       dropMm,
       tags: [...tagCodes].map((code) => TAGS[code]).filter(Boolean),
-      imageUrl: `assets/shoes-cutout-safe/${String(index).padStart(3, "0")}.webp?v=${IMAGE_VERSION}`,
+      imageUrl: `assets/shoes-original-safe/${String(index).padStart(3, "0")}.jpg?v=${IMAGE_VERSION}`,
       officialImageUrl: image.imageUrl || "",
       imageSourceUrl: image.imageSourceUrl || SOURCE_POST,
       officialProductUrl: image.officialProductUrl || image.imageSourceUrl || SOURCE_POST,

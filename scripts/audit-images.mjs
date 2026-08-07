@@ -48,6 +48,9 @@ for (const shoe of shoes) {
   if (/lineup|dcinside|download\.php/i.test(shoe.imageUrl || "")) {
     errors.push(`${shoe.id}: table or forum image is used as shoe image`);
   }
+  if (/shoes-cutout-safe/i.test(shoe.imageUrl || "")) {
+    errors.push(`${shoe.id}: deprecated background-removed image is still used`);
+  }
   if (!shoe.imageSourceUrl) errors.push(`${shoe.id}: imageSourceUrl is empty`);
   if (!shoe.officialProductUrl) errors.push(`${shoe.id}: officialProductUrl is empty`);
   if (!shoe.displayName) warnings.push(`${shoe.id}: displayName is empty`);

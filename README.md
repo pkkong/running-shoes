@@ -34,9 +34,10 @@ node scripts/serve-vercel-like.mjs
 - 상세 페이지에는 같은 브랜드·종류 셀 기준의 분기별 라인 등장 이력을 표시합니다.
 - 분기별 이력은 원문 추천표를 브랜드와 용도 기준으로 다시 정리한 앱 구조화 데이터입니다.
 - 사진: 브랜드 공식 사이트, 공식 CDN, 공식 뉴스룸 출처 URL
-- 배포용 사진: `assets/shoes-cutout-safe/000.webp`~`117.webp`
+- 배포용 사진: `assets/shoes-original-safe/000.jpg`~`117.jpg`
+  - 브랜드 공식 사이트·CDN에서 확보한 원본 JPG를 배경 제거와 재인코딩 없이 그대로 사용합니다.
   - 한글 파일명 정규화 차이로 배포 환경에서 404가 날 수 있어, 화면에서는 번호 기반 ASCII 파일만 참조합니다.
-  - `assets/shoes/`는 원본 보관용, `scripts/create-shoe-cutouts.py`는 현재 데이터 순서에 맞춰 배포용 컷아웃을 재생성합니다.
+  - `assets/shoes/`는 원본 보관용이며 `scripts/create-official-image-assets.py`가 현재 데이터 순서에 맞춰 배포용 경로로 원본 파일을 복사합니다.
 - 가격 확인은 자동 최저가가 아니라 네이버·쿠팡 검색 링크로 제공합니다.
 - 특정 판매처, 정품 여부, 최저가를 보증하지 않습니다. 구매 전 각 플랫폼에서 색상, 사이즈, 배송비, 판매처를 직접 확인해야 합니다.
 - 가격 스냅샷/API 수집 코드는 다음 단계 검토용으로 보존하지만 현재 사용자 화면에서는 로드하지 않습니다.
@@ -121,5 +122,6 @@ node --check scripts/serve-vercel-like.mjs
 node --check scripts/verify-production.mjs
 node scripts/audit-lineup-history.mjs
 node scripts/audit-images.mjs
+python3 scripts/audit-official-image-assets.py
 node scripts/audit-prices.mjs
 ```

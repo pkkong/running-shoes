@@ -18,7 +18,27 @@
   }
 
   function applyBootstrap(data) {
-    window.RUNNING_SHOES = data.shoes;
+    const staticImagesById = new Map(
+      (window.RUNNING_SHOES || []).map((shoe) => [shoe.id, shoe])
+    );
+
+    window.RUNNING_SHOES = data.shoes.map((shoe) => {
+      const staticShoe = staticImagesById.get(shoe.id);
+      if (!staticShoe?.imageUrl?.includes("assets/shoes-original-safe/")) {
+        return shoe;
+      }
+
+      return {
+        ...shoe,
+        imageUrl: staticShoe.imageUrl,
+        officialImageUrl: staticShoe.officialImageUrl || shoe.officialImageUrl,
+        imageFit: staticShoe.imageFit || shoe.imageFit,
+        imagePosition: staticShoe.imagePosition || shoe.imagePosition,
+        imageScale: staticShoe.imageScale || shoe.imageScale,
+        imageQuality: staticShoe.imageQuality || shoe.imageQuality,
+        imageFacing: staticShoe.imageFacing || shoe.imageFacing,
+      };
+    });
     window.RUNNING_LINEUP_HISTORY = data.lineupHistory;
     window.RUNNING_LINEUP_PERIODS = data.lineupHistory.periods;
     window.RUNNING_PRICE_QUERY_CONFIG = data.priceQueryConfig || window.RUNNING_PRICE_QUERY_CONFIG || {};

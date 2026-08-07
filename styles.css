@@ -9340,6 +9340,21 @@ body[data-route="detail"] .history-period__models {
   flex-wrap: wrap;
 }
 
+/* Official product photography keeps its native white studio field. */
+body[data-route="picker"] .picker-product-card__media,
+body[data-route="picker"] .shoe-image--picker,
+body[data-route="detail"] .detail-card__media .shoe-image--detail {
+  background: #ffffff !important;
+}
+
+body[data-route="picker"] .shoe-image--picker img {
+  transform: scale(calc(var(--shoe-scale, 1) * 1.04)) !important;
+}
+
+body[data-route="detail"] .detail-card__media .shoe-image--detail img {
+  transform: scale(calc(var(--shoe-scale, 1) * 1)) !important;
+}
+
 @media (max-width: 720px) {
   body[data-route="detail"] .detail-actions {
     display: flex !important;
