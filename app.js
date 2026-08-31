@@ -26,7 +26,7 @@
 
   const tagMeta = {
     runGalleryPick: { label: "런갤러 선호", className: "tag--green" },
-    runRepeatGreat: { label: "런리핏 86+", className: "tag--blue" },
+    runRepeatGreat: { label: "런리핏 81+", className: "tag--blue" },
     newProduct: { label: "신제품", className: "tag--red" },
   };
 
@@ -1113,7 +1113,7 @@
     const tags = new Set(shoe.tags || []);
     let score = 64 + Math.min(appearanceCount, 8) * 2 + Math.min(streak, 8) * 1.5;
 
-    if (tags.has("runRepeatGreat")) score = Math.max(score, 86);
+    if (tags.has("runRepeatGreat")) score = Math.max(score, 81);
     if (tags.has("runGalleryPick")) score += 2;
     if (tags.has("newProduct")) score += 1;
     if (!appearanceCount) score = 60;

@@ -20,8 +20,8 @@ function fail(message) {
   failures.push(message);
 }
 
-if (periods.length !== 8) {
-  fail(`Expected 8 periods, found ${periods.length}`);
+if (periods.length !== 9) {
+  fail(`Expected 9 periods, found ${periods.length}`);
 }
 
 const periodIds = new Set(periods.map((period) => period.id));

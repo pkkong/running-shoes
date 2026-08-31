@@ -17,6 +17,17 @@
     );
   }
 
+  function hasCurrentBootstrap(data) {
+    const staticActivePeriod = (window.RUNNING_LINEUP_PERIODS || []).find((period) => period.active)?.id;
+    const apiActivePeriod = (data?.lineupHistory?.periods || []).find((period) => period.active)?.id;
+    const staticShoeCount = (window.RUNNING_SHOES || []).length;
+
+    return Boolean(
+      !staticActivePeriod ||
+        (apiActivePeriod === staticActivePeriod && (data?.shoes?.length || 0) >= staticShoeCount)
+    );
+  }
+
   function applyBootstrap(data) {
     const staticImagesById = new Map(
       (window.RUNNING_SHOES || []).map((shoe) => [shoe.id, shoe])
@@ -65,7 +76,7 @@
       }
 
       const data = await response.json();
-      if (hasUsableBootstrap(data)) {
+      if (hasUsableBootstrap(data) && hasCurrentBootstrap(data)) {
         applyBootstrap(data);
       }
     } catch (error) {

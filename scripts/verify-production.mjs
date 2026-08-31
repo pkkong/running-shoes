@@ -22,7 +22,7 @@ const result = {
   hasAppScript: html.body.includes("app.js"),
 };
 
-const expectedCounts = result.counts?.shoes >= 118 && result.counts?.periods >= 8 && result.counts?.entries >= 632;
+const expectedCounts = result.counts?.shoes >= 121 && result.counts?.periods >= 9 && result.counts?.entries >= 716;
 const sourceOk = allowFallback ? ["supabase", "static-fallback"].includes(result.source) : result.source === "supabase";
 const ok = health.status === 200 && health.data?.ok === true && sourceOk && expectedCounts && result.hasRuntimeLoader && result.hasAppScript;
 
