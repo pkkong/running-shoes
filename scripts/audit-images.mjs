@@ -16,6 +16,37 @@ const shoes = context.window.RUNNING_SHOES || [];
 const errors = [];
 const warnings = [];
 
+const officialImageHosts = new Set([
+  "assets.adidas.com",
+  "images.asics.com",
+  "images.ctfassets.net",
+  "static.nike.com",
+  "media.about.nike.com",
+  "images.puma.com",
+  "nb.scene7.com",
+  "s7d4.scene7.com",
+  "www.newbalance.com.ar",
+  "www.brooksrunning.com",
+  "brooksrunning.com.mx",
+  "media.au.hoka.com",
+  "dms.deckers.com",
+  "hoka.mx",
+  "hoka.co.th",
+  "media.saucony.com.au",
+  "thekit.wolverineworldwide.com",
+  "jpn.mizuno.com",
+  "emea.mizuno.com",
+  "mizuno.com.au",
+]);
+
+function isOfficialImageUrl(value) {
+  try {
+    return officialImageHosts.has(new URL(value).hostname);
+  } catch {
+    return false;
+  }
+}
+
 function localPathFromUrl(url) {
   if (!url || /^https?:\/\//i.test(url)) return "";
   return path.join(root, url.split("?")[0]);
@@ -54,7 +85,11 @@ for (const shoe of shoes) {
   if (!shoe.imageSourceUrl) errors.push(`${shoe.id}: imageSourceUrl is empty`);
   if (!shoe.officialProductUrl) errors.push(`${shoe.id}: officialProductUrl is empty`);
   if (!shoe.displayName) warnings.push(`${shoe.id}: displayName is empty`);
-  if (!shoe.officialImageUrl) warnings.push(`${shoe.id}: officialImageUrl metadata is empty`);
+  if (!shoe.officialImageUrl) {
+    errors.push(`${shoe.id}: officialImageUrl metadata is empty`);
+  } else if (!isOfficialImageUrl(shoe.officialImageUrl)) {
+    errors.push(`${shoe.id}: officialImageUrl is not an approved official asset host`);
+  }
   if (!shoe.imageFit) errors.push(`${shoe.id}: imageFit is empty`);
   if (!shoe.imagePosition) errors.push(`${shoe.id}: imagePosition is empty`);
   if (!Number.isFinite(Number(shoe.imageScale)) || Number(shoe.imageScale) <= 0) {
