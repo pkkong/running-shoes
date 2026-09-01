@@ -7,7 +7,7 @@
 
   const SOURCE_POST =
     "https://gall.dcinside.com/mgallery/board/view/?id=running&no=1117518";
-  const IMAGE_VERSION = "20260831-officials-2";
+  const IMAGE_VERSION = "20260831-framed-1";
   const LINEUP_VERSION = "20260826-lineup-archive-1";
 
   window.RUNNING_LINEUP_VERSION = LINEUP_VERSION;
@@ -198,12 +198,12 @@
     "puma-프로피오-나이트로": {"imageUrl": "https://images.puma.com/image/upload/f_auto,q_auto,b_rgb:fafafa,w_2000,h_2000/global/311428/06/sv01/fnd/IND/fmt/png/Propio-NITRO%E2%84%A2-Men's-Running-Shoes", "imageSourceUrl": "https://in.puma.com/in/en/pd/propio-nitro-mens-running-shoes/311428", "officialProductUrl": "https://in.puma.com/in/en/pd/propio-nitro-mens-running-shoes/311428", "displayName": "Propio Nitro", "imageFit": "contain", "imagePosition": "center", "imageScale": 0.94},
     "saucony-가이드-19": {"imageUrl": "https://thekit.wolverineworldwide.com/match/media_lookup/S11058-100_1/?preset=dw-medium", "imageSourceUrl": "https://www.saucony.com/en/guide-19/", "officialProductUrl": "https://www.saucony.com/en/guide-19/", "displayName": "Guide 19", "imageFit": "contain", "imagePosition": "center", "imageScale": 0.94},
     "saucony-라이드-19": {"imageUrl": "https://media.saucony.com.au/cdn-cgi/image/fit=scale-down,f=auto,w=1600/products/85a973b2-14f1-481d-a69a-04b1546d46a1/1e307462/s21055-105_1.jpg", "imageSourceUrl": "https://www.saucony.com.au/products/m-ride-19-s21055-105-nvy", "officialProductUrl": "https://www.saucony.com.au/products/m-ride-19-s21055-105-nvy", "displayName": "Ride 19", "imageFit": "contain", "imagePosition": "center", "imageScale": 0.94},
-    "saucony-엔돌핀-스피드-5": {"imageUrl": "https://media.saucony.com.au/cdn-cgi/image/fit=scale-down,f=auto,w=1600/products/ec3830ee-14e0-4df0-9d1c-b45f2d939dc3/b2b9431c/s11007-97_2.jpg", "imageSourceUrl": "https://www.saucony.com.au/products/w-endorphin-speed-5-s11007-97-wht", "officialProductUrl": "https://www.saucony.com.au/products/w-endorphin-speed-5-s11007-97-wht", "displayName": "Endorphin Speed 5", "imageFit": "contain", "imagePosition": "center", "imageScale": 0.94},
+    "saucony-엔돌핀-스피드-5": {"imageUrl": "https://s7d4.scene7.com/is/image/WolverineWorldWide/S11007-97_1?$dw-large$", "imageSourceUrl": "https://www.saucony.com.au/products/w-endorphin-speed-5-s11007-97-wht", "officialProductUrl": "https://www.saucony.com.au/products/w-endorphin-speed-5-s11007-97-wht", "displayName": "Endorphin Speed 5", "imageFit": "contain", "imagePosition": "center", "imageScale": 0.94},
     "saucony-엔돌핀-아주라": {"imageUrl": "https://thekit.wolverineworldwide.com/match/media_lookup/S21070-400_1/?preset=dw-medium", "imageSourceUrl": "https://www.saucony.com/UK/en_GB/endorphin-azura/", "officialProductUrl": "https://www.saucony.com/UK/en_GB/endorphin-azura/", "displayName": "Endorphin Azura", "imageFit": "contain", "imagePosition": "center", "imageScale": 0.94},
     "saucony-엔돌핀-엘리트-2": {"imageUrl": "https://media.saucony.com.au/cdn-cgi/image/fit=scale-down,f=auto,w=1600/products/f80d36a1-d132-4000-88cc-ba1f394926c9/e08bedf4/s30994-135_3.jpg", "imageSourceUrl": "https://www.saucony.com.au/products/u-endorphin-elite-2-s30994-135-yel", "officialProductUrl": "https://www.saucony.com.au/products/u-endorphin-elite-2-s30994-135-yel", "displayName": "Endorphin Elite 2", "imageFit": "contain", "imagePosition": "center", "imageScale": 0.94},
     "saucony-엔돌핀-트레이너": {"imageUrl": "https://s7d4.scene7.com/is/image/WolverineWorldWide/S20996-160_1?$dw-large$", "imageSourceUrl": "https://www.saucony.com/DE/de_DE/endorphin-trainer/59961M.html", "officialProductUrl": "https://www.saucony.com/DE/de_DE/endorphin-trainer/59961M.html", "displayName": "Endorphin Trainer", "imageFit": "contain", "imagePosition": "center", "imageScale": 0.94},
     "saucony-엔돌핀-프로-5": {"imageUrl": "https://s7d4.scene7.com/is/image/WolverineWorldWide/S21064-130_1?$dw-large$", "imageSourceUrl": "https://www.saucony.com/en/endorphin-pro-5/", "officialProductUrl": "https://www.saucony.com/en/endorphin-pro-5/", "displayName": "Endorphin Pro 5", "imageFit": "contain", "imagePosition": "center", "imageScale": 0.94},
-    "saucony-킨바라-16": {"imageUrl": "https://media.saucony.com.au/cdn-cgi/image/fit=scale-down,f=auto,w=1600/products/2231ff13-ad60-481b-a610-2132d80a249b/d9c4cdb5/s21020-97_2.jpg", "imageSourceUrl": "https://www.saucony.com.au/products/m-kinvara-16-s21020-97-grn", "officialProductUrl": "https://www.saucony.com.au/products/m-kinvara-16-s21020-97-grn", "displayName": "Kinvara 16", "imageFit": "contain", "imagePosition": "center", "imageScale": 0.94},
+    "saucony-킨바라-16": {"imageUrl": "https://s7d4.scene7.com/is/image/WolverineWorldWide/S21020-97_1?$dw-large$", "imageSourceUrl": "https://www.saucony.com.au/products/m-kinvara-16-s21020-97-grn", "officialProductUrl": "https://www.saucony.com.au/products/m-kinvara-16-s21020-97-grn", "displayName": "Kinvara 16", "imageFit": "contain", "imagePosition": "center", "imageScale": 0.94},
     "saucony-타이드-2": {"imageUrl": "https://media.saucony.com.au/cdn-cgi/image/fit=scale-down,f=auto,w=1600/products/f06b81f4-5316-44dd-85af-6262d6e655b2/s28216-2_1.jpg", "imageSourceUrl": "https://www.saucony.com.au/products/m-tide-2-s28216-2-wht", "officialProductUrl": "https://www.saucony.com.au/products/m-tide-2-s28216-2-wht", "displayName": "Tide 2", "imageFit": "contain", "imagePosition": "center", "imageScale": 0.94},
     "saucony-템퍼스-3": {"imageUrl": "https://media.saucony.com.au/products/91c6b3c3-9e7a-41c4-9eb5-fb34ac22e57e/s10720-18_1.jpg", "imageSourceUrl": "https://www.saucony.com.au/categories/collections/running/tempus", "officialProductUrl": "https://www.saucony.com.au/categories/collections/running/tempus", "displayName": "Tempus 3", "imageFit": "contain", "imagePosition": "center", "imageScale": 0.94},
     "saucony-트라이엄프-24": {"imageUrl": "https://thekit.wolverineworldwide.com/match/media_lookup/S100997-1027_1/?preset=dw-medium", "imageSourceUrl": "https://www.saucony.com/en/triumph-24/", "officialProductUrl": "https://www.saucony.com/en/triumph-24/", "displayName": "Triumph 24", "imageFit": "contain", "imagePosition": "center", "imageScale": 0.94},
@@ -389,7 +389,8 @@
       category,
       dropMm,
       tags: [...tagCodes].map((code) => TAGS[code]).filter(Boolean),
-      imageUrl: `assets/shoes-original-safe/${String(index).padStart(3, "0")}.jpg?v=${IMAGE_VERSION}`,
+      // Display frames are normalized derivatives. Official originals remain archived separately.
+      imageUrl: `assets/shoes-display/${String(index).padStart(3, "0")}.jpg?v=${IMAGE_VERSION}`,
       officialImageUrl: image.imageUrl || "",
       imageSourceUrl: image.imageSourceUrl || SOURCE_POST,
       officialProductUrl: image.officialProductUrl || image.imageSourceUrl || SOURCE_POST,

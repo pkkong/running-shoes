@@ -117,6 +117,9 @@ for (const shoe of shoes) {
   if (size.width < 600 || size.height < 400) {
     warnings.push(`${shoe.id}: low image resolution ${size.width}x${size.height}`);
   }
+  if (/assets\/shoes-display\//.test(shoe.imageUrl) && (size.width !== 1600 || size.height !== 1200)) {
+    errors.push(`${shoe.id}: normalized display frame must be 1600x1200, received ${size.width}x${size.height}`);
+  }
 }
 
 const referencedPaths = shoes.map((shoe) => localPathFromUrl(shoe.imageUrl)).filter(Boolean);

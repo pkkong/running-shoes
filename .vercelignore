@@ -1,10 +1,12 @@
 .git
 .github
+.vercel/
 .env
 .env.*
 !.env.example
 docs/
 assets/shoes/
+assets/shoes-original-safe/
 data/prices/
 scripts/
 supabase/
