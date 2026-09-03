@@ -112,9 +112,7 @@
     zoomInButton: document.querySelector("#zoomInButton"),
     mapSheetBackdrop: document.querySelector("#mapSheetBackdrop"),
     mapSheet: document.querySelector("#mapSheet"),
-    topbarContext: document.querySelector("#topbarContext"),
     pickerCoordinate: document.querySelector("#pickerCoordinate"),
-    pickerSummary: document.querySelector("#pickerSummary"),
     pickerPeriodTrigger: document.querySelector("#pickerPeriodTrigger"),
     pickerCategoryTrigger: document.querySelector("#pickerCategoryTrigger"),
     pickerPeriodPanel: document.querySelector("#pickerPeriodPanel"),
@@ -1060,30 +1058,17 @@
         url: coupangSearchUrl(shoe),
         primary: true,
       },
-      {
-        id: "toss",
-        label: "토스쇼핑",
-        note: "앱 검색 준비중",
-        url: "",
-        disabled: true,
-      },
     ];
   }
 
-  function platformSearchLinksMarkup(shoe, variant = "panel") {
-    const platforms = platformSearchLinksFor(shoe).filter((platform) => variant !== "picker" || !platform.disabled);
-    return platforms
+  function platformSearchLinksMarkup(shoe) {
+    return platformSearchLinksFor(shoe)
       .map((platform) => {
-        const className = `platform-search-link platform-search-link--${platform.id} platform-search-link--${variant}${
-          platform.disabled ? " platform-search-link--disabled" : ""
-        }`;
+        const className = `platform-search-link platform-search-link--${platform.id} platform-search-link--panel`;
         const body = `
           <span>${escapeHtml(platform.label)}</span>
           <small>${escapeHtml(platform.note)}</small>
         `;
-        if (platform.disabled) {
-          return `<button class="${className}" type="button" disabled aria-label="${escapeHtml(`${platform.label} 검색 링크 준비중`)}">${body}</button>`;
-        }
         return `
           <a
             class="${className}"
@@ -1586,6 +1571,32 @@
     `;
   }
 
+  function pickerCategoryOptionMarkup(option, index) {
+    return pickerFilterButtonMarkup({
+      active: index === state.pickerCategoryIndex,
+      label: pickerAxisCategoryLabel(option),
+      subLabel: "",
+      value: index,
+      attr: "data-picker-category-index",
+    });
+  }
+
+  function pickerCategoryGroupMarkup(group) {
+    const options = categoryOrder.filter((category) => categoryGroupMap[category] === group);
+    if (!options.length) return "";
+
+    return `
+      <section class="picker-category-group" aria-label="${escapeHtml(group)} 종류">
+        <h3>${escapeHtml(group)}</h3>
+        <div class="picker-filter-panel__grid picker-filter-panel__grid--category">
+          ${options
+            .map((option) => pickerCategoryOptionMarkup(option, pickerCategoryOptions.indexOf(option)))
+            .join("")}
+        </div>
+      </section>
+    `;
+  }
+
   function renderPickerControls() {
     if (!el.pickerPeriodTrigger || !el.pickerCategoryTrigger) return;
 
@@ -1604,13 +1615,14 @@
     el.pickerPeriodTrigger.setAttribute("aria-expanded", periodPanelOpen ? "true" : "false");
     el.pickerPeriodTrigger.setAttribute("aria-label", `시기 ${selectedPickerPeriodLabel() || activePeriod?.label || "선택"} ${count}개 제품`);
 
+    const categoryTriggerLabel = category === "전체" ? "전체" : `${categoryGroupMap[category] || ""} · ${pickerCategoryLabel(category)}`;
     el.pickerCategoryTrigger.innerHTML = `
       <span>종류</span>
-      <strong>${escapeHtml(pickerCategoryLabel(category))}</strong>
+      <strong>${escapeHtml(categoryTriggerLabel)}</strong>
     `;
     el.pickerCategoryTrigger.classList.toggle("is-open", categoryPanelOpen);
     el.pickerCategoryTrigger.setAttribute("aria-expanded", categoryPanelOpen ? "true" : "false");
-    el.pickerCategoryTrigger.setAttribute("aria-label", `${brand} ${pickerCategoryLabel(category)} ${count}개 제품`);
+    el.pickerCategoryTrigger.setAttribute("aria-label", `${brand} ${categoryTriggerLabel} ${count}개 제품`);
 
     el.pickerPeriodPanel.hidden = !periodPanelOpen;
     el.pickerCategoryPanel.hidden = !categoryPanelOpen;
@@ -1647,18 +1659,13 @@
 
     if (categoryPanelOpen) {
       el.pickerCategoryPanel.innerHTML = `
-        <div class="picker-filter-panel__grid picker-filter-panel__grid--category">
-          ${pickerCategoryOptions
-            .map((option, index) =>
-              pickerFilterButtonMarkup({
-                active: index === state.pickerCategoryIndex,
-                label: pickerAxisCategoryLabel(option),
-                subLabel: option === "전체" ? "전체 종류" : categoryGroupMap[option] || "",
-                value: index,
-                attr: "data-picker-category-index",
-              })
-            )
-            .join("")}
+        <div class="picker-category-panel">
+          <div class="picker-category-panel__all">
+            ${pickerCategoryOptionMarkup("전체", 0)}
+          </div>
+          <div class="picker-category-groups">
+            ${groupOrder.map((group) => pickerCategoryGroupMarkup(group)).join("")}
+          </div>
         </div>
       `;
     } else {
@@ -1882,13 +1889,6 @@
     const periodLabel = selectedPickerPeriodLabel();
     const countText = products.length ? `${products.length}개 제품` : "라인업 없음";
     el.pickerCoordinate.textContent = coordinate;
-    const summaryText = [periodLabel, countText].filter(Boolean).join(" · ");
-    if (el.pickerSummary) {
-      el.pickerSummary.textContent = summaryText;
-    }
-    if (el.topbarContext) {
-      el.topbarContext.textContent = summaryText;
-    }
     el.pickerDetail.className = `picker-detail-card picker-detail-card--${products.length ? "filled" : "empty"}`;
 
     el.pickerDetail.innerHTML = `
@@ -1978,7 +1978,7 @@
           </div>
         </div>
         <div class="platform-search-grid">
-          ${platformSearchLinksMarkup(shoe, "panel")}
+          ${platformSearchLinksMarkup(shoe)}
         </div>
         <p class="price-panel__caution">
           판매처, 사이즈, 배송비는 각 플랫폼에서 직접 확인하세요.
@@ -2003,11 +2003,6 @@
             <span>${escapeHtml(shoe.categoryGroup)} · ${escapeHtml(shoe.category)}</span>
           </div>
           <h2>${escapeHtml(shoe.displayName || shoe.model)}</h2>
-          ${
-            shoe.displayName && shoe.displayName !== shoe.model
-              ? `<p class="detail-card__subtitle">${escapeHtml(shoe.model)}</p>`
-              : ""
-          }
           ${detailEvidenceMarkup(shoe)}
           ${detailActionsMarkup(shoe)}
         </div>
