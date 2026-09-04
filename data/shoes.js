@@ -7,7 +7,7 @@
 
   const SOURCE_POST =
     "https://gall.dcinside.com/mgallery/board/view/?id=running&no=1117518";
-  const IMAGE_VERSION = "20260901-direction-1";
+  const IMAGE_VERSION = "20260903-prime-x-evo-1";
   const LINEUP_VERSION = "20260826-lineup-archive-1";
 
   window.RUNNING_LINEUP_VERSION = LINEUP_VERSION;
@@ -100,7 +100,7 @@
     "adidas-아디오스-프로-4": {"imageUrl": "https://assets.adidas.com/images/w_1880,f_auto,q_auto/bfc25166a6114abf925951fce92f5c7a_9366/JR1163_01_00_standard.jpg", "imageSourceUrl": "https://www.adidas.com/qa/en/adizero-adios-pro-4-shoes/JR1163.html", "officialProductUrl": "https://www.adidas.com/qa/en/adizero-adios-pro-4-shoes/JR1163.html", "displayName": "Adizero Adios Pro 4", "imageFit": "contain", "imagePosition": "center", "imageScale": 0.94},
     "adidas-에보-sl": {"imageUrl": "https://assets.adidas.com/images/w_1880,f_auto,q_auto/5d40adba58d446cfb32e20b75f966cbe_9366/JP7149_01_00_standard.jpg", "imageSourceUrl": "https://www.adidas.com/qa/en/adizero-evo-sl-shoes/JP7149.html", "officialProductUrl": "https://www.adidas.com/qa/en/adizero-evo-sl-shoes/JP7149.html", "displayName": "Adizero EVO SL", "imageFit": "contain", "imagePosition": "center", "imageScale": 0.94},
     "adidas-타쿠미-센-11": {"imageUrl": "https://assets.adidas.com/images/w_1880,f_auto,q_auto/3766dc7c58dd4e259fc8972b0eba6e64_9366/Adizero_Takumi_Sen_11_Shoes_Pink_JQ2812_HM1.jpg", "imageSourceUrl": "https://www.adidas.com.au/adizero-takumi-sen-11-shoes/JQ2812.html", "officialProductUrl": "https://www.adidas.com.au/adizero-takumi-sen-11-shoes/JQ2812.html", "displayName": "Adizero Takumi Sen 11", "imageFit": "contain", "imagePosition": "center", "imageScale": 0.94},
-    "adidas-프라임-x-에보": {"imageUrl": "https://assets.adidas.com/images/w_600%2Cf_auto%2Cq_auto/419aae1073be4298ae00eadb26028641_9366/ADIZERO_Prime_X_EVO_Shoes_White_KH7677_HM53_hover.jpg", "imageSourceUrl": "https://www.adidas.com.au/adizero-prime-x-evo-shoes/KH7677.html", "officialProductUrl": "https://www.adidas.com.au/adizero-prime-x-evo-shoes/KH7677.html", "displayName": "Adizero Prime X Evo", "imageFit": "contain", "imagePosition": "center", "imageScale": 0.94},
+    "adidas-프라임-x-에보": {"imageUrl": "https://kream-phinf.pstatic.net/MjAyNTEyMjJfMjc4/MDAxNzY2MzY3MDA0MTkz.cPTnTYg9D-kN95OnP2M3egRmwOHLzjesT4zd6ecWWaYg.KQw6VT1mOwe_Np0oaWJ99QySS4n4zlG4sDjnnv_Br-gg.PNG/a_61b821428a7f4acc87f7409c537268b9.png?type=l_webp", "imageSourceUrl": "https://kream-phinf.pstatic.net/MjAyNTEyMjJfMjc4/MDAxNzY2MzY3MDA0MTkz.cPTnTYg9D-kN95OnP2M3egRmwOHLzjesT4zd6ecWWaYg.KQw6VT1mOwe_Np0oaWJ99QySS4n4zlG4sDjnnv_Br-gg.PNG/a_61b821428a7f4acc87f7409c537268b9.png?type=l_webp", "officialProductUrl": "https://www.adidas.com.au/adizero-prime-x-evo-shoes/KH7677.html", "imageSourceKind": "userProvided", "displayName": "Adizero Prime X Evo", "imageFit": "contain", "imagePosition": "center", "imageScale": 0.94},
     "adidas-프라임-x3-스트렁": {"imageUrl": "https://assets.adidas.com/images/w_600%2Cf_auto%2Cq_auto/9555beb9306644188463c13282f7e01f_9366/Adizero_Prime_X3_Strung_Shoes_White_JR2597_HM1.jpg", "imageSourceUrl": "https://www.adidas.com.au/adizero-prime-x3-strung-shoes/JR2597.html", "officialProductUrl": "https://www.adidas.com.au/adizero-prime-x3-strung-shoes/JR2597.html", "displayName": "Adizero Prime X 3 Strung", "imageFit": "contain", "imagePosition": "center", "imageScale": 0.94},
     "adidas-프로-에보-3": {"imageUrl": "https://assets.adidas.com/images/w_600%2Cf_auto%2Cq_auto/9a6bcdf1c48e4c0298e897623d921571_9366/ADIZERO_ADIOS_PRO_EVO_3_Shoes_White_KH7678_01_00_standard.jpg", "imageSourceUrl": "https://www.adidas.com/us/adizero-adios-pro-evo-3-shoes/KH7678.html", "officialProductUrl": "https://www.adidas.com/us/adizero-adios-pro-evo-3-shoes/KH7678.html", "displayName": "Adizero Pro Evo 3", "imageFit": "contain", "imagePosition": "center", "imageScale": 0.94},
     "adidas-하이퍼부스트-엣지": {"imageUrl": "https://assets.adidas.com/images/w_1880,f_auto,q_auto/40bc238de20b46a7883c27238e9d13f1_9366/KI1916_01_00_standard.jpg", "imageSourceUrl": "https://www.adidas.com/us/hyperboost-edge-running-shoes/KI1916.html", "officialProductUrl": "https://www.adidas.com/us/hyperboost-edge-running-shoes/KI1916.html", "displayName": "Hyperboost Edge", "imageFit": "contain", "imagePosition": "center", "imageScale": 0.94},
@@ -400,6 +400,7 @@
       imageScale: image.imageScale || 1,
       imageQuality: image.imageQuality || "side",
       imageFacing: image.imageFacing || "right",
+      imageSourceKind: image.imageSourceKind || "official",
       priceStatus: "planned",
       tableOrder: index,
     };

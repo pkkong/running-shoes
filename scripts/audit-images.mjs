@@ -39,9 +39,19 @@ const officialImageHosts = new Set([
   "mizuno.com.au",
 ]);
 
+const userProvidedImageHosts = new Set(["kream-phinf.pstatic.net"]);
+
 function isOfficialImageUrl(value) {
   try {
     return officialImageHosts.has(new URL(value).hostname);
+  } catch {
+    return false;
+  }
+}
+
+function isApprovedUserProvidedImageUrl(value) {
+  try {
+    return userProvidedImageHosts.has(new URL(value).hostname);
   } catch {
     return false;
   }
@@ -87,6 +97,8 @@ for (const shoe of shoes) {
   if (!shoe.displayName) warnings.push(`${shoe.id}: displayName is empty`);
   if (!shoe.officialImageUrl) {
     errors.push(`${shoe.id}: officialImageUrl metadata is empty`);
+  } else if (shoe.imageSourceKind === "userProvided" && isApprovedUserProvidedImageUrl(shoe.officialImageUrl)) {
+    warnings.push(`${shoe.id}: user-provided image source is in use`);
   } else if (!isOfficialImageUrl(shoe.officialImageUrl)) {
     errors.push(`${shoe.id}: officialImageUrl is not an approved official asset host`);
   }
