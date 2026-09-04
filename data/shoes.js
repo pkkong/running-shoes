@@ -7,7 +7,7 @@
 
   const SOURCE_POST =
     "https://gall.dcinside.com/mgallery/board/view/?id=running&no=1117518";
-  const IMAGE_VERSION = "20260903-prime-x-evo-1";
+  const IMAGE_VERSION = "20260904-prime-x-evo-edge-1";
   const LINEUP_VERSION = "20260826-lineup-archive-1";
 
   window.RUNNING_LINEUP_VERSION = LINEUP_VERSION;

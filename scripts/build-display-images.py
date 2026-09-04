@@ -47,6 +47,13 @@ BACKGROUND_OVERRIDES = {
     "adidas-프로-에보-3": (234, 238, 239),
 }
 
+# This KREAM-supplied Prime X Evo source already has a clean alpha channel.
+# Rebuilding a color-key mask from its transparent pixels creates a stepped
+# edge after JPEG encoding, so retain the source alpha against the white frame.
+ALPHA_COMPOSITE_OVERRIDES = {
+    "adidas-프라임-x-에보",
+}
+
 
 def slugify(value: str) -> str:
     value = value.lower()
@@ -110,7 +117,50 @@ def visible_bounds(bounds_mask: Image.Image) -> tuple[int, int, int, int] | None
     return bounds_mask.filter(ImageFilter.MaxFilter(9)).getbbox()
 
 
+def alpha_composited_frame(source_path: Path) -> Image.Image:
+    """Place an already-isolated product image on the shared white frame."""
+    with Image.open(source_path) as source_file:
+        source = source_file.convert("RGBA")
+
+    alpha = source.getchannel("A")
+    bounds = alpha.getbbox()
+    if not bounds:
+        return Image.new("RGB", CANVAS_SIZE, "white")
+
+    left, top, right, bottom = bounds
+    content_width = max(1, right - left)
+    content_height = max(1, bottom - top)
+    padding_x = round(content_width * 0.065)
+    padding_y = round(content_height * 0.18)
+    crop_left = max(0, left - padding_x)
+    crop_top = max(0, top - padding_y)
+    crop_right = min(source.width, right + padding_x)
+    crop_bottom = min(source.height, bottom + padding_y)
+
+    crop = source.crop((crop_left, crop_top, crop_right, crop_bottom))
+    crop_alpha = alpha.crop((crop_left, crop_top, crop_right, crop_bottom))
+    scale = min(CONTENT_WIDTH / content_width, CONTENT_MAX_HEIGHT / content_height)
+    target_size = (
+        max(1, round(crop.width * scale)),
+        max(1, round(crop.height * scale)),
+    )
+    crop = crop.resize(target_size, Image.Resampling.LANCZOS)
+    crop_alpha = crop_alpha.resize(target_size, Image.Resampling.LANCZOS)
+
+    content_left = (left - crop_left) * scale
+    content_bottom = (bottom - crop_top) * scale
+    paste_x = round(CANVAS_SIZE[0] / 2 - (content_left + content_width * scale / 2))
+    paste_y = round(CONTENT_BASELINE - content_bottom)
+
+    frame = Image.new("RGB", CANVAS_SIZE, "white")
+    frame.paste(crop, (paste_x, paste_y), crop_alpha)
+    return frame
+
+
 def normalized_frame(source_path: Path, shoe_id: str) -> Image.Image:
+    if shoe_id in ALPHA_COMPOSITE_OVERRIDES:
+        return alpha_composited_frame(source_path)
+
     with Image.open(source_path) as source_file:
         source = source_file.convert("RGB")
 
