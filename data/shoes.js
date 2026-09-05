@@ -8,7 +8,15 @@
   const SOURCE_POST =
     "https://gall.dcinside.com/mgallery/board/view/?id=running&no=1117518";
   const IMAGE_VERSION = "20260904-prime-x-evo-edge-1";
-  const LINEUP_VERSION = "20260826-lineup-archive-1";
+  const LINEUP_VERSION = "20260906-source-evidence-1";
+  // This is the chart's dated threshold, not an individual RunRepeat rating.
+  const RUNREPEAT_EVIDENCE = {
+    kind: "chart-threshold",
+    threshold: 81,
+    periodId: "2026-08",
+    asOf: "2026-08-26",
+    sourceUrl: SOURCE_POST,
+  };
 
   window.RUNNING_LINEUP_VERSION = LINEUP_VERSION;
   window.RUNNING_BOOTSTRAP_VERSION = `${LINEUP_VERSION}-${IMAGE_VERSION}`;
@@ -389,6 +397,7 @@
       category,
       dropMm,
       tags: [...tagCodes].map((code) => TAGS[code]).filter(Boolean),
+      runRepeatEvidence: tagCodes.includes("b") ? { ...RUNREPEAT_EVIDENCE } : null,
       // Display frames are normalized derivatives. Official originals remain archived separately.
       imageUrl: `assets/shoes-display/${String(index).padStart(3, "0")}.jpg?v=${IMAGE_VERSION}`,
       officialImageUrl: image.imageUrl || "",
