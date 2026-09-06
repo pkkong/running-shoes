@@ -8,7 +8,8 @@
 
 - Production target: Vercel 프로젝트 `runfit-lineup`
 - Source: GitHub `pkkong/running-shoes`
-- Database/API data source: Supabase
+- Database/API data source: Supabase 지원. 현재 운영은 환경변수 미설정으로 정적 fallback 사용.
+- 런리핏 실점수 10개 모델: 출처·확인일·저장 방식은 [점수 데이터 안내](docs/runrepeat-reviews.md) 참고.
 
 ## 실행
 

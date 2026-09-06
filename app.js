@@ -356,12 +356,19 @@
 
   function detailActionsMarkup(shoe) {
     const officialUrl = shoe.officialProductUrl || shoe.imageSourceUrl;
+    const review = window.RUNNING_RUNREPEAT?.reviewForShoe(shoe);
 
     return `
       <div class="detail-actions">
         <a class="detail-action detail-action--secondary" href="${escapeHtml(officialUrl)}" target="_blank" rel="noreferrer">
           <strong>공식 페이지</strong>
         </a>
+        ${review ? `
+          <a class="detail-action detail-action--secondary" href="${escapeHtml(review.sourceUrl)}" target="_blank" rel="noreferrer" aria-label="${escapeHtml(`${review.reviewModel} 런리핏 리뷰, ${review.checkedAt} 확인`)}">
+            <strong>런리핏 리뷰</strong>
+          </a>
+          <span class="detail-review-date">${escapeHtml(review.checkedAt.replace(/-/g, "."))} 확인</span>
+        ` : ""}
       </div>
     `;
   }
@@ -1092,6 +1099,13 @@
   }
 
   function runRepeatBadgeFor(shoe) {
+    const review = window.RUNNING_RUNREPEAT?.reviewForShoe(shoe);
+    if (review) {
+      return {
+        label: `런리핏 ${review.score}`,
+        title: `${review.checkedAt} 확인한 RunRepeat 종합 점수. 상세에서 리뷰 원문을 확인할 수 있습니다.`,
+      };
+    }
     const evidence = shoe.runRepeatEvidence;
     if (!shoe.tags?.includes("runRepeatGreat") || shoe.isHistoryItem) return null;
     if (evidence?.kind !== "chart-threshold" || !evidence.sourceUrl || !evidence.asOf) return null;

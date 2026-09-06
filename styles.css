@@ -9202,6 +9202,13 @@ body[data-route="detail"] .detail-actions {
   padding-top: 4px !important;
 }
 
+body[data-route="detail"] .detail-review-date {
+  align-self: center;
+  font-size: 12px;
+  font-weight: 400;
+  color: #6b7684;
+}
+
 body[data-route="detail"] .detail-action {
   display: inline-flex !important;
   align-items: center;

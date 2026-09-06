@@ -65,6 +65,7 @@ console.log(
 function loadSeedData() {
   const context = { window: {} };
   vm.createContext(context);
+  runScript(context, "data/runrepeat-reviews.js");
   runScript(context, "data/shoes.js");
   runScript(context, "data/lineup-history.js");
   runScript(context, "data/price-queries.js");

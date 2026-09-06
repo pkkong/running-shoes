@@ -4,10 +4,36 @@ import { fileURLToPath } from "node:url";
 import vm from "node:vm";
 
 const root = new URL("../", import.meta.url);
-const context = vm.createContext({ window: {} });
+const context = vm.createContext({ window: {}, URL });
+vm.runInContext(readFileSync(new URL("data/runrepeat-reviews.js", root), "utf8"), context);
 vm.runInContext(readFileSync(new URL("data/shoes.js", root), "utf8"), context);
 const shoes = context.window.RUNNING_SHOES;
 const periods = context.window.RUNNING_LINEUP_PERIODS;
+const { reviews, reviewForShoe, isValidReview } = context.window.RUNNING_RUNREPEAT;
+const now = Date.now();
+assert.equal(reviews.length, 10, "Pilot must contain ten manually verified models");
+assert.equal(new Set(reviews.map((review) => review.shoeId)).size, reviews.length);
+assert.equal(new Set(reviews.map((review) => review.sourceUrl)).size, reviews.length);
+
+for (const review of reviews) {
+  const shoe = shoes.find(({ id }) => id === review.shoeId);
+  assert.ok(shoe, `Unknown model: ${review.shoeId}`);
+  assert.ok(isValidReview(review, shoe, now), `Invalid review: ${review.shoeId}`);
+  assert.deepEqual(shoe.runRepeatReview, review);
+  assert.equal(reviewForShoe(shoe).score, review.score);
+  assert.equal(reviewForShoe({ ...shoe, model: `${shoe.model} GTX` }), null);
+  assert.equal(reviewForShoe({ ...shoe, brand: "Other" }), null);
+  assert.equal(reviewForShoe({ ...shoe, isHistoryItem: true }), null);
+  assert.equal(reviewForShoe({ ...shoe, id: `archive-${shoe.id}`, detailId: shoe.id }).score, review.score);
+  for (const invalid of [
+    { score: 101 }, { score: -1 }, { score: 82.5 }, { score: "83" },
+    { sourceUrl: "https://runrepeat.com.evil.example/review" },
+    { sourceUrl: "javascript:alert(1)" }, { sourceUrl: "https://runrepeat.com/" },
+    { checkedAt: "2026-02-30" }, { checkedAt: "2999-01-01" },
+    { verified: false }, { scoreKind: "daily-running" }, { reviewModel: "" },
+  ]) assert.equal(isValidReview({ ...review, ...invalid }, shoe, now), false);
+}
+assert.equal(shoes.filter((shoe) => reviewForShoe(shoe)).length, 10);
 let marked = 0;
 
 for (const shoe of shoes) {
@@ -32,3 +58,4 @@ const app = readFileSync(appPath, "utf8");
 assert.doesNotMatch(app, /runningFitScoreFor|런리핏 \$\{score\}/, "Synthetic RunRepeat scores must not return");
 assert.equal((app.match(/\$\{featureBadgesMarkup\(shoe\)\}/g) || []).length, 2, "List and detail must share badge rendering");
 console.log(`RunRepeat evidence: ${marked}/${shoes.length} chart markers with dated sources; no synthetic scores.`);
+console.log(`Verified reviews: ${reviews.length}; exact-model, source, date and score validation passed.`);

@@ -6,7 +6,7 @@
   "scripts": {
     "serve": "python3 -m http.server 4173",
     "serve:vercel": "node scripts/serve-vercel-like.mjs",
-    "check": "node --check app.js && node --check runtime-data.js && node --check api/bootstrap.js && node --check api/health.js && node --check lib/bootstrap-data.js && node --check data/shoes.js && node --check data/lineup-history.js && node --check data/price-queries.js && node --check scripts/export-supabase-seed.mjs && node --check scripts/seed-supabase-rest.mjs && node --check scripts/serve-vercel-like.mjs && node --check scripts/verify-production.mjs",
+    "check": "node --check app.js && node --check runtime-data.js && node --check api/bootstrap.js && node --check api/health.js && node --check lib/bootstrap-data.js && node --check data/shoes.js && node --check data/runrepeat-reviews.js && node --check data/lineup-history.js && node --check data/price-queries.js && node --check scripts/export-supabase-seed.mjs && node --check scripts/export-runrepeat-sql.mjs && node --check scripts/seed-supabase-rest.mjs && node --check scripts/serve-vercel-like.mjs && node --check scripts/verify-production.mjs",
     "audit": "node scripts/audit-lineup-history.mjs && node scripts/audit-images.mjs && node scripts/audit-prices.mjs && node scripts/audit-runrepeat.mjs",
     "seed:sql": "node scripts/export-supabase-seed.mjs > supabase/seed.sql",
     "seed:supabase": "node scripts/seed-supabase-rest.mjs",
