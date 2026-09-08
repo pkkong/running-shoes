@@ -15,7 +15,7 @@ Verified on 2026-09-08.
 
 ## Database status
 
-Supabase is NOT connected to production. `/api/health` currently reports
+Supabase is intentionally deferred by user decision. `/api/health` reports
 `static-fallback`, with 121 shoes, 9 periods and 716 history entries.
 
 The signed-in Supabase account has reached its two-active-free-project limit.
@@ -23,10 +23,11 @@ The existing projects are `kpef-newsletter` and `soulib`; neither was modified,
 paused or reused. A dedicated running-shoes project cannot be created on the
 current free allocation. Do not claim that a browser login completes DB setup.
 
-Before enabling Supabase, explicitly resolve dedicated-project capacity or obtain
+Do not retry Supabase login or setup during routine work. Before enabling
+Supabase at the user's request, explicitly resolve dedicated-project capacity or obtain
 approval for sharing an existing project's resources. Then apply the scoped schema,
 seed current data, persist runtime connection settings in Vercel, and verify
-production with `node scripts/verify-production.mjs` (without `--allow-fallback`).
+production with `node scripts/verify-production.mjs --require-supabase`.
 Keep database write credentials out of browser code and Git. Never copy browser
 session tokens into deployment configuration.
 
@@ -35,5 +36,5 @@ session tokens into deployment configuration.
 Run `node --run check`, `node --run audit`, then push to `main`.
 Check the commit's Vercel status and production health. Browser sign-in is not
 required for ordinary Git pushes; account permission changes may require it.
-The temporary `--allow-fallback` verification option is only appropriate while
-the database limitation above remains unresolved.
+`node scripts/verify-production.mjs` accepts the intentional static-data mode
+by default. `--require-supabase` is reserved for a future approved DB migration.

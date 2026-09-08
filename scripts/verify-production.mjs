@@ -6,7 +6,8 @@ const args = new Map(
 );
 
 const productionUrl = normalizeUrl(args.get("url") || process.env.PRODUCTION_URL || "https://runfit-lineup.vercel.app");
-const allowFallback = args.has("allow-fallback");
+// Static data is the intentional production mode; DB verification is opt-in.
+const allowFallback = !args.has("require-supabase");
 
 const healthPath = allowFallback ? "/api/health" : "/api/health?strict=1";
 const health = await fetchJson(`${productionUrl}${healthPath}`);

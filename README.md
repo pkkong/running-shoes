@@ -4,11 +4,11 @@
 
 ## 배포
 
-운영 배포는 Vercel이 담당합니다. GitHub Pages는 이전 정적 배포용으로만 남기고, Vercel 검증 후 비활성화합니다.
+운영 배포는 Vercel이 담당합니다. GitHub Pages는 비활성화했으며, `main`에 push하면 Vercel이 자동 배포합니다. 일반 작업에 브라우저 로그인은 필요하지 않습니다.
 
 - Production target: Vercel 프로젝트 `runfit-lineup`
 - Source: GitHub `pkkong/running-shoes`
-- Database/API data source: Supabase 지원. 현재 운영은 환경변수 미설정으로 정적 fallback 사용.
+- 데이터: Git에서 관리하는 정적 데이터로 운영합니다. Supabase 도입은 보류했으며 연결 설정이나 로그인이 필요하지 않습니다.
 - 런리핏 실점수 10개 모델: 출처·확인일·저장 방식은 [점수 데이터 안내](docs/runrepeat-reviews.md) 참고.
 
 ## 실행
@@ -24,8 +24,7 @@ node scripts/serve-vercel-like.mjs
 
 ## 데이터
 
-- 운영 데이터: Supabase `runfit_lineup_periods`, `runfit_shoes`, `runfit_lineup_items`, `runfit_price_query_config`
-- 정적 fallback 데이터: `data/shoes.js`, `data/lineup-history.js`, `data/price-queries.js`
+- 운영 데이터: `data/shoes.js`, `data/lineup-history.js`, `data/price-queries.js`, `data/runrepeat-reviews.js`
 - 분기 아카이브: 2024.08, 2024.11, 2025.02, 2025.05, 2025.08, 2025.11, 2026.02, 2026.05
 - 앱 구조화 데이터: 2024.08~2026.05 분기별 라인업, 2026.05 기준 118개 상세 모델
 - 보기 방식: 집중 보기(기본), 상세 페이지
@@ -45,6 +44,8 @@ node scripts/serve-vercel-like.mjs
 - 토스쇼핑은 안정적인 공개 웹 검색 URL이 확인되면 연결합니다.
 
 ## Vercel + Supabase
+
+아래 Supabase 설정은 향후 도입을 위한 참고 자료이며 현재 운영에 필요하지 않습니다. 평소 배포는 [운영 절차](docs/operations.md)를 따릅니다.
 
 GitHub, Vercel, Supabase의 역할은 겹치지 않게 분리합니다.
 
