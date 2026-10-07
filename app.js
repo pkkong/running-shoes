@@ -9,6 +9,7 @@
   const ALL_BRAND_VALUE = "전체";
   const brandOrder = ["Nike", "Adidas", "ASICS", "New Balance", "Saucony", "Puma", "HOKA", "Brooks", "Mizuno", "On"];
   const pickerBrandOptions = [ALL_BRAND_VALUE, ...brandOrder];
+  const brandSearchAliases = { Nike: "나이키", Adidas: "아디다스", ASICS: "아식스", "New Balance": "뉴발란스", Saucony: "서코니 써코니", Puma: "푸마 퓨마", HOKA: "호카", Brooks: "브룩스", Mizuno: "미즈노", On: "온" };
   const groupOrder = ["데일리", "슈퍼 트레이너", "레이싱"];
   const categoryOrder = [
     "입문화",
@@ -120,6 +121,8 @@
     pickerBrandAxis: document.querySelector("#pickerBrandAxis"),
     pickerCategoryAxis: document.querySelector("#pickerCategoryAxis"),
     pickerDetail: document.querySelector("#pickerDetail"),
+    pickerSearchInput: document.querySelector("#pickerSearchInput"),
+    pickerSearchClear: document.querySelector("#pickerSearchClear"),
   };
 
   function setHidden(node, hidden) {
@@ -154,6 +157,80 @@
   const modelNameCollator = new Intl.Collator("ko-KR", { numeric: true, sensitivity: "base" });
   let allPeriodLineupCache = null;
   state.periodId = activeHistoryPeriod?.id || historyPeriods[historyPeriods.length - 1]?.id || "";
+
+  const browseSnapshots = new Map();
+  const browseStorageKey = "running-lineup-browse-v1";
+  let navigationRevision = 0;
+  let searchFrame = 0;
+  if ("scrollRestoration" in history) history.scrollRestoration = "manual";
+
+  function pickerParams() {
+    return new URLSearchParams({
+      period: state.periodId,
+      brand: selectedPickerBrand(),
+      category: selectedPickerCategory(),
+      ...(state.query.trim() ? { q: state.query.trim() } : {}),
+    });
+  }
+
+  function pickerBrowseHref() {
+    return `#/?${pickerParams()}`;
+  }
+
+  function applyPickerParams(params) {
+    const period = params.get("period");
+    state.periodId = period === ALL_PERIOD_ID || historyPeriods.some((item) => item.id === period)
+      ? period : activeHistoryPeriod?.id || historyPeriods[historyPeriods.length - 1]?.id || "";
+    state.pickerBrandIndex = Math.max(0, pickerBrandOptions.indexOf(params.get("brand")));
+    state.pickerCategoryIndex = Math.max(0, pickerCategoryOptions.indexOf(params.get("category")));
+    state.query = (params.get("q") || "").slice(0, 200);
+    state.pickerFilterPanel = "";
+    el.pickerSearchInput.value = state.query;
+    el.pickerSearchClear.hidden = !state.query;
+    state.lastBrowseRoute = pickerBrowseHref();
+  }
+
+  function updatePickerUrl() {
+    state.lastBrowseRoute = pickerBrowseHref();
+    history.replaceState(null, "", state.lastBrowseRoute);
+  }
+
+  function saveBrowsePosition(shoeId = "") {
+    if (state.route !== "picker") return;
+    const href = pickerBrowseHref();
+    const snapshot = {
+      href, y: window.scrollY, brandScroll: el.pickerBrandAxis.scrollLeft,
+      shoeId: shoeId || browseSnapshots.get(href)?.shoeId || "",
+    };
+    browseSnapshots.set(href, snapshot);
+    history.replaceState({ browse: snapshot }, "", href);
+    // Session storage preserves the return position when a detail page is refreshed.
+    try { sessionStorage.setItem(browseStorageKey, JSON.stringify(snapshot)); } catch {}
+  }
+
+  function restoreBrowsePosition(href, revision) {
+    let snapshot = history.state?.browse;
+    if (snapshot?.href !== href) snapshot = browseSnapshots.get(href);
+    if (!snapshot) {
+      try {
+        const saved = JSON.parse(sessionStorage.getItem(browseStorageKey));
+        if (saved?.href === href) snapshot = saved;
+      } catch {}
+    }
+    requestAnimationFrame(() => requestAnimationFrame(() => {
+      if (revision !== navigationRevision || state.route !== "picker") return;
+      if (snapshot && Number.isFinite(snapshot.brandScroll)) {
+        el.pickerBrandAxis.scrollLeft = snapshot.brandScroll;
+      } else {
+        revealPickerAxisItem("brand", state.pickerBrandIndex, "instant");
+      }
+      const card = snapshot?.shoeId
+        ? [...el.pickerDetail.querySelectorAll("a[data-shoe-id]")].find((item) => item.dataset.shoeId === snapshot.shoeId)
+        : null;
+      card?.focus({ preventScroll: true });
+      window.scrollTo({ top: Number.isFinite(snapshot?.y) ? snapshot.y : 0, behavior: "instant" });
+    }));
+  }
 
   function normalize(value) {
     return String(value || "").toLowerCase().replace(/\s+/g, "");
@@ -1567,6 +1644,7 @@
     state.change = "전체";
     state.tags.clear();
     state.pickerFilterPanel = "";
+    updatePickerUrl();
     renderPeriodArchive();
     renderPicker();
   }
@@ -1810,10 +1888,12 @@
   function pickerProducts() {
     const brand = selectedPickerBrand();
     const category = selectedPickerCategory();
+    const queryTerms = state.query.trim().split(/\s+/).map(normalizeHistoryText).filter(Boolean);
     const products = baseLineupItemsForSelectedPeriod().filter((shoe) => {
       const matchesBrand = brand === ALL_BRAND_VALUE || shoe.brand === brand;
       const matchesCategory = category === "전체" || shoe.category === category;
-      return matchesBrand && matchesCategory;
+      const haystack = normalizeHistoryText([shoe.model, shoe.displayName, shoe.brand, brandSearchAliases[shoe.brand]].join(" "));
+      return matchesBrand && matchesCategory && queryTerms.every((term) => haystack.includes(term));
     });
 
     return isAllPeriodsSelected() ? sortAllPeriodItems(products, brand) : products;
@@ -1918,8 +1998,9 @@
         products.length
           ? `<div class="picker-product-list">${products.map(pickerProductMarkup).join("")}</div>`
           : `<div class="picker-empty-cell">
-              <strong>해당 라인업 없음</strong>
-              <span>브랜드 × 카테고리 기준 데이터가 없습니다.</span>
+              <strong>${state.query.trim() ? "검색 결과가 없습니다" : "해당 라인업 없음"}</strong>
+              <span>${state.query.trim() ? "검색어를 바꾸거나 시기·브랜드·종류를 확인해 주세요." : "선택한 브랜드와 종류에 등록된 제품이 없습니다."}</span>
+              ${state.query.trim() ? '<button class="picker-empty-clear" type="button" data-clear-search>검색어 지우기</button>' : ""}
             </div>`
       }
     `;
@@ -1927,7 +2008,8 @@
   }
 
   function pickerProductMarkup(shoe) {
-    const href = detailHrefForItem(shoe);
+    const detailHref = detailHrefForItem(shoe);
+    const href = detailHref ? `${detailHref}?${pickerParams()}` : "";
     const affordance = href
       ? `<span class="picker-card-affordance" aria-hidden="true">
           <svg viewBox="0 0 24 24" focusable="false">
@@ -1938,7 +2020,7 @@
     const subParts = [selectedPickerBrand() === ALL_BRAND_VALUE ? shoe.brand : "", shoe.categoryGroup, shoe.category].filter(Boolean);
     const tagName = href ? "a" : "article";
     const cardAttrs = href
-      ? `href="${escapeHtml(href)}" aria-label="${escapeHtml(`${shoe.brand} ${shoe.model} 상세 보기`)}"`
+      ? `href="${escapeHtml(href)}" data-shoe-id="${escapeHtml(shoe.detailId)}" aria-label="${escapeHtml(`${shoe.brand} ${shoe.model} 상세 보기`)}"`
       : "";
 
     return `
@@ -1961,6 +2043,7 @@
     const length = pickerAxisLength(axis);
     const nextIndex = (index + length) % length;
     setPickerAxisIndex(axis, nextIndex);
+    updatePickerUrl();
     if (axis === "category" || axis === "brand") {
       state.pickerFilterPanel = "";
     }
@@ -2002,7 +2085,7 @@
   }
 
   function renderDetail(shoe) {
-    const backHref = "#/";
+    const backHref = state.lastBrowseRoute || pickerBrowseHref();
     const backLabel = "라인업으로";
 
     el.detailView.innerHTML = `
@@ -2156,9 +2239,15 @@
   }
 
   function syncRoute() {
-    const hash = decodeURIComponent(window.location.hash || "#/");
+    cancelAnimationFrame(searchFrame);
+    const revision = ++navigationRevision;
+    const rawHash = window.location.hash || "#/";
+    const questionIndex = rawHash.indexOf("?");
+    const hash = questionIndex < 0 ? rawHash : rawHash.slice(0, questionIndex);
+    const params = new URLSearchParams(questionIndex < 0 ? "" : rawHash.slice(questionIndex + 1));
+    applyPickerParams(params);
     const match = hash.match(/^#\/shoe\/(.+)$/);
-    state.detailId = match ? match[1] : "";
+    try { state.detailId = match ? decodeURIComponent(match[1]) : ""; } catch { state.detailId = match ? match[1] : ""; }
     renderPeriodArchive();
 
     if (state.detailId) {
@@ -2185,25 +2274,14 @@
           </section>
         `;
       }
-      window.scrollTo(0, 0);
+      window.scrollTo({ top: 0, behavior: "instant" });
       return;
     }
 
-    if (hash === "#/overview") {
-      history.replaceState(null, "", `${window.location.pathname}${window.location.search}#/`);
-      syncRoute();
-      return;
-    }
-
-    if (hash === "#/list" || hash === "#/home") {
-      history.replaceState(null, "", `${window.location.pathname}${window.location.search}#/`);
-      syncRoute();
-      return;
-    }
-
-    if (hash === "#/" || hash === "" || hash === "#/picker") {
+    if (["#/", "", "#/picker", "#/overview", "#/list", "#/home"].includes(hash)) {
       setRoute("picker");
-      state.lastBrowseRoute = "#/";
+      const browse = history.state?.browse;
+      history.replaceState(browse ? { browse } : null, "", state.lastBrowseRoute);
       closeMapSheet(false);
       setHidden(el.periodArchive, true);
       setHidden(el.globalViewNav, true);
@@ -2213,7 +2291,7 @@
       setHidden(el.pickerView, false);
       setHidden(el.detailView, true);
       renderPicker();
-      window.scrollTo(0, 0);
+      restoreBrowsePosition(state.lastBrowseRoute, revision);
       return;
     }
 
@@ -2229,7 +2307,48 @@
     setHidden(el.pickerView, false);
     setHidden(el.detailView, true);
     renderPicker();
+    updatePickerUrl();
+    restoreBrowsePosition(state.lastBrowseRoute, revision);
   }
+
+  function updatePickerSearch(value) {
+    state.query = value.slice(0, 200);
+    el.pickerSearchInput.value = state.query;
+    el.pickerSearchClear.hidden = !state.query;
+    updatePickerUrl();
+    renderPickerControls();
+    renderPickerDetail();
+  }
+
+  el.pickerSearchInput.closest("form").addEventListener("submit", (event) => {
+    event.preventDefault();
+    cancelAnimationFrame(searchFrame);
+    updatePickerSearch(el.pickerSearchInput.value);
+    el.pickerSearchInput.blur();
+  });
+  el.pickerSearchInput.addEventListener("input", (event) => {
+    if (event.isComposing) return;
+    cancelAnimationFrame(searchFrame);
+    searchFrame = requestAnimationFrame(() => updatePickerSearch(el.pickerSearchInput.value));
+  });
+  el.pickerSearchInput.addEventListener("compositionend", () => {
+    cancelAnimationFrame(searchFrame);
+    updatePickerSearch(el.pickerSearchInput.value);
+  });
+  el.pickerSearchClear.addEventListener("click", () => {
+    cancelAnimationFrame(searchFrame);
+    updatePickerSearch("");
+    el.pickerSearchInput.focus();
+  });
+  el.pickerDetail.addEventListener("click", (event) => {
+    const card = event.target.closest("a[data-shoe-id]");
+    if (card) saveBrowsePosition(card.dataset.shoeId);
+    if (event.target.closest("[data-clear-search]")) {
+      updatePickerSearch("");
+      el.pickerSearchInput.focus();
+    }
+  });
+  window.addEventListener("pagehide", () => saveBrowsePosition());
 
   el.searchInput.addEventListener("input", (event) => {
     state.query = event.target.value;

@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>디시인사이드 러닝 갤러리 러닝화 라인업</title>
     <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23191f28'/%3E%3Cpath d='M17 41c8-2 16-6 28-18 3-3 5-2 3 2-7 12-19 20-31 20-5 0-5-3 0-4z' fill='white'/%3E%3C/svg%3E" />
-    <link rel="stylesheet" href="styles.css?v=20260906-verified-reviews-1" />
+    <link rel="stylesheet" href="styles.css?v=20261007-browse-1" />
   </head>
   <body>
     <header class="topbar">
@@ -154,6 +154,14 @@
             </div>
           </header>
 
+          <form class="picker-search" role="search" aria-label="라인업 검색">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 4 4"/></svg>
+            <input id="pickerSearchInput" type="search" aria-label="모델명 또는 브랜드 검색" placeholder="모델명 또는 브랜드 검색" autocomplete="off" />
+            <button id="pickerSearchClear" type="button" aria-label="검색어 지우기" hidden>
+              <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m7 7 10 10M17 7 7 17"/></svg>
+            </button>
+          </form>
+
           <section class="picker-choice-rail" aria-label="라인업 선택">
             <div class="picker-filter-dock" aria-label="라인업 조건">
               <button
@@ -237,6 +245,6 @@
     <script src="data/lineup-history.js?v=20260831-lineup-1"></script>
     <script src="data/price-queries.js?v=20260807-official-originals-1"></script>
     <script src="runtime-data.js?v=20260831-lineup-1"></script>
-    <script src="app.js?v=20260906-verified-reviews-1"></script>
+    <script src="app.js?v=20261007-browse-1"></script>
   </body>
 </html>
