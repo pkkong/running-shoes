@@ -9,6 +9,7 @@
     "https://gall.dcinside.com/mgallery/board/view/?id=running&no=1117518";
   const IMAGE_VERSION = "20260904-prime-x-evo-edge-1";
   const LINEUP_VERSION = "20260906-verified-reviews-1";
+  const OFFICIAL_LINKS_VERSION = "20261007-korea-1";
   // This is the chart's dated threshold, not an individual RunRepeat rating.
   const RUNREPEAT_EVIDENCE = {
     kind: "chart-threshold",
@@ -19,7 +20,7 @@
   };
 
   window.RUNNING_LINEUP_VERSION = LINEUP_VERSION;
-  window.RUNNING_BOOTSTRAP_VERSION = `${LINEUP_VERSION}-${IMAGE_VERSION}`;
+  window.RUNNING_BOOTSTRAP_VERSION = `${LINEUP_VERSION}-${IMAGE_VERSION}-${OFFICIAL_LINKS_VERSION}`;
   window.RUNNING_LINEUP_PERIODS = [
     {
       id: "2024-08",
@@ -378,6 +379,75 @@
     ["On", "클라우드붐 스트라이크 2 LS", "레이싱", "장거리", 5, "r"],
   ];
 
+  // Product destinations are independent of the original photo's provenance.
+  // Only verified Korean product pages are pinned; other models use official store search.
+  const koreanProductPages = {
+    "nike-페가수스-42": "https://www.nike.com/kr/t/나이키-페가수스-42-남성-로드-러닝화-hzTwdMlw/IB1873-008",
+    "adidas-보스턴-13": "https://www.adidas.co.kr/아디제로-보스턴-13/KI4776.html",
+    "asics-젤카야노-33": "https://www.asics.co.kr/p/AKR_112630101-101",
+    "new-balance-880-v15": "https://www.nbkorea.com/product/productDetail.action?styleCode=NBPFGS107T&colCode=19",
+    "mizuno-네오-젠-2": "https://kor.mizuno.com/product/detail.html?product_no=11331",
+    "mizuno-하이퍼퀵-프로": "https://kor.mizuno.com/product/hyperwarp-pro/11322/",
+    "mizuno-하이퍼퀵-퓨어": "https://kor.mizuno.com/product/hyperwarp-pure/11317/",
+    "mizuno-하이퍼퀵-엘리트": "https://kor.mizuno.com/product/hyperwarp-elite/11319/",
+    "on-클라우드-서퍼-2": "https://www.on.com/ko-kr/products/cloudsurfer-2-3mf1012/mens/black-flurry-shoes-3MF10125172",
+    "on-클라우드-서퍼-넥스트": "https://www.on.com/ko-kr/products/cloudsurfer-next-3me3002",
+    "on-클라우드-서퍼-맥스": "https://www.on.com/ko-kr/products/cloudsurfer-max-m-3mf3043/mens/black-eclipse-shoes-3MF30430106",
+    "on-클라우드-러너-3": "https://www.on.com/ko-kr/products/cloudrunner-3-m-3mg1007/mens/black-black-shoes-3MG10071043",
+    "on-클라우드-러너-3-맥스": "https://www.on.com/ko-kr/products/cloudrunner-3-max-m-3mg3020/mens/white-verdite-shoes-3MG30205363",
+    "on-클라우드-몬스터-3": "https://www.on.com/ko-kr/products/cloudmonster-3-m-3mg1005/mens/brook-flurry-shoes-3MG10055256",
+    "on-클라우드-몬스터-3-하이퍼": "https://www.on.com/ko-kr/products/cloudmonster-3-hyper-3wg1004/womens/ivory-flurry-shoes-3WG10045262",
+    "on-클라우드-몬스터-3-하이퍼-ls": "https://www.on.com/ko-kr/products/cloudmonster-3-hyper-ls-u-3ug1001/unisex/limelight-bloom-shoes-3UG10014837",
+    "on-클라우드-플로우-5": "https://www.on.com/ko-kr/products/cloudflow-5-w-3wf1009/womens",
+    "on-클라우드-붐-볼트": "https://www.on.com/ko-kr/products/cloudboom-volt-m-3mf3098/mens/celeste-isle-shoes-3MF30985531",
+    "on-클라우드붐-맥스": "https://www.on.com/ko-kr/products/cloudboom-max-m-3mf3031/mens/white-pearl-shoes-3MF30310590",
+    "on-클라우드붐-스트라이크-2": "https://www.on.com/ko-kr/products/cloudboom-strike-2-u-3ug3005/unisex/white-camellia-shoes-3UG30055076",
+    "on-클라우드붐-스트라이크-2-ls": "https://www.on.com/ko-kr/products/cloudboom-strike-2-ls-u-3ug3002/unisex/white-verdite-shoes-3UG30025363",
+  };
+
+  const koreanStoreSearch = {
+    Nike: ["https://www.nike.com/kr/w", "q"],
+    Adidas: ["https://www.adidas.co.kr/search", "q"],
+    ASICS: ["https://www.asics.co.kr/goods/search", "search_text"],
+    "New Balance": ["https://www.nbkorea.com/product/searchResult.action", "schWord"],
+    Saucony: ["https://saucony.co.kr/product/search.html", "keyword"],
+    Puma: ["https://kr.puma.com/kr/ko/search", "q"],
+    HOKA: ["https://brand.naver.com/hoka/search", "q"],
+    Brooks: ["https://www.brooksrunning.co.kr/product/search.html", "keyword"],
+    Mizuno: ["https://kor.mizuno.com/product/search.html", "keyword"],
+  };
+
+  const koreanSearchNames = {
+    "asics-젤-큐물러스-28": "젤 큐물러스 28",
+    "asics-젤님버스-28": "젤 님버스 28",
+    "asics-gt2000-15": "GT-2000 15",
+    "asics-메타스피드-도쿄-스카이-엣지": "메타스피드 도쿄",
+    "new-balance-엘립스-v1": "엘립스",
+    "new-balance-모어-v6": "MORE V6",
+    "new-balance-봉고-v6": "VONGO V6",
+    "new-balance-860-v15": "860V15",
+    "new-balance-1080-v15": "1080V15",
+    "new-balance-레벨-v5": "REBEL V5",
+    "new-balance-발로스": "BALOS",
+    "new-balance-sc레벨-v1": "SC REBEL",
+    "new-balance-sc페이서-v2": "SC PACER V2",
+    "new-balance-sc엘리트-v6": "SC ELITE V6",
+    "hoka-마하-x3": "마하 X 3",
+    "hoka-스카이워드-x2": "스카이워드 X 2",
+    "hoka-씨엘로-x1-3-0": "씨엘로 X1 3.0",
+    "puma-디비에이트-퓨어-나이트로": "디비에이트 나이트로 퓨어",
+    "puma-패스트r-나이트로-엘리트-3": "FAST-R NITRO ELITE 3",
+  };
+
+  function koreanOfficialLink(id, brand, model) {
+    const productUrl = koreanProductPages[id];
+    if (productUrl) return { url: encodeURI(productUrl), kind: "product" };
+    const search = koreanStoreSearch[brand];
+    if (!search) throw new Error(`Missing Korean official store for ${brand}`);
+    const query = koreanSearchNames[id] || model;
+    return { url: `${search[0]}?${search[1]}=${encodeURIComponent(query)}`, kind: "search" };
+  }
+
   function slugify(value) {
     return value
       .toLowerCase()
@@ -388,6 +458,7 @@
   window.RUNNING_SHOES = rawShoes.map(([brand, model, categoryGroup, category, dropMm, tagCodes], index) => {
     const id = `${slugify(brand)}-${slugify(model)}`;
     const image = officialImages[id] || {};
+    const officialLink = koreanOfficialLink(id, brand, model);
 
     return {
       id,
@@ -403,7 +474,9 @@
       imageUrl: `assets/shoes-display/${String(index).padStart(3, "0")}.jpg?v=${IMAGE_VERSION}`,
       officialImageUrl: image.imageUrl || "",
       imageSourceUrl: image.imageSourceUrl || SOURCE_POST,
-      officialProductUrl: image.officialProductUrl || image.imageSourceUrl || SOURCE_POST,
+      officialProductUrl: officialLink.url,
+      officialLinkKind: officialLink.kind,
+      officialLinkCheckedAt: "2026-10-07",
       displayName: image.displayName || model,
       imageFit: image.imageFit || "contain",
       imagePosition: image.imagePosition || "center",

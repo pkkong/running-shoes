@@ -432,13 +432,14 @@
   }
 
   function detailActionsMarkup(shoe) {
-    const officialUrl = shoe.officialProductUrl || shoe.imageSourceUrl;
+    const officialUrl = shoe.officialProductUrl;
+    const officialLabel = shoe.officialLinkKind === "search" ? "한국 공식몰 검색" : "한국 공식 페이지";
     const review = window.RUNNING_RUNREPEAT?.reviewForShoe(shoe);
 
     return `
       <div class="detail-actions">
-        <a class="detail-action detail-action--secondary" href="${escapeHtml(officialUrl)}" target="_blank" rel="noreferrer">
-          <strong>공식 페이지</strong>
+        <a class="detail-action detail-action--secondary" href="${escapeHtml(officialUrl)}" target="_blank" rel="noreferrer" aria-label="${escapeHtml(`${shoe.brand} ${shoe.model} ${officialLabel}, 새 창`)}">
+          <strong>${officialLabel}</strong>
         </a>
         ${review ? `
           <a class="detail-action detail-action--secondary" href="${escapeHtml(review.sourceUrl)}" target="_blank" rel="noreferrer" aria-label="${escapeHtml(`${review.reviewModel} 런리핏 리뷰, ${review.checkedAt} 확인`)}">
