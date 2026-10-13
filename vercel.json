@@ -1,5 +1,6 @@
 {
   "buildCommand": "node scripts/generate-shoe-pages.mjs",
+  "outputDirectory": ".",
   "functions": {
     "api/*.js": {
       "includeFiles": "data/**"
