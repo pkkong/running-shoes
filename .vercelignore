@@ -8,5 +8,7 @@ docs/
 assets/shoes/
 assets/shoes-original-safe/
 data/prices/
-scripts/
+scripts/*
+!scripts/generate-shoe-pages.mjs
+tests/
 supabase/
