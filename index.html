@@ -3,9 +3,19 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>디시인사이드 러닝 갤러리 러닝화 라인업</title>
+    <title>러닝화 라인업 | 브랜드·용도별 러닝화</title>
+    <meta name="description" content="브랜드와 용도별 러닝화 라인업, 분기별 추천표 이력과 공식 제품 정보를 확인하세요." />
+    <link rel="canonical" href="https://runfit-lineup.vercel.app/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="러닝화 라인업" />
+    <meta property="og:title" content="러닝화 라인업 | 브랜드·용도별 러닝화" />
+    <meta property="og:description" content="브랜드와 용도별 러닝화 라인업, 분기별 추천표 이력과 공식 제품 정보를 확인하세요." />
+    <meta property="og:url" content="https://runfit-lineup.vercel.app/" />
+    <meta property="og:image" content="https://runfit-lineup.vercel.app/assets/shoes-display/000.jpg" />
+    <meta property="og:image:width" content="1600" />
+    <meta property="og:image:height" content="1200" />
     <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23191f28'/%3E%3Cpath d='M17 41c8-2 16-6 28-18 3-3 5-2 3 2-7 12-19 20-31 20-5 0-5-3 0-4z' fill='white'/%3E%3C/svg%3E" />
-    <link rel="stylesheet" href="styles.css?v=20261007-browse-1" />
+    <link rel="stylesheet" href="styles.css?v=20261013-ux-1" />
   </head>
   <body>
     <header class="topbar">
@@ -26,133 +36,9 @@
     </header>
 
     <main class="app-shell">
-      <section id="periodArchive" class="period-archive" aria-label="분기별 러닝화 라인업"></section>
-
-      <section id="filterPanel" class="control-panel" aria-label="러닝화 필터">
-        <label class="search-field">
-          <span>검색</span>
-          <input id="searchInput" type="search" placeholder="모델명, 브랜드, 종류 검색" autocomplete="off" />
-        </label>
-
-        <div class="filter-block">
-          <div class="filter-block__head">
-            <h2>브랜드</h2>
-            <button id="resetButton" class="icon-button" type="button" aria-label="필터 초기화" title="필터 초기화">
-              ↺
-            </button>
-          </div>
-          <div id="brandFilters" class="chip-row" role="group" aria-label="브랜드 필터"></div>
-        </div>
-
-        <div class="filter-grid">
-          <div class="filter-block">
-            <h2>대분류</h2>
-            <div id="groupFilters" class="chip-row" role="group" aria-label="대분류 필터"></div>
-          </div>
-          <div class="filter-block">
-            <h2>종류</h2>
-            <div id="categoryFilters" class="chip-row" role="group" aria-label="종류 필터"></div>
-          </div>
-        </div>
-
-        <div class="filter-block">
-          <h2>추천 태그</h2>
-          <div id="tagFilters" class="chip-row" role="group" aria-label="추천 태그 필터"></div>
-        </div>
-
-        <div class="filter-block">
-          <h2>변화</h2>
-          <div id="changeFilters" class="chip-row" role="group" aria-label="분기 변화 필터"></div>
-        </div>
-
-        <div class="filter-block filter-block--view">
-          <h2>정렬</h2>
-          <div class="view-actions">
-            <select id="sortSelect" aria-label="정렬">
-              <option value="table">원문 표 순서</option>
-              <option value="brand">브랜드순</option>
-              <option value="category">종류순</option>
-              <option value="drop">드롭 낮은순</option>
-            </select>
-          </div>
-        </div>
-      </section>
-
-      <div id="homeView" hidden aria-hidden="true">
-        <section class="results-head" aria-live="polite">
-          <div>
-            <p class="eyebrow">List</p>
-            <h2 id="resultTitle">라인업 전체</h2>
-          </div>
-        </section>
-
-        <section id="shoeGrid" class="shoe-grid" aria-label="러닝화 목록"></section>
-
-        <section id="emptyState" class="empty-state" hidden>
-          <h2>조건에 맞는 러닝화가 없습니다</h2>
-          <p>검색어를 줄이거나 필터를 초기화해 보세요.</p>
-        </section>
-      </div>
-
-      <section id="overviewView" class="overview-view" aria-label="러닝화 맵" hidden>
-        <div class="map-hero">
-          <div class="map-hero__copy">
-            <p class="eyebrow">Map</p>
-            <h2 id="overviewTitle">러닝화 맵</h2>
-            <p>브랜드와 용도별 제품 분포를 한 화면에서 탐색하세요.</p>
-          </div>
-        </div>
-
-        <section id="mapControlPanel" class="map-control-panel" aria-label="러닝화 맵 필터">
-          <div>
-            <h3>용도</h3>
-            <div id="mapGroupFilters" class="segmented-control" role="group" aria-label="용도 필터"></div>
-          </div>
-          <div>
-            <h3>브랜드</h3>
-            <div id="mapBrandFilters" class="map-chip-row" role="group" aria-label="브랜드 필터"></div>
-          </div>
-          <div>
-            <h3>변화</h3>
-            <div id="mapChangeFilters" class="segmented-control" role="group" aria-label="분기 변화 필터"></div>
-          </div>
-          <label class="map-search-field">
-            <span>검색</span>
-            <input id="mapSearchInput" type="search" placeholder="제품명, 브랜드 검색" autocomplete="off" />
-          </label>
-        </section>
-
-        <section id="mapViewShell" class="shoe-map-section" aria-label="전체 러닝화 맵">
-          <div class="shoe-map-toolbar">
-            <div class="shoe-map-toolbar__main">
-              <p id="mapSummary" class="map-summary">라인업 전체</p>
-              <div class="zoom-controls" role="group" aria-label="맵 확대 축소">
-                <button id="zoomOutButton" class="zoom-button" type="button" aria-label="맵 축소">−</button>
-                <button id="zoomResetButton" class="zoom-button zoom-button--wide" type="button" aria-label="맵 배율 맞춤">맞춤</button>
-                <button id="zoomInButton" class="zoom-button" type="button" aria-label="맵 확대">+</button>
-              </div>
-            </div>
-            <div id="mapMiniMap" class="map-minimap" aria-hidden="true"></div>
-          </div>
-          <div class="shoe-map-shell">
-            <div id="mapViewport" class="shoe-map-viewport" tabindex="0" aria-label="브랜드와 카테고리 러닝화 맵">
-              <div id="shoeMapCanvas" class="shoe-map-canvas"></div>
-            </div>
-          </div>
-        </section>
-      </section>
 
       <section id="pickerView" class="picker-view" aria-label="집중 보기" hidden>
         <div class="picker-shell">
-          <header class="picker-header">
-            <div>
-              <p class="eyebrow">Lineup</p>
-              <h2>러닝화 라인업</h2>
-            </div>
-            <div class="picker-header__meta">
-              <strong id="pickerCoordinate" class="visually-hidden">Nike × 입문화</strong>
-            </div>
-          </header>
 
           <form class="picker-search" role="search" aria-label="라인업 검색">
             <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 4 4"/></svg>
@@ -183,16 +69,6 @@
             <div id="pickerPeriodPanel" class="picker-filter-panel" hidden></div>
             <div id="pickerCategoryPanel" class="picker-filter-panel" hidden></div>
 
-            <div class="picker-axis-block picker-axis-block--category" aria-label="카테고리 선택">
-              <div
-                id="pickerCategoryAxis"
-                class="picker-axis picker-axis--horizontal picker-axis--category"
-                role="listbox"
-                tabindex="0"
-                aria-label="카테고리 피커"
-              ></div>
-            </div>
-
             <div class="picker-axis-block picker-axis-block--brand" aria-label="브랜드 선택">
               <div
                 id="pickerBrandAxis"
@@ -215,16 +91,6 @@
       <section id="detailView" class="detail-view" aria-label="러닝화 상세" hidden></section>
     </main>
 
-    <div id="mapSheetBackdrop" class="sheet-backdrop" hidden></div>
-    <section
-      id="mapSheet"
-      class="bottom-sheet"
-      role="dialog"
-      aria-modal="true"
-      aria-labelledby="mapSheetTitle"
-      hidden
-    ></section>
-
     <footer class="footer">
       <p class="footer__source">
         라인업 데이터 출처:
@@ -245,6 +111,13 @@
     <script src="data/lineup-history.js?v=20260831-lineup-1"></script>
     <script src="data/price-queries.js?v=20260807-official-originals-1"></script>
     <script src="runtime-data.js?v=20260831-lineup-1"></script>
-    <script src="app.js?v=20261007-korea-1"></script>
+    <dialog id="evidenceDialog" class="evidence-dialog" aria-labelledby="evidenceDialogTitle">
+      <div class="evidence-dialog__head"><h2 id="evidenceDialogTitle">뱃지 기준</h2><button type="button" data-dialog-close aria-label="닫기">×</button></div>
+      <div class="evidence-dialog__content"></div>
+    </dialog>
+    <script src="lib/lineup-models.js?v=20261013-ux-1"></script>
+    <script src="lib/shoe-content.js?v=20261013-ux-1"></script>
+    <script src="lib/shoe-routes.js?v=20261013-ux-1"></script>
+    <script src="app.js?v=20261013-ux-1"></script>
   </body>
 </html>

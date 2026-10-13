@@ -4,7 +4,7 @@ import { fileURLToPath } from "node:url";
 import vm from "node:vm";
 
 const root = new URL("../", import.meta.url);
-const context = vm.createContext({ window: {}, URL });
+const context = vm.createContext({ window: {}, URL, URLSearchParams });
 vm.runInContext(readFileSync(new URL("data/runrepeat-reviews.js", root), "utf8"), context);
 vm.runInContext(readFileSync(new URL("data/shoes.js", root), "utf8"), context);
 const shoes = context.window.RUNNING_SHOES;
@@ -56,6 +56,20 @@ for (const shoe of shoes) {
 const appPath = fileURLToPath(new URL("app.js", root));
 const app = readFileSync(appPath, "utf8");
 assert.doesNotMatch(app, /runningFitScoreFor|런리핏 \$\{score\}/, "Synthetic RunRepeat scores must not return");
-assert.equal((app.match(/\$\{featureBadgesMarkup\(shoe\)\}/g) || []).length, 2, "List and detail must share badge rendering");
+assert.match(app, /return content\.evidence\(/, "List must use the shared evidence renderer");
+assert.match(app, /el\.detailView\.innerHTML = content\.detail\(/, "Detail must use the shared content renderer");
+for (const file of ["data/lineup-history.js", "lib/lineup-models.js", "lib/shoe-content.js"]) {
+  vm.runInContext(readFileSync(new URL(file, root), "utf8"), context);
+}
+const history = context.window.RUNNING_LINEUP_HISTORY;
+const index = context.window.RUNNING_MODEL_IDENTITY.createIndex(shoes, history.periods, history.entries);
+const content = context.window.RUNNING_SHOE_CONTENT;
+for (const shoe of shoes) {
+  const timeline = index.timelineFor(shoe);
+  const review = reviewForShoe(shoe);
+  const badges = content.evidence(shoe, timeline, review);
+  assert.ok(content.detail(shoe, { history: timeline, review }).includes(badges), `${shoe.id}: list/detail badge mismatch`);
+  if (review) assert.doesNotMatch(badges, /런리핏 \d+\+/, `${shoe.id}: duplicate threshold next to actual score`);
+}
 console.log(`RunRepeat evidence: ${marked}/${shoes.length} chart markers with dated sources; no synthetic scores.`);
 console.log(`Verified reviews: ${reviews.length}; exact-model, source, date and score validation passed.`);

@@ -1,6 +1,6 @@
 import { createRequire } from "node:module";
 import { createServer } from "node:http";
-import { extname, join, normalize, resolve } from "node:path";
+import { extname, join, normalize, resolve, sep } from "node:path";
 import { readFile, stat } from "node:fs/promises";
 
 const require = createRequire(import.meta.url);
@@ -19,6 +19,8 @@ const contentTypes = new Map([
   [".png", "image/png"],
   [".svg", "image/svg+xml"],
   [".webp", "image/webp"],
+  [".xml", "application/xml; charset=utf-8"],
+  [".txt", "text/plain; charset=utf-8"],
 ]);
 
 createServer(async (req, res) => {
@@ -46,7 +48,7 @@ async function serveStatic(pathname, res) {
   const decoded = decodeURIComponent(pathname);
   const candidate = normalize(decoded === "/" ? "/index.html" : decoded);
   const filename = resolve(join(root, candidate));
-  if (!filename.startsWith(root)) {
+  if (!filename.startsWith(root + sep)) {
     res.statusCode = 403;
     res.end("Forbidden");
     return;
@@ -61,7 +63,10 @@ async function serveStatic(pathname, res) {
       fileStat = await stat(filePath);
     }
   } catch {
-    filePath = join(root, "index.html");
+    res.statusCode = 404;
+    res.setHeader("Content-Type", "text/plain; charset=utf-8");
+    res.end("Not found");
+    return;
   }
 
   res.statusCode = 200;

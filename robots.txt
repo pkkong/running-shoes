@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://runfit-lineup.vercel.app/sitemap.xml

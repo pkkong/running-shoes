@@ -33,8 +33,18 @@ session tokens into deployment configuration.
 
 ## Routine verification
 
-Run `node --run check`, `node --run audit`, then push to `main`.
+Run `node --run check`, `node --run audit`, `node --run test`, then push to `main`.
 Check the commit's Vercel status and production health. Browser sign-in is not
 required for ordinary Git pushes; account permission changes may require it.
 `node scripts/verify-production.mjs` accepts the intentional static-data mode
 by default. `--require-supabase` is reserved for a future approved DB migration.
+
+## Static product pages
+
+Vercel runs `node scripts/generate-shoe-pages.mjs` during the existing Git build.
+The generator uses the same model index and detail renderer as the browser to
+create `/shoes/<brand-model>/index.html`, `sitemap.xml`, and product share metadata.
+Generated pages are ignored in Git; only source and data are committed.
+Legacy `#/shoe/{id}` links remain supported. Local `file:` browsing uses hash
+routes; HTTP browsing uses product paths and query-string filters.
+`verify-production.mjs` also checks every current product page and sitemap.
